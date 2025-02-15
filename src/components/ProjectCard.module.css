@@ -1,0 +1,32 @@
+.projectCardDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.thumbnailContainer {
+    margin-bottom: 10px;
+}
+
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+.tag {
+    display: inline-block;
+    background: #ddd;
+    padding: 5px 10px;
+    margin: 3px;
+    border-radius: 5px;
+    font-size: 12px;
+}

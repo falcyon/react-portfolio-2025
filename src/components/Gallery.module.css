@@ -1,0 +1,35 @@
+.galleryDiv {
+    width: 100%;
+    /* display: grid; */
+    /* gap: 20px; */
+}
+
+.galleryDiv>div {
+    display: grid;
+    gap: 20px;
+}
+
+.columns-1 {
+    grid-template-columns: 1fr;
+}
+
+.columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.project-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
