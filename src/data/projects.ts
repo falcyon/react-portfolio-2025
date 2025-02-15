@@ -1,10 +1,14 @@
+// Type: TypeScript file. 
+// TODO: Change this to be more like a JSON file or something better for editing later.
+
+
 export interface Project {
   name: string;
   slug: string;
   thumbnail: string;
   thumbnailType: "image" | "video";
   tags: string[];
-  columns: 1 | 2 | 3 | 4;
+  columns?: 1 | 2 | 3 | 4;
   content: string;
 }
 
@@ -15,7 +19,6 @@ export const projectsArray: Project[] = [
       thumbnail: "/images/ai-anthropology.jpg",
       thumbnailType: "image",
       tags: ["AI", "Anthropology", "Installation"],
-      columns: 2,
       content: "An exploration of AI's role in early human-like discoveries."
   },
   {
