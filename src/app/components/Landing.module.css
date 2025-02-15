@@ -1,0 +1,4 @@
+/* Landing.module.css */
+.fullScreenDiv {
+    height: 100vh; /* Ensures the div takes up 100% of the viewport height */
+  }
