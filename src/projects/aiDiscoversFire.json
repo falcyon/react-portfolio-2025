@@ -1,0 +1,70 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Fire is arguably the first discovery of humanity. In 2021, just before the AI revolution took hold, a different kind of fire burned in our minds — Could AI, this nascent intelligence, ever truly become human?",
+            "DCGAN, one of the earliest AI models to generate images, produces outputs that seem a little unhinged and 'fluid'. This, coupled with the concept of latent space - a hidden dimension where images morphed and danced - gave a feeling of effervescence of images",
+            "Keeping fire as my muse, I force-fed DCGAN a diet of flames. Could AI crack the code of humanity's earliest discovery?"
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/fire/fire.png"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "f",
+          "src": "/media/thumbnails/fire-gif.mp4",
+          "alt": "AI Discovers Fire"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/fire/train-0.png"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/fire/train-1.png"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/fire/train-2.png"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/fire/train-30.png"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/fire/train-40.png"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/fire/train-49.png"
+        }
+      ]
+    }
+  ]
+}

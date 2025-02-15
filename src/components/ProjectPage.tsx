@@ -4,7 +4,7 @@ interface ProjectProps {
     project: {
         name: string;
         tags: string[];
-        content?: string;
+        description?: string;
     };
 }
 
@@ -17,7 +17,7 @@ export default function ProjectPage({ project }: ProjectProps) {
                     <span key={index} className={styles.tag}>{tag}</span>
                 ))}
             </div>
-            <p>{project.content ?? "Under Construction"}</p>
+            <p>{project.description ?? "Under Construction"}</p>
         </div>
     );
 }

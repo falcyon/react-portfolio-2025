@@ -1,0 +1,17 @@
+{
+  "sections": [
+    {
+      "type": "text",
+      "size": "h",
+      "text": [
+        "These rings were made using loss wax casting method. Its form was made mostly by melting wax using a candle to give it a very organic shape."
+      ]
+    },
+    {
+      "type": "image",
+      "size": "h",
+      "src": "/media/thumbnails/rings.jpeg",
+      "alt": "Wax Casting Rings"
+    }
+  ]
+}

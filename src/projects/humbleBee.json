@@ -1,0 +1,132 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "For our final semester project in Aerospace Engineering, we were required to complete a group project involving conceptual design studies of an aircraft, meeting some stated requirements."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The group project was aimed at achieving the following learning goals:",
+            "- To provide hands-on experience related to Aircraft Design.",
+            "- To be able to plan and execute a multi-disciplinary design task.",
+            "- To be able to successfully present the results of the design task verbally and in the form of a report and drawings.",
+            "- To learn to work efficiently in a group and as a member of the group."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/humble/Humble-bee.webp",
+          "alt": "Humble Bee Drone"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/humble/Humble-bee_glass.webp",
+          "alt": "Humble Bee Glass Design"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "I volunteered to be a team leader. I started with choosing a team with varied skills and background, striving to have an expert in every discipline."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The team consisted of people proficient in Electrical systems, Control Systems, CAD enthusiasts, a coder and entrepreneurs, and myself, who had done an internship with a start-up in designing a UAV, pursued solid mechanics electives, and had a minor in Design."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The mission statement was developed keeping in mind the capabilities expected from a Surveillance drone. It guided our drone's design towards one capable of being used in potential terrorist situations."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Our objective function, that was to be optimized, was the weight of the MAV, the lesser the weight, the better it solves our mission statement qualitatively. Increased weight would decrease the endurance and would also be a burden on the soldiers as they would have to carry it with them to the mission."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/humble/6.webp",
+          "alt": "Drone Design Process"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "We split the design process into 3 iterative stages: Preliminary Design, which involved coming up with individual initial parameters without taking into consideration the interactions between the various modules."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Conceptual Design, where the initial guesses are input into an optimization function to converge onto the more optimized design (the objective function in our case being the weight of the drone). A lot of qualitative aspects were also considered during this phase."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/humble/board.webp",
+          "alt": "Design Board"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "We identified all the design parameters for our 8 subsystems, finalized a data flow structure, and assigned 2 people per subsystem so that everyone had another person to bounce ideas off of. This enabled us to get offbeat solutions to most of our problems, the most significant one being a novel way of implementing swivel wings, partially inspired from the golden snitch in the Harry Potter universe. We developed a swivel propeller system specially for our use case. The momentum counter usually present (in helicopters using a similar flight mechanism) was replaced by a counter-rotating propeller to the bottom of the body to produce extra lift and give the craft more stability."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "This design was key in bringing the weight of the overall system down from 1200 grams to 250 grams."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/humble/7.webp",
+          "alt": "Lightweight Drone Design"
+        }
+      ]
+    }
+  ]
+}

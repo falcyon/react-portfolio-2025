@@ -1,0 +1,149 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "'Notes from self' is an interactive experience that I created as an attempt to re-acquaint people with themselves."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "My aim with the project was to give people a space where they can be comfortable voicing their thoughts out loud without any distractions. I also wanted to give them the starting points from which their thoughts can trail."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/notesToSelf/live.webm",
+          "alt": "Notes from self video 1"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t2",
+          "src": "/media/notesToSelf/deepfake_multi.webm",
+          "alt": "Deepfake video"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "I split the project into 3 parts, the technologies, the narrative and the experience design."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "I used 4 different ML models to mimic a person: One to generate conversation, one to capture and impose body movements onto a picture of the person, another to create lip-syncing to the generated conversation and yet another to clone the voice of the person to speak out the generated text."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "f",
+          "src": "/media/notesToSelf/Models Representation.webp",
+          "alt": "Models Representation"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/notesToSelf/paperPrototype.webp",
+          "alt": "Paper Prototype"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/notesToSelf/Narrative.webp",
+          "alt": "Narrative"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The narrative follows the classic four act structure: Exposition, complication, climax and denouement."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The narrative initially included a positive turn towards the end of the conversation to ensure that the users did not leave the experience with any negative emotions, but later on, I removed this aspect to allow the users to carry whatever emotions they felt like as the user research showed people preferred to mull over the questions even after the experience ended."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The experience starts with the user sitting in front of a blank canvas in a living room-eque setting."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The screen lights up. It then strikes up a conversation. Each sentence is seemingly voiced by a different person."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "“Talking to a literal screen must be un-nerving”, it empathizes. But soon things take a turn when the screen suddenly turns into a video stream of the digital clone in a white space. The clone (now emulating the voice of the user) confirms, “I am you, or rather a version of you”. The clone then asks several questions referring to the user and themselves collectively as 'we'. 'When was the last time we sat in silence?'. 'What was the last thing our inner voice told you?'."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/notesToSelf/voices_subtitles.webm",
+          "alt": "Voices video"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The experience ends with the clone acknowledging that it isn't human, and that the user has helped the clone understand a little bit more about the human experience."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The user is then encouraged to stay on for as long as they like with the digital clone. They can use the clone as a mirror to talk to themselves without any prompts to direct their thoughts. This allows the user to be in a closed, judgement-free space to think about the conversation they just had, or anything else that they feel like talking about, much like a church confessional."
+          ]
+        }
+      ]
+    }
+  ]
+}

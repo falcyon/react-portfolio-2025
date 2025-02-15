@@ -1,0 +1,113 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Palimpsest is a performance-based interactive installation that aims to explore and illustrate humanity's fascination with the question of the meaning of life. The installation seeks to gain a better understanding of our collective preoccupation with this question and other fundamental questions that feed into it. Through the act of questioning, we may find meaning and direction in life, despite the uncertainty that surrounds us."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/palimpsest/1.jpg",
+          "alt": "Palimpsest Installation Image"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t2",
+          "src": "/media/palimpsest/perf1.mp4",
+          "alt": "Palimpsest Performance"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "This interactive performance prompts participants to confront these questions head-on and contemplate them deeply. By incorporating an external element and thought-provoking questions, participants are guided towards introspection, and their responses are encoded and transformed into a dynamic and interactive installation that invites viewers to engage with them in a new and exciting way."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "f",
+          "text": ["2 shows of 3 hours each were performed in 2023."]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/palimpsest/Asset 3-100.jpg",
+          "alt": "Palimpsest Image 1"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/palimpsest/Asset 2-100.jpg",
+          "alt": "Palimpsest Image 2"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/palimpsest/Asset 5-100.jpg",
+          "alt": "Palimpsest Image 3"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/palimpsest/Conversations_Rotation.mp4",
+          "alt": "Palimpsest Conversations Rotation"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The conversations were converted into vector representations by the machine. This vector from a 'latent-space' was then mapped onto reality constrained within a metal cube."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The physicality of the conversation was represented by multi colored threads of various lengths, signifying the intensity and emotions of the conversations that took place."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/palimpsest/colors.jpg",
+          "alt": "Palimpsest Colored Threads"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "f",
+          "src": "/media/palimpsest/2ndInstall.mp4",
+          "alt": "Palimpsest Second Installation"
+        }
+      ]
+    }
+  ]
+}

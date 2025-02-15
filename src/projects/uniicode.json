@@ -1,0 +1,98 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The [unicode](https://en.wikipedia.org/wiki/Unicode) is a text encoding standard used by most modern computers to support 161 scripts used by the world's major writing systems."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Unicode encoding contains gaps between scripts and ensures that a new script starts from a '00'. This allows for new characters to be added to existing scripts without having to disrupt other scripts."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "In this project, I trained an ML model to create new characters for scripts to fill these gaps."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "This character does not exist in any language. It was created by the ML model."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/unicode/Asset 1.png"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "To train the model, I created 128*128 pixel PNGs of all the characters."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/unicode/english.png"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/unicode/tamil.png"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/unicode/ml.png"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The Tamil script was used to generate more Tamil characters."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "These were then 3D modeled and printed to create physical characters."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/unicode/physical.jpeg"
+        }
+      ]
+    }
+  ]
+}

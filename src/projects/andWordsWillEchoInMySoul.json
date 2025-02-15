@@ -1,0 +1,141 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Mirrors have this incredible power of capturing our attention whenever we encounter it. Everytime we look at one, we immediately primp and scrutinize ourselves. In this intimate act of self-reflection, we tend to magnify what we perceive as flaws, even if they are nearly imperceptible to others."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/insecurityMirror/Hero Image.jpg"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "This interactive installation makes these silent criticisms vehemently visible and tangible. By confronting these thoughts head-on, individuals are provided a platform to gain a deeper perspective on their own self-talk and body image concerns. Viewers are invited to contemplate the profound impact of their inner narratives on their self-perception."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": ["Sticks and stones may break my bones..."]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": ["\"...but words will echo in my soul.\""]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/insecurityMirror/1.jpeg"
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/insecurityMirror/2.jpeg"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/insecurityMirror/3.jpeg"
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/insecurityMirror/4.jpeg",
+          "text": [
+            "This interactive installation was showcased as part of <a href=\"https://tnsadai.com/\">Art, Design, & AI</a> Exhibition hosted by Parsons School of Design & LG AI Research."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "A surprising amount of math and optimization went into this project to have it run fast enough so that there isn't any lag."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/insecurityMirror/segmentationValues.mp4",
+          "alt": "Segmentation Values"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Breaking a piece of text on the fly based on the angle and distance of each body part is computationally intensive to say the least. Add to that all the Matrix math on the fly to stack multiple pieces of text while running an ML model to segment human bodies."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "t2",
+          "src": "/media/insecurityMirror/smallMatrix.mp4",
+          "alt": "Small Matrix"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t2",
+          "src": "/media/insecurityMirror/skeleton.mp4",
+          "alt": "Skeleton"
+        },
+        {
+          "type": "video",
+          "size": "t2",
+          "src": "/media/insecurityMirror/segmented.mp4",
+          "alt": "Segmented"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/insecurityMirror/bts1a.jpg"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/insecurityMirror/bts2a.jpg"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/insecurityMirror/bts3a.jpg"
+        }
+      ]
+    }
+  ]
+}

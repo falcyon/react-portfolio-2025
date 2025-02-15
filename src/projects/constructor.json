@@ -1,0 +1,82 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "This project started with me looking outside my window at a few workers on scaffolding. There was something about the perspective and fluidity of their work that caught my eye. I wanted to bring focus onto the hundreds of workers who create these massive monuments that we live in and take for granted."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The idea was to accumulate their motion, revealing the building as they go, ensuring that their work left a mark."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/constructor/input.webm",
+          "alt": "Input Video"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/constructor/outputWithOutlines.webm",
+          "alt": "Output with Outlines"
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/constructor/outputWithBoxes.webm",
+          "alt": "Output with Boxes"
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/constructor/outputAfterMask.webm",
+          "alt": "Output After Mask"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/constructor/outputVideoMaskReveal.webm",
+          "alt": "Output Video Mask Reveal"
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/constructor/outputWithOnlyChanges.webm",
+          "alt": "Output with Only Changes"
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/constructor/outputFinalExplainer.webm",
+          "alt": "Final Explainer"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "f",
+          "src": "/media/constructor/constructor.mp4",
+          "alt": "Constructor Final Video"
+        }
+      ]
+    }
+  ]
+}

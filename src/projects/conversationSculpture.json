@@ -1,0 +1,22 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "This sculpture could be a storyteller. Their abstract forms weren't meant to be clear-cut, but invitations. Invitations to delve deeper, to share their stories without feeling pressured.",
+            "By keeping myself occupied in the primary task of creating the sculpture, the conversation became secondary. It no longer felt like I was questioning them. It became more of a space where they could keep the conversation in the sub-conscious."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/thumbnails/pop2.mp4",
+          "alt": "Pop Video"
+        }
+      ]
+    }
+  ]
+}

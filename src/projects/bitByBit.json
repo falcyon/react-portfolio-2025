@@ -1,0 +1,21 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "This is a representation of the now-default use of computer chips to keep track of time. This is based on the idea of representing the seconds of a clock in binary, juxtaposed with the 'tick-tock' of an old grandfathers clock."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/thumbnails/bitbybit.mp4",
+          "alt": "Bit by Bit Video"
+        }
+      ]
+    }
+  ]
+}

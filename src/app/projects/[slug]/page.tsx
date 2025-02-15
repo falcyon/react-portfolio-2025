@@ -35,10 +35,10 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 
     return {
         title: project.name, // Set dynamic title for the page
-        description: project.content || "Project description not available", // Set a fallback description if content is missing
+        description: project.description || "Project description not available", // Set a fallback description if content is missing
         openGraph: {
             title: project.name,
-            description: project.content || "Project description not available",
+            description: project.description || "Project description not available",
             images: [
                 {
                     url: `${project.thumbnail}`, // Ensure your images are in the /public folder
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
         twitter: {
             card: "summary_large_image", // Twitter card type
             title: project.name,
-            description: project.content || "Project description not available",
+            description: project.description || "Project description not available",
             images: [`${project.thumbnail}`], // Same as Open Graph image URL
         },
     };

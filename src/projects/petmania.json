@@ -1,0 +1,113 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Made in collaboration with 2 other Parsons graduates, this app is meant to create a community of pet-owners as a way to connect their pets and also with other pet-owners.",
+            "There is currently no good way for pet owners to connect with other nearby pet-owners especially in busy cities like NYC where interaction with neighbours is limited."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/thumbnails/petmania.mp4",
+          "alt": "PetMania Video"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "People need friends to pet-sit a lot of times and their pets need companionship.",
+            "We started by making some proto-personas."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/petmania/persona.webp",
+          "alt": "PetMania Persona",
+          "style": "border: none;"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "We then sketched out our various ideas for the app-screens on paper as a form of rapid prototyping.",
+            "Some common threads we had was giving users personalised options to choose types of pets they'd like to connect with.",
+            "We also had the idea to double the app as a photo-sharing and cataloging service for pictures of their pets and to view pictures of others' pets."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/petmania/paper.webp",
+          "alt": "PetMania Paper Sketches"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Figma was our weapon of choice for this project. We designed 10 pages based on user-testing from our lo-fi prototype. We created wireframes for these 10 pages."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/petmania/userflow.webp",
+          "alt": "PetMania User Flow",
+          "style": "border: none;"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": ["We created a user-flow"]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/petmania/figma_p2.webp",
+          "alt": "PetMania User Flow in Figma",
+          "style": "border: none;"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "For its visual design, we went with a paw as logo. We wanted the app to indicate trust, warmth and fun.",
+            "We iterated and landed on a warm aqua blue and gold color palette since the colors were reminiscent of a beach and reflected the app's themes."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/petmania/figma_p1.webp",
+          "alt": "PetMania Figma Design",
+          "style": "border: none;"
+        }
+      ]
+    }
+  ]
+}

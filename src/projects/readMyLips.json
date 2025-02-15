@@ -1,0 +1,22 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "This project takes the term 'read my lips' quite literally. It lets your emotions become living words, painted right on your mouth. The canvas? Your lips themselves, displayed on the screen.",
+            "A quirked smile, a downturned pout - these nuances were lost during the pandemic's era of muffled communication. That's what sparked this project - to strip away everything but the lips, and see if they could carry the weight of meaning alone."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/thumbnails/ReadMyLips2.mp4",
+          "alt": "Read My Lips Video"
+        }
+      ]
+    }
+  ]
+}
