@@ -6,11 +6,23 @@ interface ProjectCardProps {
     name: string;
     slug: string;
     thumbnail: string;
-    thumbnailType: "image" | "video";
     tags: string[];
 }
 
-export default function ProjectCard({ name, slug, thumbnail, thumbnailType, tags }: ProjectCardProps) {
+const getThumbnailType = (thumbnail: string) => {
+    const ext = thumbnail.split('.').pop()?.toLowerCase();
+    if (['jpg', 'jpeg', 'png', 'gif', 'webp'].includes(ext || '')) {
+        return 'image';
+    } else if (['mp4', 'webm', 'ogg'].includes(ext || '')) {
+        return 'video';
+    }
+    return 'image'; // Default to image if no match
+};
+
+export default function ProjectCard({ name, slug, thumbnail, tags }: ProjectCardProps) {
+    const thumbnailType = getThumbnailType(thumbnail);
+
+
     return (
         <div className={styles.projectCardDiv}>
             <Link href={`/projects/${slug}`}>
