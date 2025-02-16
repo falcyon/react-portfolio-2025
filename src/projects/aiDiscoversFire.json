@@ -38,12 +38,12 @@
         {
           "type": "image",
           "size": "t",
-          "src": "/media/fire/train-1.png"
+          "src": "/media/fire/train-10.png"
         },
         {
           "type": "image",
           "size": "t",
-          "src": "/media/fire/train-2.png"
+          "src": "/media/fire/train-20.png"
         }
       ]
     },

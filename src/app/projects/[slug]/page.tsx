@@ -21,17 +21,16 @@ interface ProjectPageProps {
 }
 
 export default async function Page({ params }: ProjectPageProps) {
-    const { slug } = await params; // Ensure params is awaited
+    const { slug } = await params;
 
     const project = projectsArray.find((proj) => proj.slug === slug);
 
-    if (!project) return notFound(); // Show 404 if project isn't found
+    if (!project) return notFound();
 
     // Dynamically import the project content based on the slug
     const content = await importProjectContent(slug);
-    if (!content) return notFound(); // Show 404 if content isn't found
+    if (!content) return notFound();
 
-    // Attach the content to the project object
     const projectWithContent = {
         ...project,
         ...content,
