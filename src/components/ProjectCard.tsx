@@ -7,6 +7,8 @@ interface ProjectCardProps {
     slug: string;
     thumbnail: string;
     tags: string[];
+    description: string;
+    year: number;
 }
 
 const getThumbnailType = (thumbnail: string) => {
@@ -19,7 +21,7 @@ const getThumbnailType = (thumbnail: string) => {
     return 'image'; // Default to image if no match
 };
 
-export default function ProjectCard({ name, slug, thumbnail, tags }: ProjectCardProps) {
+export default function ProjectCard({ name, slug, thumbnail, tags, description, year }: ProjectCardProps) {
     const thumbnailType = getThumbnailType(thumbnail);
 
 
@@ -28,17 +30,20 @@ export default function ProjectCard({ name, slug, thumbnail, tags }: ProjectCard
             <Link href={`/projects/${slug}`}>
                 <div className={styles.thumbnailContainer}>
                     {thumbnailType === "image" ? (
-                        <Image src={thumbnail} alt={name} width={300} height={200} />
+                        <Image src={thumbnail} alt={name} />
                     ) : (
-                        <video src={thumbnail} controls width="300" height="200" />
+                        <video src={thumbnail} controls width="100%" height="100%" />
                     )}
                 </div>
-                <h3>{name}</h3>
-                <div className={styles.tagsContainer}>
-                    {tags.map((tag, index) => (
-                        <span key={index} className={styles.tag}>{tag}</span>
-                    ))}
+                <div className={styles.headerContainer}>
+                    <h3>{name} - {year}</h3>
+                    <div className={styles.tagsContainer}>
+                        {tags.map((tag, index) => (
+                            <span key={index} className={styles.tag}>{tag}</span>
+                        ))}
+                    </div>
                 </div>
+                <h4>{description}</h4>
             </Link>
         </div>
     );

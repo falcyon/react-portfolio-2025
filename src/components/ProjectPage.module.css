@@ -28,7 +28,7 @@
 .projectPageDiv h1 {
     margin: 0;
     font-size: 4em;
-    color: #da1f26;
+    color: var(--accent);
     padding: 0 25px 0 25px;
     text-transform: uppercase;
     /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */

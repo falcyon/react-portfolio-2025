@@ -1,30 +1,36 @@
-.projectCardDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
-  border-radius: 10px;
-  background-color: #f5f5f5;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .thumbnailContainer {
     margin-bottom: 10px;
+    border: 2px solid
 }
+
+.projectCardDiv:hover .thumbnailContainer {
+    border: 2px solid var(--accent)
+}
+
+.projectCardDiv:hover h3,
+.projectCardDiv:hover h4,
+.projectCardDiv:hover span  {
+    color:var(--accent)
+}
+
 
 .tagsContainer {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    justify-content: center;
+    justify-content: left;
 }
 .tag {
     display: inline-block;
-    background: #ddd;
+    border-color: black;
     padding: 5px 10px;
     margin: 3px;
     border-radius: 5px;
