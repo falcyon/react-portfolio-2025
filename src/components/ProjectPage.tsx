@@ -1,7 +1,6 @@
 import styles from "./ProjectPage.module.css";
 import UnderConstruction from "./UnderConstruction";
 
-import Image from "next/image";
 
 interface Section {
     type: "text" | "image" | "video";
