@@ -5,6 +5,17 @@ import { notFound } from "next/navigation";
 import { projectsArray } from "@/data/projects";
 import ProjectPage from "@/components/ProjectPage";
 
+const importProjectContent = async (slug: string) => {
+    try {
+        const content = await import(`@/projects/${slug}.json`);
+        return content.default; // JSON will be exported as default in Next.js
+    } catch (error) {
+        console.error("Error loading project content:", error);
+        return null;
+    }
+};
+
+
 interface ProjectPageProps {
     params: Promise<{ slug: string }>;
 }
@@ -16,7 +27,17 @@ export default async function Page({ params }: ProjectPageProps) {
 
     if (!project) return notFound(); // Show 404 if project isn't found
 
-    return <ProjectPage project={project} />;
+    // Dynamically import the project content based on the slug
+    const content = await importProjectContent(slug);
+    if (!content) return notFound(); // Show 404 if content isn't found
+
+    // Attach the content to the project object
+    const projectWithContent = {
+        ...project,
+        ...content,
+    };
+
+    return <ProjectPage project={projectWithContent} />;
 }
 
 // ✅ Generate Static Params for all the projects
