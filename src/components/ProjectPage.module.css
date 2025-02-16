@@ -1,7 +1,143 @@
-.projectPageDiv{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.projectPageDiv {
     margin-top: 50px;
+    
+		/* position: absolute; */
+		z-index: 1;
+		margin: 0 10% 0 10%;
+		/* border: 1px solid white; */
+	
+
+	@media (max-width: 700px) {
+		.contents {
+			margin: 0;
+		}
+	}
+}
+
+
+.tagsContainer {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: 100;
+    padding: 20svh 25px 0px 25px;
+    margin: 0;
+}
+
+
+/* heading */
+.projectPageDiv h1 {
+    margin: 0;
+    font-size: 4em;
+    color: #da1f26;
+    padding: 0 25px 0 25px;
+    text-transform: uppercase;
+    /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
+}
+
+/* subheading */
+.projectPageDiv h2 {
+    font-size: 1.5em;
+    margin: 0;
+    font-weight: 200;
+    margin-bottom: 1em;
+    padding: 25px;
+}
+
+
+.sectionGroup {
+    display: flex;
+    flex-direction: row;
+}
+
+.textSection p {
+    font-weight: 100;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* content */
+
+.h {
+    /* border: 1px solid blue; */
+    width: 50%;
+    padding: 25px;
+}
+
+.q {
+    width: 25%;
+    padding: 25px;
+}
+
+.t {
+    /* border: 1px solid blue; */
+    width: 33.33%;
+    padding: 25px;
+
+}
+
+.t2 {
+    width: 66.66%;
+    padding: 25px;
+}
+
+
+.f {
+    width: 100%;
+    padding: 25px;
+}
+
+
+
+
+.imageSection img {
+    border-style: solid;
+    border-color: #111;
+    border-width: 0.5px;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 700px) {
+    .projectPageDiv {
+        margin: 0;
+    }
+    .sectionGroup {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0em;
+    }
+
+    .t {
+        width: 100%;
+        margin-bottom: 4em;
+        /* padding: 0; */
+    }
+
+    .t2 {
+        width: 100%;
+        margin-bottom: 4em;
+        /* padding: 0; */
+    }
+
+    .h {
+        width: 100%;
+        margin-bottom: 4em;
+        /* padding: 0; */
+    }
+
+    .q {
+        width: 100%;
+        margin-bottom: 4em;
+        /* padding: 0; */
+    }
+
+    .f {
+        width: 100%;
+        margin-bottom: 4em;
+        /* padding: 0; */
+    }
+
+    .textSection p {
+        margin-bottom: 1em;
+    }
 }
