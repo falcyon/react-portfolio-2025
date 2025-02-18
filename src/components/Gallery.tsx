@@ -3,11 +3,11 @@ import ProjectCard from "./ProjectCard";
 import { projectsArray } from "../data/projects"; // Import data from external file
 
 
-const getGridStyles = (width: string, position: number | undefined) => {
+const getGridStyles = (size: string, position: number | undefined) => {
     let gridColumnStart: number | string;
     let gridColumnEnd: number | string;
 
-    switch (width) {
+    switch (size) {
         case "f":
             gridColumnStart = 1;
             gridColumnEnd = -1; // Stretch across all columns
@@ -83,7 +83,7 @@ export default function Gallery() {
         <div className={styles.galleryDiv}>
             {projectsArray.map((project) => {
                 // Use position and width to calculate grid-column values
-                const { gridColumnStart, gridColumnEnd } = getGridStyles(project.width, project.position);
+                const { gridColumnStart, gridColumnEnd } = getGridStyles(project.size, project.position);
 
                 return (
                     <div

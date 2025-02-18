@@ -6,6 +6,8 @@ interface ProjectCardProps {
     name: string;
     slug: string;
     thumbnail: string;
+    width: number;
+    height: number;
     tags: string[];
     description: string;
     year: number;
@@ -21,7 +23,7 @@ const getThumbnailType = (thumbnail: string) => {
     return 'image'; // Default to image if no match
 };
 
-export default function ProjectCard({ name, slug, thumbnail, tags, description, year }: ProjectCardProps) {
+export default function ProjectCard({ name, slug, thumbnail, width, height, tags, description, year }: ProjectCardProps) {
     const thumbnailType = getThumbnailType(thumbnail);
 
 
@@ -30,9 +32,11 @@ export default function ProjectCard({ name, slug, thumbnail, tags, description, 
             <Link href={`/projects/${slug}`}>
                 <div className={styles.thumbnailContainer}>
                     {thumbnailType === "image" ? (
-                        <Image src={thumbnail} alt={name} />
+                        // <div className={styles.test}></div>
+                        <Image src={thumbnail} alt={name} quality={100} width={width} height={height} />
                     ) : (
-                        <video src={thumbnail} controls width="100%" height="100%" />
+                        // <div className={styles.test}></div>
+                        <video src={thumbnail} loop autoPlay muted playsInline width="100%" height="100%" />
                     )}
                 </div>
                 <div className={styles.headerContainer}>
