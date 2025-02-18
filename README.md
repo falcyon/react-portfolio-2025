@@ -1,6 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Introduction
 
-## Getting Started
+This is the react project I'm using to create my portfolio website.
+
+Key things to remember 
+
+Built in react using Next.js's App Router framework
+- React version 19.0.0
+- Next version 15.1.7
+
+All media in /public/media/
+
+
+## Todos
+
+-Learning
+- [ ] Figure out what [slug]\page.tsx does in generateStaticParams() -> Could be key to figuring out how to create images for nextjs/image during build time. 
+- [ ] Understand generateMetadata function. 
+- Media optimization
+- [ ] Find way to load images after initial page load instead of lazy-loading (how its being loaded currently)
+- [ ] Find way to get placeholders for images. 
+- [ ] Video component with autoplay that runs on safari 
+- Create pre-processor
+- [ ] Write pre-processor to generate updated singular JSON file ( \data\generated\projectContent.json) from all the project infos present in \src\projects\[slug].json
+- [ ] Get nodemon to monitor \src\projects folder for new jsons & updated existing jsons. Preprocess should run everytime an update happens (while on dev build) & before build time (prebuild). 
+
+
+
+## How to run this project.
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 First, run the development server:
 
@@ -17,20 +45,3 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
