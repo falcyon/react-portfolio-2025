@@ -13,14 +13,16 @@ All media in /public/media/
 
 ## Todos
 
--Learning
+Learning
 - [ ] Figure out what [slug]\page.tsx does in generateStaticParams() -> Could be key to figuring out how to create images for nextjs/image during build time. 
 - [ ] Understand generateMetadata function. 
-- Media optimization
+
+Media optimization
 - [ ] Find way to load images after initial page load instead of lazy-loading (how its being loaded currently)
 - [ ] Find way to get placeholders for images. 
 - [ ] Video component with autoplay that runs on safari 
-- Create pre-processor
+
+Create pre-processor
 - [ ] Write pre-processor to generate updated singular JSON file ( \data\generated\projectContent.json) from all the project infos present in \src\projects\[slug].json
 - [ ] Get nodemon to monitor \src\projects folder for new jsons & updated existing jsons. Preprocess should run everytime an update happens (while on dev build) & before build time (prebuild). 
 
