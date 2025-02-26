@@ -28,13 +28,15 @@ export default function ProjectPage({ project }: ProjectProps) {
 
     return (
         <div className={styles.projectPageDiv}>
-            <h1>{project.name}</h1>
+
             <div className={styles.tagsContainer}>
                 {project.tags.map((tag, index) => (
                     <span key={index} className={styles.tag}>{tag}</span>
                 ))}
             </div>
-            <p>{project.description}</p>
+            <h1>{project.name}</h1>
+            <h2>{project.description}</h2>
+            <h2>[{project.year}]</h2>
 
             <div className={styles.contentContainer}>
                 {hasContent ? (

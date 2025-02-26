@@ -25,18 +25,32 @@ const getThumbnailType = (thumbnail: string) => {
 
 export default function ProjectCard({ name, slug, thumbnail, width, height, tags, description, year }: ProjectCardProps) {
     const thumbnailType = getThumbnailType(thumbnail);
-
+    const aspectRatio = (height / width) * 100;
 
     return (
         <div className={styles.projectCardDiv}>
             <Link href={`/projects/${slug}`}>
-                <div className={styles.thumbnailContainer}>
+
+                <div className={styles.thumbnailContainer} style={{
+                    position: 'relative',
+                    width: '100%',
+                    paddingTop: `${aspectRatio}%`, // This creates the aspect ratio padding trick
+                    backgroundColor: '#f0f0f0', // Optional: You can use a placeholder color while video is loading
+                }}>
                     {thumbnailType === "image" ? (
                         // <div className={styles.test}></div>
                         <Image src={thumbnail} alt={name} quality={100} width={width} height={height} />
                     ) : (
                         // <div className={styles.test}></div>
-                        <video src={thumbnail} loop autoPlay muted playsInline width="100%" height="100%" />
+                        <video src={thumbnail} loop autoPlay muted playsInline preload="metadata" style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover', // Ensures the video covers the container without stretching
+                        }}
+                        />
                     )}
                 </div>
                 <div className={styles.headerContainer}>
