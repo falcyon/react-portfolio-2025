@@ -72,7 +72,7 @@ const getGridStyles = (size: string, position: number | undefined) => {
             gridColumnStart = 1;
             gridColumnEnd = -1;
     }
-
+    return { gridColumnStart: 4, gridColumnEnd: 10 }
     return { gridColumnStart, gridColumnEnd };
 };
 
@@ -88,6 +88,7 @@ export default function Gallery() {
                 return (
                     <div
                         key={project.slug}
+                        className={styles.galleryItem}
                         style={{
                             gridColumnStart: gridColumnStart,
                             gridColumnEnd: gridColumnEnd

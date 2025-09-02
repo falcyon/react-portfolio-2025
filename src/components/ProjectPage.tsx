@@ -1,6 +1,6 @@
 import styles from "./ProjectPage.module.css";
 import UnderConstruction from "./UnderConstruction";
-
+import CloseButton from "./CloseButton";
 
 interface Section {
     type: "text" | "image" | "video";
@@ -28,7 +28,7 @@ export default function ProjectPage({ project }: ProjectProps) {
 
     return (
         <div className={styles.projectPageDiv}>
-
+            <CloseButton />
             <div className={styles.tagsContainer}>
                 {project.tags.map((tag, index) => (
                     <span key={index} className={styles.tag}>{tag}</span>
@@ -65,22 +65,27 @@ export default function ProjectPage({ project }: ProjectProps) {
                                     case "video":
                                         return (
                                             <div key={idx} className={`${styles[section.size]} ${styles.videoSection}`}>
-                                                <video controls>
-                                                    <source src={section.src} type="video/mp4" />
-                                                    Your browser does not support the video tag.
-                                                </video>
+                                                <video src={section.src} loop autoPlay muted playsInline preload="metadata" style={{
+                                                }}
+                                                />
                                             </div>
                                         );
                                     default:
                                         return null;
                                 }
                             })}
+
                         </div>
                     ))
                 ) : (
                     <UnderConstruction />
                 )}
             </div>
+            <div className={styles.endOfPage}>
+                <hr />
+            </div>
+
+
         </div>
     );
 }

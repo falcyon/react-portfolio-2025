@@ -1,0 +1,52 @@
+{
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Mist rises from the bottom of a box that holds a plate of copper. It slowly fills the enclosure, only to be abruptly drawn back behind the copper plate. While no trace of the mist remains,it leaves behind a faint condensate on the copper surface. But even this eventually drips away and vanishes. Perhaps, over time, a patina will form."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/thumbnails/ephemera.mp4"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/ephemera/teaser.jpg"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Ephemera reflects on the conflict between impermanence and the human drive to leave a mark — to persist beyond our physical bodies, space and time. It questions whether legacy can truly endure, and whether that endurance itself carries any meaning when memory, matter, and time eventually dissolve into nothingness."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "This installation was showcased at the 2025 New York Design week, where it was featured in the 'What Comes After No One' exhibition."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/ephemera/01_TeaserPoster.jpg"
+        }
+      ]
+    }
+  ]
+}

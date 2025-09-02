@@ -13,6 +13,18 @@ export interface Project {
 
 export const projectsArray: Project[] = [
   {
+    name: "Ephemera",
+    slug: "ephemera",
+    thumbnail: "/media/thumbnails/ephemera.mp4",
+    height:1080,
+    width:1080,
+    year: 2025,
+    tags: ["Physical", "Design", "Installation"],
+    size: "t",
+    position: 2,
+    description: "An installation reflecting on humanity's grapple with legacy"
+  },
+  {
     name: "Constructor",
     slug: "constructor",
     thumbnail: "/media/thumbnails/constructor.mp4",
@@ -20,9 +32,9 @@ export const projectsArray: Project[] = [
     width:1080,
     year: 2025,
     tags: ["Motion Accumulator", "Design", "Installation"],
-    size: "h",
-    position: 2,
-    description: "A piece created by designing a motion accumulator."
+    size: "t",
+    position: 1,
+    description: "A piece created by designing a motion accumulator"
   },
   {
     name: "...And Words Will Echo in My Soul",
@@ -32,9 +44,33 @@ export const projectsArray: Project[] = [
     width: 1080,
     year: 2024,
     tags: ["Performance", "Installation", "Conversation"],
-    size: "h",
+    size: "t",
     position: 2,
-    description: "A performance installation converting conversations into pieces of thread."
+    description: "A performance installation converting conversations into pieces of thread"
+  },
+    {
+    name: "Notes to Self",
+    slug: "notesToSelf",
+    thumbnail: "/media/thumbnails/notes.mp4",
+    height: 1080,
+    width: 1080,
+    year: 2021,
+    tags: ["Interactive", "Installation"],
+    size: "t",
+    position: 3,
+    description: "An interactive installation where users engage in a conversation with their digital self"
+  },
+    {
+    name: "Stained Mask",
+    slug: "stainedMask",
+    thumbnail: "/media/thumbnails/StainedMask.mp4",
+    width: 540,
+    height: 540,
+    year: 2021,
+    tags: ["Interactive", "Installation", "Social Commentary"],
+    size: "t",
+    position: 1,
+    description: "An interactive installation critiquing the Church's opinion on masks during Covid."
   },
   {
     name: "Palimpsest",
@@ -44,33 +80,12 @@ export const projectsArray: Project[] = [
     height:1080,
     year: 2023,
     tags: ["Performance", "Installation"],
-    size: "f",
+    size: "h",
+    position: 2,
     description: "A performance installation converting conversations into pieces of thread."
   },
-  {
-    name: "Notes to Self",
-    slug: "notesToSelf",
-    thumbnail: "/media/thumbnails/notes.mp4",
-    height: 1080,
-    width: 1080,
-    year: 2021,
-    tags: ["Interactive", "Installation"],
-    size: "h",
-    position: 1,
-    description: "An interactive installation where users engage in a conversation with their digital self."
-  },
-  {
-    name: "Stained Mask",
-    slug: "stainedMask",
-    thumbnail: "/media/thumbnails/StainedMask.mp4",
-    width: 540,
-    height: 540,
-    year: 2021,
-    tags: ["Interactive", "Installation", "Social Commentary"],
-    size: "h",
-    position: 3,
-    description: "An interactive installation critiquing the Church's opinion on masks during Covid."
-  },
+
+
   {
     name: "AI Discovers Fire",
     slug: "aiDiscoversFire",
@@ -79,8 +94,8 @@ export const projectsArray: Project[] = [
     height: 464,
     year: 2021,
     tags: ["AI", "Media Art", "DCGAN"],
-    size: "1",
-    position: 2,
+    size: "h",
+    position: 3,
     description: "Media Art created using DCGAN trained on images of fire."
   },
   {
@@ -91,7 +106,7 @@ export const projectsArray: Project[] = [
     height: 590,
     year: 2021,
     tags: ["Performance", "Interpretation", "Human Condition"],
-    size: "h",
+    size: "q",
     position: 1,
     description: "An interpretive performance exploring the human condition."
   },
@@ -103,9 +118,21 @@ export const projectsArray: Project[] = [
     height:850,
     year: 2021,
     tags: ["Interactive", "Emotion", "AI"],
-    size: "h",
-    position: 3,
+    size: "q",
+    position: 2,
     description: "An interactive installation isolating viewers' lips and predicting their emotions."
+  },
+    {
+    name: "Conversation Sculpture",
+    slug: "conversationSculpture",
+    thumbnail: "/media/thumbnails/pop2.mp4",
+    width: 1080,
+    height: 1080,
+    year: 2022,
+    tags: ["Sculpture", "Nihilism", "Philosophy"],
+    size: "q",
+    position: 3,
+    description: "A sculpture made up of conversations about nihilism."
   },
   {
     name: "Petmania",
@@ -119,17 +146,7 @@ export const projectsArray: Project[] = [
     position: 2,
     description: "Product Design for an app for dogs to find companions."
   },
-  {
-    name: "Conversation Sculpture",
-    slug: "conversationSculpture",
-    thumbnail: "/media/thumbnails/pop2.mp4",
-    width: 1080,
-    height: 1080,
-    year: 2022,
-    tags: ["Sculpture", "Nihilism", "Philosophy"],
-    size: "1",
-    description: "A sculpture made up of conversations about nihilism."
-  },
+
   {
     name: "unIIcode",
     slug: "uniicode",
@@ -203,9 +220,9 @@ export const projectsArray: Project[] = [
     description: "Digital art visualizing the passage of time in binary."
   },
   {
-    name: "Ephemeral",
-    slug: "ephemeral",
-    thumbnail: "/media/thumbnails/ephemeral.mp4",
+    name:"Clock",
+    slug: "clock",
+    thumbnail: "/media/thumbnails/clock.mp4",
     width: 720,
     height: 720,
     year: 2021,

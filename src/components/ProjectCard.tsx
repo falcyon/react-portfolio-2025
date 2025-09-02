@@ -39,7 +39,7 @@ export default function ProjectCard({ name, slug, thumbnail, width, height, tags
                 }}>
                     {thumbnailType === "image" ? (
                         // <div className={styles.test}></div>
-                        <Image src={thumbnail} alt={name} quality={100} width={width} height={height} />
+                        <Image src={thumbnail} alt={name} quality={100} layout="fill" objectFit="cover" />
                     ) : (
                         // <div className={styles.test}></div>
                         <video src={thumbnail} loop autoPlay muted playsInline preload="metadata" style={{
@@ -64,5 +64,6 @@ export default function ProjectCard({ name, slug, thumbnail, width, height, tags
                 <h4>{description}</h4>
             </Link>
         </div>
+
     );
 }

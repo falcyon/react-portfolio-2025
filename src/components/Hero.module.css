@@ -1,3 +1,26 @@
-.heroDiv {
-    height: 90vh;
-  }
+.heroWrapper {
+  height: 200vh; /* enough scroll to see animation */
+  position: relative;
+}
+
+.hero {
+  position: sticky;
+  top: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: grab;
+  background-color: var(--bg-color);
+}
+
+.letterWrapper {
+  display: flex;
+  user-select: none;
+}
+
+.hero svg {
+  height: 5rem;
+  width: auto;
+  pointer-events: all;
+}

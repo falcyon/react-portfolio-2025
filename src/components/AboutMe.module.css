@@ -1,4 +1,4 @@
-.aboutMeDiv {
+/* .aboutMeDiv {
     margin-bottom: 75px;
     display: flex;
     gap: 20px;
@@ -7,8 +7,11 @@
     font-size: 1em;
     width: 100%;
     margin-bottom: 20vw;
-}
+} */
 
+.stage1 {
+   height: 100vh;
+}
 .aboutMeHeader {
     width: 30vw;
     margin: 0;
