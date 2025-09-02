@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { createNoise2D } from 'simplex-noise';
 import { projectsArray, Project } from "../data/projects";
 
-
 const noise2D = createNoise2D();
 
 /** Shape definition with defaults */
@@ -23,11 +22,8 @@ interface ShapeState {
     h?: number;
     text?: string;
     textRotation?: number;
-    __random?: boolean; // 👈 add this
+    __random?: boolean;
 }
-
-
-
 
 /** Shape with multiple states */
 interface ShapeWithStates extends ShapeDef {
@@ -46,7 +42,6 @@ function generateStages(projects: Project[]): Stage[] {
     let index = 2; // after intro states
 
     projects.forEach(() => {
-        // add 2 stages, one for each project state (A & B)
         stages.push({
             startStateIndex: index,
             endStateIndex: index + 1,
@@ -63,19 +58,14 @@ function generateStages(projects: Project[]): Stage[] {
     return stages;
 }
 
-
-/** Example stages */
 const stages: Stage[] = [
-    { startStateIndex: 0, endStateIndex: 1, scrollLength: 300 }, //reaches state Leff.in when 30 on top
-    { startStateIndex: 1, endStateIndex: 1, scrollLength: 600 }, //stay at state leff.in till when 60 on top
-    { startStateIndex: 1, endStateIndex: 2, scrollLength: 400 }, //converts to leffin. when 80 on top
-    { startStateIndex: 2, endStateIndex: 2, scrollLength: 700 }, //stay a t state leffin. till when 100 on top
-
-    // from 1400 px onwards, the shapes move with the scroll
+    { startStateIndex: 0, endStateIndex: 1, scrollLength: 300 },
+    { startStateIndex: 1, endStateIndex: 1, scrollLength: 600 },
+    { startStateIndex: 1, endStateIndex: 2, scrollLength: 400 },
+    { startStateIndex: 2, endStateIndex: 2, scrollLength: 700 },
     ...generateStages(projectsArray),
 ];
 
-/** Hook to track vh/vw ratio */
 const useVhVwRatio = () => {
     const [ratio, setRatio] = useState(0);
 
@@ -89,7 +79,6 @@ const useVhVwRatio = () => {
     return ratio;
 };
 
-/** Base shapes with default sizes */
 const baseShapesDefs: ShapeDef[] = [
     { id: 'Lv', w: 15, h: 3, rotation: -90 },
     { id: 'Lh', w: 9, h: 3 },
@@ -110,7 +99,6 @@ const baseShapesDefs: ShapeDef[] = [
     { id: 'Ns', w: 15.84, h: 3, rotation: 57.55 },
 ];
 
-/** Fixed positions for state 1 */
 const HeroState: Record<string, ShapeState> = {
     Lv: { x: 18 - 6, y: 0 + 6 },
     Lh: { x: 18, y: 12 },
@@ -156,25 +144,20 @@ function generateProjectStates(
     shapeDefs: ShapeDef[]
 ): Record<string, ShapeState>[] {
     const states: Record<string, ShapeState>[] = [];
-
-    // Define shape lists
     const verticalList = ["Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr"];
     const horizontalList = ["Lh", "Et", "Em", "Eb", "F1t", "F1m", "F2t", "F2m"];
 
     projects.forEach((project, i) => {
-        // Pick IDs by cycling
         const vId = verticalList[i % verticalList.length];
         const hId1 = horizontalList[(2 * i) % horizontalList.length];
         const hId2 = horizontalList[(2 * i + 1) % horizontalList.length];
 
-        // Find actual shapeDefs by ID
         const chosen = [vId, hId1, hId2]
             .map((id) => shapeDefs.find((s) => s.id === id))
-            .filter((s): s is ShapeDef => !!s); // drop undefined
+            .filter((s): s is ShapeDef => !!s);
 
-        // Positioning
-        const yFirst = [1100, 600, 1000]; // vertical is lower for name
-        const xFirst = [20, 30, 70];    // adjust X positions
+        const yFirst = [1100, 600, 1000];
+        const xFirst = [20, 30, 70];
 
         const stateA: Record<string, ShapeState> = {};
         const stateB: Record<string, ShapeState> = {};
@@ -182,40 +165,32 @@ function generateProjectStates(
         chosen.forEach((shape, idx) => {
             const text =
                 idx === 0
-                    ? project.name        // vertical: name
+                    ? project.name
                     : idx === 1
-                        ? String(project.year)  // horizontal: year
-                        : project.tags?.[0] ?? ""; // horizontal: first tag
+                        ? String(project.year)
+                        : project.tags?.[0] ?? "";
 
             stateA[shape.id] = { x: xFirst[idx], y: yFirst[idx], text };
             stateB[shape.id] = { x: xFirst[idx], y: yFirst[idx] - 600, text };
         });
 
-        // push states sequentially without merging
         states.push(stateA);
-
         states.push(stateB);
     });
-    // console.log("generated project states:", states);
     return states;
 }
 
-
-
-
-/** Linear interpolation */
 const interpolate = (start: ShapeState, end: ShapeState, t: number): ShapeState => ({
     x: (start.x ?? 0) + ((end.x ?? 0) - (start.x ?? 0)) * t,
     y: (start.y ?? 0) + ((end.y ?? 0) - (start.y ?? 0)) * t,
     w: (start.w ?? 0) + ((end.w ?? start.w ?? 0) - (start.w ?? 0)) * t,
     h: (start.h ?? 0) + ((end.h ?? start.h ?? 0) - (start.h ?? 0)) * t,
     text: start.text === end.text ? start.text : "",
-
 });
 
 const useScrollY = () => {
     const [scrollY, setScrollY] = useState(0);
-    const targetY = 500; // minimum scroll
+    const targetY = 500;
     const isScrollingRef = useRef(false);
 
     useEffect(() => {
@@ -223,9 +198,8 @@ const useScrollY = () => {
 
         const updateScroll = () => {
             const currentY = window.scrollY;
-
             if (currentY < targetY && !isScrollingRef.current) {
-                const nextY = currentY + (targetY - currentY) * 0.03; // your preferred speed
+                const nextY = currentY + (targetY - currentY) * 0.03;
                 window.scrollTo({ top: nextY });
                 animationFrameId = requestAnimationFrame(updateScroll);
                 setScrollY(nextY);
@@ -234,7 +208,6 @@ const useScrollY = () => {
             }
         };
 
-        // Delay start by 1 second
         const timeoutId: NodeJS.Timeout = setTimeout(() => {
             updateScroll();
         }, 1000);
@@ -242,8 +215,6 @@ const useScrollY = () => {
         const onScroll = () => {
             isScrollingRef.current = true;
             setScrollY(window.scrollY);
-
-            // Reset "isScrolling" after a short delay (100ms)
             setTimeout(() => {
                 isScrollingRef.current = false;
                 if (window.scrollY < targetY) {
@@ -264,19 +235,9 @@ const useScrollY = () => {
     return scrollY;
 };
 
-
-
-
-
-
-/** Generate shapes with resolved states (random once per shape, reused) */
 const makeShape = (def: ShapeDef, stateArr: ShapeState[]): ShapeWithStates => {
-    // const fallbackX = 5 + Math.random() * 80;
-    // const fallbackY = 150 + Math.random() * 600;
-    const fallbackX = + Math.random() * 90;
+    const fallbackX = Math.random() * 90;
     const fallbackY = 50 + Math.random() * 800;
-    // const fallbackX = 5;
-    // const fallbackY = 150;
     const s = stateArr.map((st) => {
         const hasExplicitPos = st?.x !== undefined || st?.y !== undefined;
         const isRandom = !hasExplicitPos;
@@ -288,13 +249,11 @@ const makeShape = (def: ShapeDef, stateArr: ShapeState[]): ShapeWithStates => {
             h: (st?.h ?? def.h),
             text: st?.text,
             __random: isRandom,
-        } as ShapeState & { __random?: boolean };
+        };
     });
 
     return { ...def, states: s };
 };
-
-
 
 const Hero: React.FC = () => {
     const ratio = useVhVwRatio();
@@ -314,7 +273,6 @@ const Hero: React.FC = () => {
         scaleY(NameState[s.id]) ?? {},
         ...projectStateMaps.map((m) => m[s.id] ?? {}),
     ]);
-
 
     const [shapes, setShapes] = useState<ShapeWithStates[]>(shapesDefs.map((def, i) => makeShape(def, states[i])));
     useEffect(() => {
@@ -337,25 +295,11 @@ const Hero: React.FC = () => {
             })
         );
     }, [ratio]);
-    // Track mouse position for Dot
-    const mousePos = useRef({ x: 60, y: 12 }); // default Dot pos
-    const smoothedPos = useRef({ x: 60, y: 12 }); // for smooth follow
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = e.clientY; // keep px for y
-            mousePos.current = { x, y };
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, []);
 
     const scrollY = useScrollY();
-    // const vh = window.innerHeight;
     const timeRef = useRef(0);
-    const [, setFrame] = useState(0); // trigger re-render
+    const [, setFrame] = useState(0);
 
-    // Animation loop for noise
     useEffect(() => {
         let frameId: number;
         const loop = () => {
@@ -383,29 +327,11 @@ const Hero: React.FC = () => {
     const { stageIndex, progress } = getStageProgress();
     const currentStage = stages[stageIndex];
 
-    /** Compute interpolated + noise position */
     const getShapePosition = (s: ShapeWithStates) => {
-        if (s.id === "Dot" && stageIndex >= 2) {
-            // Smooth follow logic
-            const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-            const t = 0.15; // smoothing factor
-
-            smoothedPos.current.x = lerp(smoothedPos.current.x, mousePos.current.x - 1, t);
-            smoothedPos.current.y = lerp(smoothedPos.current.y, mousePos.current.y - 20, t);
-
-            // Add subtle wobble
-            const scale = 0.8;
-            const noiseX = noise2D(timeRef.current, s.id.length) * scale;
-            const noiseY = noise2D(timeRef.current, s.id.charCodeAt(0)) * scale;
-
-            return { ...s.states[0], x: smoothedPos.current.x + noiseX, y: smoothedPos.current.y + noiseY, w: s.w, h: s.h };
-        }
-
         const start = s.states[currentStage.startStateIndex];
         const end = s.states[currentStage.endStateIndex];
         const base = interpolate(start, end, progress);
 
-        // Noise offsets
         const scale = 0;
         const tNoise = timeRef.current;
         const noiseX = noise2D(tNoise, s.id.length) * scale;
@@ -433,17 +359,17 @@ const Hero: React.FC = () => {
                             top: `${y}px`,
                             width: `${w}vw`,
                             height: `${h}px`,
-                            background: s.id === "Dot" ? '#000' : s.states[currentStage.startStateIndex].__random ? '#dfdfdfff' : '#000',
+                            background: s.states[currentStage.startStateIndex].__random ? '#dfdfdfff' : '#000',
                             cursor: 'grab',
                             transform: s.rotation ? `rotate(${s.rotation}deg)` : undefined,
                             display: "flex",
                             alignItems: isVertical ? "auto" : "center",
                             justifyContent: isVertical ? "auto" : "center",
                             color: isVertical ? "#d93838ff" : "#fff",
-                            fontSize: isVertical ? "64px" : "18px",   // 👈 size logic
+                            fontSize: isVertical ? "64px" : "18px",
                             fontFamily: "sans-serif",
                             whiteSpace: "nowrap",
-                            zIndex: s.id === "Dot" ? 200 : s.states[currentStage.startStateIndex].__random ? 'auto' : 100,
+                            zIndex: s.states[currentStage.startStateIndex].__random ? 'auto' : 100,
                         }}
                     >
                         {text ?? ""}
