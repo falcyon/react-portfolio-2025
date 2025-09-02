@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createNoise2D } from 'simplex-noise';
-import { projectsArray } from "../data/projects";
+import { projectsArray, Project } from "../data/projects";
+
 
 const noise2D = createNoise2D();
 
@@ -20,9 +21,11 @@ interface ShapeState {
     y?: number;
     w?: number;
     h?: number;
-    text?: string; // 👈 optional text to render in this state
-    textRotation?: number; // 1 = rotate 90deg, 0/undefined = normal
+    text?: string;
+    textRotation?: number;
+    __random?: boolean; // 👈 add this
 }
+
 
 
 
@@ -42,7 +45,7 @@ function generateStages(projects: Project[]): Stage[] {
     const stages: Stage[] = [];
     let index = 2; // after intro states
 
-    projects.forEach((_, i) => {
+    projects.forEach(() => {
         // add 2 stages, one for each project state (A & B)
         stages.push({
             startStateIndex: index,
@@ -74,17 +77,17 @@ const stages: Stage[] = [
 
 /** Hook to track vh/vw ratio */
 const useVhVwRatio = () => {
-    const [ratio, setRatio] = useState(() => window.innerWidth / 100);
+    const [ratio, setRatio] = useState(0);
 
     useEffect(() => {
         const updateRatio = () => setRatio(window.innerWidth / 100);
+        updateRatio();
         window.addEventListener("resize", updateRatio);
         return () => window.removeEventListener("resize", updateRatio);
     }, []);
 
     return ratio;
 };
-
 
 /** Base shapes with default sizes */
 const baseShapesDefs: ShapeDef[] = [
@@ -193,7 +196,7 @@ function generateProjectStates(
 
         states.push(stateB);
     });
-    console.log("generated project states:", states);
+    // console.log("generated project states:", states);
     return states;
 }
 
@@ -217,7 +220,6 @@ const useScrollY = () => {
 
     useEffect(() => {
         let animationFrameId: number;
-        let timeoutId: NodeJS.Timeout;
 
         const updateScroll = () => {
             const currentY = window.scrollY;
@@ -233,7 +235,7 @@ const useScrollY = () => {
         };
 
         // Delay start by 1 second
-        timeoutId = setTimeout(() => {
+        const timeoutId: NodeJS.Timeout = setTimeout(() => {
             updateScroll();
         }, 1000);
 
@@ -307,14 +309,34 @@ const Hero: React.FC = () => {
     const projectStateMaps = generateProjectStates(projectsArray, baseShapesDefs);
 
     const states: ShapeState[][] = shapesDefs.map((s) => [
-        {},                          // 0
-        scaleY(HeroState[s.id]),     // 1
-        scaleY(NameState[s.id]),     // 2
-        ...projectStateMaps.map((m) => m[s.id] ?? {}), // 3,4,5,...
+        {},
+        scaleY(HeroState[s.id]) ?? {},
+        scaleY(NameState[s.id]) ?? {},
+        ...projectStateMaps.map((m) => m[s.id] ?? {}),
     ]);
 
-    const [shapes, setShapes] = useState<ShapeWithStates[]>(shapesDefs.map((def, i) => makeShape(def, states[i])));
 
+    const [shapes, setShapes] = useState<ShapeWithStates[]>(shapesDefs.map((def, i) => makeShape(def, states[i])));
+    useEffect(() => {
+        setShapes((prevShapes) =>
+            prevShapes.map((s) => {
+                const def = shapesDefs.find((d) => d.id === s.id)!;
+                const newStates = s.states.map((st, idx) => {
+                    let newY = st.y;
+                    if (idx === 1) newY = scaleY(HeroState[s.id])?.y ?? st.y;
+                    if (idx === 2) newY = scaleY(NameState[s.id])?.y ?? st.y;
+
+                    return {
+                        ...st,
+                        y: newY,
+                        h: def.h,
+                        text: st.text,
+                    };
+                });
+                return { ...s, states: newStates };
+            })
+        );
+    }, [ratio]);
     // Track mouse position for Dot
     const mousePos = useRef({ x: 60, y: 12 }); // default Dot pos
     const smoothedPos = useRef({ x: 60, y: 12 }); // for smooth follow
@@ -329,7 +351,7 @@ const Hero: React.FC = () => {
     }, []);
 
     const scrollY = useScrollY();
-    const vh = window.innerHeight;
+    // const vh = window.innerHeight;
     const timeRef = useRef(0);
     const [, setFrame] = useState(0); // trigger re-render
 
@@ -398,7 +420,7 @@ const Hero: React.FC = () => {
 
     return (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', overflow: 'hidden' }}>
-            {shapes.map((s, i) => {
+            {shapes.map((s) => {
                 const { x, y, w, h, text } = getShapePosition(s);
                 const verticalIds = ["Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr"];
                 const isVertical = verticalIds.includes(s.id);

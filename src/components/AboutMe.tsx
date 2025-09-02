@@ -1,5 +1,5 @@
 import styles from './AboutMe.module.css';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 export default function AboutMe() {
     const gridOverlayStyle: React.CSSProperties = {
