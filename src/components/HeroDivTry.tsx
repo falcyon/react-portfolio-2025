@@ -45,12 +45,12 @@ function generateStages(projects: Project[]): Stage[] {
         stages.push({
             startStateIndex: index,
             endStateIndex: index + 1,
-            scrollLength: 400,
+            scrollLength: 200,
         });
         stages.push({
             startStateIndex: index + 1,
             endStateIndex: index + 2,
-            scrollLength: 600,
+            scrollLength: 800,
         });
         index += 2;
     });
@@ -61,8 +61,8 @@ function generateStages(projects: Project[]): Stage[] {
 const stages: Stage[] = [
     { startStateIndex: 0, endStateIndex: 1, scrollLength: 300 },
     { startStateIndex: 1, endStateIndex: 1, scrollLength: 600 },
-    { startStateIndex: 1, endStateIndex: 2, scrollLength: 400 },
-    { startStateIndex: 2, endStateIndex: 2, scrollLength: 700 },
+    { startStateIndex: 1, endStateIndex: 2, scrollLength: 600 },
+    { startStateIndex: 2, endStateIndex: 2, scrollLength: 800 },
     ...generateStages(projectsArray),
 ];
 
@@ -156,7 +156,7 @@ function generateProjectStates(
             .map((id) => shapeDefs.find((s) => s.id === id))
             .filter((s): s is ShapeDef => !!s);
 
-        const yFirst = [1100, 600, 1000];
+        const yFirst = [700, 200, 600];
         const xFirst = [20, 30, 70];
 
         const stateA: Record<string, ShapeState> = {};
@@ -171,7 +171,7 @@ function generateProjectStates(
                         : project.tags?.[0] ?? "";
 
             stateA[shape.id] = { x: xFirst[idx], y: yFirst[idx], text };
-            stateB[shape.id] = { x: xFirst[idx], y: yFirst[idx] - 600, text };
+            stateB[shape.id] = { x: xFirst[idx], y: yFirst[idx] - 200, text };
         });
 
         states.push(stateA);
@@ -189,51 +189,18 @@ const interpolate = (start: ShapeState, end: ShapeState, t: number): ShapeState 
 });
 
 const useScrollY = () => {
-    const [scrollY, setScrollY] = useState(0);
-    const targetY = 500;
-    const isScrollingRef = useRef(false);
+    const [scrollY, setScrollY] = useState(window.scrollY || 0);
 
     useEffect(() => {
-        let animationFrameId: number;
-
-        const updateScroll = () => {
-            const currentY = window.scrollY;
-            if (currentY < targetY && !isScrollingRef.current) {
-                const nextY = currentY + (targetY - currentY) * 0.03;
-                window.scrollTo({ top: nextY });
-                animationFrameId = requestAnimationFrame(updateScroll);
-                setScrollY(nextY);
-            } else {
-                setScrollY(currentY);
-            }
-        };
-
-        const timeoutId: NodeJS.Timeout = setTimeout(() => {
-            updateScroll();
-        }, 1000);
-
-        const onScroll = () => {
-            isScrollingRef.current = true;
-            setScrollY(window.scrollY);
-            setTimeout(() => {
-                isScrollingRef.current = false;
-                if (window.scrollY < targetY) {
-                    updateScroll();
-                }
-            }, 100);
-        };
-
+        const onScroll = () => setScrollY(window.scrollY);
         window.addEventListener('scroll', onScroll);
 
-        return () => {
-            cancelAnimationFrame(animationFrameId);
-            clearTimeout(timeoutId);
-            window.removeEventListener('scroll', onScroll);
-        };
+        return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
     return scrollY;
 };
+
 
 const makeShape = (def: ShapeDef, stateArr: ShapeState[]): ShapeWithStates => {
     const fallbackX = Math.random() * 90;
@@ -261,7 +228,6 @@ const Hero: React.FC = () => {
         ...s,
         h: s.h * ratio,
     }));
-
     const scaleY = (state?: ShapeState) =>
         state ? { ...state, y: state.y !== undefined ? state.y * ratio + 350 : undefined } : state;
 
@@ -298,18 +264,9 @@ const Hero: React.FC = () => {
 
     const scrollY = useScrollY();
     const timeRef = useRef(0);
-    const [, setFrame] = useState(0);
 
-    useEffect(() => {
-        let frameId: number;
-        const loop = () => {
-            timeRef.current += 0.01;
-            setFrame((f) => f + 1);
-            frameId = requestAnimationFrame(loop);
-        };
-        frameId = requestAnimationFrame(loop);
-        return () => cancelAnimationFrame(frameId);
-    }, []);
+    // NEW: refs to hold div elements for direct DOM updates
+    const shapesRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     const getStageProgress = () => {
         let acc = 0;
@@ -332,7 +289,7 @@ const Hero: React.FC = () => {
         const end = s.states[currentStage.endStateIndex];
         const base = interpolate(start, end, progress);
 
-        const scale = 0;
+        const scale = 0; // tweak noise scale if needed
         const tNoise = timeRef.current;
         const noiseX = noise2D(tNoise, s.id.length) * scale;
         const noiseY = noise2D(tNoise, s.id.charCodeAt(0)) * scale;
@@ -344,36 +301,63 @@ const Hero: React.FC = () => {
         };
     };
 
-    return (
-        <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', overflow: 'hidden' }}>
-            {shapes.map((s) => {
+    // Animation loop updates DOM styles directly
+    useEffect(() => {
+        let frameId: number;
+        const loop = () => {
+            timeRef.current += 0.01;
+
+            shapes.forEach((s, i) => {
+                const el = shapesRefs.current[i];
+                if (!el) return;
+
                 const { x, y, w, h, text } = getShapePosition(s);
                 const verticalIds = ["Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr"];
                 const isVertical = verticalIds.includes(s.id);
+
+                // Update DOM node styles directly
+                el.style.left = `${x}vw`;
+                el.style.top = `${y}px`;
+                el.style.width = `${w}vw`;
+                el.style.height = `${h}px`;
+                el.style.background = s.states[currentStage.startStateIndex].__random ? '#dfdfdfff' : '#000';
+                el.style.transform = s.rotation ? `rotate(${s.rotation}deg)` : "";
+                el.style.color = isVertical ? "#d93838ff" : "#fff";
+                el.style.fontSize = isVertical ? "64px" : "18px";
+                el.textContent = text ?? "";
+            });
+
+            frameId = requestAnimationFrame(loop);
+        };
+        frameId = requestAnimationFrame(loop);
+        return () => cancelAnimationFrame(frameId);
+    }, [shapes, currentStage, progress]);
+
+    return (
+        <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', overflow: 'hidden' }}>
+            {shapes.map((s, i) => {
+                const verticalIds = ["Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr"];
+                const isVertical = verticalIds.includes(s.id);
+
                 return (
                     <div
                         key={s.id}
+                        ref={(el) => (shapesRefs.current[i] = el)} // attach ref
                         style={{
                             position: 'absolute',
-                            left: `${x}vw`,
-                            top: `${y}px`,
-                            width: `${w}vw`,
-                            height: `${h}px`,
-                            background: s.states[currentStage.startStateIndex].__random ? '#dfdfdfff' : '#000',
+                            left: "0", // will be overridden by loop
+                            top: "0",
+                            width: "0",
+                            height: "0",
                             cursor: 'grab',
-                            transform: s.rotation ? `rotate(${s.rotation}deg)` : undefined,
                             display: "flex",
                             alignItems: isVertical ? "auto" : "center",
                             justifyContent: isVertical ? "auto" : "center",
-                            color: isVertical ? "#d93838ff" : "#fff",
-                            fontSize: isVertical ? "64px" : "18px",
                             fontFamily: "sans-serif",
                             whiteSpace: "nowrap",
-                            zIndex: s.states[currentStage.startStateIndex].__random ? 'auto' : 100,
+                            zIndex: s.states[currentStage.startStateIndex].__random ? 'auto' : "100",
                         }}
-                    >
-                        {text ?? ""}
-                    </div>
+                    />
                 );
             })}
         </div>
