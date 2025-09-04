@@ -1,52 +1,20 @@
-.headerContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    /* font-weight: 400; */
-    font-size: 1em;
+.projectCardWrapper {
+  display: grid;
+  place-items: center;
+  height: 500px;
+  margin:  25px;
 }
 
-.projectCardDiv h4{
-    font-weight: 100;
-}
-.thumbnailContainer {
-    margin-bottom: 10px;
-    border: 2px solid
-}
-
-.projectCardDiv:hover .thumbnailContainer {
-    border: 2px solid var(--accent)
+.projectImage {
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
 }
 
-.projectCardDiv:hover h3,
-.projectCardDiv:hover h4,
-.projectCardDiv:hover span  {
-    color:var(--accent)
-}
-
-
-.tagsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    justify-content: left;
-    font-weight: 100;
-}
-.tag {
-    display: inline-block;
-    border-color: black;
-    padding: 0px 5px;
-    border: 1px solid black;
-    margin: 0px 2px;
-    border-radius: 10px;
-    font-size: 12px;
-}
-
-@media (max-width: 600px) {
-    .headerContainer {
-        flex-direction: column-reverse;
-        align-items: flex-start; /* optional: left-align items instead of center */
-        gap: 10px; /* optional: add vertical space between the two items */
-    }
+.projectVideo {
+  height: 500px;
+  width: auto;
+  object-fit: contain;
 }

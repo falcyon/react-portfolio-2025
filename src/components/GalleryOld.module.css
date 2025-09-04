@@ -1,0 +1,26 @@
+.galleryDiv {
+    width: 100%;
+    display: grid;
+    padding: 0 120px 0 120px ;
+    /* gap: 60px; */
+    gap: 30vw 0; /* testing to see if lines will sync up for the new concept*/
+    grid-template-columns: repeat(12, 1fr)
+}
+.galleryItem {
+    grid-column-start: auto;
+    grid-column-end: auto;
+}
+
+@media (max-width: 600px) {
+    .galleryDiv {
+        padding: 0 20px;
+        /* gap: 60px; */
+        gap: 30vw; /* testing to see if lines will sync up for the new concept */
+        grid-template-columns: 1fr; /* single full-width column */
+    }
+        .galleryItem {
+        grid-column-start: 1 !important;
+        grid-column-end: -1 !important;
+    }
+}
+
