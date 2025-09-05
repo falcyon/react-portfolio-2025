@@ -359,7 +359,7 @@ const Hero: React.FC = () => {
                             top: `${y}px`,
                             width: `${w}vw`,
                             height: `${h}px`,
-                            background: s.states[currentStage.startStateIndex].__random ? '#dfdfdfff' : '#000',
+                            background: s.states[currentStage.startStateIndex].__random ? '#ececec' : '#212121',
                             cursor: 'grab',
                             transform: s.rotation ? `rotate(${s.rotation}deg)` : undefined,
                             display: "flex",
@@ -369,7 +369,7 @@ const Hero: React.FC = () => {
                             fontSize: isVertical ? "64px" : "18px",
                             fontFamily: "sans-serif",
                             whiteSpace: "nowrap",
-                            zIndex: s.states[currentStage.startStateIndex].__random ? 'auto' : 100,
+                            zIndex: s.states[currentStage.startStateIndex].__random ? 1 : 3,
                         }}
                     >
                         {text ?? ""}

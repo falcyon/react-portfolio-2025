@@ -1,0 +1,7 @@
+.galleryTitle {
+  font-weight: 600;
+  margin: 0 0 500px 10vw;
+  color: var(--foreground);
+  letter-spacing: 2px;
+  font-size: 2rem;
+}

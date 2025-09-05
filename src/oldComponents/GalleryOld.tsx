@@ -1,5 +1,5 @@
 import styles from "./GalleryOld.module.css";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../components/ProjectCard";
 import { projectsArray } from "../data/projects"; // Import data from external file
 
 

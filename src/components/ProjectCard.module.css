@@ -3,6 +3,7 @@
   place-items: center;
   height: 500px;
   margin:  25px;
+  z-index: 2;
 }
 
 .projectImage {

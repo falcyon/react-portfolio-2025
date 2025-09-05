@@ -12,28 +12,28 @@ export default function ProjectCard({ name, slug, thumbnail }: ProjectCardProps)
     const isVideo = thumbnail.match(/\.(mp4|webm|ogg)$/i);
 
     return (
-        <Link href={`/projects/${slug}`}>
-            <div className={styles.projectCardWrapper}>
-                {isVideo ? (
-                    <video
-                        src={thumbnail}
-                        loop
-                        autoPlay
-                        muted
-                        playsInline
-                        preload="metadata"
-                        className={styles.projectVideo}
-                    />
-                ) : (
-                    <Image
-                        src={thumbnail}
-                        alt={name}
-                        width={500}
-                        height={500}
-                        className={styles.projectImage}
-                    />
-                )}
-            </div>
+        <Link className={styles.projectCardWrapper} href={`/projects/${slug}`}>
+
+            {isVideo ? (
+                <video
+                    src={thumbnail}
+                    loop
+                    autoPlay
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className={styles.projectVideo}
+                />
+            ) : (
+                <Image
+                    src={thumbnail}
+                    alt={name}
+                    width={500}
+                    height={500}
+                    className={styles.projectImage}
+                />
+            )}
+
         </Link>
     );
 }

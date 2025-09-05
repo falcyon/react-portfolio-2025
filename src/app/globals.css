@@ -3,9 +3,11 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --background: #ffffff;
+  --background: rgb(243,243,243);
   --foreground: #171717;
+  --disabled: #777;
   --accent: #da1f26;
+  --secondary: #2e3359;
   --lunit: 2vw;
 }
 
@@ -13,8 +15,8 @@
 body {
   font-family: neuzeit-grotesk, sans-serif;
   font-weight: 600;	
-		color: var(--font-color);
-		background-color: var(--bg-color);
+		color: var(--foreground);
+		background-color: var(--background);
 		font-synthesis: none;
 		text-rendering: optimizeLegibility;
 		-webkit-font-smoothing: antialiased;
