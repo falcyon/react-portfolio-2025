@@ -344,12 +344,38 @@ const Hero: React.FC = () => {
         };
     };
 
+    const lerpColor = (a: string, b: string, t: number) => {
+        const ah = parseInt(a.replace('#', ''), 16);
+        const ar = (ah >> 16) & 0xff;
+        const ag = (ah >> 8) & 0xff;
+        const ab = ah & 0xff;
+
+        const bh = parseInt(b.replace('#', ''), 16);
+        const br = (bh >> 16) & 0xff;
+        const bg = (bh >> 8) & 0xff;
+        const bb = bh & 0xff;
+
+        const rr = Math.round(ar + (br - ar) * t);
+        const rg = Math.round(ag + (bg - ag) * t);
+        const rb = Math.round(ab + (bb - ab) * t);
+
+        return `rgb(${rr},${rg},${rb})`;
+    };
+
     return (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', overflow: 'hidden' }}>
             {shapes.map((s) => {
                 const { x, y, w, h, text } = getShapePosition(s);
+
                 const verticalIds = ["Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr"];
                 const isVertical = verticalIds.includes(s.id);
+
+                // Choose colors based on whether shape is random or not
+                const startColor = s.states[currentStage.startStateIndex].__random ? '#ececec' : "var(--foreground)";
+                const endColor = s.states[currentStage.endStateIndex]?.__random ? '#ececec' : "var(--foreground)";
+
+                const bgColor = lerpColor(startColor, endColor, progress);
+
                 return (
                     <div
                         key={s.id}
@@ -359,7 +385,7 @@ const Hero: React.FC = () => {
                             top: `${y}px`,
                             width: `${w}vw`,
                             height: `${h}px`,
-                            background: s.states[currentStage.startStateIndex].__random ? '#ececec' : '#212121',
+                            background: bgColor,
                             cursor: 'grab',
                             transform: s.rotation ? `rotate(${s.rotation}deg)` : undefined,
                             display: "flex",
@@ -369,6 +395,7 @@ const Hero: React.FC = () => {
                             fontSize: isVertical ? "64px" : "18px",
                             fontFamily: "sans-serif",
                             whiteSpace: "nowrap",
+                            border: "1px solid var(--foreground)",
                             zIndex: s.states[currentStage.startStateIndex].__random ? 1 : 3,
                         }}
                     >
@@ -378,6 +405,7 @@ const Hero: React.FC = () => {
             })}
         </div>
     );
+
 };
 
 export default Hero;

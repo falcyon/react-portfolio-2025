@@ -2,10 +2,12 @@
   display: grid;
   place-items: center;
   height: 500px;
-  margin:  25px;
+  margin: 25px;
   z-index: 2;
+  box-sizing: content-box; /* fix quotes */
+  border: 1px solid var(--foreground);
+  /* padding: 2px; */
 }
-
 .projectImage {
   max-height: 100%;
   max-width: 100%;
