@@ -5,12 +5,12 @@ import styles from './Landing.module.css';
 
 export default function Landing() {
   const gridLines = [];
-  const galleryHeight = 3000 + projectsArray.length * 1000;
+  const galleryHeight = 2600 + projectsArray.length * 1000;
 
   const aboutMeDivStyle: React.CSSProperties = {
-    height: "3000px",
-    minHeight: "3000px",
-    maxHeight: "3000px",
+    height: "2600px",
+    minHeight: "2600px",
+    maxHeight: "2600px",
     position: "relative",
     fontSize: "24px",
   };
