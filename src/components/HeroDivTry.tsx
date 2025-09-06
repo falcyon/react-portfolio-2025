@@ -141,7 +141,8 @@ const NameState: Record<string, ShapeState> = {
 
 function generateProjectStates(
     projects: Project[],
-    shapeDefs: ShapeDef[]
+    shapeDefs: ShapeDef[],
+    ratio: number
 ): Record<string, ShapeState>[] {
     const states: Record<string, ShapeState>[] = [];
     const verticalList = ["Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr"];
@@ -156,9 +157,15 @@ function generateProjectStates(
             .map((id) => shapeDefs.find((s) => s.id === id))
             .filter((s): s is ShapeDef => !!s);
 
-        const yFirst = [500, 100, 300];
-        const xFirst = [10, 30, 70];
-
+        const yFirst = [200, 100, 300];
+        
+        // const projectWidthInPixels = 500 * project.width / project.height;
+        // const projectLeftInPixels = (window.innerWidth - projectWidthInPixels) / 2;
+        // const projectLeftInVw = (projectLeftInPixels / window.innerWidth) * 100;
+        
+        
+        const xFirst = [20+ratio*0, 30, 70];     
+        console.log("test") 
         const stateA: Record<string, ShapeState> = {};
         const stateB: Record<string, ShapeState> = {};
 
@@ -257,25 +264,34 @@ const makeShape = (def: ShapeDef, stateArr: ShapeState[]): ShapeWithStates => {
 
 const Hero: React.FC = () => {
     const ratio = useVhVwRatio();
-    const shapesDefs = baseShapesDefs.map((s) => ({
-        ...s,
-        h: s.h * ratio,
-    }));
-
+    const shapesDefs = React.useMemo(
+        () => baseShapesDefs.map((s) => ({ ...s, h: s.h * ratio })),
+        [ratio]
+    );
+    const projectStateMaps = React.useMemo(
+        () => generateProjectStates(projectsArray, baseShapesDefs, ratio),
+        [ratio]
+    );
     const scaleY = (state?: ShapeState) =>
         state ? { ...state, y: state.y !== undefined ? state.y * ratio + 350 : undefined } : state;
 
-    const projectStateMaps = generateProjectStates(projectsArray, baseShapesDefs);
+    
+    const states: ShapeState[][] = React.useMemo(
+        () =>
+            shapesDefs.map((s) => [
+                {},
+                scaleY(HeroState[s.id]) ?? {},
+                scaleY(NameState[s.id]) ?? {},
+                ...projectStateMaps.map((m) => m[s.id] ?? {}),
+            ]),
+        [ratio]
+    );
 
-    const states: ShapeState[][] = shapesDefs.map((s) => [
-        {},
-        scaleY(HeroState[s.id]) ?? {},
-        scaleY(NameState[s.id]) ?? {},
-        ...projectStateMaps.map((m) => m[s.id] ?? {}),
-    ]);
-
-    const [shapes, setShapes] = useState<ShapeWithStates[]>(shapesDefs.map((def, i) => makeShape(def, states[i])));
+    const [shapes, setShapes] = useState<ShapeWithStates[]>(
+        () => shapesDefs.map((def, i) => makeShape(def, states[i]))
+    );
     useEffect(() => {
+        // Update shapes when ratio changes
         setShapes((prevShapes) =>
             prevShapes.map((s) => {
                 const def = shapesDefs.find((d) => d.id === s.id)!;
