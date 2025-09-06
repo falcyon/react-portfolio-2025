@@ -209,10 +209,6 @@ const useScrollY = () => {
             }
         };
 
-        const timeoutId: NodeJS.Timeout = setTimeout(() => {
-            updateScroll();
-        }, 1000);
-
         const onScroll = () => {
             isScrollingRef.current = true;
             setScrollY(window.scrollY);
@@ -226,15 +222,30 @@ const useScrollY = () => {
 
         window.addEventListener('scroll', onScroll);
 
+        // Wait for fonts and layout to be ready
+        const startAutoScroll = () => {
+            // Wait for all fonts to load
+            document.fonts.ready.then(() => {
+                // Double rAF ensures layout + paint are done
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        updateScroll();
+                    });
+                });
+            });
+        };
+
+        startAutoScroll();
+
         return () => {
             cancelAnimationFrame(animationFrameId);
-            clearTimeout(timeoutId);
             window.removeEventListener('scroll', onScroll);
         };
     }, []);
 
     return scrollY;
 };
+
 
 const makeShape = (def: ShapeDef, stateArr: ShapeState[]): ShapeWithStates => {
     const fallbackX = Math.random() * 90;
@@ -353,6 +364,16 @@ const Hero: React.FC = () => {
                 el.style.transform = s.rotation ? `rotate(${s.rotation}deg)` : "";
                 el.style.zIndex = String(s.states[currentStage.startStateIndex].__random ? 1 : 3);
                 el.textContent = text ?? "";
+                if (verticalIds.includes(s.id)) {
+    el.style.writingMode = "vertical-rl";
+    el.style.textOrientation = "mixed";
+    el.style.transform += " rotate(180deg)"; // rotate along the vertical
+
+} else {
+    el.style.writingMode = "";
+    el.style.textOrientation = "";
+}
+
             });
 
             frameId = requestAnimationFrame(loop);
@@ -362,22 +383,29 @@ const Hero: React.FC = () => {
         return () => cancelAnimationFrame(frameId);
     }, [shapes, currentStage, progress]);
 
-    const getShapePosition = (s: ShapeWithStates) => {
-        const start = s.states[currentStage.startStateIndex];
-        const end = s.states[currentStage.endStateIndex];
-        const base = interpolate(start, end, progress);
+    const shapePhase = useRef<Record<string, number>>(
+  Object.fromEntries(shapes.map(s => [s.id, Math.random() * 1000]))
+).current;
 
-        const scale = 0;
-        const tNoise = timeRef.current;
-        const noiseX = noise2D(tNoise, s.id.length) * scale;
-        const noiseY = noise2D(tNoise, s.id.charCodeAt(0)) * scale;
 
-        return {
-            ...base,
-            x: (base.x ?? 0) + noiseX,
-            y: (base.y ?? 0) + noiseY,
-        };
+const getShapePosition = (s: ShapeWithStates) => {
+    const start = s.states[currentStage.startStateIndex];
+    const end = s.states[currentStage.endStateIndex];
+    const base = interpolate(start, end, progress);
+    // console.log(progress, start, end, base);
+    const scale = 0.3 * 1- (progress * (1-progress)); 
+    const tNoise = timeRef.current + shapePhase[s.id]; 
+    const noiseX = noise2D(tNoise, 0) * scale; // fixed second param
+    const noiseY = noise2D(tNoise, 1) * scale;
+
+    return {
+        ...base,
+        x: (base.x ?? 0) + noiseX,
+        y: (base.y ?? 0) + noiseY,
     };
+};
+
+
 
     const lerpColor = (a: string, b: string, t: number) => {
         const ah = parseInt(a.replace('#', ''), 16);
