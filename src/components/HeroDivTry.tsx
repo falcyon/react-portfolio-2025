@@ -313,20 +313,7 @@ const Hero: React.FC = () => {
     }, [ratio]);
 
     const scrollY = useScrollY();
-    const timeRef = useRef(0);
-    const [, setFrame] = useState(0);
-
-    useEffect(() => {
-        let frameId: number;
-        const loop = () => {
-            timeRef.current += 0.01;
-            setFrame((f) => f + 1);
-            frameId = requestAnimationFrame(loop);
-        };
-        frameId = requestAnimationFrame(loop);
-        return () => cancelAnimationFrame(frameId);
-    }, []);
-
+ 
     const getStageProgress = () => {
         let acc = 0;
         for (let i = 0; i < stages.length; i++) {
@@ -342,6 +329,51 @@ const Hero: React.FC = () => {
 
     const { stageIndex, progress } = getStageProgress();
     const currentStage = stages[stageIndex];
+   const timeRef = useRef(0);
+const shapeRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+useEffect(() => {
+    let frameId: number;
+
+    const loop = () => {
+        timeRef.current += 0.01;
+
+        // For each shape, update its DOM node directly
+        shapes.forEach((s) => {
+            const el = shapeRefs.current[s.id];
+            if (!el) return;
+
+            const { x, y, w, h, text } = getShapePosition(s);
+
+            // choose colors (same logic as before)
+            const startColor = s.states[currentStage.startStateIndex].__random
+                ? '#ececec'
+                : "var(--foreground)";
+            const endColor = s.states[currentStage.endStateIndex]?.__random
+                ? '#ececec'
+                : "var(--foreground)";
+            const bgColor = lerpColor(startColor, endColor, progress);
+
+            // update DOM styles
+            el.style.left = `${x}vw`;
+            el.style.top = `${y}px`;
+            el.style.width = `${w}vw`;
+            el.style.height = `${h}px`;
+            el.style.background = bgColor;
+            el.style.transform = s.rotation ? `rotate(${s.rotation}deg)` : "";
+            el.style.zIndex = String(s.states[currentStage.startStateIndex].__random ? 1 : 3);
+
+            // update text content
+            el.textContent = text ?? "";
+        });
+
+        frameId = requestAnimationFrame(loop);
+    };
+
+    frameId = requestAnimationFrame(loop);
+
+    return () => cancelAnimationFrame(frameId);
+}, [shapes, scrollY, currentStage, progress]);
 
     const getShapePosition = (s: ShapeWithStates) => {
         const start = s.states[currentStage.startStateIndex];
@@ -381,44 +413,44 @@ const Hero: React.FC = () => {
     return (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', overflow: 'hidden' }}>
             {shapes.map((s) => {
-                const { x, y, w, h, text } = getShapePosition(s);
+    const { x, y, w, h, text } = getShapePosition(s);
 
-                const verticalIds = ["Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr"];
-                const isVertical = verticalIds.includes(s.id);
+    const verticalIds = ["Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr"];
+    const isVertical = verticalIds.includes(s.id);
 
-                // Choose colors based on whether shape is random or not
-                const startColor = s.states[currentStage.startStateIndex].__random ? '#ececec' : "var(--foreground)";
-                const endColor = s.states[currentStage.endStateIndex]?.__random ? '#ececec' : "var(--foreground)";
+    const startColor = s.states[currentStage.startStateIndex].__random ? '#ececec' : "var(--foreground)";
+    const endColor = s.states[currentStage.endStateIndex]?.__random ? '#ececec' : "var(--foreground)";
 
-                const bgColor = lerpColor(startColor, endColor, progress);
+    const bgColor = lerpColor(startColor, endColor, progress);
 
-                return (
-                    <div
-                        key={s.id}
-                        style={{
-                            position: 'absolute',
-                            left: `${x}vw`,
-                            top: `${y}px`,
-                            width: `${w}vw`,
-                            height: `${h}px`,
-                            background: bgColor,
-                            cursor: 'grab',
-                            transform: s.rotation ? `rotate(${s.rotation}deg)` : undefined,
-                            display: "flex",
-                            alignItems: isVertical ? "auto" : "center",
-                            justifyContent: isVertical ? "auto" : "center",
-                            color: isVertical ? "#d93838ff" : "#fff",
-                            fontSize: isVertical ? "64px" : "18px",
-                            fontFamily: "sans-serif",
-                            whiteSpace: "nowrap",
-                            border: "1px solid var(--foreground)",
-                            zIndex: s.states[currentStage.startStateIndex].__random ? 1 : 3,
-                        }}
-                    >
-                        {text ?? ""}
-                    </div>
-                );
-            })}
+    return (
+        <div
+            key={s.id}
+            style={{
+                position: 'absolute',
+                left: `${x}vw`,
+                top: `${y}px`,
+                width: `${w}vw`,
+                height: `${h}px`,
+                background: bgColor,
+                cursor: 'grab',
+                transform: s.rotation ? `rotate(${s.rotation}deg)` : undefined,
+                display: "flex",
+                alignItems: isVertical ? "auto" : "center",
+                justifyContent: isVertical ? "auto" : "center",
+                color: isVertical ? "#d93838ff" : "#fff",
+                fontSize: isVertical ? "64px" : "18px",
+                fontFamily: "sans-serif",
+                whiteSpace: "nowrap",
+                border: "1px solid var(--foreground)",
+                zIndex: s.states[currentStage.startStateIndex].__random ? 1 : 3,
+            }}
+        >
+            {text ?? ""}
+        </div>
+    );
+})}
+
         </div>
     );
 
