@@ -3,68 +3,26 @@
 import React, { useState, useEffect, useRef } from "react";
 import { createNoise2D } from "simplex-noise";
 import { projectsArray, Project } from "../data/projects";
+import {
+  baseShapesDefs,
+  HeroState,
+  NameState,
+  landingStages,
+  generateStages,
+  ShapeDef,
+  ShapeState,
+} from "./heroStates";
+
+import styles from "./Hero.module.css";
 
 const noise2D = createNoise2D();
 
-/** Shape definition with defaults */
-interface ShapeDef {
-  id: string;
-  w: number;
-  h: number;
-  rotation?: number;
-}
-
-/** Single state of a shape (position + optional size override) */
-interface ShapeState {
-  x?: number;
-  y?: number;
-  w?: number;
-  h?: number;
-  text?: string;
-  textRotation?: number;
-  __random?: boolean;
-}
+const stages = [...landingStages, ...generateStages(projectsArray)];
 
 /** Shape with multiple states */
 interface ShapeWithStates extends ShapeDef {
   states: ShapeState[];
 }
-
-/** Scroll stage: start → end states, and scroll length in vh */
-interface Stage {
-  startStateIndex: number;
-  endStateIndex: number;
-  scrollLength: number;
-}
-
-function generateStages(projects: Project[]): Stage[] {
-  const stages: Stage[] = [];
-  let index = 2; // after intro states
-
-  projects.forEach(() => {
-    stages.push({
-      startStateIndex: index,
-      endStateIndex: index + 1,
-      scrollLength: 400,
-    });
-    stages.push({
-      startStateIndex: index + 1,
-      endStateIndex: index + 2,
-      scrollLength: 600,
-    });
-    index += 2;
-  });
-
-  return stages;
-}
-
-const stages: Stage[] = [
-  { startStateIndex: 0, endStateIndex: 1, scrollLength: 300 },
-  { startStateIndex: 1, endStateIndex: 1, scrollLength: 600 },
-  { startStateIndex: 1, endStateIndex: 2, scrollLength: 400 },
-  { startStateIndex: 2, endStateIndex: 2, scrollLength: 700 },
-  ...generateStages(projectsArray),
-];
 
 const useVhVwRatio = () => {
   const [ratio, setRatio] = useState(0);
@@ -77,66 +35,6 @@ const useVhVwRatio = () => {
   }, []);
 
   return ratio;
-};
-
-const baseShapesDefs: ShapeDef[] = [
-  { id: "Lv", w: 3, h: 15 },
-  { id: "Lh", w: 9, h: 3 },
-  { id: "Ev", w: 3, h: 15 },
-  { id: "Et", w: 9, h: 3 },
-  { id: "Em", w: 9, h: 3 },
-  { id: "Eb", w: 9, h: 3 },
-  { id: "F1v", w: 3, h: 15 },
-  { id: "F1t", w: 9, h: 3 },
-  { id: "F1m", w: 9, h: 3 },
-  { id: "F2v", w: 3, h: 15 },
-  { id: "F2t", w: 9, h: 3 },
-  { id: "F2m", w: 9, h: 3 },
-  { id: "Dot", w: 3, h: 3 },
-  { id: "Iv", w: 3, h: 15 },
-  { id: "Nl", w: 3, h: 15 },
-  { id: "Nr", w: 3, h: 15 },
-  { id: "Ns", w: 15.84, h: 3, rotation: 57.55 },
-];
-
-const HeroState: Record<string, ShapeState> = {
-  Lv: { x: 18, y: 0 },
-  Lh: { x: 18, y: 12 },
-  Ev: { x: 29, y: 0 },
-  Et: { x: 29, y: 0 },
-  Em: { x: 29, y: 6 },
-  Eb: { x: 29, y: 12 },
-  F1v: { x: 40, y: 0 },
-  F1t: { x: 40, y: 0 },
-  F1m: { x: 40, y: 6 },
-  F2v: { x: 51, y: 0 },
-  F2t: { x: 51, y: 0 },
-  F2m: { x: 51, y: 6 },
-  Dot: { x: 60, y: 12 },
-  Iv: { x: 64, y: 0 },
-  Nl: { x: 69, y: 0 },
-  Nr: { x: 78, y: 0 },
-  Ns: { x: 67.1, y: 6 },
-};
-
-const NameState: Record<string, ShapeState> = {
-  Lv: { x: 18, y: 0 },
-  Lh: { x: 18, y: 12 },
-  Ev: { x: 29, y: 0 },
-  Et: { x: 29, y: 0 },
-  Em: { x: 29, y: 6 },
-  Eb: { x: 29, y: 12 },
-  F1v: { x: 40, y: 0 },
-  F1t: { x: 40, y: 0 },
-  F1m: { x: 40, y: 6 },
-  F2v: { x: 51, y: 0 },
-  F2t: { x: 51, y: 0 },
-  F2m: { x: 51, y: 6 },
-  Iv: { x: 61, y: 0 },
-  Nl: { x: 66, y: 0 },
-  Nr: { x: 75, y: 0 },
-  Ns: { x: 64.1, y: 6 },
-  Dot: { x: 79, y: 12 },
 };
 
 function generateProjectStates(
@@ -433,34 +331,18 @@ const Hero: React.FC = () => {
   const verticalIds = ["Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr"];
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        overflow: "hidden",
-      }}
-    >
+    <div className={styles.heroContainer}>
       {shapes.map((s) => (
         <div
           key={s.id}
           ref={(el) => {
             shapeRefs.current[s.id] = el;
           }}
-          style={{
-            position: "absolute",
-            cursor: "grab",
-            display: "flex",
-            alignItems: verticalIds.includes(s.id) ? "auto" : "center",
-            justifyContent: verticalIds.includes(s.id) ? "auto" : "center",
-            color: verticalIds.includes(s.id) ? "#d93838ff" : "#fff",
-            fontSize: verticalIds.includes(s.id) ? "64px" : "18px",
-            fontFamily: "sans-serif",
-            whiteSpace: "nowrap",
-            border: "1px solid var(--foreground)",
-          }}
+          className={`${styles.shape} ${
+            verticalIds.includes(s.id)
+              ? styles.shapeVertical
+              : styles.shapeHorizontal
+          }`}
         />
       ))}
     </div>

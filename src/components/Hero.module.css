@@ -1,26 +1,34 @@
-.heroWrapper {
-  height: 200vh; /* enough scroll to see animation */
-  position: relative;
+/* hero.module.css */
+
+.heroContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.hero {
-  position: sticky;
-  top: 40vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
+.shape {
+  position: absolute;
   cursor: grab;
-  background-color: var(--bg-color);
-}
-
-.letterWrapper {
   display: flex;
-  user-select: none;
+  font-family: neuzeit-grotesk, sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid var(--foreground);
 }
 
-.hero svg {
-  height: 5rem;
-  width: auto;
-  pointer-events: all;
+.shapeVertical {
+  align-items: auto;
+  justify-content: auto;
+  color: #d93838ff;
+  font-size: 64px;
+}
+
+.shapeHorizontal {
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
 }
