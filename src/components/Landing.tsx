@@ -1,7 +1,7 @@
-import Hero from './Hero';
+import Hero from "./HeroCopy";
 import ProjectCard from "./ProjectCard";
 import { projectsArray } from "../data/projects";
-import styles from './Landing.module.css';
+import styles from "./Landing.module.css";
 
 export default function Landing() {
   const gridLines = [];
@@ -20,14 +20,13 @@ export default function Landing() {
     placeItems: "center",
   };
 
-
   for (let i = 0; i <= galleryHeight; i += 200) {
     const pxMark = i;
     gridLines.push(
       <div
         key={pxMark}
         className={styles.gridLine}
-        style={{ top: `${i}px` }}  // keep only top dynamic
+        style={{ top: `${i}px` }} // keep only top dynamic
       >
         <span className={styles.gridLabel}>{pxMark}px</span>
       </div>
@@ -39,23 +38,23 @@ export default function Landing() {
       {gridLines}
       <Hero />
       <section style={aboutMeDivStyle}>
-        <h2 className={styles.textLine} style={{ top: '700px' }}>
+        <h2 className={styles.textLine} style={{ top: "700px" }}>
           Welcome to
         </h2>
-        <h2 style={{ position: 'absolute', top: '830px', right: '82vw' }}>https://</h2>
-        <h2 className={styles.textLine} style={{ top: '1200px' }}>
+        <h2 style={{ position: "absolute", top: "830px", right: "82vw" }}>
+          https://
+        </h2>
+        <h2 className={styles.textLine} style={{ top: "1200px" }}>
           a gallery in the ether
         </h2>
 
-        <h2 className={styles.textLine} style={{ top: '1700px' }}>
+        <h2 className={styles.textLine} style={{ top: "1700px" }}>
           I am
         </h2>
-        <h2 className={styles.textLine} style={{ top: '2200px' }}>
-          a multi-disciplinary Artist with a background in <br /> Design, Engineering & Data
+        <h2 className={styles.textLine} style={{ top: "2200px" }}>
+          a multi-disciplinary Artist with a background in <br /> Design,
+          Engineering & Data
         </h2>
-
-
-
       </section>
       <section>
         <h2 className={styles.galleryTitle}>PROJECTS</h2>
@@ -65,6 +64,6 @@ export default function Landing() {
           </div>
         ))}
       </section>
-    </div >
+    </div>
   );
 }
