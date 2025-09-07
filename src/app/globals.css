@@ -3,7 +3,7 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --background: rgb(243, 243, 243);
+  --background: rgb(235, 232, 224);
   --foreground: #171717;
   --disabled: #777;
   --accent: #da1f26;
