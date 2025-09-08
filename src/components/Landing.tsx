@@ -1,4 +1,4 @@
-import Hero from "./HeroCopy";
+import Hero from "./Hero";
 import ProjectCard from "./ProjectCard";
 import { projectsArray } from "../data/projects";
 import styles from "./Landing.module.css";
@@ -9,8 +9,8 @@ export default function Landing() {
 
   const aboutMeDivStyle: React.CSSProperties = {
     height: "2600px",
-    minHeight: "2600px",
-    maxHeight: "2600px",
+    // minHeight: "2600px",
+    // maxHeight: "2600px",
     position: "relative",
     fontSize: "24px",
   };
@@ -36,7 +36,7 @@ export default function Landing() {
   return (
     <div className={styles.landingContainer}>
       {gridLines}
-      <Hero />
+
       <section style={aboutMeDivStyle}>
         <h2 className={styles.textLine} style={{ top: "700px" }}>
           Welcome to
@@ -56,6 +56,7 @@ export default function Landing() {
           Engineering & Data
         </h2>
       </section>
+      <Hero />
       <section>
         <h2 className={styles.galleryTitle}>PROJECTS</h2>
         {projectsArray.map((project) => (

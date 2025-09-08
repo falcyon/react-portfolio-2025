@@ -1,9 +1,8 @@
 .projectCardWrapper {
   display: grid;
   place-items: center;
-  height: 500px;
+  max-height: 500px;
   margin: 25px;
-  z-index: 2;
   box-sizing: content-box; /* fix quotes */
   border: 1px solid var(--foreground);
   /* padding: 2px; */
@@ -17,7 +16,7 @@
 }
 
 .projectVideo {
-  height: 500px;
+  max-height: 500px;
   width: auto;
   object-fit: contain;
 }

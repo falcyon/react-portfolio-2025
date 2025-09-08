@@ -167,7 +167,14 @@ const makeShape = (def: ShapeDef, stateArr: ShapeState[]): ShapeWithStates => {
 
   return { ...def, states: s };
 };
-
+function hexToRgb(hex: string) {
+  const h = hex.replace("#", "");
+  const bigint = parseInt(h, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return `${r},${g},${b}`;
+}
 const Hero: React.FC = () => {
   const ratio = useVhVwRatio();
   const shapesDefs = React.useMemo(
@@ -254,32 +261,33 @@ const Hero: React.FC = () => {
 
         const { x, y, w, h, text } = getShapePosition(s);
 
-        const startColor = s.states[currentStage.startStateIndex].__random
-          ? "#ececec"
-          : "var(--foreground)";
-        const endColor = s.states[currentStage.endStateIndex]?.__random
-          ? "#ececec"
-          : "var(--foreground)";
-        const bgColor = lerpColor(startColor, endColor, progress);
+        // Determine base color
+        const baseColor = s.id === "Dot" ? "#da1f26" : "var(--foreground)";
+
+        // Determine alpha based on random state
+        const alphaStart = s.states[currentStage.startStateIndex].__random
+          ? 0.2
+          : 1;
+        const alphaEnd = s.states[currentStage.endStateIndex]?.__random
+          ? 0.2
+          : 1;
+
+        // Interpolate alpha
+        const alpha = alphaStart + (alphaEnd - alphaStart) * progress;
+
+        // Apply color with alpha
+        el.style.background = `rgba(${hexToRgb(baseColor)}, ${alpha})`;
 
         el.style.left = `${x}vw`;
         el.style.top = `${y}px`;
         el.style.width = `${w}vw`;
         el.style.height = `${h}px`;
-        el.style.background = bgColor;
+        // el.style.background = bgColor;
         el.style.transform = s.rotation ? `rotate(${s.rotation}deg)` : "";
         el.style.zIndex = String(
-          s.states[currentStage.startStateIndex].__random ? 1 : 3
+          s.states[currentStage.startStateIndex].__random ? "auto" : 100
         );
         el.textContent = text ?? "";
-        if (verticalIds.includes(s.id)) {
-          el.style.writingMode = "vertical-rl";
-          el.style.textOrientation = "mixed";
-          el.style.transform += " rotate(180deg)"; // rotate along the vertical
-        } else {
-          el.style.writingMode = "";
-          el.style.textOrientation = "";
-        }
       });
 
       frameId = requestAnimationFrame(loop);
@@ -342,7 +350,7 @@ const Hero: React.FC = () => {
             verticalIds.includes(s.id)
               ? styles.shapeVertical
               : styles.shapeHorizontal
-          }`}
+          } }`}
         />
       ))}
     </div>
