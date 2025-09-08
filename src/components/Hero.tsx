@@ -318,24 +318,6 @@ const Hero: React.FC = () => {
     };
   };
 
-  const lerpColor = (a: string, b: string, t: number) => {
-    const ah = parseInt(a.replace("#", ""), 16);
-    const ar = (ah >> 16) & 0xff;
-    const ag = (ah >> 8) & 0xff;
-    const ab = ah & 0xff;
-
-    const bh = parseInt(b.replace("#", ""), 16);
-    const br = (bh >> 16) & 0xff;
-    const bg = (bh >> 8) & 0xff;
-    const bb = bh & 0xff;
-
-    const rr = Math.round(ar + (br - ar) * t);
-    const rg = Math.round(ag + (bg - ag) * t);
-    const rb = Math.round(ab + (bb - ab) * t);
-
-    return `rgb(${rr},${rg},${rb})`;
-  };
-
   const verticalIds = ["Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr"];
 
   return (
