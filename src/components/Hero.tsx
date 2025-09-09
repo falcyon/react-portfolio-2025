@@ -60,7 +60,7 @@ function generateProjectStates(
       .filter((s): s is ShapeDef => !!s);
 
     const yFirst = [200, 100, 300];
-    const xFirst = [20, 30, 70];
+    const xFirst = [20 + windowWidth * 0, 30, 70];
 
     const stateA: Record<string, ShapeState> = {};
     const stateB: Record<string, ShapeState> = {};
