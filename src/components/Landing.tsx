@@ -1,4 +1,4 @@
-import Hero from "./Hero";
+import Hero from "./HeroCopy";
 import ProjectCard from "./ProjectCard";
 import { projectsArray } from "../data/projects";
 import styles from "./Landing.module.css";
