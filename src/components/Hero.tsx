@@ -60,7 +60,7 @@ function generateProjectStates(
       .filter((s): s is ShapeDef => !!s);
 
     const yFirst = [200, 100, 300];
-    const xFirst = [20 + windowWidth * 0, 30, 70];
+    const xFirst = [20, 30, 70];
 
     const stateA: Record<string, ShapeState> = {};
     const stateB: Record<string, ShapeState> = {};
@@ -152,11 +152,7 @@ const useScrollY = () => {
   return scrollY;
 };
 
-const makeShape = (
-  def: ShapeDef,
-  stateArr: ShapeState[],
-  windowWidth: number
-): ShapeWithStates => {
+const makeShape = (def: ShapeDef, stateArr: ShapeState[]): ShapeWithStates => {
   const fallbackX = Math.random() * 90; // x in vw
   const fallbackY = 50 + Math.random() * 800; // y in px
   const s = stateArr.map((st) => {
@@ -232,7 +228,7 @@ const Hero: React.FC = () => {
   );
 
   const [shapes, setShapes] = useState<ShapeWithStates[]>(() =>
-    shapesDefs.map((def, i) => makeShape(def, states[i], windowWidth))
+    shapesDefs.map((def, i) => makeShape(def, states[i]))
   );
 
   useEffect(() => {
@@ -249,7 +245,9 @@ const Hero: React.FC = () => {
             newX = scaled?.x ?? st.x;
             newY = scaled?.y ?? st.y;
           }
-
+          if (st.__random && windowWidth < 700) {
+            newX = (st.x ?? 0) * (windowWidth / 100); // adjust factor as needed
+          }
           return {
             ...st,
             x: newX,
