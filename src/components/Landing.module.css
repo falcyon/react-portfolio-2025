@@ -1,7 +1,11 @@
 .landingContainer {
   position: relative;
 }
-
+.httptext {
+  position: absolute;
+  right: 82vw;
+  top: 830px;
+}
 .gridLine {
   position: absolute;
   width: 100%;
@@ -42,5 +46,12 @@
   .galleryTitle {
     margin: 0 0 0 5vw;
     font-size: 4rem;
+  }
+  .httptext {
+    position: absolute;
+    left: calc(50vw - 90px);
+    top: 1115px;
+    writing-mode: sideways-lr;
+    text-orientation: mixed;
   }
 }

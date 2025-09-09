@@ -19,28 +19,32 @@ const noise2D = createNoise2D();
 
 const stages = [...landingStages, ...generateStages(projectsArray)];
 
+const useWindowWidth = () => {
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    const updateWindowWidth = () => setWindowWidth(window.innerWidth);
+
+    updateWindowWidth(); // ensure initial value is correct
+    window.addEventListener("resize", updateWindowWidth);
+
+    return () => window.removeEventListener("resize", updateWindowWidth);
+  }, []);
+
+  return windowWidth;
+};
+
 /** Shape with multiple states */
 interface ShapeWithStates extends ShapeDef {
   states: ShapeState[];
 }
 
-const useVhVwRatio = () => {
-  const [ratio, setRatio] = useState(0);
-
-  useEffect(() => {
-    const updateRatio = () => setRatio(window.innerWidth / 100);
-    updateRatio();
-    window.addEventListener("resize", updateRatio);
-    return () => window.removeEventListener("resize", updateRatio);
-  }, []);
-
-  return ratio;
-};
-
 function generateProjectStates(
   projects: Project[],
   shapeDefs: ShapeDef[],
-  ratio: number
+  windowWidth: number
 ): Record<string, ShapeState>[] {
   const states: Record<string, ShapeState>[] = [];
   const verticalList = ["Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr"];
@@ -56,7 +60,7 @@ function generateProjectStates(
       .filter((s): s is ShapeDef => !!s);
 
     const yFirst = [200, 100, 300];
-    const xFirst = [20 + ratio * 0, 30, 70];
+    const xFirst = [20 + windowWidth * 0, 30, 70];
 
     const stateA: Record<string, ShapeState> = {};
     const stateB: Record<string, ShapeState> = {};
@@ -148,18 +152,22 @@ const useScrollY = () => {
   return scrollY;
 };
 
-const makeShape = (def: ShapeDef, stateArr: ShapeState[]): ShapeWithStates => {
-  const fallbackX = Math.random() * 90;
-  const fallbackY = 50 + Math.random() * 800;
+const makeShape = (
+  def: ShapeDef,
+  stateArr: ShapeState[],
+  windowWidth: number
+): ShapeWithStates => {
+  const fallbackX = Math.random() * 90; // x in vw
+  const fallbackY = 50 + Math.random() * 800; // y in px
   const s = stateArr.map((st) => {
     const hasExplicitPos = st?.x !== undefined || st?.y !== undefined;
     const isRandom = !hasExplicitPos;
 
     return {
-      x: st?.x ?? fallbackX,
-      y: st?.y ?? fallbackY,
-      w: st?.w ?? def.w,
-      h: st?.h ?? def.h,
+      x: st?.x ?? fallbackX, //x in vw
+      y: st?.y ?? fallbackY, //y in px
+      w: st?.w ?? def.w, //w in px
+      h: st?.h ?? def.h, //h in px
       text: st?.text,
       __random: isRandom,
     };
@@ -176,36 +184,55 @@ function hexToRgb(hex: string) {
   return `${r},${g},${b}`;
 }
 const Hero: React.FC = () => {
-  const ratio = useVhVwRatio();
+  const windowWidth = useWindowWidth();
   const shapesDefs = React.useMemo(
-    () => baseShapesDefs.map((s) => ({ ...s, h: s.h * ratio })),
-    [ratio]
+    () =>
+      baseShapesDefs.map((s) => ({
+        ...s,
+        w:
+          windowWidth < 700
+            ? s.h * 7 // switch w and h for narrow screens. scale w equivalent to h, in px.
+            : (s.w * windowWidth) / 100, // w in px
+        h: windowWidth < 700 ? s.w * 7 : (s.h * windowWidth) / 100, //h in px. For smaller screens, h is limited to 400 px i.e distance between top and bottom lines in 'about me'. but base h is designed for total h of 70px. so multiplied by 10
+      })),
+    [windowWidth]
   );
   const projectStateMaps = React.useMemo(
-    () => generateProjectStates(projectsArray, baseShapesDefs, ratio),
-    [ratio]
+    () => generateProjectStates(projectsArray, baseShapesDefs, windowWidth),
+    [windowWidth]
   );
-  const scaleY = (state?: ShapeState) =>
-    state
-      ? {
-          ...state,
-          y: state.y !== undefined ? state.y * ratio + 350 : undefined,
-        }
-      : state;
+  const scaleXnY = (state: ShapeState, def: ShapeDef) => {
+    const x = state.x;
+    const y = state.y;
+
+    if (windowWidth < 700) {
+      return {
+        ...state,
+        x: y !== undefined ? (y - 8) * 7 + windowWidth / 2 : undefined,
+        y: x !== undefined ? (61 - x) * 7 + 255 - def.h : undefined, // baseShapesDefs.h
+      };
+    } else {
+      return {
+        ...state,
+        x: x !== undefined ? x + 18 : undefined,
+        y: y !== undefined ? (y * windowWidth) / 100 + 350 : undefined,
+      };
+    }
+  };
 
   const states: ShapeState[][] = React.useMemo(
     () =>
       shapesDefs.map((s) => [
         {},
-        scaleY(HeroState[s.id]) ?? {},
-        scaleY(NameState[s.id]) ?? {},
+        scaleXnY(HeroState[s.id], s) ?? {},
+        scaleXnY(NameState[s.id], s) ?? {},
         ...projectStateMaps.map((m) => m[s.id] ?? {}),
       ]),
-    [ratio]
+    [windowWidth]
   );
 
   const [shapes, setShapes] = useState<ShapeWithStates[]>(() =>
-    shapesDefs.map((def, i) => makeShape(def, states[i]))
+    shapesDefs.map((def, i) => makeShape(def, states[i], windowWidth))
   );
 
   useEffect(() => {
@@ -213,21 +240,29 @@ const Hero: React.FC = () => {
       prevShapes.map((s) => {
         const def = shapesDefs.find((d) => d.id === s.id)!;
         const newStates = s.states.map((st, idx) => {
+          let newX = st.x;
           let newY = st.y;
-          if (idx === 1) newY = scaleY(HeroState[s.id])?.y ?? st.y;
-          if (idx === 2) newY = scaleY(NameState[s.id])?.y ?? st.y;
+
+          if (idx === 1 || idx === 2) {
+            const sourceState = idx === 1 ? HeroState[s.id] : NameState[s.id];
+            const scaled = scaleXnY(sourceState, def);
+            newX = scaled?.x ?? st.x;
+            newY = scaled?.y ?? st.y;
+          }
 
           return {
             ...st,
+            x: newX,
             y: newY,
             h: def.h,
+            w: def.w,
             text: st.text,
           };
         });
         return { ...s, states: newStates };
       })
     );
-  }, [ratio]);
+  }, [windowWidth]);
 
   const scrollY = useScrollY();
 
@@ -278,11 +313,16 @@ const Hero: React.FC = () => {
         // Apply color with alpha
         el.style.background = `rgba(${hexToRgb(baseColor)}, ${alpha})`;
 
-        el.style.left = `${x}vw`;
+        // Set left and width in px if windowWidth indicates narrow screen
+        if (windowWidth < 700) {
+          el.style.left = `${x}px`;
+        } else {
+          el.style.left = `${x}vw`;
+        }
         el.style.top = `${y}px`;
-        el.style.width = `${w}vw`;
+        el.style.width = `${w}px`;
+
         el.style.height = `${h}px`;
-        // el.style.background = bgColor;
         el.style.transform = s.rotation ? `rotate(${s.rotation}deg)` : "";
         el.style.zIndex = String(
           s.states[currentStage.startStateIndex].__random ? "auto" : 100
@@ -295,7 +335,7 @@ const Hero: React.FC = () => {
 
     frameId = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(frameId);
-  }, [shapes, currentStage, progress]);
+  }, [shapes, currentStage, progress, windowWidth]);
 
   const shapePhase = useRef<Record<string, number>>(
     Object.fromEntries(shapes.map((s) => [s.id, Math.random() * 1000]))

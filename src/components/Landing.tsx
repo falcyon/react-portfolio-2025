@@ -41,9 +41,7 @@ export default function Landing() {
         <h2 className={styles.textLine} style={{ top: "700px" }}>
           Welcome to
         </h2>
-        <h2 style={{ position: "absolute", top: "830px", right: "82vw" }}>
-          https://
-        </h2>
+        <h2 className={styles.httptext}>https://</h2>
         <h2 className={styles.textLine} style={{ top: "1200px" }}>
           a gallery in the ether
         </h2>
