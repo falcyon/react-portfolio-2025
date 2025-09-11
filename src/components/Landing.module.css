@@ -50,7 +50,7 @@
   .httptext {
     position: absolute;
     left: calc(50vw - 90px);
-    top: 1115px;
+    top: 1075px;
     writing-mode: sideways-lr;
     text-orientation: mixed;
   }

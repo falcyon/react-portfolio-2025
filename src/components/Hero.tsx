@@ -98,29 +98,38 @@ const interpolate = (
 const useScrollY = () => {
   const [scrollY, setScrollY] = useState(0);
   const targetY = 500;
-  const isScrollingRef = useRef(false);
+  const isUserScrollingRef = useRef(false);
+  const isAutoScrollingRef = useRef(false);
 
   useEffect(() => {
     let animationFrameId: number;
 
     const updateScroll = () => {
+      if (isUserScrollingRef.current) {
+        isAutoScrollingRef.current = false;
+        return; // stop auto-scroll if user intervenes
+      }
+
       const currentY = window.scrollY;
-      if (currentY < targetY && !isScrollingRef.current) {
+      if (currentY < targetY) {
+        isAutoScrollingRef.current = true;
         const nextY = currentY + (targetY - currentY) * 0.03 + 2;
         window.scrollTo({ top: nextY });
-        animationFrameId = requestAnimationFrame(updateScroll);
         setScrollY(nextY);
+        animationFrameId = requestAnimationFrame(updateScroll);
       } else {
+        isAutoScrollingRef.current = false;
         setScrollY(currentY);
       }
     };
 
     const onScroll = () => {
-      isScrollingRef.current = true;
+      isUserScrollingRef.current = true;
       setScrollY(window.scrollY);
+      // After a short pause, allow auto-scroll again
       setTimeout(() => {
-        isScrollingRef.current = false;
-        if (window.scrollY < targetY) {
+        isUserScrollingRef.current = false;
+        if (!isAutoScrollingRef.current && window.scrollY < targetY) {
           updateScroll();
         }
       }, 100);
@@ -128,16 +137,9 @@ const useScrollY = () => {
 
     window.addEventListener("scroll", onScroll);
 
-    // Wait for fonts and layout to be ready
     const startAutoScroll = () => {
-      // Wait for all fonts to load
       document.fonts.ready.then(() => {
-        // Double rAF ensures layout + paint are done
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            updateScroll();
-          });
-        });
+        requestAnimationFrame(() => requestAnimationFrame(updateScroll));
       });
     };
 
@@ -187,9 +189,9 @@ const Hero: React.FC = () => {
         ...s,
         w:
           windowWidth < 700
-            ? s.h * 7 // switch w and h for narrow screens. scale w equivalent to h, in px.
+            ? s.h * 6 // switch w and h for narrow screens. scale w equivalent to h, in px.
             : (s.w * windowWidth) / 100, // w in px
-        h: windowWidth < 700 ? s.w * 7 : (s.h * windowWidth) / 100, //h in px. For smaller screens, h is limited to 400 px i.e distance between top and bottom lines in 'about me'. but base h is designed for total h of 70px. so multiplied by 10
+        h: windowWidth < 700 ? s.w * 6 : (s.h * windowWidth) / 100, //h in px. For smaller screens, h is limited to 400 px i.e distance between top and bottom lines in 'about me'. but base h is designed for total h of 70px. so multiplied by 10
       })),
     [windowWidth]
   );
@@ -204,8 +206,8 @@ const Hero: React.FC = () => {
     if (windowWidth < 700) {
       return {
         ...state,
-        x: y !== undefined ? (y - 8) * 7 + windowWidth / 2 : undefined,
-        y: x !== undefined ? (61 - x) * 7 + 255 - def.h : undefined, // baseShapesDefs.h
+        x: y !== undefined ? (y - 7.5) * 6 + windowWidth / 2 : undefined,
+        y: x !== undefined ? (61 - x) * 6 + 275 - def.h : undefined, // baseShapesDefs.h
       };
     } else {
       return {
@@ -246,6 +248,7 @@ const Hero: React.FC = () => {
             newY = scaled?.y ?? st.y;
           }
           if (st.__random && windowWidth < 700) {
+            //replace with something else . this is buggy.
             newX = (st.x ?? 0) * (windowWidth / 100); // adjust factor as needed
           }
           return {

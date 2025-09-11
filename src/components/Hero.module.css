@@ -31,7 +31,7 @@
   align-items: auto;
   justify-content: auto;
   color: var(--accent);
-  font-size: 4vw;
+  font-size: 3rem;
   writing-mode: sideways-lr;
   /* text-orientation: mixed; */
   /* transform: rotate(180deg); */
@@ -42,4 +42,14 @@
   justify-content: center;
   color: #fff;
   font-size: 18px;
+}
+
+@media (max-width: 700px) {
+  .shapeVertical {
+    font-size: 2rem;
+    writing-mode: horizontal-tb;
+  }
+  .shapeHorizontal {
+    writing-mode: sideways-lr;
+  }
 }
