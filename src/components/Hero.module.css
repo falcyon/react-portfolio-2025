@@ -7,6 +7,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  z-index: 1;
 }
 
 .shape {
@@ -17,15 +18,8 @@
   font-weight: 600;
   white-space: nowrap;
   border: 1px solid var(--foreground);
-}
-
-/* .shapeRandom {
-  z-index: 1;
-}
-
-.shapeNormal {
   z-index: 3;
-} */
+}
 
 .shapeVertical {
   align-items: auto;
@@ -33,6 +27,11 @@
   color: var(--accent);
   font-size: 3rem;
   writing-mode: sideways-lr;
+  display: inline-block; /* lets text have its own width */
+  width: max-content; /* allow text to naturally size beyond the div */
+  max-width: 500px; /* cap text width at 500px */
+  white-space: normal; /* allow wrapping after max-width */
+  overflow-wrap: break-word;
   /* text-orientation: mixed; */
   /* transform: rotate(180deg); */
 }

@@ -5,10 +5,10 @@ import styles from "./Landing.module.css";
 
 export default function Landing() {
   const gridLines = [];
-  const galleryHeight = 2600 + projectsArray.length * 1000;
+  const galleryHeight = 2700 + projectsArray.length * 1000;
 
   const aboutMeDivStyle: React.CSSProperties = {
-    height: "2600px",
+    height: "2700px",
     // minHeight: "2600px",
     // maxHeight: "2600px",
     position: "relative",
@@ -18,10 +18,14 @@ export default function Landing() {
     height: "1000px",
     display: "grid",
     placeItems: "center",
+    zIndex: 1,
+    position: "relative",
+    transform: "translateZ(0)", // fix z-index bug on Chrome
   };
 
+  const offset = 400; // Adjust this value to shift the grid lines up or down
   for (let i = 0; i <= galleryHeight; i += 200) {
-    const pxMark = i;
+    const pxMark = i - offset;
     gridLines.push(
       <div
         key={pxMark}
@@ -55,14 +59,14 @@ export default function Landing() {
         </h2>
       </section>
       <Hero />
-      <section>
-        <h2 className={styles.galleryTitle}>PROJECTS</h2>
-        {projectsArray.map((project) => (
-          <div key={project.slug} style={galleryItemStyle}>
-            <ProjectCard {...project} />
-          </div>
-        ))}
-      </section>
+      {/* <section> */}
+      <h2 className={styles.galleryTitle}>PROJECTS</h2>
+      {projectsArray.map((project) => (
+        <div key={project.slug} style={galleryItemStyle}>
+          <ProjectCard {...project} />
+        </div>
+      ))}
+      {/* </section> */}
     </div>
   );
 }

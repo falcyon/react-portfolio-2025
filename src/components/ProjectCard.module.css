@@ -1,11 +1,11 @@
 .projectCardWrapper {
   display: grid;
-  place-items: center;
   max-height: 500px;
   margin: 25px;
-  box-sizing: content-box; /* fix quotes */
+  box-sizing: border-box; /* fix quotes */
   border: 1px solid var(--foreground);
   /* padding: 2px; */
+  /* z-index: 1; */
 }
 .projectImage {
   max-height: 100%;

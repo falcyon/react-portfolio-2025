@@ -1,5 +1,6 @@
 // heroStates.ts
 import { Project } from "../data/projects";
+import E from "./Hero/E";
 
 /** Shape definition with defaults */
 export interface ShapeDef {
@@ -16,7 +17,7 @@ export interface ShapeState {
   w?: number;
   h?: number;
   text?: string;
-  textRotation?: number;
+  textType?: string;
   __random?: boolean;
 }
 
@@ -67,6 +68,27 @@ export const HeroState: Record<string, ShapeState> = {
   Ns: { x: 49.1, y: 6 },
 };
 
+// Define shapeIDs for certain years
+export const yearShapes: Record<string, string> = {
+  "2025": "Lh",
+  "2024": "Et",
+  "2023": "Em",
+  "2022": "Eb",
+  "2021": "F1t",
+  "2017": "F1m",
+};
+
+// Define shapeIDs for certain tags
+export const tagShapes: Record<string, string> = {
+  Interactive: "Lv",
+  Physical: "Ev",
+  Digital: "F1v",
+  Data: "F2v",
+  Installation: "Iv",
+  Design: "Nl",
+  Engineering: "Nr",
+};
+
 export const NameState: Record<string, ShapeState> = {
   Lv: { x: 0, y: 0 },
   Lh: { x: 0, y: 12 },
@@ -110,7 +132,7 @@ export function generateStages(projects: Project[]): Stage[] {
 
 export const landingStages: Stage[] = [
   { startStateIndex: 0, endStateIndex: 1, scrollLength: 300 },
-  { startStateIndex: 1, endStateIndex: 1, scrollLength: 600 },
-  { startStateIndex: 1, endStateIndex: 2, scrollLength: 400 },
+  { startStateIndex: 1, endStateIndex: 1, scrollLength: 700 },
+  { startStateIndex: 1, endStateIndex: 2, scrollLength: 300 },
   { startStateIndex: 2, endStateIndex: 2, scrollLength: 700 },
 ];

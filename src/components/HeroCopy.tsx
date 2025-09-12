@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import ShapeText from "./ShapeText";
 import { createNoise2D } from "simplex-noise";
 import { projectsArray, Project } from "../data/projects";
 import {
@@ -11,6 +12,8 @@ import {
   generateStages,
   ShapeDef,
   ShapeState,
+  yearShapes,
+  tagShapes,
 } from "./heroStates";
 
 import styles from "./Hero.module.css";
@@ -52,34 +55,61 @@ function generateProjectStates(
 
   projects.forEach((project, i) => {
     const vId = verticalList[i % verticalList.length];
-    const hId1 = horizontalList[(2 * i) % horizontalList.length];
-    const hId2 = horizontalList[(2 * i + 1) % horizontalList.length];
 
-    const chosen = [vId, hId1, hId2]
+    // We'll need 1 horizontal for the year + one for each tag
+    const neededHorizontals = 1 + (project.tags?.length ?? 0);
+
+    const hIds = Array.from(
+      { length: neededHorizontals },
+      (_, j) =>
+        horizontalList[(i * neededHorizontals + j) % horizontalList.length]
+    );
+
+    const allShapeIds = [vId, ...hIds];
+    const chosen = allShapeIds
       .map((id) => shapeDefs.find((s) => s.id === id))
       .filter((s): s is ShapeDef => !!s);
 
-    const yFirst = [200, 100, 300];
-    const xFirst = [20 + windowWidth * 0, 30, 70];
+    const yFirst = [700, 400, 500, 600, 700, 800];
+    const xFirst = [20 + windowWidth * 0, 30, 70, 85, 78, 73];
 
     const stateA: Record<string, ShapeState> = {};
     const stateB: Record<string, ShapeState> = {};
 
     chosen.forEach((shape, idx) => {
-      const text =
-        idx === 0
-          ? project.name
-          : idx === 1
-          ? String(project.year)
-          : project.tags?.[0] ?? "";
+      let text: string;
+      let textType: "name" | "year" | "tag";
 
-      stateA[shape.id] = { x: xFirst[idx], y: yFirst[idx], text };
-      stateB[shape.id] = { x: xFirst[idx], y: yFirst[idx], text };
+      if (idx === 0) {
+        text = project.name;
+        textType = "name";
+      } else if (idx === 1) {
+        text = String(project.year);
+        textType = "year";
+      } else {
+        const tagIndex = idx - 2;
+        text = project.tags?.[tagIndex] ?? "";
+        textType = "tag";
+      }
+
+      stateA[shape.id] = {
+        x: xFirst[idx] ?? 50 + idx * 40,
+        y: yFirst[idx] ?? 400 + idx * 100,
+        text,
+        textType,
+      };
+      stateB[shape.id] = {
+        x: xFirst[idx] ?? 50 + idx * 40,
+        y: (yFirst[idx] ?? 400 + idx * 100) - 500,
+        text,
+        textType,
+      };
     });
 
     states.push(stateA);
     states.push(stateB);
   });
+
   return states;
 }
 
@@ -87,17 +117,60 @@ const interpolate = (
   start: ShapeState,
   end: ShapeState,
   t: number
-): ShapeState => ({
-  x: (start.x ?? 0) + ((end.x ?? 0) - (start.x ?? 0)) * t,
-  y: (start.y ?? 0) + ((end.y ?? 0) - (start.y ?? 0)) * t,
-  w: (start.w ?? 0) + ((end.w ?? start.w ?? 0) - (start.w ?? 0)) * t,
-  h: (start.h ?? 0) + ((end.h ?? start.h ?? 0) - (start.h ?? 0)) * t,
-  text: start.text === end.text ? start.text : "",
-});
+): ShapeState => {
+  const startText = start.text ?? "";
+  const endText = end.text ?? "";
+  let interpolatedText = "";
+
+  if (startText === endText) {
+    // Same text → keep full
+    interpolatedText = startText;
+  } else if (!startText) {
+    // Blank → appear after t/2
+    if (t < 0.5) {
+      interpolatedText = "";
+    } else {
+      const localT = (t - 0.5) / 0.5;
+      const letters = Math.floor(endText.length * localT);
+      interpolatedText = endText.slice(0, letters);
+    }
+  } else if (!endText) {
+    // Disappear in first half
+    if (t < 0.5) {
+      const localT = t / 0.5;
+      const letters = Math.ceil(startText.length * (1 - localT));
+      interpolatedText = startText.slice(0, letters);
+    } else {
+      interpolatedText = "";
+    }
+  } else {
+    // Both have text: overwrite from both ends
+    const maxLen = Math.max(startText.length, endText.length);
+    const charsToReplace = Math.floor((maxLen * t) / 2);
+
+    const front = endText.slice(0, charsToReplace);
+    const back = endText.slice(-charsToReplace);
+    const middleCount = maxLen - charsToReplace * 2;
+
+    // Get middle from whichever string fits, or pad with spaces if shorter
+    const startMiddle = startText
+      .slice(charsToReplace, charsToReplace + middleCount)
+      .padEnd(middleCount, " ");
+    interpolatedText = front + startMiddle + back;
+  }
+
+  return {
+    x: (start.x ?? 0) + ((end.x ?? 0) - (start.x ?? 0)) * t,
+    y: (start.y ?? 0) + ((end.y ?? 0) - (start.y ?? 0)) * t,
+    w: (start.w ?? 0) + ((end.w ?? start.w ?? 0) - (start.w ?? 0)) * t,
+    h: (start.h ?? 0) + ((end.h ?? start.h ?? 0) - (start.h ?? 0)) * t,
+    text: interpolatedText.trimEnd(),
+  };
+};
 
 const useScrollY = () => {
   const [scrollY, setScrollY] = useState(0);
-  const targetY = 500;
+  const targetY = 550;
   const isUserScrollingRef = useRef(false);
   const isAutoScrollingRef = useRef(false);
 
@@ -173,14 +246,7 @@ const makeShape = (def: ShapeDef, stateArr: ShapeState[]): ShapeWithStates => {
 
   return { ...def, states: s };
 };
-function hexToRgb(hex: string) {
-  const h = hex.replace("#", "");
-  const bigint = parseInt(h, 16);
-  const r = (bigint >> 16) & 255;
-  const g = (bigint >> 8) & 255;
-  const b = bigint & 255;
-  return `${r},${g},${b}`;
-}
+
 const Hero: React.FC = () => {
   const windowWidth = useWindowWidth();
   const shapesDefs = React.useMemo(
@@ -207,13 +273,13 @@ const Hero: React.FC = () => {
       return {
         ...state,
         x: y !== undefined ? (y - 7.5) * 6 + windowWidth / 2 : undefined,
-        y: x !== undefined ? (61 - x) * 6 + 275 - def.h : undefined, // baseShapesDefs.h
+        y: x !== undefined ? (61 - x) * 6 + 225 - def.h : undefined, // baseShapesDefs.h
       };
     } else {
       return {
         ...state,
         x: x !== undefined ? x + 18 : undefined,
-        y: y !== undefined ? (y * windowWidth) / 100 + 350 : undefined,
+        y: y !== undefined ? (y * windowWidth) / 100 + 250 : undefined,
       };
     }
   };
@@ -297,24 +363,23 @@ const Hero: React.FC = () => {
 
         const { x, y, w, h, text } = getShapePosition(s);
 
-        // Determine base color
-        const baseColor = s.id === "Dot" ? "#da1f26" : "var(--foreground)";
+        // Determine base color (fully opaque)
+        const baseColor = s.id === "Dot" ? "#da1f26" : "#171717";
+        el.style.background = baseColor;
 
-        // Determine alpha based on random state
-        const alphaStart = s.states[currentStage.startStateIndex].__random
+        // Determine opacity based on random state
+        const opacityStart = s.states[currentStage.startStateIndex].__random
           ? 0.2
           : 1;
-        const alphaEnd = s.states[currentStage.endStateIndex]?.__random
+        const opacityEnd = s.states[currentStage.endStateIndex]?.__random
           ? 0.2
           : 1;
 
-        // Interpolate alpha
-        const alpha = alphaStart + (alphaEnd - alphaStart) * progress;
+        // Interpolate opacity
+        const opacity = opacityStart + (opacityEnd - opacityStart) * progress;
+        el.style.opacity = `${opacity}`;
 
-        // Apply color with alpha
-        el.style.background = `rgba(${hexToRgb(baseColor)}, ${alpha})`;
-
-        // Set left and width in px if windowWidth indicates narrow screen
+        // Set position and size
         if (windowWidth < 700) {
           el.style.left = `${x}px`;
         } else {
@@ -322,12 +387,10 @@ const Hero: React.FC = () => {
         }
         el.style.top = `${y}px`;
         el.style.width = `${w}px`;
-
         el.style.height = `${h}px`;
         el.style.transform = s.rotation ? `rotate(${s.rotation}deg)` : "";
-        el.style.zIndex = String(
-          s.states[currentStage.startStateIndex].__random ? "auto" : 100
-        );
+
+        // Render text
         el.textContent = text ?? "";
       });
 
@@ -366,6 +429,7 @@ const Hero: React.FC = () => {
       {shapes.map((s) => (
         <div
           key={s.id}
+          id={s.id}
           ref={(el) => {
             shapeRefs.current[s.id] = el;
           }}
@@ -374,7 +438,9 @@ const Hero: React.FC = () => {
               ? styles.shapeVertical
               : styles.shapeHorizontal
           } }`}
-        />
+        >
+          <div></div>
+        </div>
       ))}
     </div>
   );
