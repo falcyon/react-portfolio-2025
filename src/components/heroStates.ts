@@ -1,6 +1,5 @@
 // heroStates.ts
 import { Project } from "../data/projects";
-import E from "./Hero/E";
 
 /** Shape definition with defaults */
 export interface ShapeDef {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import ShapeText from "./ShapeText";
+// import ShapeText from "./ShapeText";
 import { createNoise2D } from "simplex-noise";
 import { projectsArray, Project } from "../data/projects";
 import {
@@ -12,8 +12,8 @@ import {
   generateStages,
   ShapeDef,
   ShapeState,
-  yearShapes,
-  tagShapes,
+  // yearShapes,
+  // tagShapes,
 } from "./heroStates";
 
 import styles from "./Hero.module.css";
