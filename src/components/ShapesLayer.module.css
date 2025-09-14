@@ -1,0 +1,58 @@
+.ShapesOverlayContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  pointer-events: none;
+}
+.ShapesBackgroundContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.shape {
+  /* border: 1px solid red; */
+  pointer-events:all;
+  position: relative;
+  /* border: 1px solid var(--foreground);
+  box-sizing: border-box; */
+  background-color: var(--foreground);
+  opacity: var(--alpha, 1); 
+}
+
+
+.dot {
+    background-color: var(--accent);}
+
+
+.text {
+  color: var(--background);
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-left: 10px;
+  width: 200px;
+  white-space: normal;
+  word-break: break-word;
+  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+   
+}
+
+.name{
+  font-size: 3rem;
+  font-family: neuzeit-grotesk, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--accent);
+  /* background-color: aqua; */
+  padding-left: 1vw;
+  width: 500px;
+  white-space: normal;
+  word-break: break-word;
+  /* -webkit-text-stroke: 1px var(--background); 
+  text-stroke: 1px --background;  */
+}

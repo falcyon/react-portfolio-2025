@@ -1,7 +1,8 @@
-import Hero from "./HeroCopy";
+// import Hero from "./Hero";
 import ProjectCard from "./ProjectCard";
 import { projectsArray } from "../data/projects";
 import styles from "./Landing.module.css";
+import ShapesLayer from "./ShapesLayer";
 
 export default function Landing() {
   const gridLines = [];
@@ -58,7 +59,7 @@ export default function Landing() {
           Engineering & Data
         </h2>
       </section>
-      <Hero />
+      {/* <Hero /> */}
       {/* <section> */}
       <h2 className={styles.galleryTitle}>PROJECTS</h2>
       {projectsArray.map((project) => (
@@ -67,6 +68,8 @@ export default function Landing() {
         </div>
       ))}
       {/* </section> */}
+      <ShapesLayer />
     </div>
+
   );
 }
