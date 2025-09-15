@@ -17,7 +17,7 @@
 }
 
 .shape {
-  /* border: 1px solid var(--foreground); */
+  border: 1px solid var(--foreground);
   pointer-events:all;
   position: relative;
   /* border: 1px solid var(--foreground);
