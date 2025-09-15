@@ -7,7 +7,7 @@ import {
   ShapeDims, ShapeState, ShapesWithAllStates,//shape data structures
   unscaledShapesWithStates
 } from "./unscaledShapes";
-import { useScrollY } from "./hooks";
+import { useScrollYwithAutoScroll as useScrollY } from "./hooks";
 //create interface called ShapeDefs that has all the properties of ShapeDims and ShapeState and an additonal property, progress?: number
 interface ShapeDefs extends ShapeDims, ShapeState {
   alpha: number;

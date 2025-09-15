@@ -21,7 +21,7 @@
     
     font-weight: 100;
     padding: 10svh 25px 0px 25px;
-    margin: 0;
+    margin: 20px 0px;
 }
 
 .tag {
@@ -31,7 +31,7 @@
     color: var(--background);
     padding: 0px 5px;
     border: 1px solid black;
-    margin: 0px 2px;
+    margin: 2px 2px;
     /* border-radius: 10px; */
     font-size: 1.2rem;
 }
@@ -163,6 +163,11 @@
     }
     .projectPageDiv {
         margin: 0;
+        
+    }
+
+    .projectPageDiv h1{
+        font-size: 2em;
     }
     .sectionGroup {
         flex-direction: column;
