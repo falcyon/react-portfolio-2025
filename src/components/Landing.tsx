@@ -3,6 +3,7 @@ import ProjectCard from "./ProjectCard";
 import { projectsArray } from "../data/projects";
 import styles from "./Landing.module.css";
 import ShapesLayer from "./ShapesLayer";
+import SocialLinks from "./Socials";
 
 export default function Landing() {
   const gridLines = [];
@@ -40,7 +41,7 @@ export default function Landing() {
 
   return (
     <div className={styles.landingContainer}>
-      {gridLines}
+      {/* {gridLines} */}
 
       <section style={aboutMeDivStyle}>
         <h2 className={styles.textLine} style={{ top: "700px" }}>
@@ -58,6 +59,7 @@ export default function Landing() {
           a multi-disciplinary Artist with a background in <br /> Design,
           Engineering & Data
         </h2>
+        <SocialLinks />
         <h2 className={styles.galleryTitle} style={{ top: "2500px" }}>PROJECTS</h2>
       </section>
       {/* <Hero /> */}

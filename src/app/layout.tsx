@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import GridOverlay from "@/components/GridOverlay";
 
 export const metadata: Metadata = {
   title: "Leffin - Portfolio",
@@ -18,7 +19,10 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/qje5ynx.css" />
 
       </head>
-      <body>{children}</body>
+      <body>
+        <GridOverlay />
+        {children}
+      </body>
     </html>
   );
 }
