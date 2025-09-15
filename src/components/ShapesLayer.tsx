@@ -29,52 +29,52 @@ function useWindowSize(): { width: number; height: number } {
 }
 
 const isHeroState = (i: number) => i >= 1 && i <= 4;
-const isProjectState = (i: number) => i > 4;
-const DOT_DEFAULT_POSITION = { x: 25, y: 15 };
+// const isProjectState = (i: number) => i > 4;
+// const DOT_DEFAULT_POSITION = { x: 25, y: 15 };
 
-// Returns the corners (x1,x2,y1,y2) of project thumbnails
+// // Returns the corners (x1,x2,y1,y2) of project thumbnails
 
-function getProjectBounds(state: ShapeState, windowWidth: number, isMobile: boolean) {
-  // state.x & state.y here are projects width and height
-  const ratio = (state.x * 500) / state.y;
-  const padding = isMobile ? 25 : 100
+// function getProjectBounds(state: ShapeState, windowWidth: number, isMobile: boolean) {
+//   // state.x & state.y here are projects width and height
+//   const ratio = (state.x * 500) / state.y;
+//   const padding = isMobile ? 25 : 100
 
-  if (windowWidth > ratio + 2 * padding) {
-    // Wide enough screen
-    return {
-      projx1: 0.5 * (windowWidth - ratio),
-      projx2: 0.5 * (windowWidth + ratio),
-      projy1: 250,
-      projy2: 750,
-    };
-  }
+//   if (windowWidth > ratio + 2 * padding) {
+//     // Wide enough screen
+//     return {
+//       projx1: 0.5 * (windowWidth - ratio),
+//       projx2: 0.5 * (windowWidth + ratio),
+//       projy1: 250,
+//       projy2: 750,
+//     };
+//   }
 
-  // Narrower case
-  return {
-    projx1: isMobile ? 50 : 100,
-    projx2: isMobile ? windowWidth - 50 : windowWidth - 240,
-    projy1: 0.5 * (1000 - (state.y * (windowWidth - 2 * padding)) / state.x),
-    projy2: 0.5 * (1000 + (state.y * (windowWidth - 2 * padding)) / state.x),
-  };
-}
-let tagCountPerState: Record<number, number> = {};
-/**
- * Offset tag positions so multiple tags don’t overlap.
- */
-function getTagOffset(baseX: number, baseY: number, count: number, scaleFactor: number, isMobile: boolean) {
-  if (count <= 1) return { x: baseX, y: baseY };
-  if (isMobile) {
-    // On mobile, stack tags mostly horizontally
-    const x = baseX + 20 * scaleFactor * (count - 1);
-    const y = baseY + (count % 2 === 0 ? 10 * scaleFactor * (count - 1) : 0);
-    return { x, y };
-  }
+//   // Narrower case
+//   return {
+//     projx1: isMobile ? 50 : 100,
+//     projx2: isMobile ? windowWidth - 50 : windowWidth - 240,
+//     projy1: 0.5 * (1000 - (state.y * (windowWidth - 2 * padding)) / state.x),
+//     projy2: 0.5 * (1000 + (state.y * (windowWidth - 2 * padding)) / state.x),
+//   };
+// }
+// let tagCountPerState: Record<number, number> = {};
+// /**
+//  * Offset tag positions so multiple tags don’t overlap.
+//  */
+// function getTagOffset(baseX: number, baseY: number, count: number, scaleFactor: number, isMobile: boolean) {
+//   if (count <= 1) return { x: baseX, y: baseY };
+//   if (isMobile) {
+//     // On mobile, stack tags mostly horizontally
+//     const x = baseX + 20 * scaleFactor * (count - 1);
+//     const y = baseY + (count % 2 === 0 ? 10 * scaleFactor * (count - 1) : 0);
+//     return { x, y };
+//   }
 
-  // On desktop, stack tags vertically, with slight zigzag
-  const y = baseY + 4 * scaleFactor * (count - 1);
-  const x = baseX + 5 * scaleFactor * ((count % 2) - 1);
-  return { x, y };
-}
+//   // On desktop, stack tags vertically, with slight zigzag
+//   const y = baseY + 4 * scaleFactor * (count - 1);
+//   const x = baseX + 5 * scaleFactor * ((count % 2) - 1);
+//   return { x, y };
+// }
 
 /**
  * Scale a single state depending on its type:
@@ -107,44 +107,45 @@ function scaleState(
   }
 
   // --- Random state
-  else if (s.state.__random) {
+  else { //if (s.state.__random) {
     x = s.state.x * (windowWidth / 100) * (isMobile ? 0.9 : 0.85);
     y = s.state.y * (windowHeight / 100) * (isMobile ? 0.8 : 0.7);
   }
 
   // --- Project states
-  else if (isProjectState(i)) {
-    const { projx1, projx2, projy1, projy2 } = getProjectBounds(s.state, windowWidth, isMobile);
+  // else if (isProjectState(i)) {
+  //   const { projx1, projx2, projy1, projy2 } = getProjectBounds(s.state, windowWidth, isMobile);
 
-    if (shape.shapeType === "dot") {
-      x = DOT_DEFAULT_POSITION.x;
-      y = DOT_DEFAULT_POSITION.y;
-    } else if (s.state.textType === "name") {
-      x = projx1 - 4 * scaleFactor;
-      y = projy1 - 3 * scaleFactor;
-    } else if (s.state.textType === "year") {
-      x = projx2 - (isMobile ? 18 : 2) * scaleFactor;
-      y = projy1 + (isMobile ? -6 : 3) * scaleFactor;
-    } else if (s.state.textType === "tag") {
-      x = isMobile ? projx1 - 3 * scaleFactor : projx2 - 2 * scaleFactor;
-      y = isMobile ? projy2 + 6 * scaleFactor : projy2;
+  //   if (shape.shapeType === "dot") {
+  //     x = DOT_DEFAULT_POSITION.x;
+  //     y = DOT_DEFAULT_POSITION.y;
+  //   } else if (s.state.textType === "name") {
+  //     x = projx1 - 4 * scaleFactor;
+  //     y = projy1 - 3 * scaleFactor;
+  //   } else if (s.state.textType === "year") {
+  //     x = projx2 - (isMobile ? 18 : 2) * scaleFactor;
+  //     y = projy1 + (isMobile ? -6 : 3) * scaleFactor;
+  //   } else if (s.state.textType === "tag") {
+  //     x = isMobile ? projx1 - 3 * scaleFactor : projx2 - 2 * scaleFactor;
+  //     y = isMobile ? projy2 + 6 * scaleFactor : projy2;
 
-      // Adjust for multiple tags
-      tagCountPerState[i] = (tagCountPerState[i] ?? 0) + 1;
-      const { x: newX, y: newY } = getTagOffset(x, y, tagCountPerState[i], scaleFactor, isMobile);
-      x = newX;
-      y = newY;
-    }
-  }
+  //     // Adjust for multiple tags
+  //     tagCountPerState[i] = (tagCountPerState[i] ?? 0) + 1;
+  //     const { x: newX, y: newY } = getTagOffset(x, y, tagCountPerState[i], scaleFactor, isMobile);
+  //     x = newX;
+  //     y = newY;
+  //   }
+  // }
 
   // --- Final scaled state
   return {
     state: {
       ...s.state,
       x,
-      y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i))
-        ? y // leave y untouched for random/dot project states
-        : (i % 2 === 1 ? y + (isMobile ? 200 : 300) : y - 200), // stagger odd/even placement
+      y
+      // y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i))
+      //   ? y // leave y untouched for random/dot project states
+      //   : (i % 2 === 1 ? y + (isMobile ? 200 : 300) : y - 200), // stagger odd/even placement
     },
     scrollVal: s.scrollVal,
   };
@@ -189,7 +190,7 @@ export function getScaledShapesWithStates(
   windowHeight: number
 ): Record<ShapeID, ShapesWithAllStates> {
   const isMobile = windowWidth < 700;
-  tagCountPerState = {};
+  // tagCountPerState = {};
   return Object.fromEntries(
     Object.entries(unscaledShapesWithStates).map(([id, shape]) => [
       id,
