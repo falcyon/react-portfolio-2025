@@ -308,7 +308,7 @@ export default function ShapesLayer() {
         const backgroundColor =
           shapeType === "dot"
             ? "var(--accent)"
-            : `rgba(23,23,23, ${alpha ?? 1})`;
+            : `rgba(39,39,38, ${alpha ?? 1})`;
 
         return (
           <div
