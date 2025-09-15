@@ -99,7 +99,7 @@ function scaleState(
   if (isHeroState(i)) {
     if (isMobile) {
       x = (s.state.y - 7.5) * scaleFactor + windowWidth / 2;
-      y = (61 - s.state.x - shape.w) * scaleFactor + 295;
+      y = (61 - s.state.x - shape.w) * scaleFactor + 175;
     } else {
       x = (s.state.x + 18) * (windowWidth / 100);
       y = (s.state.y * windowWidth) / 100 + 250;
@@ -142,7 +142,7 @@ function scaleState(
     state: {
       ...s.state,
       x,
-      y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i))
+      y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i)) || (isHeroState(i))
         ? y // keep y as-is for random/dot project states
         : i % 2 === 1
           ? y + (isMobile ? 100 : 500 - heightOffset) // odd index: push down
