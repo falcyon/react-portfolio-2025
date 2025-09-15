@@ -103,7 +103,7 @@ const points = generateNonClumpingPoints(shapeIDs.length, minDist);
 const RandomState: Record<ShapeID, ShapeState> = Object.fromEntries(
   shapeIDs.map((id, i) => {
     if (unscaledShapes[id].shapeType === "dot") {
-      return [id, { x: 48, y: 35,__random: true }];
+      return [id, { x: 48, y: 35,__random: false }];
     }
     return [id, { x: points[i].x, y: points[i].y, __random: true }];
   })
