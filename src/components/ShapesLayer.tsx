@@ -142,10 +142,10 @@ function scaleState(
     state: {
       ...s.state,
       x,
-      y
-      // y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i))
-      //   ? y // leave y untouched for random/dot project states
-      //   : (i % 2 === 1 ? y + (isMobile ? 200 : 300) : y - 200), // stagger odd/even placement
+      // y
+      y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i))
+        ? y // leave y untouched for random/dot project states
+        : (i % 2 === 1 ? y + (isMobile ? 200 : 300) : y - 200), // stagger odd/even placement
     },
     scrollVal: s.scrollVal,
   };
