@@ -104,7 +104,7 @@
   font-size: 32px;
   font-weight: 700;
   color: var(--accent);
-  background: white;
+  /* background: white; */
   /* border: 3px solid var(--accent); */
   cursor: pointer;
   z-index: 1000;
@@ -123,8 +123,7 @@
 
 .closeButton:hover {
   background: var(--accent);
-  color: white;
-  border-color: white;
+  color: var(--background);
 }
 .endOfPage {
   text-align: center;
@@ -150,6 +149,11 @@
 }
 
 @media (max-width: 700px) {
+    .closeButton {
+        font-size: 64px;
+        top: 5vw;
+        right: 5vw;
+    }
     .projectPageDiv {
         margin: 0;
     }

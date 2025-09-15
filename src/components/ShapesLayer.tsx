@@ -3,70 +3,43 @@
 import { useState, useEffect, useMemo } from "react";
 import styles from "./ShapesLayer.module.css";
 import {
-  ShapeID, ShapeType,  // types 
+  ShapeID,  // types 
   ShapeDims, ShapeState, ShapesWithAllStates,//shape data structures
   unscaledShapesWithStates
 } from "./unscaledShapes";
-
+import { useScrollY } from "./hooks";
 //create interface called ShapeDefs that has all the properties of ShapeDims and ShapeState and an additonal property, progress?: number
 interface ShapeDefs extends ShapeDims, ShapeState {
   alpha: number;
   layer: number;
   progress: number;
 }
-// import { createNoise2D } from "simplex-noise";
 
-// Custom hook for scroll position
-function useScrollY(): number {
-  const [scrollY, setScrollY] = useState<number>(0);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    setScrollY(window.scrollY); // initialize on mount
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return scrollY;
-}
-
-// Custom hook for window size
 function useWindowSize(): { width: number; height: number } {
   const [size, setSize] = useState({ width: 0, height: 0 });
-
   useEffect(() => {
     const handleResize = () =>
       setSize({ width: window.innerWidth, height: window.innerHeight });
-
     handleResize(); // initialize on mount
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
   return size;
 }
 
-// -----------------------------
-// Helper functions
-// -----------------------------
-
-// Hero states are indices 1–4 (special alignment for name + hero sections)
 const isHeroState = (i: number) => i >= 1 && i <= 4;
-
-// Project states are indices > 4 (name/year/tag for projects)
 const isProjectState = (i: number) => i > 4;
-
-// Default position for dot-type shapes
 const DOT_DEFAULT_POSITION = { x: 25, y: 15 };
 
-/**
- * Calculate project thumbnail bounds depending on aspect ratio and window width.
- * Returns the corners (x1,x2,y1,y2) where project states (name/year/tag) can be placed.
- */
-function getProjectBounds(state: ShapeState, windowWidth: number, isMobile: boolean) {
-  const ratio = (state.x * 500) / state.y;
+// Returns the corners (x1,x2,y1,y2) of project thumbnails
 
-  if (windowWidth > ratio + 50) {
+function getProjectBounds(state: ShapeState, windowWidth: number, isMobile: boolean) {
+  // state.x & state.y here are projects width and height
+  const ratio = (state.x * 500) / state.y;
+  const padding = isMobile ? 25 : 100
+
+  if (windowWidth > ratio + 2 * padding) {
     // Wide enough screen
     return {
       projx1: 0.5 * (windowWidth - ratio),
@@ -78,19 +51,18 @@ function getProjectBounds(state: ShapeState, windowWidth: number, isMobile: bool
 
   // Narrower case
   return {
-    projx1: isMobile ? 25 : 50,
-    projx2: isMobile ? windowWidth - 25 : windowWidth - 140,
-    projy1: 0.5 * (1000 - (state.y * windowWidth) / state.x),
-    projy2: 0.5 * (1000 + (state.y * windowWidth) / state.x),
+    projx1: isMobile ? 50 : 100,
+    projx2: isMobile ? windowWidth - 50 : windowWidth - 240,
+    projy1: 0.5 * (1000 - (state.y * (windowWidth - 2 * padding)) / state.x),
+    projy2: 0.5 * (1000 + (state.y * (windowWidth - 2 * padding)) / state.x),
   };
 }
-
+let tagCountPerState: Record<number, number> = {};
 /**
  * Offset tag positions so multiple tags don’t overlap.
  */
 function getTagOffset(baseX: number, baseY: number, count: number, scaleFactor: number, isMobile: boolean) {
   if (count <= 1) return { x: baseX, y: baseY };
-
   if (isMobile) {
     // On mobile, stack tags mostly horizontally
     const x = baseX + 20 * scaleFactor * (count - 1);
@@ -106,7 +78,7 @@ function getTagOffset(baseX: number, baseY: number, count: number, scaleFactor: 
 
 /**
  * Scale a single state depending on its type:
- * - Hero state (special offsets)
+ * - Hero state (bespoke offsets)
  * - Random state (scatter positioning)
  * - Project state (name/year/tag placement)
  * - Default scaling
@@ -114,11 +86,10 @@ function getTagOffset(baseX: number, baseY: number, count: number, scaleFactor: 
 function scaleState(
   s: { state: ShapeState; scrollVal: number },
   i: number,
-  shape: { w: number; h: number; rotation?: number; shapeType: ShapeType; states: { state: ShapeState; scrollVal: number }[] },
+  shape: ShapesWithAllStates,
   windowWidth: number,
   windowHeight: number,
   scaleFactor: number,
-  tagCountPerState: Record<number, number>,
   isMobile: boolean
 ) {
   let x = s.state.x * scaleFactor;
@@ -149,14 +120,14 @@ function scaleState(
       x = DOT_DEFAULT_POSITION.x;
       y = DOT_DEFAULT_POSITION.y;
     } else if (s.state.textType === "name") {
-      x = projx1 - (isMobile ? 3 : 4) * scaleFactor;
+      x = projx1 - 4 * scaleFactor;
       y = projy1 - 3 * scaleFactor;
     } else if (s.state.textType === "year") {
       x = projx2 - (isMobile ? 18 : 2) * scaleFactor;
       y = projy1 + (isMobile ? -6 : 3) * scaleFactor;
     } else if (s.state.textType === "tag") {
       x = isMobile ? projx1 - 3 * scaleFactor : projx2 - 2 * scaleFactor;
-      y = isMobile ? projy2 + 3 * scaleFactor : projy2;
+      y = isMobile ? projy2 + 6 * scaleFactor : projy2;
 
       // Adjust for multiple tags
       tagCountPerState[i] = (tagCountPerState[i] ?? 0) + 1;
@@ -182,14 +153,15 @@ function scaleState(
 /**
  * Scale an entire shape (its dimensions + all its states).
  */
+
 function scaleShape(
-  shape: { w: number; h: number; rotation?: number; shapeType: ShapeType; states: { state: ShapeState; scrollVal: number }[] },
+  shape: ShapesWithAllStates,
   windowWidth: number,
   windowHeight: number,
   isMobile: boolean
 ) {
-  const scaleFactor = isMobile ? 6 : windowWidth / 100;
-  const tagCountPerState: Record<number, number> = {};
+  const scaleFactor = isMobile ? 7 : windowWidth / 100;
+
 
   return {
     w: isMobile ? shape.h * scaleFactor : shape.w * scaleFactor, // mobile swaps w/h scaling
@@ -197,7 +169,7 @@ function scaleShape(
     rotation: shape.rotation,
     shapeType: shape.shapeType,
     states: shape.states.map((s, i) =>
-      scaleState(s, i, shape, windowWidth, windowHeight, scaleFactor, tagCountPerState, isMobile)
+      scaleState(s, i, shape, windowWidth, windowHeight, scaleFactor, isMobile)
     ),
   };
 }
@@ -217,7 +189,7 @@ export function getScaledShapesWithStates(
   windowHeight: number
 ): Record<ShapeID, ShapesWithAllStates> {
   const isMobile = windowWidth < 700;
-
+  tagCountPerState = {};
   return Object.fromEntries(
     Object.entries(unscaledShapesWithStates).map(([id, shape]) => [
       id,
@@ -282,15 +254,15 @@ function getCurrentShapeState(scaledShapesWithStates: Record<ShapeID, ShapesWith
     let alpha = 1;
     let layer = 1;
     if (startState.__random && !endState.__random) {
-      alpha = 0.2 + 0.8 * progress;
+      alpha = 0.1 + 0.9 * progress;
       layer = progress > 0.5 ? 1 : 0;
 
 
     } else if (!startState.__random && endState.__random) {
-      alpha = 1 - 0.8 * progress;
+      alpha = 1 - 0.9 * progress;
       layer = progress < 0.5 ? 1 : 0;
     } else if (startState.__random && endState.__random) {
-      alpha = 0.2;
+      alpha = 0.1;
       layer = 0
     }
 
@@ -333,6 +305,11 @@ export default function ShapesLayer() {
       .filter(([, shape]) => shape.layer === layer)
       .map(([shapeID, shape]) => {
         const { w, h, x, y, rotation, shapeType, text, textType, alpha } = shape;
+        const backgroundColor =
+          shapeType === "dot"
+            ? "var(--accent)"
+            : `rgba(23,23,23, ${alpha ?? 1})`;
+
         return (
           <div
             key={shapeID}
@@ -344,7 +321,7 @@ export default function ShapesLayer() {
               position: 'absolute',
               top: 0,
               left: 0,
-              ["--alpha" as string]: alpha
+              backgroundColor
             } as React.CSSProperties}
           >
             {text && <div className={`${styles.text} ${styles[textType ?? ""]}`}>{text}</div>}

@@ -1,9 +1,9 @@
 .projectCardWrapper {
   display: grid;
   max-height: 500px;
-  margin: 25px;
-  box-sizing: border-box; /* fix quotes */
-  border: 1px solid var(--foreground);
+  margin: 100px;
+  /* box-sizing: border-box; 
+  border: 1px solid var(--foreground); */
   /* padding: 2px; */
   /* z-index: 1; */
 }
@@ -13,10 +13,22 @@
   height: auto;
   width: auto;
   object-fit: contain;
+  box-sizing: border-box; 
+  border: 1px solid var(--foreground);
 }
 
 .projectVideo {
   max-height: 500px;
   width: auto;
   object-fit: contain;
+  box-sizing: border-box;
+  border: 1px solid var(--foreground);
+}
+
+@media (max-width: 700px) {
+
+.projectCardWrapper {
+    margin: 50px;
+}
+
 }

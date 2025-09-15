@@ -58,10 +58,11 @@ export default function Landing() {
           a multi-disciplinary Artist with a background in <br /> Design,
           Engineering & Data
         </h2>
+        <h2 className={styles.galleryTitle} style={{ top: "2500px" }}>PROJECTS</h2>
       </section>
       {/* <Hero /> */}
       {/* <section> */}
-      <h2 className={styles.galleryTitle}>PROJECTS</h2>
+
       {projectsArray.map((project) => (
         <div key={project.slug} style={galleryItemStyle}>
           <ProjectCard {...project} />

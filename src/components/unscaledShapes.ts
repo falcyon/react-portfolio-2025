@@ -166,7 +166,7 @@ export const unscaledShapesWithStates: Record<ShapeID, ShapesWithAllStates> = Ob
     {
       ...unscaledShapes[id],
       states: [
-        { state: RandomState[id], scrollVal: 0 },
+        { state: RandomState[id], scrollVal: 10 },
         { state: HeroState[id], scrollVal: 200 },
         { state: HeroState[id], scrollVal: 900 },
         { state: NameState[id], scrollVal: 1200 },

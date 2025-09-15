@@ -13,21 +13,24 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  pointer-events: none;
 }
 
 .shape {
-  /* border: 1px solid red; */
+  border: 1px solid var(--foreground);
   pointer-events:all;
   position: relative;
   /* border: 1px solid var(--foreground);
   box-sizing: border-box; */
   background-color: var(--foreground);
-  opacity: var(--alpha, 1); 
+  /* opacity: var(--alpha, 1);  */
 }
 
 
 .dot {
-    background-color: var(--accent);}
+    background-color: var(--accent);
+    border: 1px black;
+  }
 
 
 .text {
@@ -35,11 +38,10 @@
   font-size: 1.5rem;
   font-weight: bold;
   padding-left: 10px;
-  width: 200px;
+  width: 250px;
   white-space: normal;
   word-break: break-word;
-  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
-   
+  
 }
 
 .name{
@@ -51,8 +53,26 @@
   /* background-color: aqua; */
   padding-left: 1vw;
   width: 500px;
-  white-space: normal;
-  word-break: break-word;
-  /* -webkit-text-stroke: 1px var(--background); 
-  text-stroke: 1px --background;  */
+  -webkit-text-stroke: 1px var(--foreground); 
+  text-stroke: 1px var(--foreground); 
 }
+
+.tag {
+text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+  
+}
+
+.year{
+text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+  
+}
+/* 
+@media (max-width: 700px) {
+
+  .text{
+    font-size: 1.5rem;
+  }
+.name{
+  font-size: 2rem;
+}
+} */

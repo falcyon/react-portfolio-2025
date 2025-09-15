@@ -32,7 +32,8 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  max-width: 50vw;
+  width: 50vw;
+  /* max-width: 50vw; */
 }
 
 .galleryTitle {
@@ -40,15 +41,20 @@
   overflow: visible;
   margin: 0 0 0 10vw;
   color: var(--foreground);
-  font-family: "neuzeit-grotesk", sans-serif;
+  /* font-family: "neuzeit-grotesk", sans-serif; */
   font-weight: 600;
   font-size: 5rem;
-  /* transform: translate(0, -10vw); */
+  position: absolute;
 }
 @media (max-width: 700px) {
+  .gridLabel{
+    font-size: 12px;
+    top: -10px;
+  }
+  
   .galleryTitle {
-    margin: 0 0 0 5vw;
-    font-size: 4rem;
+    margin: 0 0 0 10vw;
+    font-size: 2rem;
   }
   .httptext {
     position: absolute;
@@ -56,5 +62,9 @@
     top: 1075px;
     writing-mode: sideways-lr;
     text-orientation: mixed;
+  }
+  .textLine {
+    font-size: 1.2rem;
+    width: 80vw;
   }
 }
