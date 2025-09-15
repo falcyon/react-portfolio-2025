@@ -62,6 +62,16 @@ export default function Landing() {
             Welcome to
           </h2>
           <h2 className={styles.httptext}>https://</h2>
+          <span style={{
+            position: "absolute",
+            left: "-9999px",
+            top: "1050px",
+            height: "1px",
+            width: "1px",
+            overflow: "hidden",
+          }}
+            tabIndex={0}>Leff.in</span>
+
           <h2 className={styles.textLine} style={{ top: "1200px" }}>
             a gallery in the ether
           </h2>
@@ -69,6 +79,15 @@ export default function Landing() {
           <h2 className={styles.textLine} style={{ top: "1700px" }}>
             I am
           </h2>
+          <span style={{
+            position: "absolute",
+            left: "-9999px",
+            top: "2100px",
+            height: "1px",
+            width: "1px",
+            overflow: "hidden",
+          }} tabIndex={0}>Leffin</span>
+
           <h2 className={styles.textLine} style={{ top: "2200px" }}>
             a multi-disciplinary Artist with a background in <br /> Design,
             Engineering & Data
