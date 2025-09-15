@@ -27,7 +27,7 @@
   /* opacity: var(--alpha, 1);  */
 }
 
-/* 
+
 .dot {
     background-color: var(--accent);
     border: 1px solid black;
@@ -65,8 +65,7 @@ text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--fore
 .year{
 text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
   
-} */
-/* 
+} 
 @media (max-width: 700px) {
 
   .text{
@@ -75,4 +74,4 @@ text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--fore
 .name{
   font-size: 2rem;
 }
-} */
+}

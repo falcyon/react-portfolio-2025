@@ -193,10 +193,10 @@ for (const project of projectsArray) {
   
     const nameShape = longShapeIDs[longIndex % longShapeIDs.length];
     projectState[nameShape] = {
-      x:RandomState[nameShape].x,
-      y:RandomState[nameShape].y,
-      // x: project.width,
-      // y: project.height,
+      // x:RandomState[nameShape].x,
+      // y:RandomState[nameShape].y,
+      x: project.width,
+      y: project.height,
       text: project.name,
       textType: "name",
       __random: false
@@ -205,10 +205,10 @@ for (const project of projectsArray) {
 
     const yearShape = shortShapeIDs[shortIndex % shortShapeIDs.length];
     projectState[yearShape] = {
-       x:RandomState[yearShape].x,
-      y:RandomState[yearShape].y,
-      // x: project.width,
-      // y: project.height,
+      //  x:RandomState[yearShape].x,
+      // y:RandomState[yearShape].y,
+      x: project.width,
+      y: project.height,
       text: project.year.toString(),
       textType: "year",
       __random: false
@@ -218,10 +218,10 @@ for (const project of projectsArray) {
     for (const tag of project.tags) {
       const tagShape = shortShapeIDs[shortIndex % shortShapeIDs.length];
       projectState[tagShape] = {
-        x:RandomState[tagShape].x,
-      y:RandomState[tagShape].y,
-        // x: project.width,
-        // y: project.height,
+      //   x:RandomState[tagShape].x,
+      // y:RandomState[tagShape].y,
+        x: project.width,
+        y: project.height,
         text: tag,
         textType: "tag",
         __random: false
