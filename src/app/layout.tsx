@@ -22,7 +22,7 @@ export default function RootLayout({
 
         <meta property="og:title" content="Leffin | An Interactive & Experiential Artist" />
         <meta property="og:description" content="Leffin is an artist who blends technology and creativity. Explore his immersive projects here." />
-        <meta property="og:image" content="https://leff.in/leffin_portfolio.png" />
+        <meta property="og:image" content="https://leff.in/leffin_opengraphimage.png" />
         <meta property="og:url" content="https://leff.in" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Leffin Portfolio" />
@@ -30,7 +30,7 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Leffin | An Interactive & Experiential Artist" />
         <meta name="twitter:description" content="Leffin is an artist who blends technology and creativity. Explore his immersive projects here." />
-        <meta name="twitter:image" content="https://leff.in/leffin_portfolio.png" />
+        <meta name="twitter:image" content="https://leff.in/leffin_opengraphimage.png" />
 
 
       </head>
