@@ -25,7 +25,7 @@ export default function RootLayout({
         <meta property="og:image" content="https://leff.in/leffin_portfolio.png" />
         <meta property="og:url" content="https://leff.in" />
         <meta property="og:type" content="website" />
-
+        <meta property="og:site_name" content="Leffin Portfolio" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Leffin | An Interactive & Experiential Artist" />
