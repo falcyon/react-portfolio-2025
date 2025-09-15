@@ -13,7 +13,7 @@ export default function SocialLinks() {
         flexDirection: "row",
         alignItems: "center",
         gap: "16px",
-        zIndex: 1000,
+        zIndex: 1,
     };
 
     const iconStyle: React.CSSProperties = {

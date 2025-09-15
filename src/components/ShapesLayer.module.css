@@ -6,6 +6,7 @@
   height: 100vh;
   z-index: 100;
   pointer-events: none;
+
 }
 .ShapesBackgroundContainer {
   position: fixed;
@@ -13,7 +14,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* pointer-events: none; */
+  pointer-events: none;
   z-index: 0;
 }
 
