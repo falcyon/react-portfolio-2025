@@ -9,7 +9,7 @@ export default function CloseButton() {
         const referrer = document.referrer;
         const isFromHome = referrer.includes(window.location.origin + "/");
 
-        if (isFromHome) {
+        if (isFromHome || window.history.length > 1) {
             router.back(); // preserves scroll position
         } else {
             router.push("/"); // scrolls to top
