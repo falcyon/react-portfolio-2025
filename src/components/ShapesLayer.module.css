@@ -46,15 +46,15 @@
 }
 
 .name{
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: neuzeit-grotesk, sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   color: var(--accent);
   padding-left: 1vw;
   width: 500px;
-  -webkit-text-stroke: 1px var(--foreground); 
-  text-stroke: 1px var(--foreground); 
+  /* -webkit-text-stroke: 1px var(--foreground); 
+  text-stroke: 1px var(--foreground);  */
 }
 
 .tag {
@@ -69,9 +69,19 @@
 @media (max-width: 700px) {
 
   .text{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    
   }
 .name{
   font-size: 2rem;
+}
+.tag{
+  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+
+}
+
+.year{
+  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+
 }
 }
