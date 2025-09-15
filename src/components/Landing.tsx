@@ -4,10 +4,8 @@ import { projectsArray } from "../data/projects";
 import styles from "./Landing.module.css";
 import ShapesLayer from "./ShapesLayer";
 import SocialLinks from "./Socials";
-
+import Head from "next/head";
 export default function Landing() {
-  const gridLines = [];
-  const galleryHeight = 2700 + projectsArray.length * 1200;
 
   const aboutMeDivStyle: React.CSSProperties = {
     height: "2700px",
@@ -24,55 +22,78 @@ export default function Landing() {
     position: "relative",
     transform: "translateZ(0)", // fix z-index bug on Chrome
   };
+  const allTags = Array.from(new Set(projectsArray.flatMap(p => p.tags)));
+  const allProjectNames = projectsArray.map(p => p.name).join(", ");
 
-  const offset = 600; // Adjust this value to shift the grid lines up or down
-  for (let i = 0; i <= galleryHeight; i += 200) {
-    const pxMark = i - offset;
-    gridLines.push(
-      <div
-        key={pxMark}
-        className={styles.gridLine}
-        style={{ top: `${i}px` }} // keep only top dynamic
-      >
-        <span className={styles.gridLabel}>{pxMark}px</span>
-      </div>
-    );
-  }
+  const description = `Explore projects: ${allProjectNames}. Years: ${projectsArray.map(p => p.year).join(", ")}. Tags: ${allTags.join(", ")}.`;
+
+  const keywords = `${allProjectNames}, ${allTags.join(", ")}`;
+
+  // Optional: JSON-LD structured data for projects
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": projectsArray.map((p, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://yourdomain.com/projects/${p.slug}`,
+      name: p.name,
+      datePublished: p.year,
+      keywords: p.tags.join(", ")
+    }))
+  };
+
 
   return (
-    <div className={styles.landingContainer}>
-      {/* {gridLines} */}
+    <>
+      <Head>
+        <title>My Projects</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      </Head>
 
-      <section style={aboutMeDivStyle}>
-        <h2 className={styles.textLine} style={{ top: "700px" }}>
-          Welcome to
-        </h2>
-        <h2 className={styles.httptext}>https://</h2>
-        <h2 className={styles.textLine} style={{ top: "1200px" }}>
-          a gallery in the ether
-        </h2>
 
-        <h2 className={styles.textLine} style={{ top: "1700px" }}>
-          I am
-        </h2>
-        <h2 className={styles.textLine} style={{ top: "2200px" }}>
-          a multi-disciplinary Artist with a background in <br /> Design,
-          Engineering & Data
-        </h2>
-        <SocialLinks />
-        <h2 className={styles.galleryTitle} style={{ top: "2500px" }}>PROJECTS</h2>
-      </section>
-      {/* <Hero /> */}
-      {/* <section> */}
+      <div className={styles.landingContainer}>
+        {/* {gridLines} */}
 
-      {projectsArray.map((project) => (
-        <div key={project.slug} style={galleryItemStyle}>
-          <ProjectCard {...project} />
-        </div>
-      ))}
-      {/* </section> */}
-      <ShapesLayer />
-    </div>
+        <section style={aboutMeDivStyle}>
+          <h2 className={styles.textLine} style={{ top: "700px" }}>
+            Welcome to
+          </h2>
+          <h2 className={styles.httptext}>https://</h2>
+          <h2 className={styles.textLine} style={{ top: "1200px" }}>
+            a gallery in the ether
+          </h2>
 
+          <h2 className={styles.textLine} style={{ top: "1700px" }}>
+            I am
+          </h2>
+          <h2 className={styles.textLine} style={{ top: "2200px" }}>
+            a multi-disciplinary Artist with a background in <br /> Design,
+            Engineering & Data
+          </h2>
+          <SocialLinks />
+          <h2 className={styles.galleryTitle} style={{ top: "2700px" }}>PROJECTS</h2>
+        </section>
+        {/* <Hero /> */}
+        {/* <section> */}
+
+        {projectsArray.map((project) => (
+          <div key={project.slug} style={galleryItemStyle}>
+            <ProjectCard
+              name={project.name}
+              slug={project.slug}
+              thumbnail={project.thumbnail}
+              year={project.year.toString()} // convert number to string
+              tags={project.tags}
+            />
+
+          </div>
+        ))}
+        {/* </section> */}
+        <ShapesLayer />
+      </div>
+    </>
   );
 }

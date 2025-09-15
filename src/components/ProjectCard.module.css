@@ -7,6 +7,7 @@
   /* padding: 2px; */
   /* z-index: 1; */
 }
+
 /* .projectImage {
   max-height: 100%;
   max-width: 100%;
@@ -17,9 +18,24 @@
   border: 1px solid var(--foreground);
 } */
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .projectImage {
-  width: 100%;   /* take full parent width */
-  height: auto;  /* scale proportionally */
+  width: 100%;
+  /* take full parent width */
+  height: auto;
+  /* scale proportionally */
   max-height: 500px;
   object-fit: contain;
   border: 1px solid var(--foreground);
@@ -36,8 +52,8 @@
 
 @media (max-width: 700px) {
 
-.projectCardWrapper {
+  .projectCardWrapper {
     margin: 50px;
-}
+  }
 
 }

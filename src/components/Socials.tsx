@@ -6,7 +6,7 @@ import { MdEmail } from "react-icons/md";
 export default function SocialLinks() {
     const containerStyle: React.CSSProperties = {
         position: "absolute",
-        top: "2300px",
+        top: "2400px",
         left: "50%",
         transform: "translateX(-50%)",
         display: "flex",
@@ -17,7 +17,7 @@ export default function SocialLinks() {
     };
 
     const iconStyle: React.CSSProperties = {
-        color: "#555",
+        color: "var(--foreground)",
         transition: "color 0.3s",
         cursor: "pointer",
     };
