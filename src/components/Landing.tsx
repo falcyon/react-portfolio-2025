@@ -36,7 +36,7 @@ export default function Landing() {
     "itemListElement": projectsArray.map((p, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: `https://yourdomain.com/projects/${p.slug}`,
+      url: `https://leff.in/projects/${p.slug}`,
       name: p.name,
       datePublished: p.year,
       keywords: p.tags.join(", ")
