@@ -52,7 +52,7 @@ function getProjectBounds(state: ShapeState, windowWidth: number, isMobile: bool
   // Narrower case
   return {
     projx1: isMobile ? 50 : 100,
-    projx2: isMobile ? windowWidth - 50 : windowWidth - 240,
+    projx2: isMobile ? windowWidth - 50 : windowWidth - 120,
     projy1: 0.5 * (1000 - (state.y * (windowWidth - 2 * padding)) / state.x),
     projy2: 0.5 * (1000 + (state.y * (windowWidth - 2 * padding)) / state.x),
   };
@@ -99,7 +99,7 @@ function scaleState(
   if (isHeroState(i)) {
     if (isMobile) {
       x = (s.state.y - 7.5) * scaleFactor + windowWidth / 2;
-      y = (61 - s.state.x - shape.w) * scaleFactor + 225;
+      y = (61 - s.state.x - shape.w) * scaleFactor + 295;
     } else {
       x = (s.state.x + 18) * (windowWidth / 100);
       y = (s.state.y * windowWidth) / 100 + 250;
@@ -123,11 +123,11 @@ function scaleState(
       x = projx1 - 4 * scaleFactor;
       y = projy1 - 3 * scaleFactor;
     } else if (s.state.textType === "year") {
-      x = projx2 - (isMobile ? 18 : 2) * scaleFactor;
-      y = projy1 + (isMobile ? -6 : 3) * scaleFactor;
+      x = projx2 - (isMobile ? 8 : 2) * scaleFactor;
+      y = projy1 - 6 * scaleFactor;
     } else if (s.state.textType === "tag") {
       x = isMobile ? projx1 - 3 * scaleFactor : projx2 - 2 * scaleFactor;
-      y = isMobile ? projy2 + 6 * scaleFactor : projy2;
+      y = isMobile ? projy2 + 1 * scaleFactor : projy2 - 8 * scaleFactor;
 
       // Adjust for multiple tags
       tagCountPerState[i] = (tagCountPerState[i] ?? 0) + 1;
@@ -136,16 +136,17 @@ function scaleState(
       y = newY;
     }
   }
-
+  const heightOffset = Math.max(0, windowHeight - 500);
   // --- Final scaled state
   return {
     state: {
       ...s.state,
       x,
-      // y
       y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i))
-        ? y // leave y untouched for random/dot project states
-        : (i % 2 === 1 ? y + (isMobile ? 200 : 300) : y - 200), // stagger odd/even placement
+        ? y // keep y as-is for random/dot project states
+        : i % 2 === 1
+          ? y + (isMobile ? 100 : 500 - heightOffset) // odd index: push down
+          : y - (isMobile ? 300 : 500 - heightOffset), // even index: pull up
     },
     scrollVal: s.scrollVal,
   };

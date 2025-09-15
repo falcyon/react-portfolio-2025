@@ -24,7 +24,7 @@ export function useScrollYwithAutoScroll(): number {
     setScrollY(window.scrollY); // initialize on mount
     window.addEventListener("scroll", handleScroll);
 
-    const targetY = 395;
+    const targetY = 595;
     let animationFrame: number | null = null;
 
     const smoothScroll = () => {

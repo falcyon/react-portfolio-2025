@@ -6,7 +6,7 @@ import ShapesLayer from "./ShapesLayer";
 
 export default function Landing() {
   const gridLines = [];
-  const galleryHeight = 2700 + projectsArray.length * 1000;
+  const galleryHeight = 2700 + projectsArray.length * 1200;
 
   const aboutMeDivStyle: React.CSSProperties = {
     height: "2700px",
@@ -16,7 +16,7 @@ export default function Landing() {
     fontSize: "24px",
   };
   const galleryItemStyle: React.CSSProperties = {
-    height: "1000px",
+    height: "1200px",
     display: "grid",
     placeItems: "center",
     zIndex: 1,
@@ -24,7 +24,7 @@ export default function Landing() {
     transform: "translateZ(0)", // fix z-index bug on Chrome
   };
 
-  const offset = 400; // Adjust this value to shift the grid lines up or down
+  const offset = 600; // Adjust this value to shift the grid lines up or down
   for (let i = 0; i <= galleryHeight; i += 200) {
     const pxMark = i - offset;
     gridLines.push(

@@ -182,7 +182,7 @@ const shortShapeIDs = shapeIDs.filter(id => unscaledShapes[id].shapeType === "sh
 
 let longIndex = 0;
 let shortIndex = 0;
-let scrollVal = 1200; //end of NameState
+let scrollVal = 1400; //end of NameState
 
 // Iterate over projectsArray to add project-specific states
 
@@ -228,7 +228,7 @@ for (const project of projectsArray) {
       };
       shortIndex++;
     }
-  scrollVal += 1000
+  scrollVal += 1200
     //add projectState & scrollVal to the states array of each shape in unscaledShapesWithStates
     for (const id of shapeIDs) {
       unscaledShapesWithStates[id].states.push({
@@ -237,7 +237,7 @@ for (const project of projectsArray) {
       });
       unscaledShapesWithStates[id].states.push({
         state: projectState[id],
-        scrollVal: scrollVal + 700
+        scrollVal: scrollVal + 500
       });
     } 
 }
