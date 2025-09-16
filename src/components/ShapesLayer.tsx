@@ -168,6 +168,7 @@ function scaleShape(
   return {
     w: isMobile ? shape.h * scaleFactor : shape.w * scaleFactor, // mobile swaps w/h scaling
     h: isMobile ? shape.w * scaleFactor : shape.h * scaleFactor,
+
     rotation: shape.rotation,
     shapeType: shape.shapeType,
     states: shape.states.map((s, i) =>
@@ -202,8 +203,9 @@ export function getScaledShapesWithStates(
 
 
 // Helper function to get current shape state based on scrollY. the positionedshape is w,h,rotation, shapetype from scaledShapesWithStates, and x,y,text,textType from the state in scaledShapesWithStates where scrollVal is the largest scrollVal less than or equal to scrollY.
-function getCurrentShapeState(scaledShapesWithStates: Record<ShapeID, ShapesWithAllStates>, scrollY: number): Record<ShapeID, ShapeDefs> {
+function getCurrentShapeState(scaledShapesWithStates: Record<ShapeID, ShapesWithAllStates>, scrollY: number): { currentShapeState: Record<ShapeID, ShapeDefs>, startIndex: number } {
   const currentShapeState: Record<ShapeID, ShapeDefs> = {} as Record<ShapeID, ShapeDefs>;
+  let startIndex = 0
   for (const shapeID in scaledShapesWithStates) {
     const shape = scaledShapesWithStates[shapeID as ShapeID];
     // Find the state with the largest scrollVal less than or equal to scrollY
@@ -211,10 +213,12 @@ function getCurrentShapeState(scaledShapesWithStates: Record<ShapeID, ShapesWith
     let endState = shape.states[1].state;
     let startScrollVal = 0;
     let endScrollVal = 0;
+    startIndex = 0
     for (const s of shape.states) {
       if (s.scrollVal <= scrollY) {
         startState = s.state;
         startScrollVal = s.scrollVal;
+        startIndex += 1
       } else {
         endState = s.state;
         endScrollVal = s.scrollVal;
@@ -289,21 +293,38 @@ function getCurrentShapeState(scaledShapesWithStates: Record<ShapeID, ShapesWith
       ...interpolatedState
     };
   }
-  return currentShapeState;
+  return { currentShapeState, startIndex };
 }
+
+
+
 
 export default function ShapesLayer() {
   const scrollY = useScrollY(); // in pixels
-  const { width: windowWidth, height: windowHeight } = useWindowSize(); //in pixels
+  const { width: windowWidth, height: windowHeight } = useWindowSize(); // in pixels
 
   // Compute scaledShapesWithStates when windowWidth changes
-  const scaledShapesWithStates = useMemo(() => getScaledShapesWithStates(unscaledShapesWithStates, windowWidth, windowHeight), [windowWidth, windowHeight]);
+  const scaledShapesWithStates = useMemo(
+    () => getScaledShapesWithStates(unscaledShapesWithStates, windowWidth, windowHeight),
+    [windowWidth, windowHeight]
+  );
 
   // Then get the current shape definitions based on scroll position
-  const currentShapeDef = useMemo(() => getCurrentShapeState(scaledShapesWithStates, scrollY), [scaledShapesWithStates, scrollY]);
+  const { currentShapeState, startIndex } = useMemo(
+    () => getCurrentShapeState(scaledShapesWithStates, scrollY),
+    [scaledShapesWithStates, scrollY]
+  );
+
+  const handleHomeClick = () => {
+    // Example: scroll back to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // Or navigate programmatically if you’re using Next.js/React Router
+    // router.push("/")
+  };
 
   const renderShapes = (layer: number) =>
-    Object.entries(currentShapeDef)
+    Object.entries(currentShapeState)
       .filter(([, shape]) => shape.layer === layer)
       .map(([shapeID, shape]) => {
         const { w, h, x, y, rotation, shapeType, text, textType, alpha } = shape;
@@ -312,21 +333,29 @@ export default function ShapesLayer() {
             ? "var(--accent)"
             : `rgba(39,39,38, ${alpha ?? 1})`;
 
+        const isHomeButton = shapeType === "dot" && startIndex > 2;
+
         return (
           <div
             key={shapeID}
-            className={`${styles.shape} ${styles[shapeType]}`}
+            className={`${styles.shape} ${styles[shapeType]} ${startIndex}`}
             style={{
               width: `${w}px`,
               height: `${h}px`,
               transform: `translate(${x}px, ${y}px) rotate(${rotation || 0}deg)`,
-              position: 'absolute',
+              position: "absolute",
               top: 0,
               left: 0,
-              backgroundColor
+              backgroundColor,
+              cursor: isHomeButton ? "pointer" : "default",
             } as React.CSSProperties}
+            onClick={isHomeButton ? handleHomeClick : undefined}
           >
-            {text && <div className={`${styles.text} ${styles[textType ?? ""]}`}>{text}</div>}
+            {text && (
+              <div className={`${styles.text} ${styles[textType ?? ""]}`}>
+                {text}
+              </div>
+            )}
           </div>
         );
       });
@@ -339,10 +368,6 @@ export default function ShapesLayer() {
       <div className={styles.ShapesOverlayContainer}>
         {renderShapes(1)}
       </div>
-
-
     </>
   );
-
-
 }
