@@ -15,7 +15,7 @@ export function useScrollY(): number {
 }
 
 
-
+//works everywhere but on iphone without flicking. 
 export function useScrollYwithAutoScroll(): number {
   const [scrollY, setScrollY] = useState<number>(0);
 
@@ -75,3 +75,67 @@ export function useScrollYwithAutoScroll(): number {
 
   return scrollY;
 }
+
+//works on iphone while flicking. 
+export function useScrollYwithAutoScrolliphonefix(): number {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    let animationFrame: number | null = null;
+    let scrollTimeout: number | null = null;
+
+    const targetY = 595;
+
+    const smoothScroll = () => {
+      const currentY = window.scrollY;
+
+      if (currentY >= targetY) {
+        animationFrame = null;
+        return;
+      }
+
+      const delta = (targetY - currentY) * 0.1; // smoother attraction
+      const nextY = currentY + Math.sign(delta) * Math.min(Math.abs(delta), 12);
+
+      window.scrollTo(0, nextY);
+      animationFrame = requestAnimationFrame(smoothScroll);
+    };
+
+    const triggerAutoScroll = () => {
+      if (!animationFrame && window.scrollY < targetY) {
+        animationFrame = requestAnimationFrame(smoothScroll);
+      }
+    };
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+
+      // Cancel any pending scroll detection
+      if (scrollTimeout) window.clearTimeout(scrollTimeout);
+
+      // Wait until momentum scroll finishes (≈100ms silence)
+      scrollTimeout = window.setTimeout(() => {
+        triggerAutoScroll();
+      }, 120);
+    };
+
+    setScrollY(window.scrollY); // init
+    window.addEventListener("scroll", handleScroll);
+window.addEventListener("load", triggerAutoScroll);
+
+    // ✅ Trigger immediately if already loaded
+    if (document.readyState === "complete") {
+      triggerAutoScroll();
+    }
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("load", triggerAutoScroll);
+     
+      if (scrollTimeout) window.clearTimeout(scrollTimeout);
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+    };
+  }, []);
+
+  return scrollY;
+}
+
