@@ -14,6 +14,7 @@ interface ShapeDefs extends ShapeDims, ShapeState {
   layer: number;
   progress: number;
 }
+import PagePreloader from "./PagePreloader";
 
 
 function useWindowSize(): { width: number; height: number } {
@@ -362,6 +363,7 @@ export default function ShapesLayer() {
 
   return (
     <>
+      <PagePreloader />
       <div className={styles.ShapesBackgroundContainer}>
         {renderShapes(0)}
       </div>
