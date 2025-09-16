@@ -1,4 +1,4 @@
-"useclient";
+"use client";
 
 import { useEffect, useState } from "react";
 import styles from "./PagePreloader.module.css";
