@@ -57,10 +57,12 @@ export function useScrollYwithAutoScroll(): number {
 
     // Run immediately if already loaded
     if (document.readyState === "complete") {
-      triggerAutoScroll();
-    } else {
-      window.addEventListener("load", triggerAutoScroll);
-    }
+  setTimeout(triggerAutoScroll, 1000);
+} else {
+  window.addEventListener("load", () => {
+    setTimeout(triggerAutoScroll, 1000);
+  });
+}
 
     // Re-run if user scrolls back under targetY
     window.addEventListener("scroll", triggerAutoScroll);
