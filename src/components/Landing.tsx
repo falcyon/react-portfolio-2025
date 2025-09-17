@@ -15,10 +15,11 @@ export default function Landing() {
     fontSize: "24px",
   };
   const galleryItemStyle: React.CSSProperties = {
-    height: "1200px",
+    height: "1000px",
     display: "grid",
-    placeItems: "center",
+    placeItems: "center left",
     zIndex: 1,
+    paddingLeft: "80px",
     position: "relative",
     transform: "translateZ(0)", // fix z-index bug on Chrome
   };

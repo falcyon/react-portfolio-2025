@@ -7,8 +7,8 @@ export const shapeIDs = [
   "Lh","Et","Em","Eb"
   ,"F1t","F1m",
   "F2t","F2m",
-  // "Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr", 
-  "Nr", "Nl", "Iv", "F2v", "F1v", "Ev", "Lv", 
+  "Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr", 
+  // "Nr", "Nl", "Iv", "F2v", "F1v", "Ev", "Lv", 
   "Ns","Dot"
 ] as const;
 
@@ -21,7 +21,6 @@ export type ShapeType = "long" | "short" | "dot" | "slant";
 export interface ShapeDims {
   w: number;
   h: number;
-  rotation?: number;
   shapeType: ShapeType;
 }
 
@@ -31,6 +30,7 @@ export interface ShapeDims {
 export interface ShapeState {
   x: number;
   y: number;
+  rotation?: number;
   text?: string;
   textType?: string;
   __random?: boolean;
@@ -63,7 +63,7 @@ const unscaledShapes: Record<ShapeID, ShapeDims> = {
   Iv: { w: 3, h: 15, shapeType: "long" },
   Nl: { w: 3, h: 15, shapeType: "long" },
   Nr: { w: 3, h: 15, shapeType: "long" },
-  Ns: { w: 15.84, h: 3, rotation: 57.55, shapeType: "slant" },
+  Ns: { w: 15.84, h: 3, shapeType: "slant" },
 };
 
 
@@ -107,7 +107,13 @@ const RandomState: Record<ShapeID, ShapeState> = Object.fromEntries(
     if (unscaledShapes[id].shapeType === "dot") {
       return [id, { x: 48, y: 35,__random: false }];
     }
-    return [id, { x: points[i].x, y: points[i].y, __random: true }];
+    else if (unscaledShapes[id].shapeType === "slant"){
+      return [id, { x: points[i].x, y: points[i].y,rotation: 57.55, __random: true }];
+    }
+    else{
+      return [id, { x: points[i].x, y: points[i].y, __random: true }];
+    }
+   
   })
 ) as Record<ShapeID, ShapeState>;
 
@@ -132,7 +138,7 @@ const HeroState: Record<ShapeID, ShapeState> = {
   Iv: { x: 46, y: 0 },
   Nl: { x: 51, y: 0 },
   Nr: { x: 60, y: 0 },
-  Ns: { x: 49.1, y: 6 },
+  Ns: { x: 49.1, y: 6, rotation: 57.55 },
 };
 
 // --------------------
@@ -154,7 +160,7 @@ const NameState: Record<ShapeID, ShapeState> = {
   Iv: { x: 43, y: 0 },
   Nl: { x: 48, y: 0 },
   Nr: { x: 57, y: 0 },
-  Ns: { x: 46.1, y: 6 },
+  Ns: { x: 46.1, y: 6, rotation: 57.55 },
   Dot: { x: 61, y: 12 },
 };
 
@@ -187,32 +193,32 @@ let shortIndex = 0;
 let scrollVal = 1400; //end of NameState
 
 // Iterate over projectsArray to add project-specific states
-// const ProjectStateDummy: Record<ShapeID, ShapeState> = {
-//   Lv: { x: 28, y: 22, __random: true },
-//   Lh: { x: 66, y: 8, __random: true },
-//   Ev: { x: 16, y: 47 , __random: true},
-//   Et: { x: 80, y: 39 , __random: true},
-//   Em: { x: 68, y: 71 , __random: true},
-//   Eb: { x: 48, y: 76, __random: true },
-//   F1v: { x: 34, y: 70, __random: true },
-//   F1t: { x: 23, y: 72, __random: true },
-//   F1m: { x: 16, y: 44 , __random: true},
-//   F2v: { x: 66, y: 67 , __random: true},
-//   F2t: { x: 20, y: 20 , __random: true},
-//   F2m: { x: 40, y: 12 , __random: true},
-//   Iv: { x: 82, y: 41, __random: true },
-//   Nl: { x: 67, y: 16 , __random: true},
-//   Nr: { x: 49, y: 7, __random: true },
-//   Ns: { x: 46.1, y: 6 , __random: true},
-//   Dot: { x: 61, y: 12, __random: false },
-// };
+const ProjectStateDummy: Record<ShapeID, ShapeState> = {
+  Lv: { x: 4, y: 29, __random: true },
+  Ev: { x: 9, y: 45 , __random: true},
+  F1v: { x: 17, y: 50, __random: true },
+  F2v: { x: 27, y: 42 , __random: true},
+  Iv: { x: 29, y: 15, __random: true },
+  Nl: { x: 22, y: 6 , __random: true},
+  Nr: { x: 13, y: 5, __random: true },
+  Lh: { x: 66, y: 8, __random: true },
+  Et: { x: 80, y: 39 , __random: true},
+  Em: { x: 68, y: 71 , __random: true},
+  Eb: { x: 48, y: 76, __random: true },
+  F1t: { x: 23, y: 72, __random: true },
+  F1m: { x: 16, y: 44 , __random: true},
+  F2t: { x: 20, y: 20 , __random: true},
+  F2m: { x: 40, y: 12 , __random: true},
+  Ns: { x: 46.1, y: 6 , __random: true},
+  Dot: { x: 50, y: 50, __random: false },
+};
 
 
-// function noisyValue(base: number, range: number = 10) {
-//   return base + (Math.random() * 2 - 1) * range;
-// }
+function noisyValue(base: number, range: number = 10) {
+  return base + (Math.random() * 2 - 1) * range;
+}
 
-// let previousState = { ...ProjectStateDummy };
+let previousState = { ...ProjectStateDummy };
 
 for (const project of projectsArray) {
   //create a new Record<ShapeID, ShapeState> that is a copy of randomState
@@ -226,12 +232,12 @@ for (const project of projectsArray) {
   //   const fromShape = rotatedLong[(i - 1 + lenLong) % lenLong];
   //   projectState[toID] = {
   //     ...ProjectStateDummy[toID],        // keep all original attributes
-  //     x: noisyValue(fromShape.x, 5),   // rotated + noise
-  //     y: noisyValue(fromShape.y, 5),
+  //     x: noisyValue(fromShape.x*1.06, 0),   // rotated + noise
+  //     y: noisyValue(fromShape.y*1.04, 0),
   //   };
   // }
 
-  // // --- Rotate short shapes, update only x and y ---
+  // --- Rotate short shapes, update only x and y ---
   // const lenShort = shortShapeIDs.length;
   // const rotatedShort = shortShapeIDs.map(id => previousState[id]);
   // for (let i = 0; i < lenShort; i++) {
@@ -239,8 +245,8 @@ for (const project of projectsArray) {
   //   const fromShape = rotatedShort[(i - 1 + lenShort) % lenShort];
   //   projectState[toID] = {
   //     ...ProjectStateDummy[toID],        // keep all other attributes
-  //     x: noisyValue(fromShape.x, 8),
-  //     y: noisyValue(fromShape.y, 8),
+  //     x: noisyValue(fromShape.x*2, 0),
+  //     y: noisyValue(fromShape.y*2, 0),
   //   };
   // }
   // previousState = projectState;
@@ -248,11 +254,12 @@ for (const project of projectsArray) {
 
     const nameShape = longShapeIDs[longIndex % longShapeIDs.length];
     projectState[nameShape] = {
-      // x:RandomState[nameShape].x,
-      // y:RandomState[nameShape].y,
-      x: project.width,
-      y: project.height,
+      x:RandomState[nameShape].x,
+      y:RandomState[nameShape].y,
+      // x: project.width,
+      // y: project.height,
       text: project.name,
+      rotation: 0,
       textType: "name",
       __random: false
     };
@@ -260,10 +267,10 @@ for (const project of projectsArray) {
 
     const yearShape = shortShapeIDs[shortIndex % shortShapeIDs.length];
     projectState[yearShape] = {
-      //  x:RandomState[yearShape].x,
-      // y:RandomState[yearShape].y,
-      x: project.width,
-      y: project.height,
+       x:RandomState[yearShape].x,
+      y:RandomState[yearShape].y,
+      // x: project.width,
+      // y: project.height,
       text: project.year.toString(),
       textType: "year",
       __random: false
@@ -273,17 +280,17 @@ for (const project of projectsArray) {
     for (const tag of project.tags) {
       const tagShape = shortShapeIDs[shortIndex % shortShapeIDs.length];
       projectState[tagShape] = {
-      //   x:RandomState[tagShape].x,
-      // y:RandomState[tagShape].y,
-        x: project.width,
-        y: project.height,
+        x:RandomState[tagShape].x,
+      y:RandomState[tagShape].y,
+        // x: project.width,
+        // y: project.height,
         text: tag,
         textType: "tag",
         __random: false
       };
       shortIndex++;
     }
-  scrollVal += 1200
+  scrollVal += 1000
     //add projectState & scrollVal to the states array of each shape in unscaledShapesWithStates
     for (const id of shapeIDs) {
       unscaledShapesWithStates[id].states.push({
@@ -292,7 +299,7 @@ for (const project of projectsArray) {
       });
       unscaledShapesWithStates[id].states.push({
         state: projectState[id],
-        scrollVal: scrollVal + 500
+        scrollVal: scrollVal + 700
       });
     } 
 }

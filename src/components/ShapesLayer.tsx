@@ -106,48 +106,56 @@ function scaleState(
       y = (s.state.y * windowWidth) / 100 + 250;
     }
   }
-
-  // --- Random state
-  else if (s.state.__random) {
+  else {
     x = s.state.x * (windowWidth / 100) * (isMobile ? 0.9 : 0.85);
     y = s.state.y * (windowHeight / 100) * (isMobile ? 0.8 : 0.7);
   }
+  // --- Random state
+  // else if (s.state.__random) {
+  //   x = s.state.x * (windowWidth / 100) * (isMobile ? 0.9 : 0.85);
+  //   y = s.state.y * (windowHeight / 100) * (isMobile ? 0.8 : 0.7);
+  // }
 
-  // --- Project states
-  else if (isProjectState(i)) {
-    const { projx1, projx2, projy1, projy2 } = getProjectBounds(s.state, windowWidth, isMobile);
+  // // --- Project states
+  // else if (isProjectState(i)) {
+  //   const { projx1, projx2, projy1, projy2 } = getProjectBounds(s.state, windowWidth, isMobile);
 
-    if (shape.shapeType === "dot") {
-      x = DOT_DEFAULT_POSITION.x;
-      y = DOT_DEFAULT_POSITION.y;
-    } else if (s.state.textType === "name") {
-      x = projx1 - 4 * scaleFactor;
-      y = projy1 - 3 * scaleFactor;
-    } else if (s.state.textType === "year") {
-      x = projx2 - (isMobile ? 8 : 2) * scaleFactor;
-      y = projy1 - 6 * scaleFactor;
-    } else if (s.state.textType === "tag") {
-      x = isMobile ? projx1 - 3 * scaleFactor : projx2 - 2 * scaleFactor;
-      y = isMobile ? projy2 + 1 * scaleFactor : projy2 - 8 * scaleFactor;
+  //   if (shape.shapeType === "dot") {
+  //     x = DOT_DEFAULT_POSITION.x;
+  //     y = DOT_DEFAULT_POSITION.y;
+  //   } else if (s.state.textType === "name") {
+  //     x = 6 * scaleFactor
+  //     y = 14 * windowHeight / 100 + 50
 
-      // Adjust for multiple tags
-      tagCountPerState[i] = (tagCountPerState[i] ?? 0) + 1;
-      const { x: newX, y: newY } = getTagOffset(x, y, tagCountPerState[i], scaleFactor, isMobile);
-      x = newX;
-      y = newY;
-    }
-  }
-  const heightOffset = Math.max(0, windowHeight - 500);
+  //     x = s.state.x * (windowWidth / 100) * (isMobile ? 0.9 : 0.85);
+  //     y = s.state.y * (windowHeight / 100) * (isMobile ? 0.8 : 0.7);
+  //   } else if (s.state.textType === "year") {
+  //     x = projx2 - (isMobile ? 8 : 2) * scaleFactor;
+  //     y = projy1 - 6 * scaleFactor;
+  //     x = s.state.x * (windowWidth / 100) * (isMobile ? 0.9 : 0.85);
+  //     y = s.state.y * (windowHeight / 100) * (isMobile ? 0.8 : 0.7);
+
+  //   } else if (s.state.textType === "tag") {
+  //     x = isMobile ? projx1 - 3 * scaleFactor : projx2 - 2 * scaleFactor;
+  //     y = isMobile ? projy2 + 1 * scaleFactor : projy2 - 8 * scaleFactor;
+
+  //     // Adjust for multiple tags
+  //     tagCountPerState[i] = (tagCountPerState[i] ?? 0) + 1;
+  //     const { x: newX, y: newY } = getTagOffset(x, y, tagCountPerState[i], scaleFactor, isMobile);
+  //     x = newX;
+  //     y = newY;
+  //     x = s.state.x * (windowWidth / 100) * (isMobile ? 0.9 : 0.85);
+  //     y = s.state.y * (windowHeight / 100) * (isMobile ? 0.8 : 0.7);
+  //   }
+
+  // }
+  // const heightOffset = Math.max(0, windowHeight - 500);
   // --- Final scaled state
   return {
     state: {
       ...s.state,
       x,
-      y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i)) || (isHeroState(i))
-        ? y // keep y as-is for random/dot project states
-        : i % 2 === 1
-          ? y + (isMobile ? 100 : 500 - heightOffset) // odd index: push down
-          : y - (isMobile ? 300 : 500 - heightOffset), // even index: pull up
+      y,
     },
     scrollVal: s.scrollVal,
   };
@@ -170,7 +178,7 @@ function scaleShape(
     w: isMobile ? shape.h * scaleFactor : shape.w * scaleFactor, // mobile swaps w/h scaling
     h: isMobile ? shape.w * scaleFactor : shape.h * scaleFactor,
 
-    rotation: shape.rotation,
+    // rotation: shape.rotation,
     shapeType: shape.shapeType,
     states: shape.states.map((s, i) =>
       scaleState(s, i, shape, windowWidth, windowHeight, scaleFactor, isMobile)
@@ -278,15 +286,16 @@ function getCurrentShapeState(scaledShapesWithStates: Record<ShapeID, ShapesWith
     const interpolatedState: ShapeState = {
       x: startState.x + (endState.x - startState.x) * progress,
       y: startState.y + (endState.y - startState.y) * progress,
+      rotation: (startState.rotation ?? 0) + ((endState.rotation ?? 0) - (startState.rotation ?? 0)) * progress,
       text: interpolatedText,
-      textType: endState.textType || startState.textType
+      textType: (endState.textType || startState.textType) ?? ""
     };
 
 
     currentShapeState[shapeID as ShapeID] = {
       w: shape.w,
       h: shape.h,
-      rotation: shape.rotation,
+      // rotation: interpolatedState.rotation,
       shapeType: shape.shapeType,
       alpha, // example alpha based on progress
       layer, //which div to go in
@@ -328,20 +337,20 @@ export default function ShapesLayer() {
     Object.entries(currentShapeState)
       .filter(([, shape]) => shape.layer === layer)
       .map(([shapeID, shape]) => {
-        const { w, h, x, y, rotation, shapeType, text, textType, alpha } = shape;
+        const { w, h, x, y, rotation, shapeType, text, textType = "", alpha } = shape;
         const backgroundColor =
           shapeType === "dot"
             ? "var(--accent)"
-            : `rgba(39,39,38, ${alpha ?? 1})`;
+            : `rgba(35, 32, 24, ${alpha ?? 1})`;
 
         const isHomeButton = shapeType === "dot" && startIndex > 2;
 
         return (
           <div
             key={shapeID}
-            className={`${styles.shape} ${styles[shapeType]} ${startIndex}`}
+            className={`${styles.shape} ${styles[shapeType]} ${styles[textType]} ${startIndex}`}
             style={{
-              width: `${w}px`,
+              minWidth: `${w}px`,
               height: `${h}px`,
               transform: `translate(${x}px, ${y}px) rotate(${rotation || 0}deg)`,
               position: "absolute",
@@ -352,11 +361,12 @@ export default function ShapesLayer() {
             } as React.CSSProperties}
             onClick={isHomeButton ? handleHomeClick : undefined}
           >
-            {text && (
-              <div className={`${styles.text} ${styles[textType ?? ""]}`}>
+            {text}
+            {/* && (
+              // <div className={`${styles.text} ${styles[textType ?? ""]}`}>
                 {text}
-              </div>
-            )}
+              // </div>
+            )} */}
           </div>
         );
       });

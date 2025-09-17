@@ -8,6 +8,7 @@
   pointer-events: none;
 
 }
+
 .ShapesBackgroundContainer {
   position: fixed;
   top: 0;
@@ -19,80 +20,93 @@
 }
 
 .shape {
-  border: 1px solid var(--foreground);
-  pointer-events:auto;
-  position: relative;
+  /* border: 1px solid var(--foreground); */
+  pointer-events: auto;
+  /* position: relative; */
+  /* display: inline-block; */
   /* border: 1px solid var(--foreground);
   box-sizing: border-box; */
   background-color: var(--foreground);
+  color: var(--background);
   /* opacity: var(--alpha, 1);  */
 }
 
-
-.dot {
-    background-color: var(--accent);
-    border: 1px solid black;
-  }
-
-
-.text {
-  /* position: absolute;
-  top: 0; left: 0; */
-  color: var(--background);
-  width: max-content;
-   /* display: inline-block; */
-  /* font-size: 1.5rem;
-  font-weight: bold;
-  padding-left: 10px; */
-  /* max-width: 250px; */
-  
-  
-}
-
-.name{
-  /* position: absolute; */
-  font-size: 2rem;
+.long {
+  transform-origin: top left;
+  max-width: 15vw;
+  font-size: 1.5rem;
   font-family: neuzeit-grotesk, sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   color: var(--accent);
-  padding-left: 1vw; 
-  
-   max-width: 500px;
+  padding: 1vw;
+
+  display: inline-block;
+  /* makes width shrink/expand properly */
   white-space: normal;
+  /* allows wrapping */
+  word-break: break-all;
+  /* breaks long words if needed */
+  overflow-wrap: break-word;
+  /* modern alternative for breaking words */
+}
+
+
+.short {
+  color: var(--background);
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.dot {
+  background-color: var(--accent);
+  border: 1px solid var(--foreground);
+}
+
+.name {
+  /* position: absolute; */
+
+  /* writing-mode: sideways-lr; */
+  /* max-height: 500px; */
+  /* white-space: normal;
   word-break: break-word;
- 
- 
+  overflow: visible; */
+
   /* -webkit-text-stroke: 1px var(--background); 
   text-stroke: 1px var(--background);  */
 }
 
 .tag {
-text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
-  
+  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+  white-space: nowrap;
 }
 
-.year{
-text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
-  
-} 
+.year {
+  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+  white-space: nowrap;
+}
+
 @media (max-width: 700px) {
 
-  .text{
+  .text {
     font-size: 1.2rem;
     width: 80vw;
-    
+
   }
-.name{
-  font-size: 2rem;
-}
-.tag{
-  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
 
-}
+  .name {
+    font-size: 2rem;
+  }
 
-.year{
-  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+  .tag {
+    text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
 
-}
+  }
+
+  .year {
+    text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+
+  }
 }
