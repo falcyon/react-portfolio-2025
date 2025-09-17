@@ -55,7 +55,7 @@ export const projectsArray: Project[] = [
     height: 1080,
     width: 1080,
     year: 2021,
-    tags: ["Interactive", "Installation", "Digital Art"],
+    tags: ["Interactive", "Installation", "AI"],
     size: "t",
     position: 3,
     description: "An interactive installation where users engage in a conversation with their digital self"
