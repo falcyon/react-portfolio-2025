@@ -4,12 +4,12 @@ import { projectsArray } from "../data/projects";
 // Shape IDs (single source of truth)
 // --------------------
 export const shapeIDs = [
-  "Lh","Et","Em","Eb"
+  "Ns","Lh","Et","Em","Eb"
   ,"F1t","F1m",
   "F2t","F2m",
   // "Lv", "Ev", "F1v", "F2v", "Iv", "Nl", "Nr", 
   "Nr", "Nl", "Iv", "F2v", "F1v", "Ev", "Lv", 
-  "Ns","Dot"
+  "Dot"
 ] as const;
 
 export type ShapeID = typeof shapeIDs[number];
