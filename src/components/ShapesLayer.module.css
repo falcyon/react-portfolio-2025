@@ -8,6 +8,7 @@
   pointer-events: none;
 
 }
+
 .ShapesBackgroundContainer {
   position: fixed;
   top: 0;
@@ -20,7 +21,7 @@
 
 .shape {
   border: 1px solid var(--foreground);
-  pointer-events:auto;
+  pointer-events: auto;
   position: relative;
   /* border: 1px solid var(--foreground);
   box-sizing: border-box; */
@@ -30,9 +31,9 @@
 
 
 .dot {
-    background-color: var(--accent);
-    border: 1px solid black;
-  }
+  background-color: var(--accent);
+  border: 1px solid black;
+}
 
 
 .text {
@@ -40,59 +41,62 @@
   top: 0; left: 0; */
   color: var(--background);
   width: max-content;
-   /* display: inline-block; */
+  /* display: inline-block; */
   /* font-size: 1.5rem;
   font-weight: bold;
   padding-left: 10px; */
   /* max-width: 250px; */
-  
-  
+
+
 }
 
-.name{
+.name {
   /* position: absolute; */
   font-size: 2rem;
   font-family: neuzeit-grotesk, sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   color: var(--accent);
-  padding-left: 1vw; 
-  
-   max-width: 500px;
+  padding-left: 1vw;
+
+  max-width: 500px;
   white-space: normal;
   word-break: break-word;
- 
- 
+
+
   /* -webkit-text-stroke: 1px var(--background); 
   text-stroke: 1px var(--background);  */
 }
 
 .tag {
-text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
-  
+  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+
 }
 
-.year{
-text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
-  
-} 
+.year {
+  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+
+}
+
 @media (max-width: 700px) {
 
-  .text{
+  .text {
     font-size: 1.2rem;
     width: 80vw;
-    
+
   }
-.name{
-  font-size: 2rem;
-}
-.tag{
-  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
 
-}
+  .name {
+    font-size: 2rem;
+  }
 
-.year{
-  text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+  .tag {
+    text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
 
-}
+  }
+
+  .year {
+    text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground);
+
+  }
 }

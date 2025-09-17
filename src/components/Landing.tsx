@@ -15,7 +15,7 @@ export default function Landing() {
     fontSize: "24px",
   };
   const galleryItemStyle: React.CSSProperties = {
-    height: "1200px",
+    height: "1000px",
     display: "grid",
     placeItems: "center",
     zIndex: 1,
@@ -113,6 +113,7 @@ export default function Landing() {
         {/* </section> */}
         <ShapesLayer />
       </div>
+      <div style={{ height: "1000px" }}></div >
     </>
   );
 }

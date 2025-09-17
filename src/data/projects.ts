@@ -19,7 +19,7 @@ export const projectsArray: Project[] = [
     height:1080,
     width:1080,
     year: 2025,
-    tags: ["Physical", "Design", "Installation"],
+    tags: ["Installation", "Conceptual Art", "Physical"],
     size: "t",
     position: 2,
     description: "An installation reflecting on humanity's grapple with legacy"
@@ -31,7 +31,7 @@ export const projectsArray: Project[] = [
     height:1080,
     width:1080,
     year: 2025,
-    tags: ["Motion Accumulator", "Design", "Installation"],
+    tags: ["Installation", "Kinetic", "Design"],
     size: "t",
     position: 1,
     description: "A piece created by designing a motion accumulator"
@@ -43,31 +43,31 @@ export const projectsArray: Project[] = [
     height: 1080,
     width: 1080,
     year: 2024,
-    tags: ["Performance", "Installation", "Conversation"],
+    tags: ["Performance", "Installation", "Conceptual Art"],
     size: "t",
     position: 2,
     description: "A performance installation converting conversations into pieces of thread"
   },
-    {
+  {
     name: "Notes to Self",
     slug: "notesToSelf",
     thumbnail: "/media/thumbnails/notes.mp4",
     height: 1080,
     width: 1080,
     year: 2021,
-    tags: ["Interactive", "Installation"],
+    tags: ["Interactive", "Installation", "Digital Art"],
     size: "t",
     position: 3,
     description: "An interactive installation where users engage in a conversation with their digital self"
   },
-    {
+  {
     name: "Stained Mask",
     slug: "stainedMask",
     thumbnail: "/media/thumbnails/StainedMask.mp4",
     width: 540,
     height: 540,
     year: 2021,
-    tags: ["Interactive", "Installation", "Social Commentary"],
+    tags: ["Interactive", "Installation", "Conceptual Art"],
     size: "t",
     position: 1,
     description: "An interactive installation critiquing the Church's opinion on masks during Covid."
@@ -79,13 +79,11 @@ export const projectsArray: Project[] = [
     width:1920,
     height:1080,
     year: 2023,
-    tags: ["Performance", "Installation"],
+    tags: ["Performance", "Installation", "Conceptual Art"],
     size: "h",
     position: 2,
     description: "A performance installation converting conversations into pieces of thread."
   },
-
-
   {
     name: "AI Discovers Fire",
     slug: "aiDiscoversFire",
@@ -93,7 +91,7 @@ export const projectsArray: Project[] = [
     width: 800,
     height: 464,
     year: 2021,
-    tags: ["AI", "Media Art", "DCGAN"],
+    tags: ["Media Art", "AI", "Generative Art"],
     size: "h",
     position: 3,
     description: "Media Art created using DCGAN trained on images of fire."
@@ -105,7 +103,7 @@ export const projectsArray: Project[] = [
     width:500,
     height: 590,
     year: 2021,
-    tags: ["Performance", "Interpretation", "Human Condition"],
+    tags: ["Performance", "Conceptual Art"],
     size: "q",
     position: 1,
     description: "An interpretive performance exploring the human condition."
@@ -117,19 +115,19 @@ export const projectsArray: Project[] = [
     width: 720,
     height:850,
     year: 2021,
-    tags: ["Interactive", "Emotion", "AI"],
+    tags: ["Interactive", "AI", "Installation"],
     size: "q",
     position: 2,
     description: "An interactive installation isolating viewers' lips and predicting their emotions."
   },
-    {
+  {
     name: "Conversation Sculpture",
     slug: "conversationSculpture",
     thumbnail: "/media/thumbnails/pop2.mp4",
     width: 1080,
     height: 1080,
     year: 2022,
-    tags: ["Sculpture", "Nihilism", "Philosophy"],
+    tags: ["Sculpture", "Conceptual Art"],
     size: "q",
     position: 3,
     description: "A sculpture made up of conversations about nihilism."
@@ -141,12 +139,11 @@ export const projectsArray: Project[] = [
     width:720,
     height:1158,
     year: 2022,
-    tags: ["App Design", "Product Design"],
+    tags: ["Product Design", "App Design"],
     size: "t",
     position: 2,
     description: "Product Design for an app for dogs to find companions."
   },
-
   {
     name: "unIIcode",
     slug: "uniicode",
@@ -154,7 +151,7 @@ export const projectsArray: Project[] = [
     width: 1440,
     height: 1080,
     year: 2021,
-    tags: ["Character Design", "Unicode", "Art"],
+    tags: ["Digital Art", "Typography", "Generative Art"],
     size: "q",
     position: 1,
     description: "Generation of new character sets to fill up spaces in Unicode."
@@ -166,7 +163,7 @@ export const projectsArray: Project[] = [
     width: 3072,
     height: 2807,
     year: 2022,
-    tags: ["Sculpture", "Design", "Metal"],
+    tags: ["Sculpture", "Design", "Metalwork"],
     size: "q",
     position: 2,
     description: "Rings made out of metal but in a fluid and organic form."
@@ -178,7 +175,7 @@ export const projectsArray: Project[] = [
     width: 1080,
     height: 1080,
     year: 2023,
-    tags: ["Branding", "Design System", "Logo"],
+    tags: ["Branding", "Graphic Design"],
     size: "q",
     position: 3,
     description: "Branding, logo design, and design system for a social media startup."
@@ -190,7 +187,7 @@ export const projectsArray: Project[] = [
     width: 1500,
     height: 1500,
     year: 2017,
-    tags: ["MAV", "Military", "Design"],
+    tags: ["Industrial Design", "Product Design"],
     size: "q",
     position: 4,
     description: "An MAV for military use."
@@ -202,7 +199,7 @@ export const projectsArray: Project[] = [
     width: 700,
     height: 700,
     year: 2021,
-    tags: ["Digital Art", "Visual Art"],
+    tags: ["Digital Art", "Conceptual Art"],
     size: "t",
     position: 1,
     description: "Digital art visualizing a slow burn breakdown or an 'unraveling' of the self."
@@ -214,7 +211,7 @@ export const projectsArray: Project[] = [
     width: 720,
     height: 720,
     year: 2021,
-    tags: ["Digital Art", "Time", "Binary"],
+    tags: ["Digital Art", "Generative Art"],
     size: "t",
     position: 2,
     description: "Digital art visualizing the passage of time in binary."
@@ -226,7 +223,7 @@ export const projectsArray: Project[] = [
     width: 720,
     height: 720,
     year: 2021,
-    tags: ["Digital Art", "Memory", "Time"],
+    tags: ["Digital Art", "Conceptual Art"],
     size: "t",
     position: 3,
     description: "Digital art referencing the transitory nature of time in our memories."
@@ -238,7 +235,7 @@ export const projectsArray: Project[] = [
     width: 720,
     height: 1080,
     year: 2022,
-    tags: ["Illustration", "Fairy Tales", "Absurdist"],
+    tags: ["Illustration", "Book Design", "Narrative Art"],
     size: "t",
     position: 2,
     description: "An illustrated absurdist children's fairy tale book."
@@ -261,7 +258,7 @@ export const projectsArray: Project[] = [
     width: 720,
     height: 420,
     year: 2022,
-    tags: ["Collaboration", "IBM Quantum", "Interactive"],
+    tags: ["Interactive", "Installation", "Media Art"],
     size: "h",
     position: 1,
     description: "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation."
@@ -273,9 +270,11 @@ export const projectsArray: Project[] = [
     year: 2021,
     width: 720,
     height: 420,
-    tags: ["IBM Quantum", "Film", "Art"],
+    tags: ["Film", "Media Art"],
     size: "h",
     position: 2,
     description: "Using IBM's Quantum Composer to act as an editor for a short film."
   }
 ];
+
+

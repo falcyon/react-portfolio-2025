@@ -101,9 +101,12 @@ function scaleState(
     if (isMobile) {
       x = (s.state.y - 7.5) * scaleFactor + windowWidth / 2;
       y = (61 - s.state.x - shape.w) * scaleFactor + 175;
+      x = (s.state.x + 2) * scaleFactor;
+      y = s.state.y * scaleFactor + 250;
+
     } else {
-      x = (s.state.x + 18) * (windowWidth / 100);
-      y = (s.state.y * windowWidth) / 100 + 250;
+      x = (s.state.x + 18) * scaleFactor;
+      y = s.state.y * scaleFactor + 250;
     }
   }
 
@@ -146,8 +149,8 @@ function scaleState(
       y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i)) || (isHeroState(i))
         ? y // keep y as-is for random/dot project states
         : i % 2 === 1
-          ? y + (isMobile ? 100 : 500 - heightOffset) // odd index: push down
-          : y - (isMobile ? 300 : 500 - heightOffset), // even index: pull up
+          ? y + (isMobile ? 150 : 500 - heightOffset) // odd index: push down
+          : y - (isMobile ? 250 : 500 - heightOffset), // even index: pull up
     },
     scrollVal: s.scrollVal,
   };
@@ -163,13 +166,14 @@ function scaleShape(
   windowHeight: number,
   isMobile: boolean
 ) {
-  const scaleFactor = isMobile ? 7 : windowWidth / 100;
+  const scaleFactor = isMobile ? windowWidth * 1.5 / 100 : windowWidth / 100;
 
 
   return {
-    w: isMobile ? shape.h * scaleFactor : shape.w * scaleFactor, // mobile swaps w/h scaling
-    h: isMobile ? shape.w * scaleFactor : shape.h * scaleFactor,
-
+    // w: isMobile ? shape.h * scaleFactor : shape.w * scaleFactor, // mobile swaps w/h scaling
+    // h: isMobile ? shape.w * scaleFactor : shape.h * scaleFactor,
+    w: shape.w * scaleFactor,
+    h: shape.h * scaleFactor,
     rotation: shape.rotation,
     shapeType: shape.shapeType,
     states: shape.states.map((s, i) =>

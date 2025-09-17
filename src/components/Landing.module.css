@@ -60,13 +60,21 @@
     font-size: 2rem;
   }
 
+
   .httptext {
+    font-size: 1.2rem;
+    left: 15px;
+    right: auto;
+    top: 810px;
+  }
+
+  /* .httptext {
     position: absolute;
     left: calc(50vw - 90px);
     top: 1075px;
     writing-mode: sideways-lr;
     text-orientation: mixed;
-  }
+  } */
 
   .textLine {
     font-size: 1.2rem;

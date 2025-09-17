@@ -283,7 +283,7 @@ for (const project of projectsArray) {
       };
       shortIndex++;
     }
-  scrollVal += 1200
+  scrollVal += 1000
     //add projectState & scrollVal to the states array of each shape in unscaledShapesWithStates
     for (const id of shapeIDs) {
       unscaledShapesWithStates[id].states.push({
@@ -292,7 +292,7 @@ for (const project of projectsArray) {
       });
       unscaledShapesWithStates[id].states.push({
         state: projectState[id],
-        scrollVal: scrollVal + 500
+        scrollVal: scrollVal + 700
       });
     } 
 }
