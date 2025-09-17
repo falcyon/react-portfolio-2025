@@ -140,7 +140,7 @@ function scaleState(
       y = newY;
     }
   }
-  const heightOffset = Math.max(0, windowHeight - 500);
+  // const heightOffset = Math.max(0, windowHeight - 500);
   // --- Final scaled state
   return {
     state: {
@@ -149,8 +149,8 @@ function scaleState(
       y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i)) || (isHeroState(i))
         ? y // keep y as-is for random/dot project states
         : i % 2 === 1
-          ? y + (isMobile ? 150 : 500 - heightOffset) // odd index: push down
-          : y - (isMobile ? 250 : 500 - heightOffset), // even index: pull up
+          ? y + (isMobile ? 150 : 250) // odd index: push down start state
+          : y + (isMobile ? -250 : -250), // even index: pull up end state
     },
     scrollVal: s.scrollVal,
   };

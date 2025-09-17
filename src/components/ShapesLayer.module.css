@@ -62,10 +62,10 @@
   max-width: 500px;
   white-space: normal;
   word-break: break-word;
+  /* text-shadow: -1px 0 var(--foreground), 0 1px var(--foreground), 1px 0 var(--foreground), 0 -1px var(--foreground); */
 
-
-  /* -webkit-text-stroke: 1px var(--background); 
-  text-stroke: 1px var(--background);  */
+  /* -webkit-text-stroke: 1px var(--foreground);
+  text-stroke: 1px var(--foreground); */
 }
 
 .tag {
