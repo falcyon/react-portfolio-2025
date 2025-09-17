@@ -30,52 +30,52 @@ function useWindowSize(): { width: number; height: number } {
 }
 
 const isHeroState = (i: number) => i >= 1 && i <= 4;
-const isProjectState = (i: number) => i > 4;
-const DOT_DEFAULT_POSITION = { x: 25, y: 15 };
+// const isProjectState = (i: number) => i > 4;
+// const DOT_DEFAULT_POSITION = { x: 25, y: 15 };
 
-// Returns the corners (x1,x2,y1,y2) of project thumbnails
+// // Returns the corners (x1,x2,y1,y2) of project thumbnails
 
-function getProjectBounds(state: ShapeState, windowWidth: number, isMobile: boolean) {
-  // state.x & state.y here are projects width and height
-  const ratio = (state.x * 500) / state.y;
-  const padding = isMobile ? 25 : 100
+// function getProjectBounds(state: ShapeState, windowWidth: number, isMobile: boolean) {
+//   // state.x & state.y here are projects width and height
+//   const ratio = (state.x * 500) / state.y;
+//   const padding = isMobile ? 25 : 100
 
-  if (windowWidth > ratio + 2 * padding) {
-    // Wide enough screen
-    return {
-      projx1: 0.5 * (windowWidth - ratio),
-      projx2: 0.5 * (windowWidth + ratio),
-      projy1: 250,
-      projy2: 750,
-    };
-  }
+//   if (windowWidth > ratio + 2 * padding) {
+//     // Wide enough screen
+//     return {
+//       projx1: 0.5 * (windowWidth - ratio),
+//       projx2: 0.5 * (windowWidth + ratio),
+//       projy1: 250,
+//       projy2: 750,
+//     };
+//   }
 
-  // Narrower case
-  return {
-    projx1: isMobile ? 50 : 100,
-    projx2: isMobile ? windowWidth - 50 : windowWidth - 120,
-    projy1: 0.5 * (1000 - (state.y * (windowWidth - 2 * padding)) / state.x),
-    projy2: 0.5 * (1000 + (state.y * (windowWidth - 2 * padding)) / state.x),
-  };
-}
-let tagCountPerState: Record<number, number> = {};
-/**
- * Offset tag positions so multiple tags don’t overlap.
- */
-function getTagOffset(baseX: number, baseY: number, count: number, scaleFactor: number, isMobile: boolean) {
-  if (count <= 1) return { x: baseX, y: baseY };
-  if (isMobile) {
-    // On mobile, stack tags mostly horizontally
-    const x = baseX + 20 * scaleFactor * (count - 1);
-    const y = baseY + (count % 2 === 0 ? 10 * scaleFactor * (count - 1) : 0);
-    return { x, y };
-  }
+//   // Narrower case
+//   return {
+//     projx1: isMobile ? 50 : 100,
+//     projx2: isMobile ? windowWidth - 50 : windowWidth - 120,
+//     projy1: 0.5 * (1000 - (state.y * (windowWidth - 2 * padding)) / state.x),
+//     projy2: 0.5 * (1000 + (state.y * (windowWidth - 2 * padding)) / state.x),
+//   };
+// }
+// let tagCountPerState: Record<number, number> = {};
+// /**
+//  * Offset tag positions so multiple tags don’t overlap.
+//  */
+// function getTagOffset(baseX: number, baseY: number, count: number, scaleFactor: number, isMobile: boolean) {
+//   if (count <= 1) return { x: baseX, y: baseY };
+//   if (isMobile) {
+//     // On mobile, stack tags mostly horizontally
+//     const x = baseX + 20 * scaleFactor * (count - 1);
+//     const y = baseY + (count % 2 === 0 ? 10 * scaleFactor * (count - 1) : 0);
+//     return { x, y };
+//   }
 
-  // On desktop, stack tags vertically, with slight zigzag
-  const y = baseY + 4 * scaleFactor * (count - 1);
-  const x = baseX + 5 * scaleFactor * ((count % 2) - 1);
-  return { x, y };
-}
+//   // On desktop, stack tags vertically, with slight zigzag
+//   const y = baseY + 4 * scaleFactor * (count - 1);
+//   const x = baseX + 5 * scaleFactor * ((count % 2) - 1);
+//   return { x, y };
+// }
 
 /**
  * Scale a single state depending on its type:
@@ -201,7 +201,7 @@ export function getScaledShapesWithStates(
   windowHeight: number
 ): Record<ShapeID, ShapesWithAllStates> {
   const isMobile = windowWidth < 700;
-  tagCountPerState = {};
+  // tagCountPerState = {};
   return Object.fromEntries(
     Object.entries(unscaledShapesWithStates).map(([id, shape]) => [
       id,

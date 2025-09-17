@@ -193,32 +193,32 @@ let shortIndex = 0;
 let scrollVal = 1400; //end of NameState
 
 // Iterate over projectsArray to add project-specific states
-const ProjectStateDummy: Record<ShapeID, ShapeState> = {
-  Lv: { x: 4, y: 29, __random: true },
-  Ev: { x: 9, y: 45 , __random: true},
-  F1v: { x: 17, y: 50, __random: true },
-  F2v: { x: 27, y: 42 , __random: true},
-  Iv: { x: 29, y: 15, __random: true },
-  Nl: { x: 22, y: 6 , __random: true},
-  Nr: { x: 13, y: 5, __random: true },
-  Lh: { x: 66, y: 8, __random: true },
-  Et: { x: 80, y: 39 , __random: true},
-  Em: { x: 68, y: 71 , __random: true},
-  Eb: { x: 48, y: 76, __random: true },
-  F1t: { x: 23, y: 72, __random: true },
-  F1m: { x: 16, y: 44 , __random: true},
-  F2t: { x: 20, y: 20 , __random: true},
-  F2m: { x: 40, y: 12 , __random: true},
-  Ns: { x: 46.1, y: 6 , __random: true},
-  Dot: { x: 50, y: 50, __random: false },
-};
+// const ProjectStateDummy: Record<ShapeID, ShapeState> = {
+//   Lv: { x: 4, y: 29, __random: true },
+//   Ev: { x: 9, y: 45 , __random: true},
+//   F1v: { x: 17, y: 50, __random: true },
+//   F2v: { x: 27, y: 42 , __random: true},
+//   Iv: { x: 29, y: 15, __random: true },
+//   Nl: { x: 22, y: 6 , __random: true},
+//   Nr: { x: 13, y: 5, __random: true },
+//   Lh: { x: 66, y: 8, __random: true },
+//   Et: { x: 80, y: 39 , __random: true},
+//   Em: { x: 68, y: 71 , __random: true},
+//   Eb: { x: 48, y: 76, __random: true },
+//   F1t: { x: 23, y: 72, __random: true },
+//   F1m: { x: 16, y: 44 , __random: true},
+//   F2t: { x: 20, y: 20 , __random: true},
+//   F2m: { x: 40, y: 12 , __random: true},
+//   Ns: { x: 46.1, y: 6 , __random: true},
+//   Dot: { x: 50, y: 50, __random: false },
+// };
 
 
-function noisyValue(base: number, range: number = 10) {
-  return base + (Math.random() * 2 - 1) * range;
-}
+// function noisyValue(base: number, range: number = 10) {
+//   return base + (Math.random() * 2 - 1) * range;
+// }
 
-let previousState = { ...ProjectStateDummy };
+// let previousState = { ...ProjectStateDummy };
 
 for (const project of projectsArray) {
   //create a new Record<ShapeID, ShapeState> that is a copy of randomState
