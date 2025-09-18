@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import GridOverlay from "@/components/GridOverlay";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Leffin - Portfolio",
@@ -37,6 +37,7 @@ export default function RootLayout({
       <body>
         <GridOverlay />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
