@@ -5,7 +5,7 @@ import ProjectPage from "@/components/ProjectPage";
 const importProjectContent = async (slug: string) => {
     try {
         const content = await import(`@/projects/${slug}.json`);
-        return content.default; // JSON will be exported as default in Next.js
+        return content.default; // JSON will be exported as default
     } catch (error) {
         console.error("Error loading project content:", error);
         return null;
@@ -14,6 +14,7 @@ const importProjectContent = async (slug: string) => {
 
 interface PageProps {
     params: { slug: string };
+    searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 // --------------------------
@@ -23,10 +24,10 @@ export async function generateMetadata({ params }: PageProps) {
     const { slug } = params;
 
     const project = projectsArray.find((proj) => proj.slug === slug);
-    if (!project) return {}; // Return empty metadata if project not found
+    if (!project) return {}; // empty metadata if project not found
 
     return {
-        title: project.name, // Dynamic page title
+        title: project.name,
         description: project.description || "Project description not available",
         openGraph: {
             title: project.name,
