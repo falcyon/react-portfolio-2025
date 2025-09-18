@@ -18,18 +18,14 @@ interface ProjectPageProps {
 }
 
 // ✅ Generate metadata dynamically per project
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
-    const project = projectsArray.find((proj) => proj.slug === slug);
 
-    if (!project) {
-        return { title: "Project Not Found" };
-    }
+    const project = projectsArray.find((proj) => proj.slug === slug);
+    if (!project) return { title: "Project Not Found" };
 
     const content = await importProjectContent(slug);
-    if (!content) {
-        return { title: "Project Not Found" };
-    }
+    if (!content) return { title: "Project Not Found" };
 
     const projectWithContent = {
         ...project,
