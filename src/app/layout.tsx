@@ -9,9 +9,29 @@ export const metadata: Metadata = {
     default: "Leffin - Portfolio Home",
     template: "Leffin - %s",
   },
-  description: "Leffin's personal art portfolio showcasing projects, skills, and experiences.",
-};
-
+  description: "Leffin is an artist who blends technology and creativity. Explore his immersive projects here.",
+  openGraph: {
+    title: "Leffin | Interactive & Experiential Artist",
+    description: "Leffin is an artist who blends technology and creativity. Explore his immersive projects here.",
+    url: "https://leff.in",
+    siteName: "Leffin Portfolio",
+    images: [
+      {
+        url: "https://leff.in/leffin_opengraphimage.png",
+        width: 1200,
+        height: 630,
+        alt: "Leffin Portfolio Preview",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leffin | Interactive & Experiential Artist",
+    description: "Leffin is an artist who blends technology and creativity. Explore his immersive projects here.",
+    images: ["https://leff.in/leffin_opengraphimage.png"],
+  },
+}
 
 export default function RootLayout({
   children,
@@ -22,20 +42,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/qje5ynx.css" />
-        {/* <link id="favicon" rel="icon" href="/favicon-light.ico" /> */}
-
-        <meta property="og:title" content="Leffin | Interactive & Experiential Artist" />
-        <meta property="og:description" content="Leffin is an artist who blends technology and creativity. Explore his immersive projects here." />
-        <meta property="og:image" content="https://leff.in/leffin_opengraphimage.png" />
-        <meta property="og:url" content="https://leff.in" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Leffin Portfolio" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Leffin | Interactive & Experiential Artist" />
-        <meta name="twitter:description" content="Leffin is an artist who blends technology and creativity. Explore his immersive projects here." />
-        <meta name="twitter:image" content="https://leff.in/leffin_opengraphimage.png" />
-
 
       </head>
       <body>
