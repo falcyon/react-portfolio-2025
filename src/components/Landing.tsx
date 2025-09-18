@@ -27,7 +27,7 @@ export default function Landing() {
           Welcome to
         </h1>
         <h2 className={styles.httptext}>https://</h2>
-        <span className="srOnly" tabIndex={0}>
+        <span style={{ position: "absolute", left: "-9999px", top: "1050px", height: "1px", width: "1px", overflow: "hidden", }} tabIndex={0}>
           Leff.in
         </span>
 
@@ -38,7 +38,7 @@ export default function Landing() {
         <h2 className={styles.textLine} style={{ top: "1700px" }}>
           I am
         </h2>
-        <span className="srOnly" tabIndex={0}>
+        <span style={{ position: "absolute", left: "-9999px", top: "2100px", height: "1px", width: "1px", overflow: "hidden", }} tabIndex={0}>
           Leffin
         </span>
 
