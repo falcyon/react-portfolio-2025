@@ -125,7 +125,7 @@ function scaleState(
       y = DOT_DEFAULT_POSITION.y;
     } else if (s.state.textType === "name") {
       x = projx1 - 4 * scaleFactor;
-      y = projy1 - 3 * scaleFactor;
+      y = projy1 - 6 * scaleFactor;
     } else if (s.state.textType === "year") {
       x = projx2 - (isMobile ? 8 : 2) * scaleFactor;
       y = projy1 - 6 * scaleFactor;
@@ -149,8 +149,8 @@ function scaleState(
       y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i)) || (isHeroState(i))
         ? y // keep y as-is for random/dot project states
         : i % 2 === 1
-          ? y + (isMobile ? 150 : 250) // odd index: push down start state
-          : y + (isMobile ? -250 : -250), // even index: pull up end state
+          ? y + (isMobile ? 150 : 200) // odd index: push down start state
+          : y + (isMobile ? -250 : -300), // even index: pull up end state
     },
     scrollVal: s.scrollVal,
   };
