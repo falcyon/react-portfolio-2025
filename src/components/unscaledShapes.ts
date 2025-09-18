@@ -184,7 +184,7 @@ const shortShapeIDs = shapeIDs.filter(id => unscaledShapes[id].shapeType === "sh
 
 let longIndex = 0;
 let shortIndex = 0;
-let scrollVal = 1400; //end of NameState
+let scrollVal = 1500; //end of NameState
 
 // Iterate over projectsArray to add project-specific states
 // const ProjectStateDummy: Record<ShapeID, ShapeState> = {

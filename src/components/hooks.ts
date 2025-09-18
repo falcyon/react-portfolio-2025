@@ -36,8 +36,8 @@ export function useScrollYwithAutoScroll(): number {
         return;
       }
 
-      const delta = (targetY - currentY) * 0.01+1;
-      const step = Math.sign(delta) * Math.min(Math.abs(delta), 6);
+      const delta = (targetY - currentY) * 0.03+1;
+      const step = Math.sign(delta) * Math.min(Math.abs(delta), 12);
       const nextY = currentY + step;
 
       window.scrollTo(0, nextY);

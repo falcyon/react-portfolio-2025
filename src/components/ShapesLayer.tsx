@@ -124,14 +124,14 @@ function scaleState(
       x = DOT_DEFAULT_POSITION.x;
       y = DOT_DEFAULT_POSITION.y;
     } else if (s.state.textType === "name") {
-      x = projx1 - 4 * scaleFactor;
-      y = projy1 - 6 * scaleFactor;
+      x = projx1 - 40;
+      y = projy1 - 100;
     } else if (s.state.textType === "year") {
-      x = projx2 - (isMobile ? 8 : 2) * scaleFactor;
-      y = projy1 - 6 * scaleFactor;
+      x = projx2 - (isMobile ? 80 : 20);
+      y = projy1 - 60;
     } else if (s.state.textType === "tag") {
-      x = isMobile ? projx1 - 3 * scaleFactor : projx2 - 2 * scaleFactor;
-      y = isMobile ? projy2 + 1 * scaleFactor : projy2 - 8 * scaleFactor;
+      x = isMobile ? projx1 - 30 : projx2 - 20;
+      y = isMobile ? projy2 + 10 : projy2 - 80;
 
       // Adjust for multiple tags
       tagCountPerState[i] = (tagCountPerState[i] ?? 0) + 1;
@@ -149,8 +149,8 @@ function scaleState(
       y: s.state.__random || (shape.shapeType === "dot" && isProjectState(i)) || (isHeroState(i))
         ? y // keep y as-is for random/dot project states
         : i % 2 === 1
-          ? y + (isMobile ? 150 : 200) // odd index: push down start state
-          : y + (isMobile ? -250 : -300), // even index: pull up end state
+          ? y + (isMobile ? 250 : 400) // odd index: push down start state
+          : y + (isMobile ? -150 : -100), // even index: pull up end state
     },
     scrollVal: s.scrollVal,
   };

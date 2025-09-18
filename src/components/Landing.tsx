@@ -8,7 +8,7 @@ import Head from "next/head";
 export default function Landing() {
 
   const aboutMeDivStyle: React.CSSProperties = {
-    height: "2700px",
+    height: "3000px",
     // minHeight: "2600px",
     // maxHeight: "2600px",
     position: "relative",
@@ -93,7 +93,7 @@ export default function Landing() {
             Engineering & Data
           </h2>
           <SocialLinks />
-          <h2 className={styles.galleryTitle} style={{ top: "2700px" }}>PROJECTS</h2>
+          <h2 className={styles.galleryTitle} style={{ top: "2900px" }}>PROJECTS</h2>
         </section>
         {/* <Hero /> */}
         {/* <section> */}
