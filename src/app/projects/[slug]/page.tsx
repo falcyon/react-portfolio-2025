@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { projectsArray } from "@/data/projects";
 import ProjectPage from "@/components/ProjectPage";
+import type { Metadata } from "next";
 
 const importProjectContent = async (slug: string) => {
     try {
@@ -14,17 +15,20 @@ const importProjectContent = async (slug: string) => {
 
 interface PageProps {
     params: { slug: string };
-    searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 // --------------------------
 // Generate Dynamic Metadata
 // --------------------------
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({
+    params,
+}: {
+    params: { slug: string };
+}): Promise<Metadata> {
     const { slug } = params;
 
     const project = projectsArray.find((proj) => proj.slug === slug);
-    if (!project) return {}; // empty metadata if project not found
+    if (!project) return {};
 
     return {
         title: project.name,
