@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { projectsArray } from "@/data/projects";
 import ProjectPage from "@/components/ProjectPage";
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 
 const importProjectContent = async (slug: string) => {
     try {
@@ -13,18 +13,39 @@ const importProjectContent = async (slug: string) => {
     }
 };
 
-interface PageProps {
-    params: { slug: string };
-}
+// interface PageProps {
+//     params: { slug: string };
+// }
 
 // --------------------------
 // Generate Dynamic Metadata
 // --------------------------
+export default async function Page({
+    params,
+}: {
+    params: { slug: string };
+}) {
+    const { slug } = params;
+
+    const project = projectsArray.find((proj) => proj.slug === slug);
+    if (!project) return notFound();
+
+    const content = await importProjectContent(slug);
+    if (!content) return notFound();
+
+    const projectWithContent = {
+        ...project,
+        ...content,
+    };
+
+    return <ProjectPage project={projectWithContent} />;
+}
+
 export async function generateMetadata({
     params,
 }: {
     params: { slug: string };
-}): Promise<Metadata> {
+}) {
     const { slug } = params;
 
     const project = projectsArray.find((proj) => proj.slug === slug);
@@ -56,25 +77,6 @@ export async function generateMetadata({
     };
 }
 
-// --------------------------
-// Main Page Component
-// --------------------------
-export default async function Page({ params }: PageProps) {
-    const { slug } = params;
-
-    const project = projectsArray.find((proj) => proj.slug === slug);
-    if (!project) return notFound();
-
-    const content = await importProjectContent(slug);
-    if (!content) return notFound();
-
-    const projectWithContent = {
-        ...project,
-        ...content,
-    };
-
-    return <ProjectPage project={projectWithContent} />;
-}
 
 // --------------------------
 // Generate Static Params
