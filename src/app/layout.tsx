@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import GridOverlay from "@/components/GridOverlay";
+import LenisProvider from "@/components/LenisProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
 export const metadata: Metadata = {
@@ -35,8 +36,10 @@ export default function RootLayout({
 
       </head>
       <body>
-        <GridOverlay />
-        {children}
+        <LenisProvider>
+          <GridOverlay />
+          {children}
+        </LenisProvider>
         <SpeedInsights />
         <Analytics />
       </body>
