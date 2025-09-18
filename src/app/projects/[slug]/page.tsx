@@ -1,25 +1,18 @@
 import { notFound } from "next/navigation";
 import { projectsArray } from "@/data/projects";
 import ProjectPage from "@/components/ProjectPage";
-// import type { Metadata } from "next";
+// import type { PageProps as NextPageProps } from 'next/app';
 
 const importProjectContent = async (slug: string) => {
     try {
         const content = await import(`@/projects/${slug}.json`);
-        return content.default; // JSON will be exported as default
+        return content.default;
     } catch (error) {
         console.error("Error loading project content:", error);
         return null;
     }
 };
 
-// interface PageProps {
-//     params: { slug: string };
-// }
-
-// --------------------------
-// Generate Dynamic Metadata
-// --------------------------
 export default async function Page({
     params,
 }: {
@@ -78,9 +71,6 @@ export async function generateMetadata({
 }
 
 
-// --------------------------
-// Generate Static Params
-// --------------------------
 export async function generateStaticParams() {
     return projectsArray.map((project) => ({
         slug: project.slug,
