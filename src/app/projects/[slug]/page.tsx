@@ -1,24 +1,49 @@
 import { notFound } from "next/navigation";
 import { projectsArray } from "@/data/projects";
 import ProjectPage from "@/components/ProjectPage";
-// import type { PageProps as NextPageProps } from 'next/app';
+import type { Metadata } from "next";
 
 const importProjectContent = async (slug: string) => {
     try {
         const content = await import(`@/projects/${slug}.json`);
-        return content.default;
+        return content.default; // JSON will be exported as default in Next.js
     } catch (error) {
         console.error("Error loading project content:", error);
         return null;
     }
 };
 
-export default async function Page({
-    params,
-}: {
-    params: { slug: string };
-}) {
-    const { slug } = params;
+interface ProjectPageProps {
+    params: Promise<{ slug: string }>;
+}
+
+// ✅ Generate metadata dynamically per project
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const { slug } = await params;
+    const project = projectsArray.find((proj) => proj.slug === slug);
+
+    if (!project) {
+        return { title: "Project Not Found" };
+    }
+
+    const content = await importProjectContent(slug);
+    if (!content) {
+        return { title: "Project Not Found" };
+    }
+
+    const projectWithContent = {
+        ...project,
+        ...content,
+    };
+
+    return {
+        title: projectWithContent.name,
+        description: projectWithContent.description,
+    };
+}
+
+export default async function Page({ params }: ProjectPageProps) {
+    const { slug } = await params;
 
     const project = projectsArray.find((proj) => proj.slug === slug);
     if (!project) return notFound();
@@ -34,43 +59,7 @@ export default async function Page({
     return <ProjectPage project={projectWithContent} />;
 }
 
-export async function generateMetadata({
-    params,
-}: {
-    params: { slug: string };
-}) {
-    const { slug } = params;
-
-    const project = projectsArray.find((proj) => proj.slug === slug);
-    if (!project) return {};
-
-    return {
-        title: project.name,
-        description: project.description || "Project description not available",
-        openGraph: {
-            title: project.name,
-            description: project.description || "Project description not available",
-            images: project.thumbnail
-                ? [
-                    {
-                        url: project.thumbnail,
-                        width: 1200,
-                        height: 630,
-                        alt: project.name,
-                    },
-                ]
-                : [],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: project.name,
-            description: project.description || "Project description not available",
-            images: project.thumbnail ? [project.thumbnail] : [],
-        },
-    };
-}
-
-
+// ✅ Generate Static Params for all the projects
 export async function generateStaticParams() {
     return projectsArray.map((project) => ({
         slug: project.slug,
