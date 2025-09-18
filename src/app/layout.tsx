@@ -5,7 +5,10 @@ import LenisProvider from "@/components/LenisProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
 export const metadata: Metadata = {
-  title: "Leffin - Portfolio",
+  title: {
+    default: "Leffin - Portfolio Home",
+    template: "Leffin - %s",
+  },
   description: "Leffin's personal art portfolio showcasing projects, skills, and experiences.",
 };
 
