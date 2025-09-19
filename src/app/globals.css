@@ -3,12 +3,21 @@
 @import "tailwindcss/utilities";
 
 :root {
+
+  --background: rgb(23, 23, 23);
+  --foreground: rgb(235, 235, 235);
+  --disabled: #555;
+  --accent: #da1f26;
+  --secondary: #8ab4f8;
+  --lunit: 2vw;
+}
+
+[data-theme="light"] {
   --background: rgb(235, 232, 224);
   --foreground: rgb(39, 39, 38);
   --disabled: #a39f90;
   --accent: #da1f26;
   --secondary: #3f5989;
-  --lunit: 2vw;
 }
 
 body {
@@ -23,6 +32,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
 .sr-only {

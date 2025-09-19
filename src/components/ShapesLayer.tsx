@@ -336,7 +336,7 @@ export default function ShapesLayer() {
         const backgroundColor =
           shapeType === "dot"
             ? "var(--accent)"
-            : `rgba(31, 32, 34, ${alpha ?? 1})`;
+            : `color-mix(in srgb, var(--foreground) ${(alpha ?? 1) * 100}%, transparent)`;
 
         const isHomeButton = shapeType === "dot" && startIndex > 2;
 

@@ -1,10 +1,12 @@
 .gridOverlay {
-  position: absolute; /* stays on screen */
+  position: absolute;
+  /* stays on screen */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* so it doesn't block clicks */
+  pointer-events: none;
+  /* so it doesn't block clicks */
   z-index: -1;
 }
 
@@ -26,12 +28,15 @@
   font-weight: 600;
   font-size: 14px;
   background-color: var(--background);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
 
 
 @media (max-width: 700px) {
-  .gridLabel{
+  .gridLabel {
     font-size: 12px;
     top: -10px;
   }
