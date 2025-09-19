@@ -356,10 +356,17 @@ export default function ShapesLayer() {
             } as React.CSSProperties}
             onClick={isHomeButton ? handleHomeClick : undefined}
           >
-            {text && (
+            {text && (<>
               <div className={`${styles.text} ${styles[textType ?? ""]}`}>
                 {text}
               </div>
+              {shapeType === "short" && (
+                <div className={styles.backWrapper}>
+                  <div className={`${styles.text} ${styles.back} ${styles[textType ?? ""]}`}>
+                    {text}
+                  </div>
+                </div>)}
+            </>
             )}
           </div>
         );

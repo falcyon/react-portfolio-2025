@@ -34,7 +34,7 @@ export default function Landing() {
         </span>
 
         <h2 className={styles.textLine} style={{ top: "1200px" }}>
-          a gallery in the ether
+          a gallery of some of my work, in this ether
         </h2>
 
         <h2 className={styles.textLine} style={{ top: "1700px" }}>
@@ -54,7 +54,6 @@ export default function Landing() {
           PROJECTS
         </h2>
       </section>
-
       {projectsArray.map((project) => (
         <div key={project.slug} style={galleryItemStyle}>
           <ProjectCard
