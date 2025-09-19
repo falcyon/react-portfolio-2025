@@ -15,7 +15,7 @@
   /* scale proportionally */
   max-height: 500px;
   object-fit: contain;
-  border: 1px solid var(--foreground);
+  border: 2px solid var(--foreground);
   transition: border 0.2s;
 }
 
@@ -28,7 +28,7 @@
   width: auto;
   object-fit: contain;
   box-sizing: border-box;
-  border: 1px solid var(--foreground);
+  border: 2px solid var(--foreground);
   transition: border 0.2s;
 }
 

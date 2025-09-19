@@ -1,0 +1,85 @@
+.starsWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    /* background: black; */
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.9;
+    filter: blur(0.5px);
+
+    animation: shimmer 2s infinite ease-in-out alternate,
+        drift linear infinite;
+}
+
+/* Horizontal streak */
+.star::before,
+.star::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: radial-gradient(white, transparent);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.star::before {
+    width: 12px;
+    height: 2px;
+}
+
+.star::after {
+    width: 2px;
+    height: 12px;
+}
+
+/* Randomized variations */
+.star:nth-child(odd) {
+    animation-duration: 3s, 60s;
+}
+
+.star:nth-child(3n) {
+    animation-delay: 1s, 0s;
+}
+
+.star:nth-child(4n) {
+    animation-duration: 4s, 80s;
+    animation-delay: 0.5s, 0s;
+}
+
+/* Twinkling effect */
+@keyframes shimmer {
+    from {
+        opacity: 0.3;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+/* Gentle drifting */
+@keyframes drift {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(40px, 40px);
+    }
+}

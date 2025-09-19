@@ -3,6 +3,7 @@ import { projectsArray } from "../data/projects";
 import styles from "./Landing.module.css";
 import ShapesLayer from "./ShapesLayer";
 import SocialLinks from "./Socials";
+import StarsBackground from "./StarsBackground";
 
 export default function Landing() {
   const aboutMeDivStyle: React.CSSProperties = {
@@ -22,6 +23,7 @@ export default function Landing() {
 
   return (
     <div className={styles.landingContainer}>
+      <StarsBackground />
       <section style={aboutMeDivStyle}>
         <h1 className={styles.textLine} style={{ top: "700px" }}>
           Welcome to

@@ -371,9 +371,11 @@ export default function ShapesLayer() {
       <div className={styles.ShapesBackgroundContainer}>
         {renderShapes(0)}
       </div>
+
       <div className={styles.ShapesOverlayContainer}>
         {renderShapes(1)}
       </div>
+
     </>
   );
 }

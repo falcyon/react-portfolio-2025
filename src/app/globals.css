@@ -4,11 +4,11 @@
 
 :root {
 
-  --background: rgb(23, 23, 23);
-  --foreground: rgb(235, 235, 235);
+  --background: rgb(17, 17, 17);
+  --foreground: rgb(189, 175, 156);
   --disabled: #555;
   --accent: #da1f26;
-  --secondary: #8ab4f8;
+  --secondary: #3f5989;
   --lunit: 2vw;
 }
 
