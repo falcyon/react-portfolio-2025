@@ -1,24 +1,24 @@
 .projectPageDiv {
     margin-top: 50px;
-    
-		/* position: absolute; */
-		z-index: 1;
-		margin: 0 10% 0 10%;
-        padding: 0 25px 0 25px;
-		/* border: 1px solid white; */
-	
 
-	@media (max-width: 700px) {
-		.contents {
-			margin: 0;
-		}
-	}
+    /* position: absolute; */
+    z-index: 1;
+    margin: 0 10% 0 10%;
+    padding: 0 25px 0 25px;
+    /* border: 1px solid white; */
+
+
+    @media (max-width: 700px) {
+        .contents {
+            margin: 0;
+        }
+    }
 }
 
 
 .tagsContainer {
     /* text-transform: uppercase; */
-    
+
     font-weight: 100;
     padding: 10svh 25px 0px 25px;
     margin: 20px 0px;
@@ -44,7 +44,7 @@
     /* border: 1px solid var(--foreground); */
     /* width: 200px; */
     /* height: 40px; */
-  font-weight: 600;
+    font-weight: 600;
     color: var(--accent);
     padding: 0 25px 0 25px;
     text-transform: uppercase;
@@ -102,47 +102,49 @@
     width: 100%;
     padding: 25px;
 }
+
 .closeButton {
-  position: fixed;
-  top: 10svh;
-  right: 10vw;
-  width: 40px;
-  height: 40px;
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--accent);
-  /* background: white; */
-  /* border: 3px solid var(--accent); */
-  cursor: pointer;
-  z-index: 1000;
+    position: fixed;
+    top: 10svh;
+    right: 10vw;
+    width: 40px;
+    height: 40px;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent);
+    /* background: white; */
+    /* border: 3px solid var(--accent); */
+    cursor: pointer;
+    z-index: 1000;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  line-height: normal;
+    line-height: normal;
 
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  box-shadow: none;
-  transition: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: none;
+    transition: none;
 }
 
 .closeButton:hover {
-  background: var(--accent);
-  color: var(--background);
+    background: var(--accent);
+    color: var(--background);
 }
+
 .endOfPage {
-  text-align: center;
-  font-size: 0.9em;
-  margin: 4em 0 2em;
+    text-align: center;
+    font-size: 0.9em;
+    margin: 4em 0 2em;
 }
 
 .endOfPage hr {
-  width: 30vw;
-  margin: 5em auto 7em;
-  border: none;
-  border-top: 1px solid var(--accent);
+    width: 30vw;
+    margin: 5em auto 7em;
+    border: none;
+    border-top: 1px solid var(--accent);
 }
 
 
@@ -158,17 +160,19 @@
 @media (max-width: 700px) {
     .closeButton {
         font-size: 64px;
-        top: 5vw;
+        top: 10vw;
         right: 5vw;
     }
+
     .projectPageDiv {
         margin: 0;
-        
+
     }
 
-    .projectPageDiv h1{
+    .projectPageDiv h1 {
         font-size: 2em;
     }
+
     .sectionGroup {
         flex-direction: column;
         width: 100%;
