@@ -19,6 +19,7 @@ export default function ThemeToggle() {
     }, [theme]);
 
     return (
+
         <div
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             aria-label="Toggle theme"
@@ -36,33 +37,67 @@ export default function ThemeToggle() {
         >
             <div
                 style={{
-                    width: "2rem",
-                    height: "2rem",
-                    background: "var(--foreground)",
+                    width: "1.5rem",
+                    height: "1.5rem",
                     borderRadius: "50%",
+                    background: "var(--foreground)",
                     position: "relative",
+                    overflow: "visible", // allow rays to extend outside
                     transition:
-                        "clip-path 0.6s cubic-bezier(.77,0,.18,1), transform 0.6s cubic-bezier(.77,0,.18,1), background-color 0.4s ease",
-                    clipPath:
-                        theme === "light"
-                            ? "circle(50% at 50% 50%)" // full circle (sun)
-                            : "circle(50% at 65% 50%)", // shifted circle (moon crescent effect)
-                    transform: theme === "light" ? "scale(1) rotate(0deg)" : "scale(1.2) rotate(25deg)",
+                        "transform 0.6s cubic-bezier(.77,0,.18,1), background-color 0.4s ease",
+                    transform:
+                        theme === "dark"
+                            ? "scale(1) rotate(0deg)"
+                            : "scale(1.5) rotate(20deg)",
                 }}
             >
-                {/* inner cutout for sun ring effect */}
-                {theme === "light" && (
-                    <div
-                        style={{
-                            content: '""',
-                            position: "absolute",
-                            inset: "0.3rem",
-                            borderRadius: "50%",
-                            background: "var(--background)",
-                        }}
-                    />
-                )}
+                {/* Inner circle (exists in BOTH modes) */}
+                <div
+                    style={{
+                        position: "absolute",
+                        inset: 0,
+                        borderRadius: "50%",
+                        background:
+                            theme === "light"
+                                ? "var(--background)"
+                                : "var(--foreground)",
+                        transform:
+                            theme === "light"
+                                ? "translateX(-35%)"
+                                : "translateX(0)",
+                        transition:
+                            "transform 0.6s cubic-bezier(.77,0,.18,1) 0.4s ease",
+                        zIndex: 2,
+                    }}
+                />
+
+                {/* Sun rays (ONLY visible in dark mode) */}
+                {theme === "dark" &&
+                    Array.from({ length: 6 }).map((_, i) => (
+                        <div
+                            key={i}
+                            style={{
+                                position: "absolute",
+                                width: "2px",
+                                height: "0.5rem", // ray length outside circle
+                                background: "var(--foreground)",
+                                top: "-1.25rem",
+                                left: "50%",
+                                transform: `
+            translateX(-50%)
+            rotate(${i * 60}deg)
+            translateY(+0.5rem)
+          `,
+                                transformOrigin: "center 2rem",
+                                borderRadius: "999px",
+                                zIndex: 1,
+                            }}
+                        />
+                    ))}
             </div>
+
+
+
         </div>
     );
 }
