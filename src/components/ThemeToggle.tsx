@@ -43,8 +43,7 @@ export default function ThemeToggle() {
                     background: "var(--foreground)",
                     position: "relative",
                     overflow: "visible", // allow rays to extend outside
-                    transition:
-                        "transform 0.6s cubic-bezier(.77,0,.18,1), background-color 0.4s ease",
+                    transition: "transform 0.6s cubic-bezier(.77,0,.18,1), background-color 0.6s cubic-bezier(.77,0,.18,1)",
                     transform:
                         theme === "dark"
                             ? "scale(1) rotate(0deg)"
@@ -65,8 +64,8 @@ export default function ThemeToggle() {
                             theme === "light"
                                 ? "translateX(-35%)"
                                 : "translateX(0)",
-                        transition:
-                            "transform 0.6s cubic-bezier(.77,0,.18,1) 0.4s ease",
+                        transition: "transform 0.6s cubic-bezier(.77,0,.18,1), background 0.6s cubic-bezier(.77,0,.18,1)",
+
                         zIndex: 2,
                     }}
                 />
