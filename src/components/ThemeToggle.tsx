@@ -79,7 +79,7 @@ export default function ThemeToggle() {
                             style={{
                                 position: "absolute",
                                 width: "2px",
-                                height: "0.5rem", // ray length outside circle
+                                height: "0.6rem", // ray length outside circle
                                 background: "var(--foreground)",
                                 top: "-1.25rem",
                                 left: "50%",
