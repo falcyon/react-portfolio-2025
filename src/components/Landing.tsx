@@ -1,15 +1,11 @@
-"use client";
-import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { projectsArray } from "../data/projects";
 import styles from "./Landing.module.css";
 import ShapesLayer from "./ShapesLayer";
 import SocialLinks from "./Socials";
-// import StarsBackground from "./StarsBackground";
+import StarsBackground from "./StarsBackground";
 
 export default function Landing() {
-  const [visibleProjects, setVisibleProjects] = useState<typeof projectsArray>([]);
-
   const aboutMeDivStyle: React.CSSProperties = {
     height: "2800px",
     position: "relative",
@@ -25,48 +21,15 @@ export default function Landing() {
     transform: "translateZ(0)", // fix z-index bug on Chrome
   };
 
-  // ✅ Progressive rendering AFTER first paint
-  useEffect(() => {
-    let index = 0;
-
-    const interval = setInterval(() => {
-      setVisibleProjects((prev) => {
-        if (index >= projectsArray.length) {
-          clearInterval(interval);
-          return prev;
-        }
-
-        const next = [...prev, projectsArray[index]];
-        index++;
-        return next;
-      });
-    }, 120); // ✅ Adjust speed here (ms per card)
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className={styles.landingContainer}>
-      {/* <StarsBackground /> */}
-
+      <StarsBackground />
       <section style={aboutMeDivStyle}>
         <h1 className={styles.textLine} style={{ top: "700px" }}>
           Welcome to
         </h1>
-
         <h2 className={styles.httptext}>https://</h2>
-
-        <span
-          style={{
-            position: "absolute",
-            left: "-9999px",
-            top: "1050px",
-            height: "1px",
-            width: "1px",
-            overflow: "hidden",
-          }}
-          tabIndex={0}
-        >
+        <span style={{ position: "absolute", left: "-9999px", top: "1050px", height: "1px", width: "1px", overflow: "hidden", }} tabIndex={0}>
           Leff.in
         </span>
 
@@ -77,41 +40,27 @@ export default function Landing() {
         <h2 className={styles.textLine} style={{ top: "1700px" }}>
           I am
         </h2>
-
-        <span
-          style={{
-            position: "absolute",
-            left: "-9999px",
-            top: "2100px",
-            height: "1px",
-            width: "1px",
-            overflow: "hidden",
-          }}
-          tabIndex={0}
-        >
+        <span style={{ position: "absolute", left: "-9999px", top: "2100px", height: "1px", width: "1px", overflow: "hidden", }} tabIndex={0}>
           Leffin
         </span>
 
         <h2 className={styles.textLine} style={{ top: "2200px" }}>
-          a multi-disciplinary Artist with a background in <br />
-          Design, Engineering & Data
+          a multi-disciplinary Artist with a background in <br /> Design,
+          Engineering & Data
         </h2>
 
         <SocialLinks />
-
         <h2 className={styles.galleryTitle} style={{ top: "2800px" }}>
           PROJECTS
         </h2>
       </section>
-
-      {/* ✅ PROGRESSIVELY LOADED PROJECTS */}
-      {visibleProjects.map((project) => (
+      {projectsArray.map((project) => (
         <div key={project.slug} style={galleryItemStyle}>
           <ProjectCard
             name={project.name}
             slug={project.slug}
             thumbnail={project.thumbnail}
-            year={project.year.toString()}
+            year={project.year.toString()} // convert number to string
             tags={project.tags}
           />
         </div>

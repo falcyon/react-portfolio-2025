@@ -37,8 +37,8 @@ export default function ThemeToggle() {
         >
             <div
                 style={{
-                    width: "1.5rem",
-                    height: "1.5rem",
+                    width: "1.2rem",
+                    height: "1.2rem",
                     borderRadius: "50%",
                     background: "var(--foreground)",
                     position: "relative",
@@ -80,12 +80,12 @@ export default function ThemeToggle() {
                                 width: "2px",
                                 height: "0.5rem", // ray length outside circle
                                 background: "var(--foreground)",
-                                top: "-1.25rem",
+                                top: "-1.4rem",
                                 left: "50%",
                                 transform: `
             translateX(-50%)
             rotate(${i * 60}deg)
-            translateY(+0.5rem)
+            translateY(+0.8rem)
           `,
                                 transformOrigin: "center 2rem",
                                 borderRadius: "999px",
