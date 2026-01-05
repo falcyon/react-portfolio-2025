@@ -6,7 +6,7 @@ import { projectsArray } from "../data/projects";
 import styles from "./Landing.module.css";
 import ShapesLayer from "./ShapesLayer";
 import SocialLinks from "./Socials";
-import StarsBackground from "./StarsBackground";
+// import StarsBackground from "./StarsBackground";
 
 export default function Landing() {
   const [pageReady, setPageReady] = useState(false);
@@ -40,14 +40,14 @@ export default function Landing() {
 
     const timeout = setTimeout(() => {
       setVisibleCount((count) => count + 1);
-    }, 150); // adjust pacing here
+    }, 10); // adjust pacing here
 
     return () => clearTimeout(timeout);
   }, [pageReady, visibleCount]);
 
   return (
     <div className={styles.landingContainer}>
-      <StarsBackground />
+      {/* <StarsBackground /> */}
 
       <section style={aboutMeDivStyle}>
         <h1 className={styles.textLine} style={{ top: "700px" }}>
