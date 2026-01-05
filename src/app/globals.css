@@ -49,3 +49,25 @@ body {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+/* globals.css */
+
+/* globals.css */
+
+.ruled-underlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  /* KEY: make it "infinite" without caring about content height */
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image: repeating-linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.12) 0px,
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px,
+      transparent 200px);
+}

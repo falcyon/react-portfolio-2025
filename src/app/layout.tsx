@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import GridOverlay from "@/components/GridOverlay";
+// import GridOverlay from "@/components/GridOverlay";
 import LenisProvider from "@/components/LenisProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
@@ -48,8 +48,12 @@ export default function RootLayout({
       </head>
       <body>
         <LenisProvider>
-          <GridOverlay />
-          {children}
+          {/* <GridOverlay /> */}
+          <div style={{ position: "relative", minHeight: "100vh" }}>
+            <div className="ruled-underlay" />
+            {children}
+          </div>
+          {/* {children} */}
           <ThemeToggle />
         </LenisProvider>
         <SpeedInsights />

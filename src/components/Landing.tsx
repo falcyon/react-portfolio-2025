@@ -67,7 +67,7 @@ export default function Landing() {
       ))}
 
       <ShapesLayer />
-      <div style={{ height: "1000px" }}></div>
+      <div style={{ height: "500px" }}></div>
     </div>
   );
 }
