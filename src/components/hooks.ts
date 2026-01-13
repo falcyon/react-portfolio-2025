@@ -15,14 +15,25 @@ export function useScrollY(): number {
 }
 
 
-//works everywhere but on iphone without flicking. 
+//works everywhere but on iphone without flicking.
 export function useScrollYwithAutoScroll(): number {
   const [scrollY, setScrollY] = useState<number>(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
     setScrollY(window.scrollY); // initialize on mount
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     const targetY = 595;
     let animationFrame: number | null = null;
