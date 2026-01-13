@@ -46,7 +46,7 @@ export const projectsArray: Project[] = [
     tags: ["Performance", "Installation", "Conceptual Art"],
     size: "t",
     position: 2,
-    description: "An interactive installation where users engage in a conversation with their digital self"
+    description: "An interactive installation where users see a silhouette of their negative self-talk as their reflection"
   },
   {
     name: "Notes to Self",
@@ -58,7 +58,7 @@ export const projectsArray: Project[] = [
     tags: ["Interactive", "Installation", "AI"],
     size: "t",
     position: 3,
-    description: "A performance installation converting conversations into pieces of thread"
+    description: "An interactive installation where users engage in a conversation with their digital self"
   },
   {
     name: "Stained Mask",
