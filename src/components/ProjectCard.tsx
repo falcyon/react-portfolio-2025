@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProjectCard.module.css";
 import { loadedMedia } from "./mediaLoadStore";
+import { useVideoVisibility } from "./hooks";
 
 interface ProjectCardProps {
     name: string;
@@ -33,6 +34,9 @@ export default function ProjectCard({
     const alreadyLoaded = loadedMedia.has(thumbnail);
     const [canLoadMedia, setCanLoadMedia] = useState(alreadyLoaded);
 
+    const videoRef = useRef<HTMLVideoElement>(null);
+    useVideoVisibility(videoRef, isVideo && canLoadMedia);
+
     useEffect(() => {
         if (!alreadyLoaded) {
             setCanLoadMedia(true);
@@ -58,9 +62,9 @@ export default function ProjectCard({
 
                 {canLoadMedia && isVideo && (
                     <video
+                        ref={videoRef}
                         src={thumbnail}
                         loop
-                        autoPlay
                         muted
                         playsInline
                         preload="metadata"
