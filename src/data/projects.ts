@@ -25,18 +25,6 @@ export const projectsArray: Project[] = [
     description: "An installation reflecting on humanity's grapple with legacy"
   },
   {
-    name: "Constructor",
-    slug: "constructor",
-    thumbnail: "/media/thumbnails/constructor.mp4",
-    height:1080,
-    width:1080,
-    year: 2025,
-    tags: ["Installation", "Kinetic", "Design"],
-    size: "t",
-    position: 1,
-    description: "A piece created by designing a motion accumulator"
-  },
-  {
     name: "...And Words Will Echo in My Soul",
     slug: "andWordsWillEchoInMySoul",
     thumbnail: "/media/thumbnails/insecurityMirror.mp4",
@@ -95,6 +83,18 @@ export const projectsArray: Project[] = [
     size: "h",
     position: 3,
     description: "Media Art created using DCGAN trained on images of fire."
+  },
+  {
+    name: "Constructor",
+    slug: "constructor",
+    thumbnail: "/media/thumbnails/constructor.mp4",
+    height:1080,
+    width:1080,
+    year: 2025,
+    tags: ["Installation", "Kinetic", "Design"],
+    size: "t",
+    position: 1,
+    description: "A piece created by designing a motion accumulator"
   },
   {
     name: "Human Condition",
