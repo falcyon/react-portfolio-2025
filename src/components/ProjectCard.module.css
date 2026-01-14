@@ -18,13 +18,14 @@
   max-height: 500px;
   object-fit: contain;
   border: 2px solid var(--foreground);
-  transition: border 0.2s, transform 0.2s;
+  transition: outline 0.2s, outline-offset 0.2s, transform 0.2s;
   box-sizing: border-box;
 }
 
 .projectImage:hover,
 .projectVideo:hover {
-  border: 10px solid var(--foreground);
+  outline: 8px solid var(--foreground);
+  outline-offset: -8px;
 }
 
 /* .projectVideo {
