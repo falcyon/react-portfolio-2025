@@ -4,7 +4,7 @@ import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: {
@@ -54,7 +54,7 @@ export default function RootLayout({
             {children}
           </div>
           {/* {children} */}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </LenisProvider>
         <SpeedInsights />
         <Analytics />
