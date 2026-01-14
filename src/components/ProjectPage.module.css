@@ -157,6 +157,15 @@
     height: auto;
 }
 
+.videoSection video {
+    border-style: solid;
+    border-color: #111;
+    border-width: 0.5px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 @media (max-width: 700px) {
     .closeButton {
         font-size: 64px;
