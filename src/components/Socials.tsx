@@ -31,6 +31,7 @@ export default function SocialLinks() {
                 style={iconStyle}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#E1306C")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#555")}
+                onClick={() => window.umami?.track('social-click', { platform: 'instagram' })}
             >
                 <FaInstagram size={24} />
             </a>
@@ -40,6 +41,7 @@ export default function SocialLinks() {
                 style={iconStyle}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#007bff")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#555")}
+                onClick={() => window.umami?.track('social-click', { platform: 'email' })}
             >
                 <MdEmail size={24} />
             </a>
@@ -51,6 +53,7 @@ export default function SocialLinks() {
                 style={iconStyle}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#0A66C2")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#555")}
+                onClick={() => window.umami?.track('social-click', { platform: 'linkedin' })}
             >
                 <FaLinkedin size={24} />
             </a>
