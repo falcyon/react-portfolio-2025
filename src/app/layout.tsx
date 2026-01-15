@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 // import GridOverlay from "@/components/GridOverlay";
 import LenisProvider from "@/components/LenisProvider";
@@ -58,6 +59,12 @@ export default function RootLayout({
         </LenisProvider>
         <SpeedInsights />
         <Analytics />
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="836b2b5c-a53a-48d3-88d4-06959b33b93d"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
