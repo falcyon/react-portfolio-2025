@@ -14,7 +14,8 @@
 
 .projectImage,
 .projectVideo {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   max-height: 500px;
   object-fit: contain;
   border: 2px solid var(--foreground);
