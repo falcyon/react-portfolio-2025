@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Suspense } from "react";
 import "./globals.css";
 // import GridOverlay from "@/components/GridOverlay";
 import LenisProvider from "@/components/LenisProvider";
+import UmamiOptOut from "@/components/UmamiOptOut";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
 // import ThemeToggle from "@/components/ThemeToggle";
@@ -48,6 +50,9 @@ export default function RootLayout({
 
       </head>
       <body>
+        <Suspense fallback={null}>
+          <UmamiOptOut />
+        </Suspense>
         <LenisProvider>
           {/* <GridOverlay /> */}
           <div style={{ position: "relative", minHeight: "100vh" }}>
