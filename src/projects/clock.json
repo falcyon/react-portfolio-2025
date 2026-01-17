@@ -1,7 +1,21 @@
 {
   "content": [
     {
-      "sections": []
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "As a species, we have now decided to look at time as an incredibly precise tool and a way to measure our tasks and by proxy, our productivity. Our recent change in preferring digital clocks over analog only reinforces this idea. However, I believe our minds were intended to look at time as a fluid concept. This digital artwork celebrates that fluidity"
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/thumbnails/clock.mp4",
+          "alt": "Fluid clock"
+        }
+      ]
     }
   ]
 }
