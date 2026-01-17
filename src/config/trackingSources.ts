@@ -5,8 +5,10 @@
 export const trackingSources: Record<string, string> = {
     "cv": "resume",
     "gm": "email-signature",
+    "li": "linkedin-profile",
+
     // Add more as needed:
-    // "li": "linkedin-profile",
+    // 
     // "tw": "twitter",
     // "biz": "business-card",
 };
