@@ -1,7 +1,66 @@
 {
   "content": [
     {
-      "sections": []
+      "sections": [
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/thumbnails/qtouch.mp4",
+          "alt": "Quantum Touch"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "QuantumTouch was developed for Quantum Jam 2022 as a digital art installation to showcase the technology in a visual form. I had a simple takeaway that I wanted to make visceral - Data interpretation can be a creative act, allowing artists to work in highly technical fields like quantum computing."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "This piece was inspired by Rothko. Rothko worked with fundamental shapes but was willing to let them be imperfect. This makes for a great starting place for making art with a quantum computer. Quantum computing itself is in its infancy. I set out to create art that uses quantum fundamentals themselves to celebrate the imperfections of the technology."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/qTouch/qTouch_td.mp4",
+          "alt": "Quantum Touch"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "TouchDesigner was used for the interactions and visuals, while the data came directly from a run on IBM's quantum computers"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The code to this piece was given out to all the artists participating in the design Jam"
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/qTouch/Talk.png",
+          "alt": "Quantum Touch Talk"
+        }
+      ]
     }
   ]
 }
