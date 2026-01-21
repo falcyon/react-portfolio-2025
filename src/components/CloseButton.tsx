@@ -12,12 +12,12 @@ export default function CloseButton() {
         window.umami?.track('close-button-click', { project: projectSlug });
 
         const referrer = document.referrer;
-        const isFromHome = referrer.includes(window.location.origin + "/");
+        const isFromOwnSite = referrer.includes(window.location.origin);
 
-        if (isFromHome || window.history.length > 1) {
-            router.back(); // preserves scroll position
+        if (isFromOwnSite) {
+            router.back(); // came from our site, go back to preserve scroll
         } else {
-            router.push("/"); // scrolls to top
+            router.push("/"); // came directly or from external, go to home
         }
     };
 
