@@ -5,6 +5,7 @@ import "./globals.css";
 // import GridOverlay from "@/components/GridOverlay";
 import LenisProvider from "@/components/LenisProvider";
 import UmamiOptOut from "@/components/UmamiOptOut";
+import ScrollTracker from "@/components/ScrollTracker";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
 // import ThemeToggle from "@/components/ThemeToggle";
@@ -52,6 +53,7 @@ export default function RootLayout({
       <body>
         <Suspense fallback={null}>
           <UmamiOptOut />
+          <ScrollTracker />
         </Suspense>
         <LenisProvider>
           {/* <GridOverlay /> */}
