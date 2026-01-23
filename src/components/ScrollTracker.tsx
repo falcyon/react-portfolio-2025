@@ -20,7 +20,7 @@ export default function ScrollTracker() {
             const scrollPercent = Math.round((scrollTop / docHeight) * 100);
 
             // Track at 25%, 50%, 75%, 100%
-            const milestones = [25, 50, 75, 100];
+            const milestones = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
             for (const milestone of milestones) {
                 if (scrollPercent >= milestone && !trackedDepths.current.has(milestone)) {
