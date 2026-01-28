@@ -1,0 +1,12 @@
+    {
+        "rewrites": [
+            {
+                "source": "/geminidoodle/:path*",
+                "destination": "https://geminidoodle.leff.in/:path*"
+            },
+            {
+                "source": "/geminidoodle",
+                "destination": "https://geminidoodle.leff.in/"
+            }
+        ]
+    }
