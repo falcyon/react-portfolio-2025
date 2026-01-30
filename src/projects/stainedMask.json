@@ -1,20 +1,24 @@
 {
-  "sections": [
+  "content": [
     {
-      "type": "text",
-      "size": "h",
-      "text": [
-        "It's 2021.",
-        "After a year cooped up inside, a cautious freedom bloomed. We ventured out, masks a shield, a constant reminder to stay distant, to keep our neighbors safe. After all, in a world so fragile, every life mattered. Every breath held the weight of caution.",
-        "But the church, its pews and stained glass windows, seemed to disagree. The very idea of a mask, a symbol of protection for one another, was met with fervent opposition. It was a curious dissonance - the teachings of love thy neighbor set against this rejection of a simple act of care.",
-        "This tension, this clash of values, was interesting, to say the least. I designed this interactive piece to juxtapose the classic beauty of stained glass, a predominant feature of the church, with the utilitarian form of a mask that it now steadfastly opposes."
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "It's 2021.",
+            "After a year cooped up inside, a cautious freedom bloomed. We ventured out, masks a shield, a constant reminder to stay distant, to keep our neighbors safe. After all, in a world so fragile, every life mattered. Every breath held the weight of caution.",
+            "But the church, its pews and stained glass windows, seemed to disagree. The very idea of a mask, a symbol of protection for one another, was met with fervent opposition. It was a curious dissonance - the teachings of love thy neighbor set against this rejection of a simple act of care.",
+            "This tension, this clash of values, was interesting, to say the least. I designed this interactive piece to juxtapose the classic beauty of stained glass, a predominant feature of the church, with the utilitarian form of a mask that it now steadfastly opposes."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/thumbnails/StainedMask.mp4",
+          "alt": "Stained Glass Mask Video"
+        }
       ]
-    },
-    {
-      "type": "video",
-      "size": "h",
-      "src": "/media/thumbnails/StainedMask.mp4",
-      "alt": "Stained Glass Mask Video"
     }
   ]
 }
