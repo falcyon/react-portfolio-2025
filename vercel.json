@@ -1,12 +1,12 @@
     {
         "rewrites": [
             {
-                "source": "/geminidoodle/:path*",
-                "destination": "https://geminidoodle.leff.in/:path*"
+                "source": "/dinoRevenge/:path*",
+                "destination": "https://gemini-doodle.vercel.app/:path*"
             },
             {
-                "source": "/geminidoodle",
-                "destination": "https://geminidoodle.leff.in/"
+                "source": "/dinoRevenge",
+                "destination": "https://gemini-doodle.vercel.app/"
             }
         ]
     }
