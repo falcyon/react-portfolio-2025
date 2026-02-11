@@ -70,6 +70,7 @@ export default function RootLayout({
           defer
           src="https://cloud.umami.is/script.js"
           data-website-id="836b2b5c-a53a-48d3-88d4-06959b33b93d"
+          data-domains="leff.in"
           strategy="afterInteractive"
         />
       </body>

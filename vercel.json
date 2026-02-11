@@ -1,12 +1,22 @@
-    {
-        "rewrites": [
-            {
-                "source": "/dinoRevenge/:path*",
-                "destination": "https://gemini-doodle.vercel.app/:path*"
-            },
-            {
-                "source": "/dinoRevenge",
-                "destination": "https://gemini-doodle.vercel.app/"
-            }
-        ]
-    }
+{
+    "redirects": [
+        {
+            "source": "/dinoRevenge/:path*",
+            "destination": "/lab/dinoRevenge/:path*"
+        },
+        {
+            "source": "/dinoRevenge",
+            "destination": "/lab/dinoRevenge"
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/lab/dinoRevenge/:path*",
+            "destination": "https://gemini-doodle.vercel.app/:path*"
+        },
+        {
+            "source": "/lab/dinoRevenge",
+            "destination": "https://gemini-doodle.vercel.app/"
+        }
+    ]
+}
