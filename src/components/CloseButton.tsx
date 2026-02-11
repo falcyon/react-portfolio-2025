@@ -11,13 +11,12 @@ export default function CloseButton() {
         const projectSlug = pathname.split('/').pop() || 'unknown';
         window.umami?.track('close-button-click', { project: projectSlug });
 
-        const referrer = document.referrer;
-        const isFromOwnSite = referrer.includes(window.location.origin);
-
-        if (isFromOwnSite) {
-            router.back(); // came from our site, go back to preserve scroll
+        const cameFromLanding = sessionStorage.getItem('navigated-from-landing');
+        if (cameFromLanding) {
+            sessionStorage.removeItem('navigated-from-landing');
+            window.history.back();
         } else {
-            router.push("/"); // came directly or from external, go to home
+            router.push("/");
         }
     };
 
