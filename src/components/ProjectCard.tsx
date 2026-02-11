@@ -52,7 +52,10 @@ export default function ProjectCard({
             <Link
                 href={`/projects/${slug}`}
                 aria-label={`View project ${name} from ${year}. Tags: ${tagString}`}
-                onClick={() => window.umami?.track('project-click', { project: slug })}
+                onClick={() => {
+                    sessionStorage.setItem('navigated-from-landing', 'true');
+                    window.umami?.track('project-click', { project: slug });
+                }}
             >
                 {!canLoadMedia && (
                     <div
