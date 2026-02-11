@@ -8,7 +8,7 @@ const jsonLd = {
   itemListElement: projectsArray.map((p, index) => ({
     "@type": "ListItem",
     position: index + 1,
-    url: `https://leff.in/projects/${p.slug}`,
+    url: `https://2025.leff.in/projects/${p.slug}`,
     name: p.name,
     datePublished: p.year,
   })),

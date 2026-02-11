@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Leffin | Interactive & Experiential Artist",
     description: "Leffin is an artist who blends technology and creativity. Explore his immersive projects here.",
-    url: "https://leff.in",
+    url: "https://2025.leff.in",
     siteName: "Leffin Portfolio",
     images: [
       {
-        url: "https://leff.in/leffin_opengraphimage.png",
+        url: "https://2025.leff.in/leffin_opengraphimage.png",
         width: 1200,
         height: 630,
         alt: "Leffin Portfolio Preview",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Leffin | Interactive & Experiential Artist",
     description: "Leffin is an artist who blends technology and creativity. Explore his immersive projects here.",
-    images: ["https://leff.in/leffin_opengraphimage.png"],
+    images: ["https://2025.leff.in/leffin_opengraphimage.png"],
   },
 }
 
@@ -70,7 +70,7 @@ export default function RootLayout({
           defer
           src="https://cloud.umami.is/script.js"
           data-website-id="836b2b5c-a53a-48d3-88d4-06959b33b93d"
-          data-domains="leff.in"
+          data-domains="2025.leff.in"
           strategy="afterInteractive"
         />
       </body>
