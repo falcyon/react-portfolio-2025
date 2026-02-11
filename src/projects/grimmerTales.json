@@ -1,4 +1,18 @@
 {
+  "name": "Grimmer Tales",
+  "slug": "grimmerTales",
+  "year": 2022,
+  "tags": [
+    "Illustration",
+    "Book Design",
+    "Narrative Art"
+  ],
+  "description": "An illustrated absurdist children's fairy tale book.",
+  "thumbnail": "/media/thumbnails/Book.mp4",
+  "thumbnailWidth": 720,
+  "thumbnailHeight": 1080,
+  "size": "t",
+  "position": 2,
   "content": [
     {
       "sections": [
@@ -58,5 +72,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 18
 }

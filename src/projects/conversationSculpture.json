@@ -1,4 +1,17 @@
 {
+  "name": "Conversation Sculpture",
+  "slug": "conversationSculpture",
+  "year": 2022,
+  "tags": [
+    "Sculpture",
+    "Conceptual Art"
+  ],
+  "description": "A sculpture made up of conversations about nihilism.",
+  "thumbnail": "/media/thumbnails/pop2.mp4",
+  "thumbnailWidth": 1080,
+  "thumbnailHeight": 1080,
+  "size": "q",
+  "position": 3,
   "content": [
     {
       "sections": [
@@ -18,5 +31,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 9
 }

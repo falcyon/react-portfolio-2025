@@ -1,0 +1,66 @@
+"use client";
+
+import { useRef } from "react";
+import { useVideoVisibility } from "./hooks";
+
+interface VideoVariant {
+  quality: string;
+  path: string;
+}
+
+interface ResponsiveVideoProps {
+  src: string;
+  poster?: string;
+  variants?: VideoVariant[];
+  className?: string;
+}
+
+/**
+ * Video player that supports multiple quality variants.
+ * Falls back to the original src if no variants are provided.
+ * Uses IntersectionObserver to play/pause based on visibility.
+ */
+export default function ResponsiveVideo({
+  src,
+  poster,
+  variants,
+  className,
+}: ResponsiveVideoProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  useVideoVisibility(videoRef, true);
+
+  // If we have variants, use them as <source> elements (browser picks best)
+  // Order: highest quality first, browser will pick what it can handle
+  if (variants && variants.length > 0) {
+    return (
+      <video
+        ref={videoRef}
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        poster={poster}
+        className={className}
+      >
+        {variants.map((v) => (
+          <source key={v.quality} src={v.path} type="video/mp4" />
+        ))}
+        {/* Fallback to original */}
+        <source src={src} type="video/mp4" />
+      </video>
+    );
+  }
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      loop
+      muted
+      playsInline
+      preload="metadata"
+      poster={poster}
+      className={className}
+    />
+  );
+}

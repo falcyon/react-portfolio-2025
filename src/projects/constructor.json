@@ -1,4 +1,18 @@
 {
+  "name": "Constructor",
+  "slug": "constructor",
+  "year": 2025,
+  "tags": [
+    "Installation",
+    "Kinetic",
+    "Design"
+  ],
+  "description": "A piece created by designing a motion accumulator",
+  "thumbnail": "/media/thumbnails/constructor.mp4",
+  "thumbnailWidth": 1080,
+  "thumbnailHeight": 1080,
+  "size": "t",
+  "position": 1,
   "content": [
     {
       "sections": [
@@ -78,5 +92,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 6
 }

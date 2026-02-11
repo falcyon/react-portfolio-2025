@@ -1,4 +1,17 @@
 {
+  "name": "Clock",
+  "slug": "clock",
+  "year": 2021,
+  "tags": [
+    "Digital Art",
+    "Conceptual Art"
+  ],
+  "description": "Digital art referencing the transitory nature of time in our memories.",
+  "thumbnail": "/media/thumbnails/clock.mp4",
+  "thumbnailWidth": 720,
+  "thumbnailHeight": 720,
+  "size": "t",
+  "position": 3,
   "content": [
     {
       "sections": [
@@ -17,5 +30,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 17
 }

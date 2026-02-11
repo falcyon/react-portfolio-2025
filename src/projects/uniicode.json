@@ -1,4 +1,18 @@
 {
+  "name": "unIIcode",
+  "slug": "uniicode",
+  "year": 2021,
+  "tags": [
+    "Digital Art",
+    "Typography",
+    "Generative Art"
+  ],
+  "description": "Generation of new character sets to fill up spaces in Unicode.",
+  "thumbnail": "/media/thumbnails/uniicode_2.mp4",
+  "thumbnailWidth": 1440,
+  "thumbnailHeight": 1080,
+  "size": "q",
+  "position": 1,
   "content": [
     {
       "sections": [
@@ -94,5 +108,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 11
 }

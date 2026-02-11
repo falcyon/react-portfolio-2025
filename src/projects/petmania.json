@@ -1,4 +1,17 @@
 {
+  "name": "Petmania",
+  "slug": "petmania",
+  "year": 2022,
+  "tags": [
+    "Product Design",
+    "App Design"
+  ],
+  "description": "Product Design for an app for dogs to find companions.",
+  "thumbnail": "/media/thumbnails/petmania.mp4",
+  "thumbnailWidth": 720,
+  "thumbnailHeight": 1158,
+  "size": "t",
+  "position": 2,
   "content": [
     {
       "sections": [
@@ -79,7 +92,9 @@
         {
           "type": "text",
           "size": "t",
-          "text": ["We created a user-flow"]
+          "text": [
+            "We created a user-flow"
+          ]
         },
         {
           "type": "image",
@@ -109,5 +124,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 10
 }

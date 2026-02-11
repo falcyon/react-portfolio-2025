@@ -1,0 +1,63 @@
+/**
+ * Reads all project JSON files and generates src/data/projects.ts
+ * as a static array for client-side consumption.
+ *
+ * Run with: node scripts/generate-projects-array.mjs
+ */
+
+import { readFileSync, writeFileSync, readdirSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const rootDir = join(__dirname, "..");
+const projectsDir = join(rootDir, "src", "projects");
+const outputPath = join(rootDir, "src", "data", "projects.ts");
+
+const files = readdirSync(projectsDir).filter((f) => f.endsWith(".json"));
+const projects = [];
+
+for (const file of files) {
+  const raw = JSON.parse(readFileSync(join(projectsDir, file), "utf-8"));
+  // Extract only the metadata fields needed for listings (no content)
+  projects.push({
+    name: raw.name,
+    slug: raw.slug,
+    thumbnail: raw.thumbnail,
+    height: raw.thumbnailHeight,
+    width: raw.thumbnailWidth,
+    year: raw.year,
+    tags: raw.tags,
+    size: raw.size,
+    ...(raw.position !== undefined && { position: raw.position }),
+    description: raw.description,
+    _order: raw.order ?? 999,
+  });
+}
+
+// Sort by order field to preserve original curation, then strip _order
+projects.sort((a, b) => a._order - b._order);
+projects.forEach((p) => delete p._order);
+
+const output = `// AUTO-GENERATED — Do not edit manually.
+// Generated from src/projects/*.json by scripts/generate-projects-array.mjs
+// To regenerate: node scripts/generate-projects-array.mjs
+
+export interface Project {
+  name: string;
+  slug: string;
+  thumbnail: string;
+  height: number;
+  width: number;
+  year: number;
+  tags: string[];
+  size: "s" | "q" | "t" | "h" | "1" | "f";
+  position?: 1 | 2 | 3 | 4 | 5 | 6;
+  description: string;
+}
+
+export const projectsArray: Project[] = ${JSON.stringify(projects, null, 2)};
+`;
+
+writeFileSync(outputPath, output);
+console.log(`Generated ${outputPath} with ${projects.length} projects`);

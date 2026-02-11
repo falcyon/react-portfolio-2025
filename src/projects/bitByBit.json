@@ -1,4 +1,17 @@
 {
+  "name": "Bit by Bit",
+  "slug": "bitByBit",
+  "year": 2021,
+  "tags": [
+    "Digital Art",
+    "Generative Art"
+  ],
+  "description": "Digital art visualizing the passage of time in binary.",
+  "thumbnail": "/media/thumbnails/bitbybit.mp4",
+  "thumbnailWidth": 720,
+  "thumbnailHeight": 720,
+  "size": "t",
+  "position": 2,
   "content": [
     {
       "sections": [
@@ -17,5 +30,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 16
 }

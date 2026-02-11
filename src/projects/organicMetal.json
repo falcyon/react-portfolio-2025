@@ -1,4 +1,18 @@
 {
+  "name": "Organic Metal",
+  "slug": "organicMetal",
+  "year": 2022,
+  "tags": [
+    "Sculpture",
+    "Design",
+    "Metalwork"
+  ],
+  "description": "Rings made out of metal but in a fluid and organic form.",
+  "thumbnail": "/media/thumbnails/rings.jpeg",
+  "thumbnailWidth": 3072,
+  "thumbnailHeight": 2807,
+  "size": "q",
+  "position": 2,
   "content": [
     {
       "sections": [
@@ -17,5 +31,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 12
 }

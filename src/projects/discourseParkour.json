@@ -1,7 +1,20 @@
 {
+  "name": "Discourse Parkour",
+  "slug": "discourseParkour",
+  "year": 2021,
+  "tags": [
+    "Interactive",
+    "Installation"
+  ],
+  "description": "An interactive installation where players read through a monologue as they play.",
+  "thumbnail": "/media/thumbnails/discourse.mp4",
+  "thumbnailWidth": 1098,
+  "thumbnailHeight": 700,
+  "size": "1",
   "content": [
     {
       "sections": []
     }
-  ]
+  ],
+  "order": 19
 }

@@ -1,14 +1,17 @@
+import Image from "next/image";
 import styles from "./ProjectPage.module.css";
 import UnderConstruction from "./UnderConstruction";
 import CloseButton from "./CloseButton";
 import PagePreloader from "./PagePreloader";
+import ResponsiveVideo from "./ResponsiveVideo";
 
 interface Section {
     type: "text" | "image" | "video";
-    size: "h" | "f" | "t";
+    size: "h" | "f" | "t" | "t2" | "q" | "s" | "1";
     text?: string[];
     src?: string;
     alt?: string;
+    style?: string;
 }
 
 interface ProjectProps {
@@ -58,19 +61,20 @@ export default function ProjectPage({ project }: ProjectProps) {
                                         case "image":
                                             return (
                                                 <div key={idx} className={`${styles[section.size]} ${styles.imageSection}`}>
-                                                    <img
-                                                        src={section.src}
+                                                    <Image
+                                                        src={section.src || ""}
                                                         alt={section.alt ?? "Image"}
+                                                        width={1200}
+                                                        height={800}
                                                         className={styles.image}
+                                                        style={section.style ? Object.fromEntries(section.style.split(";").filter(Boolean).map(s => { const [k, v] = s.split(":").map(x => x.trim()); return [k, v]; })) : undefined}
                                                     />
                                                 </div>
                                             );
                                         case "video":
                                             return (
                                                 <div key={idx} className={`${styles[section.size]} ${styles.videoSection}`}>
-                                                    <video src={section.src} loop autoPlay muted playsInline preload="metadata" style={{
-                                                    }}
-                                                    />
+                                                    <ResponsiveVideo src={section.src || ""} />
                                                 </div>
                                             );
                                         default:

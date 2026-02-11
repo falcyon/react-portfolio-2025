@@ -1,4 +1,18 @@
 {
+  "name": "Notes to Self",
+  "slug": "notesToSelf",
+  "year": 2021,
+  "tags": [
+    "Interactive",
+    "Installation",
+    "AI"
+  ],
+  "description": "An interactive installation where users engage in a conversation with their digital self",
+  "thumbnail": "/media/thumbnails/notes.mp4",
+  "thumbnailWidth": 1080,
+  "thumbnailHeight": 1080,
+  "size": "t",
+  "position": 3,
   "content": [
     {
       "sections": [
@@ -145,5 +159,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 2
 }

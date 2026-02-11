@@ -1,4 +1,18 @@
 {
+  "name": "Read my Lips",
+  "slug": "readMyLips",
+  "year": 2021,
+  "tags": [
+    "Interactive",
+    "AI",
+    "Installation"
+  ],
+  "description": "An interactive installation isolating viewers' lips and predicting their emotions.",
+  "thumbnail": "/media/thumbnails/ReadMyLips2.mp4",
+  "thumbnailWidth": 720,
+  "thumbnailHeight": 850,
+  "size": "q",
+  "position": 2,
   "content": [
     {
       "sections": [
@@ -18,5 +32,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 8
 }

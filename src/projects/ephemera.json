@@ -1,4 +1,18 @@
 {
+  "name": "Ephemera",
+  "slug": "ephemera",
+  "year": 2025,
+  "tags": [
+    "Installation",
+    "Conceptual Art",
+    "Physical"
+  ],
+  "description": "An installation reflecting on humanity's grapple with legacy",
+  "thumbnail": "/media/thumbnails/ephemera.mp4",
+  "thumbnailWidth": 1080,
+  "thumbnailHeight": 1080,
+  "size": "t",
+  "position": 2,
   "content": [
     {
       "sections": [
@@ -48,5 +62,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 0
 }

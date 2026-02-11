@@ -1,4 +1,18 @@
 {
+  "name": "Palimpsest",
+  "slug": "palimpsest",
+  "year": 2023,
+  "tags": [
+    "Performance",
+    "Installation",
+    "Conceptual Art"
+  ],
+  "description": "A performance installation converting conversations into pieces of thread.",
+  "thumbnail": "/media/thumbnails/palimpsest2.mp4",
+  "thumbnailWidth": 1920,
+  "thumbnailHeight": 1080,
+  "size": "h",
+  "position": 2,
   "content": [
     {
       "sections": [
@@ -39,7 +53,9 @@
         {
           "type": "text",
           "size": "f",
-          "text": ["2 shows of 3 hours each were performed in 2023."]
+          "text": [
+            "2 shows of 3 hours each were performed in 2023."
+          ]
         }
       ]
     },
@@ -109,5 +125,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 4
 }

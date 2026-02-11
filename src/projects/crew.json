@@ -1,4 +1,17 @@
 {
+  "name": "Crew App Branding",
+  "slug": "crew",
+  "year": 2023,
+  "tags": [
+    "Branding",
+    "Graphic Design"
+  ],
+  "description": "Branding, logo design, and design system for a social media startup.",
+  "thumbnail": "/media/thumbnails/crew.mp4",
+  "thumbnailWidth": 1080,
+  "thumbnailHeight": 1080,
+  "size": "q",
+  "position": 3,
   "content": [
     {
       "sections": [
@@ -120,5 +133,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 13
 }

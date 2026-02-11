@@ -1,4 +1,18 @@
 {
+  "name": "...And Words Will Echo in My Soul",
+  "slug": "andWordsWillEchoInMySoul",
+  "year": 2024,
+  "tags": [
+    "Performance",
+    "Installation",
+    "Conceptual Art"
+  ],
+  "description": "An interactive installation where users see a silhouette of their negative self-talk as their reflection",
+  "thumbnail": "/media/thumbnails/insecurityMirror.mp4",
+  "thumbnailWidth": 1080,
+  "thumbnailHeight": 1080,
+  "size": "t",
+  "position": 2,
   "content": [
     {
       "sections": [
@@ -28,12 +42,16 @@
         {
           "type": "text",
           "size": "t",
-          "text": ["Sticks and stones may break my bones..."]
+          "text": [
+            "Sticks and stones may break my bones..."
+          ]
         },
         {
           "type": "text",
           "size": "t",
-          "text": ["\"...but words will echo in my soul.\""]
+          "text": [
+            "\"...but words will echo in my soul.\""
+          ]
         }
       ]
     },
@@ -137,5 +155,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 1
 }

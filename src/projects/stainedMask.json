@@ -1,4 +1,18 @@
 {
+  "name": "Stained Mask",
+  "slug": "stainedMask",
+  "year": 2021,
+  "tags": [
+    "Interactive",
+    "Installation",
+    "Conceptual Art"
+  ],
+  "description": "An interactive installation critiquing the Church's opinion on masks during Covid.",
+  "thumbnail": "/media/thumbnails/StainedMask.mp4",
+  "thumbnailWidth": 540,
+  "thumbnailHeight": 540,
+  "size": "t",
+  "position": 1,
   "content": [
     {
       "sections": [
@@ -20,5 +34,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 3
 }

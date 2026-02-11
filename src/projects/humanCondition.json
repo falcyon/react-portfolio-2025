@@ -1,4 +1,17 @@
 {
+  "name": "Human Condition",
+  "slug": "humanCondition",
+  "year": 2021,
+  "tags": [
+    "Performance",
+    "Conceptual Art"
+  ],
+  "description": "An interpretive performance exploring the human condition.",
+  "thumbnail": "/media/thumbnails/portraiture.mp4",
+  "thumbnailWidth": 500,
+  "thumbnailHeight": 590,
+  "size": "q",
+  "position": 1,
   "content": [
     {
       "sections": [
@@ -114,5 +127,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 7
 }

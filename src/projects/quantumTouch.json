@@ -1,4 +1,18 @@
 {
+  "name": "Quantum Touch",
+  "slug": "quantumTouch",
+  "year": 2022,
+  "tags": [
+    "Interactive",
+    "Installation",
+    "Media Art"
+  ],
+  "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation.",
+  "thumbnail": "/media/thumbnails/qtouch.mp4",
+  "thumbnailWidth": 720,
+  "thumbnailHeight": 420,
+  "size": "h",
+  "position": 1,
   "content": [
     {
       "sections": [
@@ -62,5 +76,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 20
 }

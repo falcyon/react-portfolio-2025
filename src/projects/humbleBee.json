@@ -1,4 +1,17 @@
 {
+  "name": "Humble Bee",
+  "slug": "humbleBee",
+  "year": 2017,
+  "tags": [
+    "Industrial Design",
+    "Product Design"
+  ],
+  "description": "An MAV for military use.",
+  "thumbnail": "/media/thumbnails/humblebee_sq.jpg",
+  "thumbnailWidth": 1500,
+  "thumbnailHeight": 1500,
+  "size": "q",
+  "position": 4,
   "content": [
     {
       "sections": [
@@ -128,5 +141,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 14
 }

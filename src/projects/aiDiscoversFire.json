@@ -1,4 +1,18 @@
 {
+  "name": "AI Discovers Fire",
+  "slug": "aiDiscoversFire",
+  "year": 2021,
+  "tags": [
+    "Media Art",
+    "AI",
+    "Generative Art"
+  ],
+  "description": "Media Art created using DCGAN trained on images of fire.",
+  "thumbnail": "/media/thumbnails/fire-gif.mp4",
+  "thumbnailWidth": 800,
+  "thumbnailHeight": 464,
+  "size": "h",
+  "position": 3,
   "content": [
     {
       "sections": [
@@ -66,5 +80,6 @@
         }
       ]
     }
-  ]
+  ],
+  "order": 5
 }
