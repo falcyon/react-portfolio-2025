@@ -1,7 +1,5 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  serverExternalPackages: ["fluent-ffmpeg"],
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;
