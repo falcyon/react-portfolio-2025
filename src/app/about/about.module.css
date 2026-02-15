@@ -50,11 +50,11 @@
 }
 
 .credLabel {
-  font-weight: 600 !important;
-  font-size: 0.7rem !important;
+  font-weight: 600;
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.4 !important;
+  opacity: 0.4;
   margin-bottom: 4px;
 }
 

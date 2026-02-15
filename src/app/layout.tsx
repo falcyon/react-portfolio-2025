@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import "./globals.css";
-// import GridOverlay from "@/components/GridOverlay";
-import LenisProvider from "@/components/LenisProvider";
 import Nav from "@/components/Nav";
 import UmamiOptOut from "@/components/UmamiOptOut";
 import UmamiLoader from "@/components/UmamiLoader";
 import ScrollTracker from "@/components/ScrollTracker";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
-// import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: {
@@ -49,7 +46,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/qje5ynx.css" />
-
       </head>
       <body>
         <Suspense fallback={null}>
@@ -57,15 +53,9 @@ export default function RootLayout({
           <ScrollTracker />
         </Suspense>
         <Nav />
-        <LenisProvider>
-          {/* <GridOverlay /> */}
-          <div style={{ position: "relative", minHeight: "100vh" }}>
-            <div className="ruled-underlay" />
-            {children}
-          </div>
-          {/* {children} */}
-          {/* <ThemeToggle /> */}
-        </LenisProvider>
+        <div style={{ position: "relative", minHeight: "100vh" }}>
+          {children}
+        </div>
         <SpeedInsights />
         <Analytics />
         <UmamiLoader />

@@ -25,6 +25,8 @@ export const projectSchema = z.object({
   size: z.enum(["1x1", "1x2", "2x1", "2x2"]),
   position: z.number().int().min(1).max(6).optional(),
   order: z.number().int().min(0).optional(),
+  featured: z.boolean().optional().default(false),
+  featuredOrder: z.number().int().optional(),
   content: z.array(sectionGroupSchema),
 });
 

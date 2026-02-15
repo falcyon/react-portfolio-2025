@@ -33,17 +33,23 @@ export default function Nav() {
       </button>
 
       <ul className={`${styles.links} ${menuOpen ? styles.linksOpen : ""}`}>
-        {NAV_LINKS.map(({ href, label }) => (
-          <li key={href}>
-            <Link
-              href={href}
-              className={`${styles.link} ${href === "/" ? (pathname === "/" ? styles.active : "") : (pathname === href || pathname.startsWith(href + "/") ? styles.active : "")}`}
-              onClick={() => setMenuOpen(false)}
-            >
-              {label}
-            </Link>
-          </li>
-        ))}
+        {NAV_LINKS.map(({ href, label }) => {
+          const isActive = href === "/"
+            ? pathname === "/"
+            : pathname === href || pathname.startsWith(href + "/");
+          return (
+            <li key={href}>
+              <Link
+                href={href}
+                className={`${styles.link} ${isActive ? styles.active : ""}`}
+                aria-current={isActive ? "page" : undefined}
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

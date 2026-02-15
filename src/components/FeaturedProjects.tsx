@@ -8,12 +8,6 @@ import { useVideoVisibility } from "./hooks";
 import { loadedMedia } from "./mediaLoadStore";
 import styles from "./FeaturedProjects.module.css";
 
-const FEATURED_SLUGS = [
-  "ephemera",
-  "petmania",
-  "andWordsWillEchoInMySoul",
-];
-
 function FeaturedCard({ project }: { project: Project }) {
   const isVideo = /\.(mp4|webm|ogg)$/i.test(project.thumbnail);
   const alreadyLoaded = loadedMedia.has(project.thumbnail);
@@ -73,8 +67,9 @@ export default function FeaturedProjects({
   projects: Project[];
 }) {
   const featured = useMemo(() => {
-    return FEATURED_SLUGS.map((slug) => projects.find((p) => p.slug === slug))
-      .filter(Boolean) as Project[];
+    return projects
+      .filter((p) => p.featured)
+      .sort((a, b) => (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99));
   }, [projects]);
 
   return (

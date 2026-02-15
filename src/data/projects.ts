@@ -1,5 +1,5 @@
 // AUTO-GENERATED — Do not edit manually.
-// Generated from src/projects/*.json by scripts/generate-projects-array.mjs
+// Generated from src/content/projects/*.json by scripts/generate-projects-array.mjs
 // To regenerate: node scripts/generate-projects-array.mjs
 
 export interface Project {
@@ -13,13 +13,15 @@ export interface Project {
   size: "1x1" | "1x2" | "2x1" | "2x2";
   position?: 1 | 2 | 3 | 4 | 5 | 6;
   description: string;
+  featured: boolean;
+  featuredOrder?: number;
 }
 
 export const projectsArray: Project[] = [
   {
     "name": "Ephemera",
     "slug": "ephemera",
-    "thumbnail": "/media/thumbnails/ephemera.mp4",
+    "thumbnail": "/media/ephemera/ephemera.mp4",
     "height": 1080,
     "width": 1080,
     "year": 2025,
@@ -30,12 +32,14 @@ export const projectsArray: Project[] = [
     ],
     "size": "2x2",
     "position": 2,
-    "description": "An installation reflecting on humanity's grapple with legacy"
+    "description": "An installation reflecting on humanity's grapple with legacy",
+    "featured": true,
+    "featuredOrder": 0
   },
   {
     "name": "...And Words Will Echo in My Soul",
     "slug": "andWordsWillEchoInMySoul",
-    "thumbnail": "/media/thumbnails/insecurityMirror.mp4",
+    "thumbnail": "/media/andWordsWillEchoInMySoul/insecurityMirror.mp4",
     "height": 1080,
     "width": 1080,
     "year": 2024,
@@ -46,12 +50,14 @@ export const projectsArray: Project[] = [
     ],
     "size": "2x2",
     "position": 2,
-    "description": "An interactive installation where users see a silhouette of their negative self-talk as their reflection"
+    "description": "An interactive installation where users see a silhouette of their negative self-talk as their reflection",
+    "featured": true,
+    "featuredOrder": 2
   },
   {
     "name": "Notes to Self",
     "slug": "notesToSelf",
-    "thumbnail": "/media/thumbnails/notes.mp4",
+    "thumbnail": "/media/notesToSelf/notes.mp4",
     "height": 1080,
     "width": 1080,
     "year": 2021,
@@ -62,12 +68,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 3,
-    "description": "An interactive installation where users engage in a conversation with their digital self"
+    "description": "An interactive installation where users engage in a conversation with their digital self",
+    "featured": false
   },
   {
     "name": "Stained Mask",
     "slug": "stainedMask",
-    "thumbnail": "/media/thumbnails/StainedMask.mp4",
+    "thumbnail": "/media/stainedMask/StainedMask.mp4",
     "height": 540,
     "width": 540,
     "year": 2021,
@@ -78,12 +85,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 1,
-    "description": "An interactive installation critiquing the Church's opinion on masks during Covid."
+    "description": "An interactive installation critiquing the Church's opinion on masks during Covid.",
+    "featured": false
   },
   {
     "name": "Palimpsest",
     "slug": "palimpsest",
-    "thumbnail": "/media/thumbnails/palimpsest2.mp4",
+    "thumbnail": "/media/palimpsest/palimpsest2.mp4",
     "height": 1080,
     "width": 1920,
     "year": 2023,
@@ -94,12 +102,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "2x1",
     "position": 2,
-    "description": "A performance installation converting conversations into pieces of thread."
+    "description": "A performance installation converting conversations into pieces of thread.",
+    "featured": false
   },
   {
     "name": "AI Discovers Fire",
     "slug": "aiDiscoversFire",
-    "thumbnail": "/media/thumbnails/fire-gif.mp4",
+    "thumbnail": "/media/aiDiscoversFire/fire-gif.mp4",
     "height": 464,
     "width": 800,
     "year": 2021,
@@ -110,12 +119,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "2x1",
     "position": 3,
-    "description": "Media Art created using DCGAN trained on images of fire."
+    "description": "Media Art created using DCGAN trained on images of fire.",
+    "featured": false
   },
   {
     "name": "Constructor",
     "slug": "constructor",
-    "thumbnail": "/media/thumbnails/constructor.mp4",
+    "thumbnail": "/media/constructor/constructor.mp4",
     "height": 1080,
     "width": 1080,
     "year": 2025,
@@ -126,12 +136,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 1,
-    "description": "A piece created by designing a motion accumulator"
+    "description": "A piece created by designing a motion accumulator",
+    "featured": false
   },
   {
     "name": "Human Condition",
     "slug": "humanCondition",
-    "thumbnail": "/media/thumbnails/portraiture.mp4",
+    "thumbnail": "/media/humanCondition/portraiture.mp4",
     "height": 590,
     "width": 500,
     "year": 2021,
@@ -141,12 +152,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x2",
     "position": 1,
-    "description": "An interpretive performance exploring the human condition."
+    "description": "An interpretive performance exploring the human condition.",
+    "featured": false
   },
   {
     "name": "Read my Lips",
     "slug": "readMyLips",
-    "thumbnail": "/media/thumbnails/ReadMyLips2.mp4",
+    "thumbnail": "/media/readMyLips/ReadMyLips2.mp4",
     "height": 850,
     "width": 720,
     "year": 2021,
@@ -157,12 +169,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x2",
     "position": 2,
-    "description": "An interactive installation isolating viewers' lips and predicting their emotions."
+    "description": "An interactive installation isolating viewers' lips and predicting their emotions.",
+    "featured": false
   },
   {
     "name": "Conversation Sculpture",
     "slug": "conversationSculpture",
-    "thumbnail": "/media/thumbnails/pop2.mp4",
+    "thumbnail": "/media/conversationSculpture/pop2.mp4",
     "height": 1080,
     "width": 1080,
     "year": 2022,
@@ -172,12 +185,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 3,
-    "description": "A sculpture made up of conversations about nihilism."
+    "description": "A sculpture made up of conversations about nihilism.",
+    "featured": false
   },
   {
     "name": "Petmania",
     "slug": "petmania",
-    "thumbnail": "/media/thumbnails/petmania.mp4",
+    "thumbnail": "/media/petmania/petmania.mp4",
     "height": 1158,
     "width": 720,
     "year": 2022,
@@ -187,12 +201,14 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x2",
     "position": 2,
-    "description": "Product Design for an app for dogs to find companions."
+    "description": "Product Design for an app for dogs to find companions.",
+    "featured": true,
+    "featuredOrder": 1
   },
   {
     "name": "unIIcode",
     "slug": "uniicode",
-    "thumbnail": "/media/thumbnails/uniicode_2.mp4",
+    "thumbnail": "/media/uniicode/uniicode_2.mp4",
     "height": 1080,
     "width": 1440,
     "year": 2021,
@@ -203,12 +219,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "2x1",
     "position": 1,
-    "description": "Generation of new character sets to fill up spaces in Unicode."
+    "description": "Generation of new character sets to fill up spaces in Unicode.",
+    "featured": false
   },
   {
     "name": "Organic Metal",
     "slug": "organicMetal",
-    "thumbnail": "/media/thumbnails/rings.jpeg",
+    "thumbnail": "/media/organicMetal/rings.jpeg",
     "height": 2807,
     "width": 3072,
     "year": 2022,
@@ -219,12 +236,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 2,
-    "description": "Rings made out of metal but in a fluid and organic form."
+    "description": "Rings made out of metal but in a fluid and organic form.",
+    "featured": false
   },
   {
     "name": "Crew App Branding",
     "slug": "crew",
-    "thumbnail": "/media/thumbnails/crew.mp4",
+    "thumbnail": "/media/crew/crew.mp4",
     "height": 1080,
     "width": 1080,
     "year": 2023,
@@ -234,12 +252,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 3,
-    "description": "Branding, logo design, and design system for a social media startup."
+    "description": "Branding, logo design, and design system for a social media startup.",
+    "featured": false
   },
   {
     "name": "Humble Bee",
     "slug": "humbleBee",
-    "thumbnail": "/media/thumbnails/humblebee_sq.jpg",
+    "thumbnail": "/media/humbleBee/humblebee_sq.jpg",
     "height": 1500,
     "width": 1500,
     "year": 2017,
@@ -249,12 +268,30 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 4,
-    "description": "An MAV for military use."
+    "description": "An MAV for military use.",
+    "featured": false
+  },
+  {
+    "name": "Zoe",
+    "slug": "zoe",
+    "thumbnail": "/media/zoe/zoe.png",
+    "height": 387,
+    "width": 717,
+    "year": 2022,
+    "tags": [
+      "Product Design",
+      "Service Design",
+      "Sustainability"
+    ],
+    "size": "2x1",
+    "position": 3,
+    "description": "A service design concept connecting consumers with local tailors for custom, sustainable clothing.",
+    "featured": false
   },
   {
     "name": "Unraveling",
     "slug": "unraveling",
-    "thumbnail": "/media/thumbnails/unraveling.mp4",
+    "thumbnail": "/media/unraveling/unraveling.mp4",
     "height": 700,
     "width": 700,
     "year": 2021,
@@ -264,12 +301,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 1,
-    "description": "Digital art visualizing a slow burn breakdown or an 'unraveling' of the self."
+    "description": "Digital art visualizing a slow burn breakdown or an 'unraveling' of the self.",
+    "featured": false
   },
   {
     "name": "Bit by Bit",
     "slug": "bitByBit",
-    "thumbnail": "/media/thumbnails/bitbybit.mp4",
+    "thumbnail": "/media/bitByBit/bitbybit.mp4",
     "height": 720,
     "width": 720,
     "year": 2021,
@@ -279,12 +317,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 2,
-    "description": "Digital art visualizing the passage of time in binary."
+    "description": "Digital art visualizing the passage of time in binary.",
+    "featured": false
   },
   {
     "name": "Clock",
     "slug": "clock",
-    "thumbnail": "/media/thumbnails/clock.mp4",
+    "thumbnail": "/media/clock/clock.mp4",
     "height": 720,
     "width": 720,
     "year": 2021,
@@ -294,12 +333,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 3,
-    "description": "Digital art referencing the transitory nature of time in our memories."
+    "description": "Digital art referencing the transitory nature of time in our memories.",
+    "featured": false
   },
   {
     "name": "Grimmer Tales",
     "slug": "grimmerTales",
-    "thumbnail": "/media/thumbnails/Book.mp4",
+    "thumbnail": "/media/grimmerTales/Book.mp4",
     "height": 1080,
     "width": 720,
     "year": 2022,
@@ -310,12 +350,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x2",
     "position": 2,
-    "description": "An illustrated absurdist children's fairy tale book."
+    "description": "An illustrated absurdist children's fairy tale book.",
+    "featured": false
   },
   {
     "name": "Discourse Parkour",
     "slug": "discourseParkour",
-    "thumbnail": "/media/thumbnails/discourse.mp4",
+    "thumbnail": "/media/discourseParkour/discourse.mp4",
     "height": 700,
     "width": 1098,
     "year": 2021,
@@ -324,12 +365,13 @@ export const projectsArray: Project[] = [
       "Installation"
     ],
     "size": "2x1",
-    "description": "An interactive installation where players read through a monologue as they play."
+    "description": "An interactive installation where players read through a monologue as they play.",
+    "featured": false
   },
   {
     "name": "Quantum Touch",
     "slug": "quantumTouch",
-    "thumbnail": "/media/thumbnails/qtouch.mp4",
+    "thumbnail": "/media/quantumTouch/qtouch.mp4",
     "height": 420,
     "width": 720,
     "year": 2022,
@@ -340,12 +382,13 @@ export const projectsArray: Project[] = [
     ],
     "size": "2x1",
     "position": 1,
-    "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation."
+    "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation.",
+    "featured": false
   },
   {
     "name": "Quantum Triptych",
     "slug": "quantumTriptych",
-    "thumbnail": "/media/thumbnails/triptych2.mp4",
+    "thumbnail": "/media/quantumTriptych/triptych2.mp4",
     "height": 420,
     "width": 720,
     "year": 2021,
@@ -355,6 +398,7 @@ export const projectsArray: Project[] = [
     ],
     "size": "2x1",
     "position": 2,
-    "description": "Using IBM's Quantum Composer to act as an editor for a short film."
+    "description": "Using IBM's Quantum Composer to act as an editor for a short film.",
+    "featured": false
   }
 ];

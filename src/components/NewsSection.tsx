@@ -1,14 +1,19 @@
 "use client";
 
-import type { NewsItem } from "@/data/news";
 import styles from "./NewsSection.module.css";
 
-const SIX_MONTHS_MS = 6 * 30 * 24 * 60 * 60 * 1000;
+interface NewsItem {
+  text: string;
+  link?: string;
+  linkText?: string;
+  date: string;
+  expires: string;
+}
 
 export default function NewsSection({ items }: { items: NewsItem[] }) {
   const now = Date.now();
   const current = items.filter(
-    (item) => now - new Date(item.date).getTime() < SIX_MONTHS_MS
+    (item) => new Date(item.expires).getTime() > now
   );
 
   if (current.length === 0) return null;

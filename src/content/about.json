@@ -1,0 +1,128 @@
+{
+  "name": "Leffin",
+  "summary": "Multidisciplinary New Media Artist building immersive, interactive installations that use AI and the human body to ask deeply introspective questions.",
+  "credentials": {
+    "education": [
+      { "text": "MFA Design & Technology, Parsons", "note": "Honors" },
+      { "text": "B.Tech Aerospace, IIT Bombay", "note": "Minor in Industrial Design" }
+    ],
+    "current": "Experience Design Lead, Citibank"
+  },
+  "contact": {
+    "email": "leffin7@gmail.com",
+    "instagram": "https://www.instagram.com/leff.in",
+    "linkedin": "https://www.linkedin.com/in/leffin",
+    "resume": "/Leffin_Resume.pdf"
+  },
+  "exhibitions": [
+    {
+      "venue": "Currents New Media Festival",
+      "work": "Ephemera",
+      "slug": "ephemera",
+      "location": "Santa Fe, NM",
+      "year": "2025",
+      "href": "https://currentsnewmedia.org"
+    },
+    {
+      "venue": "NYCxDesign",
+      "work": "Ephemera",
+      "slug": "ephemera",
+      "location": "New York, NY",
+      "year": "2025",
+      "href": "https://nycxdesign.org/event/what-comes-after-no-one-future-artifacts-for-a-final-generation/"
+    },
+    {
+      "venue": "LUMA Festival",
+      "work": "\u2026And Words Will Echo in My Soul",
+      "slug": "andWordsWillEchoInMySoul",
+      "location": "Binghamton, NY",
+      "year": "2024",
+      "href": "https://lumafestival.com/feature/but-words-will-echo-in-my-soul/"
+    },
+    {
+      "venue": "Grace Exhibition Space",
+      "work": "Palimpsest",
+      "slug": "palimpsest",
+      "location": "New York, NY",
+      "year": "2023",
+      "href": "https://pixelmouth.org/follow-the-machine"
+    },
+    {
+      "venue": "Parsons \u00d7 LG AI Research",
+      "work": "\u2026And Words Will Echo in My Soul",
+      "slug": "andWordsWillEchoInMySoul",
+      "location": "New York, NY",
+      "year": "2023",
+      "href": "https://tnsadai.com/artistss"
+    },
+    {
+      "venue": "AMT Moving Image Festival",
+      "work": "Human Condition",
+      "slug": "humanCondition",
+      "location": "New York, NY",
+      "year": "2023",
+      "href": "https://amtmovingimagefetival2023.webflow.io/"
+    },
+    {
+      "venue": "Entropy, Parsons MFA Thesis",
+      "work": "Palimpsest",
+      "slug": "palimpsest",
+      "location": "New York, NY",
+      "year": "2023",
+      "href": "https://parsons.edu/dt-2023/palimpsest/"
+    }
+  ],
+  "speaking": [
+    {
+      "event": "Parsons School of Design",
+      "role": "Guest Teacher",
+      "year": "2023",
+      "href": "https://www.newschool.edu/parsons/"
+    },
+    {
+      "event": "MIT Reality Hack",
+      "role": "Mentor, Hardware Track",
+      "year": "2023"
+    },
+    {
+      "event": "The New School \u00d7 IBM Qiskit",
+      "role": "Student Mentor, Quantum Design Jam",
+      "year": "2023",
+      "href": "https://innovationcenter.newschool.edu/speakers-and-mentors/"
+    },
+    {
+      "event": "IBM Quantum",
+      "role": "Mentor, Quantum Design Jam",
+      "year": "2022"
+    }
+  ],
+  "press": [
+    {
+      "publication": "Korea Herald",
+      "year": "2023",
+      "href": "https://www.koreaherald.com/article/2955333"
+    },
+    {
+      "publication": "The New School News",
+      "year": "2023",
+      "href": "https://blogs.newschool.edu/news/2023/12/parsons-school-of-design-and-lg-ai-research-present-exhibit-that-highlights-art-design-and-artificial-intelligence/"
+    },
+    {
+      "publication": "PRNewswire",
+      "year": "2022",
+      "href": "https://www.prnewswire.com/news-releases/lgs-super-giant-ai-exaone-become-a-pioneer-in-the-design-field-with-parsons--school-of-design-301622521.html"
+    },
+    {
+      "publication": "LUMA Festival",
+      "type": "Artist Feature",
+      "year": "2024",
+      "href": "https://lumafestival.com/feature/but-words-will-echo-in-my-soul/"
+    },
+    {
+      "publication": "Insight IIT Bombay",
+      "type": "Profile",
+      "year": "2016",
+      "href": "https://insightiitb.org/citi-bank-leffin-christopher-2/"
+    }
+  ]
+}

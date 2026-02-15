@@ -5,7 +5,7 @@ import NewsSection from "./NewsSection";
 import FeaturedProjects from "./FeaturedProjects";
 import PagePreloader from "./PagePreloader";
 import { projectsArray } from "../data/projects";
-import { newsItems } from "../data/news";
+import newsItems from "../content/news.json";
 import styles from "./Landing.module.css";
 
 export default function Landing() {

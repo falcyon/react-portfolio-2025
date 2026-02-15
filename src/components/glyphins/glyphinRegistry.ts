@@ -7,10 +7,10 @@ export interface GlyphinMeta {
 }
 
 // Static imports — 4 small components, no need for lazy loading yet
-import ShapesGlyphin from "./ShapesGlyphin";
-import DictionaryGlyphin from "./DictionaryGlyphin";
-import MuseumGlyphin from "./MuseumGlyphin";
-import TerminalGlyphin from "./TerminalGlyphin";
+import ShapesGlyphin from "./shapes/ShapesGlyphin";
+import DictionaryGlyphin from "./dictionary/DictionaryGlyphin";
+import MuseumGlyphin from "./museum/MuseumGlyphin";
+import TerminalGlyphin from "./terminal/TerminalGlyphin";
 
 export const glyphinRegistry: GlyphinMeta[] = [
   {

@@ -11,7 +11,7 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, "..");
-const projectsDir = join(rootDir, "src", "projects");
+const projectsDir = join(rootDir, "src", "content", "projects");
 const outputPath = join(rootDir, "src", "data", "projects.ts");
 
 const files = readdirSync(projectsDir).filter((f) => f.endsWith(".json"));
@@ -31,6 +31,8 @@ for (const file of files) {
     size: raw.size,
     ...(raw.position !== undefined && { position: raw.position }),
     description: raw.description,
+    featured: raw.featured ?? false,
+    ...(raw.featuredOrder !== undefined && { featuredOrder: raw.featuredOrder }),
     _order: raw.order ?? 999,
   });
 }
@@ -40,7 +42,7 @@ projects.sort((a, b) => a._order - b._order);
 projects.forEach((p) => delete p._order);
 
 const output = `// AUTO-GENERATED — Do not edit manually.
-// Generated from src/projects/*.json by scripts/generate-projects-array.mjs
+// Generated from src/content/projects/*.json by scripts/generate-projects-array.mjs
 // To regenerate: node scripts/generate-projects-array.mjs
 
 export interface Project {
@@ -54,6 +56,8 @@ export interface Project {
   size: "1x1" | "1x2" | "2x1" | "2x2";
   position?: 1 | 2 | 3 | 4 | 5 | 6;
   description: string;
+  featured: boolean;
+  featuredOrder?: number;
 }
 
 export const projectsArray: Project[] = ${JSON.stringify(projects, null, 2)};

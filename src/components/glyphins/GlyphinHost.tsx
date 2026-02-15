@@ -13,11 +13,8 @@ export default function GlyphinHost() {
   const cycleGlyphin = useCallback(() => {
     if (wiping) return;
 
-    // Pick next index
-    let next: number;
-    do {
-      next = Math.floor(Math.random() * glyphinRegistry.length);
-    } while (next === glyphinIndex && glyphinRegistry.length > 1);
+    // Cycle to next in order, wrapping around
+    const next = (glyphinIndex + 1) % glyphinRegistry.length;
 
     pendingIndex.current = next;
     setWiping(true);
