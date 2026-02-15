@@ -3,6 +3,7 @@
 import GlyphinHost from "./glyphins/GlyphinHost";
 import NewsSection from "./NewsSection";
 import FeaturedProjects from "./FeaturedProjects";
+import ThumbnailPreloader from "./ThumbnailPreloader";
 import PagePreloader from "./PagePreloader";
 import { projectsArray } from "../data/projects";
 import newsItems from "../content/news.json";
@@ -15,6 +16,7 @@ export default function Landing() {
       <GlyphinHost />
       <NewsSection items={newsItems} />
       <FeaturedProjects projects={projectsArray} />
+      <ThumbnailPreloader projects={projectsArray} />
     </div>
   );
 }
