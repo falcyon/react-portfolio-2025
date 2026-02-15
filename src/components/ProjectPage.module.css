@@ -170,9 +170,13 @@
 }
 
 @media (max-width: 700px) {
+    .projectPageDiv {
+        padding: 0 var(--page-px-mobile);
+    }
+
     .closeButton {
         top: calc(var(--nav-height) + var(--space-sm));
-        right: var(--space-md);
+        right: var(--page-px-mobile);
     }
 
     .projectPageDiv h1 {

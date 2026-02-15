@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Nav.module.css";
@@ -14,7 +13,6 @@ const NAV_LINKS = [
 
 export default function Nav() {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className={styles.nav}>
@@ -23,17 +21,7 @@ export default function Nav() {
           Leffin
         </Link>
 
-        <button
-          className={styles.hamburger}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-        >
-          <span className={`${styles.bar} ${menuOpen ? styles.barOpen1 : ""}`} />
-          <span className={`${styles.bar} ${menuOpen ? styles.barOpen2 : ""}`} />
-        </button>
-
-        <ul className={`${styles.links} ${menuOpen ? styles.linksOpen : ""}`}>
+        <ul className={styles.links}>
           {NAV_LINKS.map(({ href, label }) => {
             const isActive = href === "/"
               ? pathname === "/"
@@ -44,7 +32,6 @@ export default function Nav() {
                   href={href}
                   className={`${styles.link} ${isActive ? styles.active : ""}`}
                   aria-current={isActive ? "page" : undefined}
-                  onClick={() => setMenuOpen(false)}
                 >
                   {label}
                 </Link>
