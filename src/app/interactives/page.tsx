@@ -34,7 +34,7 @@ export default function LabPage() {
             >
               <div className={styles.thumbCell}>
                 {item.thumbnail ? (
-                  item.thumbnail.endsWith(".mp4") ? (
+                  /\.(mp4|webm)$/.test(item.thumbnail) ? (
                     <video
                       src={item.thumbnail}
                       className={styles.thumb}
