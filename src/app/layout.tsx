@@ -47,6 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://use.typekit.net/qje5ynx.css" />
       </head>
       <body>
@@ -58,7 +59,7 @@ export default function RootLayout({
           <ScrollTracker />
         </Suspense>
         <Nav />
-        <div id="main-content" style={{ position: "relative", minHeight: "100vh" }}>
+        <div id="main-content" style={{ position: "relative", minHeight: "100vh", backgroundColor: "var(--background)", paddingBottom: "var(--space-xl)" }}>
           {children}
         </div>
         <Footer />

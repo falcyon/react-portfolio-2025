@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./ShapesGlyphin.module.css";
+import styles from "./ShapesPlayground.module.css";
 
 // --- Shape data ---
 
@@ -123,7 +123,7 @@ const ChaosState: Record<ShapeID, { x: number; y: number }> = {
   Ns: { x: 105, y: 20 },
 };
 
-export default function ShapesGlyphin() {
+export default function ShapesPlayground() {
   const containerRef = useRef<HTMLDivElement>(null);
   const shapeRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const animRef = useRef<number>(0);

@@ -1,6 +1,6 @@
 "use client";
 
-import GlyphinHost from "./glyphins/GlyphinHost";
+import PlaygroundHost from "./playground/PlaygroundHost";
 import NewsSection from "./NewsSection";
 import FeaturedProjects from "./FeaturedProjects";
 import ThumbnailPreloader from "./ThumbnailPreloader";
@@ -13,7 +13,7 @@ export default function Landing() {
   return (
     <div className={styles.landingContainer}>
       <PagePreloader />
-      <GlyphinHost />
+      <PlaygroundHost />
       <NewsSection items={newsItems} />
       <FeaturedProjects projects={projectsArray} />
       <ThumbnailPreloader projects={projectsArray} />

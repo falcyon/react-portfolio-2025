@@ -20,9 +20,6 @@ interface ProjectProps {
         tags: string[];
         description: string;
         year: number;
-        thumbnail: string;
-        thumbnailWidth?: number;
-        thumbnailHeight?: number;
         content: {
             sections: Section[];
         }[];
@@ -49,28 +46,6 @@ export default function ProjectPage({ project }: ProjectProps) {
                         <h2>{project.description}</h2>
                         <h2>[{project.year}]</h2>
                     </div>
-                    {project.thumbnail && (
-                        <div className={styles.headerThumbnail}>
-                            {/\.(mp4|webm|ogg)$/i.test(project.thumbnail) ? (
-                                <video
-                                    src={project.thumbnail}
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    className={styles.headerMedia}
-                                />
-                            ) : (
-                                <Image
-                                    src={project.thumbnail}
-                                    alt={`${project.name} thumbnail`}
-                                    width={project.thumbnailWidth || 600}
-                                    height={project.thumbnailHeight || 600}
-                                    className={styles.headerMedia}
-                                />
-                            )}
-                        </div>
-                    )}
                 </div>
 
                 <div className={styles.contentContainer}>

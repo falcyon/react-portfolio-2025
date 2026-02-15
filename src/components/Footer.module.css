@@ -1,7 +1,5 @@
 .footerOuter {
-  margin-top: var(--space-xl);
   background-color: var(--accent);
-
 }
 
 .footerInner {

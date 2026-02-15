@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useCallback, useRef } from "react";
-import { glyphinRegistry } from "./glyphinRegistry";
-import styles from "./GlyphinHost.module.css";
+import { playgroundRegistry } from "./playgroundRegistry";
+import styles from "./PlaygroundHost.module.css";
 
 type Transition = "idle" | "covering" | "revealing" | "returning";
 
@@ -10,22 +10,22 @@ const COVER_MS = 500;
 const REVEAL_MS = 500;
 const RETURN_MS = 250;
 
-export default function GlyphinHost() {
-  const [glyphinIndex, setGlyphinIndex] = useState(0);
+export default function PlaygroundHost() {
+  const [playgroundIndex, setPlaygroundIndex] = useState(0);
   const [cycleCount, setCycleCount] = useState(0);
   const [transition, setTransition] = useState<Transition>("idle");
   const pendingIndex = useRef<number | null>(null);
 
-  const cycleGlyphin = useCallback(() => {
+  const cyclePlayground = useCallback(() => {
     if (transition !== "idle") return;
 
-    const next = (glyphinIndex + 1) % glyphinRegistry.length;
+    const next = (playgroundIndex + 1) % playgroundRegistry.length;
     pendingIndex.current = next;
     setTransition("covering");
-    window.umami?.track("glyphin-cycle");
+    window.umami?.track("playground-cycle");
 
     setTimeout(() => {
-      setGlyphinIndex(pendingIndex.current!);
+      setPlaygroundIndex(pendingIndex.current!);
       setCycleCount((c) => c + 1);
       setTransition("revealing");
 
@@ -37,10 +37,10 @@ export default function GlyphinHost() {
         }, RETURN_MS);
       }, REVEAL_MS);
     }, COVER_MS);
-  }, [transition, glyphinIndex]);
+  }, [transition, playgroundIndex]);
 
-  const currentGlyphin = glyphinRegistry[glyphinIndex];
-  const GlyphinComponent = currentGlyphin.component;
+  const currentPlayground = playgroundRegistry[playgroundIndex];
+  const PlaygroundComponent = currentPlayground.component;
 
   const overlayClass =
     transition === "covering"
@@ -59,24 +59,24 @@ export default function GlyphinHost() {
   return (
     <div className={styles.heroOuter}>
       <div className={styles.heroContainer}>
-        {/* Glyphin content */}
-        <div className={styles.glyphinContent}>
-          <GlyphinComponent key={`${currentGlyphin.id}-${cycleCount}`} />
+        {/* Playground content */}
+        <div className={styles.playgroundContent}>
+          <PlaygroundComponent key={`${currentPlayground.id}-${cycleCount}`} />
         </div>
 
         {/* Page-turn overlay */}
         <div className={`${styles.pageTurnOverlay} ${overlayClass}`} />
 
-        {/* Glyphin counter */}
-        <span className={styles.glyphinCounter}>
-          Glyphin #{glyphinIndex + 1}/{glyphinRegistry.length}
+        {/* Playground counter */}
+        <span className={styles.playgroundCounter}>
+          Playground #{playgroundIndex + 1}/{playgroundRegistry.length}
         </span>
 
         {/* Earmark corner button */}
         <button
           className={`${styles.earmark} ${earmarkClass}`}
-          onClick={cycleGlyphin}
-          aria-label="Show a different glyphin"
+          onClick={cyclePlayground}
+          aria-label="Show a different playground"
         >
           <svg
             className={styles.earmarkIcon}

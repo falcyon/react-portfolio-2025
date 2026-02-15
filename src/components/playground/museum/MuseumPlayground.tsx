@@ -1,8 +1,8 @@
 "use client";
 
-import styles from "./MuseumGlyphin.module.css";
+import styles from "./MuseumPlayground.module.css";
 
-export default function MuseumGlyphin() {
+export default function MuseumPlayground() {
   return (
     <div className={styles.placard}>
       <div className={styles.inner}>

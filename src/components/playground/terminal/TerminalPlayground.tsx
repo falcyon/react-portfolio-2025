@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import styles from "./TerminalGlyphin.module.css";
+import styles from "./TerminalPlayground.module.css";
 
 const LINES = [
   { prompt: "$ whoami", output: ["leffin"] },
@@ -29,7 +29,7 @@ const OUTPUT_DELAY = 150; // ms before showing output after prompt
 const LINE_DELAY = 80; // ms between output lines
 const GROUP_DELAY = 400; // ms between command groups
 
-export default function TerminalGlyphin() {
+export default function TerminalPlayground() {
   const [displayed, setDisplayed] = useState<
     { type: "prompt" | "output"; text: string }[]
   >([]);

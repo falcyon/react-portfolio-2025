@@ -15,9 +15,9 @@ Hand-built portfolio website showcasing my projects and experiements.
 
 ## Features
 
-### Glyphins — Shuffleable Visual Identity
+### Playground — Shuffleable Visual Identity
 
-The hero section uses a system called **Glyphins** (glyph + Leffin): four distinct visual identity cards that cycle on demand via an earmark button in the corner.
+The hero section uses four distinct visual identity cards called **Playground** items that cycle on demand via an earmark button in the corner.
 
 - **Shapes** — 17 SVG rectangles animate between chaos and letterforms using `requestAnimationFrame` with custom easing. Three positional states (random scatter &rarr; "LEFF.IN" &rarr; "LEFFIN.") with per-frame interpolation and responsive scaling via `ResizeObserver`.
 - **Dictionary** — Styled as a dictionary entry with phonetic spelling, definitions, and etymology.
@@ -75,7 +75,7 @@ Umami analytics loads lazily on first user interaction (mousemove, scroll, click
 
 **Tracked events:**
 
-- `glyphin-cycle` — hero shuffle
+- `playground-cycle` — hero shuffle
 - `project-click` / `featured-click` — with project slug
 - `scroll-depth` — milestone tracking at 10% increments per page
 - `source` — from tracking redirects
@@ -104,7 +104,7 @@ A collection of p5.js sketches and interactive experiments. One route (`/lab/din
 ### Accessibility
 
 - Screen reader text via `.sr-only` utility class
-- `aria-label` on interactive elements (nav toggle, glyphin button, project cards)
+- `aria-label` on interactive elements (nav toggle, playground button, project cards)
 - `aria-current="page"` on active navigation links
 - `aria-expanded` on hamburger menu
 - Semantic HTML (`<nav>`, `<main>`, `<section>`, `<article>`)
@@ -135,7 +135,7 @@ A collection of p5.js sketches and interactive experiments. One route (`/lab/din
 ```text
 src/
   app/            # Next.js routes (/, /projects, /about, /lab, /[source])
-  components/     # UI components, glyphins/, hooks, CSS modules
+  components/     # UI components, playground/, hooks, CSS modules
   content/        # JSON content (projects/, about, news, lab)
   data/           # Auto-generated projects.ts
   lib/            # Zod schema, fs-based project loader

@@ -7,10 +7,11 @@ Personal portfolio for Leffin, a multidisciplinary New Media Artist. Deployed at
 ## Tech Stack
 
 - **Framework**: Next.js 16 (App Router), React 19
-- **Styling**: CSS Modules, Tailwind CSS, CSS custom properties
-- **Animation**: framer-motion, GSAP, Lenis (smooth scroll)
-- **Analytics**: Umami (website ID: `836b2b5c-a53a-48d3-88d4-06959b33b93d`)
-- **Fonts**: Neuzeit Grotesk (Adobe Typekit), Times New Roman italic
+- **Styling**: CSS Modules, CSS custom properties
+- **Validation**: Zod
+- **Analytics**: Umami (website ID: `836b2b5c-a53a-48d3-88d4-06959b33b93d`), Vercel Analytics + Speed Insights
+- **Fonts**: Neuzeit Grotesk (Adobe Typekit CDN), Times New Roman italic
+- **Icons**: react-icons
 
 ## Branching Strategy
 
@@ -36,36 +37,38 @@ All editable content lives in `src/content/`:
 
 - All project media in `public/media/[slug]/` (thumbnails + detail media together, per-project)
 - Thumbnail filenames are kept as-is (admin provides the name, not renamed to `thumbnail.ext`)
-- Site assets (`Logo.png`, `favicon.png`, `Leffin_Resume.pdf`) in `public/` root
+- Site assets (`Logo.png`, `leffin_opengraphimage.png`) in `public/` root
+- Favicon at `src/app/favicon.ico` (Next.js convention)
 - An external admin project (Docker on NUC) writes optimized media here; originals stay on the NUC
 
 ## Key Architecture Decisions
 
 - `projectsArray` is used in client components — cannot use `fs` in `data/projects.ts`
 - Featured projects are data-driven: `featured` (boolean) + `featuredOrder` (number) in project JSONs
-- The `[source]` catch-all route handles tracking redirects (/cv, /li, /gm)
+- The `[source]` route handles tracking redirects (/cv, /li, /gm) — server component checks source validity and calls `notFound()` for unknown paths; client `SourceTracker` handles Umami tracking + redirect
 - Light mode is the default theme (warm cream editorial palette)
 - CSS custom properties: `--background: rgb(235, 232, 224)`, `--foreground: rgb(39, 39, 38)`, `--accent: #da1f26`
 
-## Landing Page — Glyphins
+## Landing Page — Playground
 
-The hero section uses a system called **Glyphins** (glyph + Leffin): shuffleable visual identity cards.
+The hero section uses shuffleable visual identity cards called **Playground** items.
 
-- Located in `src/components/glyphins/`, each in its own subfolder (`shapes/`, `dictionary/`, `museum/`, `terminal/`)
-- `GlyphinHost.tsx` manages the shuffle cycle (earmark button in bottom-right corner)
-- `glyphinRegistry.ts` registers all glyphins
-- Always starts with **ShapesGlyphin** (animated rectangles forming "LEFFIN.")
-- 4 glyphins: Shapes, Dictionary, Museum, Terminal
-- Umami tracks shuffles as `glyphin-cycle`
+- Located in `src/components/playground/`, each in its own subfolder (`shapes/`, `dictionary/`, `museum/`, `terminal/`)
+- `PlaygroundHost.tsx` manages the shuffle cycle (earmark button in bottom-right corner)
+- `playgroundRegistry.ts` registers all playground items
+- Always starts with **ShapesPlayground** (animated rectangles forming "LEFFIN.")
+- 4 playground items: Shapes, Dictionary, Museum, Terminal
+- Umami tracks shuffles as `playground-cycle`
 
 ## Site Structure
 
-- `/` — Landing page (GlyphinHost → NewsSection → FeaturedProjects)
+- `/` — Landing page (PlaygroundHost → NewsSection → FeaturedProjects)
 - `/projects` — Projects grid
 - `/projects/[slug]` — Individual project pages (SSG from JSON, shows thumbnail in header)
 - `/about` — Bio, exhibitions, speaking, press (from `content/about.json`)
 - `/lab` — p5.js sketches and interactive experiments (from `content/lab.json`)
 - `/lab/dinoRevenge` — Proxied via Vercel rewrite
+- `not-found.tsx` — Custom 404 page with falling dot animation (CSS keyframes, no JS)
 
 ## Commands
 

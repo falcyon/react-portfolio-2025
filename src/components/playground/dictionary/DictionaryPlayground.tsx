@@ -1,8 +1,8 @@
 "use client";
 
-import styles from "./DictionaryGlyphin.module.css";
+import styles from "./DictionaryPlayground.module.css";
 
-export default function DictionaryGlyphin() {
+export default function DictionaryPlayground() {
   return (
     <div className={styles.entry}>
       <div className={styles.headword}>

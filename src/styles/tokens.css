@@ -36,7 +36,7 @@
 
   /* ── Z-Index ── */
   --z-base: 1;
-  --z-glyphin-ui: 2;
+  --z-playground-ui: 2;
   --z-nav: 100;
   --z-nav-hamburger: 101;
   --z-close-button: 1000;
@@ -59,7 +59,8 @@
   --content-max-width: 1400px;
   --page-px: clamp(20px, 5vw, 60px);
   --page-px-mobile: 16px;
-  --page-pt: var(--space-3xl);       /* top padding — clears fixed nav */
+  --page-pt: var(--space-3xl);
+  /* top padding — clears fixed nav */
   --page-pt-mobile: 80px;
 
   /* ── Focus ── */
