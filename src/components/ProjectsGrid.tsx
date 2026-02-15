@@ -110,10 +110,10 @@ export default function ProjectsGrid({
   useEffect(() => {
     const el = filterBarRef.current;
     if (!el) return;
-    const observer = new ResizeObserver(([entry]) => {
+    const observer = new ResizeObserver(() => {
       el.parentElement?.style.setProperty(
         "--filter-bar-height",
-        `${entry.contentRect.height}px`
+        `${el.offsetHeight}px`
       );
     });
     observer.observe(el);
