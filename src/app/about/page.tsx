@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import aboutData from "@/content/about.json";
+import ExternalIcon from "@/components/ExternalIcon";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
@@ -8,32 +9,6 @@ export const metadata: Metadata = {
   description:
     "Leffin is a multidisciplinary New Media Artist whose work spans interactive installations, projection mapping, performance art, and AI-driven experiences.",
 };
-
-function ExternalIcon() {
-  return (
-    <svg
-      className={styles.extIcon}
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M3.5 1.5H10.5V8.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M10.5 1.5L1.5 10.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
 
 export default function AboutPage() {
   return (
@@ -58,9 +33,8 @@ export default function AboutPage() {
         </div>
         <div className={styles.heroLinks}>
           <a href={`mailto:${aboutData.contact.email}`}>Email</a>
-          <a href={aboutData.contact.instagram} target="_blank" rel="noopener noreferrer">Instagram <ExternalIcon /></a>
-          <a href={aboutData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <ExternalIcon /></a>
-          <a href={aboutData.contact.resume} target="_blank" rel="noopener noreferrer">Resume</a>
+          <a href={aboutData.contact.instagram} target="_blank" rel="noopener noreferrer">Instagram <ExternalIcon className={styles.extIcon} /></a>
+          <a href={aboutData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <ExternalIcon className={styles.extIcon} /></a>
         </div>
       </section>
 
@@ -73,7 +47,7 @@ export default function AboutPage() {
               <div className={styles.rowMain}>
                 {e.href ? (
                   <a href={e.href} target="_blank" rel="noopener noreferrer" className={styles.rowLink}>
-                    {e.venue} <ExternalIcon />
+                    {e.venue} <ExternalIcon className={styles.extIcon} />
                   </a>
                 ) : (
                   <span className={styles.rowName}>{e.venue}</span>
@@ -98,7 +72,7 @@ export default function AboutPage() {
               <div className={styles.rowMain}>
                 {s.href ? (
                   <a href={s.href} target="_blank" rel="noopener noreferrer" className={styles.rowLink}>
-                    {s.event} <ExternalIcon />
+                    {s.event} <ExternalIcon className={styles.extIcon} />
                   </a>
                 ) : (
                   <span className={styles.rowName}>{s.event}</span>
@@ -120,7 +94,7 @@ export default function AboutPage() {
               <div className={styles.rowMain}>
                 {p.href ? (
                   <a href={p.href} target="_blank" rel="noopener noreferrer" className={styles.rowLink}>
-                    {p.publication} <ExternalIcon />
+                    {p.publication} <ExternalIcon className={styles.extIcon} />
                   </a>
                 ) : (
                   <span className={styles.rowName}>{p.publication}</span>
@@ -128,6 +102,22 @@ export default function AboutPage() {
                 {p.type && <span className={styles.rowType}>{p.type}</span>}
               </div>
               <span className={styles.rowYear}>{p.year}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Professional Experience */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Professional Experience</h2>
+        <ul className={styles.list}>
+          {aboutData.experience.map((e) => (
+            <li key={e.company + e.period} className={styles.row}>
+              <div className={styles.rowMain}>
+                <span className={styles.rowName}>{e.title}</span>
+              </div>
+              <span className={styles.rowMeta}>{e.company}</span>
+              <span className={styles.rowYear}>{e.period}</span>
             </li>
           ))}
         </ul>

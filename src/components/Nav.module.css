@@ -3,20 +3,23 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: var(--z-nav);
+  height: 56px;
+  background-color: transparent;
+}
+
+.navInner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 clamp(20px, 5vw, 60px);
-  height: 56px;
-  background-color: rgba(235, 232, 224, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(39, 39, 38, 0.1);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-px);
+  height: 100%;
 }
 
 .logo {
-  font-family: "neuzeit-grotesk", sans-serif;
+  font-family: var(--font-sans);
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--foreground);
@@ -24,6 +27,7 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-style: normal;
+  transition: color var(--duration-base);
 }
 
 .logo:hover {
@@ -35,30 +39,38 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 32px;
+  gap: 8px;
 }
 
 .link {
-  font-family: "neuzeit-grotesk", sans-serif;
+  font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--foreground);
   text-decoration: none;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   font-style: normal;
-  transition: color 0.2s;
-  opacity: 0.7;
+  padding: 3px 10px;
+  border: 1px solid var(--foreground);
+  background: var(--background);
+  transition: background var(--duration-base), color var(--duration-base), border-color var(--duration-base);
 }
 
 .link:hover {
-  opacity: 1;
-  color: var(--foreground);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .active {
-  opacity: 1;
-  color: var(--accent);
+  background: var(--accent);
+  color: var(--background);
+  border-color: var(--accent);
+}
+
+.active:hover {
+  color: var(--background);
+  border-color: var(--accent);
 }
 
 /* Hamburger — hidden on desktop */
@@ -71,7 +83,7 @@
   border: none;
   cursor: pointer;
   padding: 4px;
-  z-index: 101;
+  z-index: var(--z-nav-hamburger);
 }
 
 .bar {
@@ -79,7 +91,7 @@
   width: 22px;
   height: 1.5px;
   background-color: var(--foreground);
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform var(--duration-slow), opacity var(--duration-slow);
 }
 
 .barOpen1 {
@@ -105,13 +117,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-    background-color: rgba(235, 232, 224, 0.97);
+    gap: var(--space-xl);
+    background-color: var(--nav-bg-mobile);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
+    transition: opacity var(--duration-slow);
   }
 
   .linksOpen {
@@ -121,5 +133,6 @@
 
   .linksOpen .link {
     font-size: 1.4rem;
+    padding: 6px 20px;
   }
 }

@@ -3,9 +3,8 @@
   "slug": "aiDiscoversFire",
   "year": 2021,
   "tags": [
-    "Media Art",
-    "AI",
-    "Generative Art"
+    "Digital",
+    "AI/ML"
   ],
   "description": "Media Art created using DCGAN trained on images of fire.",
   "thumbnail": "/media/aiDiscoversFire/fire-gif.mp4",

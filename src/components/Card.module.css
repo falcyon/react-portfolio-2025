@@ -1,0 +1,112 @@
+/* ═══════════════════════════════════════════════════════
+   Shared Card — leff.in
+
+   Used by FeaturedProjects and ProjectsGrid.
+   ═══════════════════════════════════════════════════════ */
+
+.card {
+  text-decoration: none;
+  color: var(--foreground);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  color: var(--accent);
+}
+
+.card:hover .cardName,
+.card:hover .cardYear,
+.card:hover .cardDescription {
+  color: var(--accent);
+}
+
+.thumbnailWrap {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1.5px solid var(--foreground);
+  transition: border-color var(--duration-slow);
+  background: var(--card-bg);
+}
+
+.card:hover .thumbnailWrap {
+  border-color: var(--accent);
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-top: 10px;
+}
+
+.cardName {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.cardYear {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.cardDescription {
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin: 4px 0 0;
+  opacity: 0.6;
+  line-height: 1.4;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: 6px;
+}
+
+.cardTag {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+  padding: 2px 8px;
+  border: 1px solid var(--foreground);
+  background: var(--background);
+  color: var(--foreground);
+  transition: color var(--duration-base), border-color var(--duration-base);
+}
+
+.card:hover .cardTag {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .cardName {
+    font-size: 0.75rem;
+  }
+
+  .cardDescription {
+    font-size: 0.7rem;
+  }
+
+  .cardTags {
+    display: none;
+  }
+}

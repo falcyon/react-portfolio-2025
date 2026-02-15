@@ -1,8 +1,8 @@
 .ticker {
   width: 100%;
   overflow: hidden;
-  border-top: 1px solid rgba(39, 39, 38, 0.1);
-  border-bottom: 1px solid rgba(39, 39, 38, 0.1);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
   padding: 20px 0;
 }
 
@@ -54,7 +54,7 @@
   align-items: center;
   gap: 12px;
   padding: 0 48px;
-  font-family: "neuzeit-grotesk", sans-serif;
+  font-family: var(--font-sans);
   font-style: normal;
   font-weight: 400;
   font-size: 1.2rem;
@@ -81,7 +81,7 @@
   font-weight: 500;
   font-size: 0.85rem;
   flex-shrink: 0;
-  transition: text-decoration 0.2s;
+  transition: text-decoration var(--duration-base);
 }
 
 .link:hover {
@@ -90,7 +90,7 @@
 
 @media (max-width: 700px) {
   .ticker {
-    padding: 16px 0;
+    padding: var(--space-md) 0;
   }
 
   .tickerItem {

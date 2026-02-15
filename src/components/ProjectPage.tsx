@@ -7,7 +7,7 @@ import ResponsiveVideo from "./ResponsiveVideo";
 
 interface Section {
     type: "text" | "image" | "video";
-    size: "h" | "f" | "t" | "t2" | "q" | "s" | "1";
+    size: "h" | "f" | "t" | "t2" | "q" | "s";
     text?: string[];
     src?: string;
     alt?: string;
@@ -92,7 +92,7 @@ export default function ProjectPage({ project }: ProjectProps) {
                                                 <div key={idx} className={`${styles[section.size]} ${styles.imageSection}`}>
                                                     <Image
                                                         src={section.src || ""}
-                                                        alt={section.alt ?? "Image"}
+                                                        alt={section.alt ?? ""}
                                                         width={1200}
                                                         height={800}
                                                         className={styles.image}

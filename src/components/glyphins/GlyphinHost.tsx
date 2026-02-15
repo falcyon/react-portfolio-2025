@@ -32,29 +32,40 @@ export default function GlyphinHost() {
   const GlyphinComponent = currentGlyphin.component;
 
   return (
-    <div className={styles.heroContainer}>
-      {/* Glyphin content with wipe animation */}
-      <div
-        className={`${styles.glyphinContent} ${wiping ? styles.wipeOut : styles.wipeIn}`}
-      >
-        <GlyphinComponent key={`${currentGlyphin.id}-${cycleCount}`} />
-      </div>
-
-      {/* Earmark corner button */}
-      <button
-        className={styles.earmark}
-        onClick={cycleGlyphin}
-        aria-label="Show a different glyphin"
-      >
-        <svg
-          className={styles.earmarkIcon}
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+    <div className={styles.heroOuter}>
+      <div className={styles.heroContainer}>
+        {/* Glyphin content with wipe animation */}
+        <div
+          className={`${styles.glyphinContent} ${wiping ? styles.wipeOut : styles.wipeIn}`}
         >
-          <path d="M40 0 L40 40 L0 40 Z" fill="currentColor" />
-        </svg>
-      </button>
+          <GlyphinComponent key={`${currentGlyphin.id}-${cycleCount}`} />
+        </div>
+
+        {/* Glyphin counter */}
+        <span className={styles.glyphinCounter}>
+          Glyphin #{glyphinIndex + 1}/{glyphinRegistry.length}
+        </span>
+
+        {/* Earmark corner button */}
+        <button
+          className={styles.earmark}
+          onClick={cycleGlyphin}
+          aria-label="Show a different glyphin"
+        >
+          <svg
+            className={styles.earmarkIcon}
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 0 L40 0 L0 40 Z" className={styles.earmarkTriangle} />
+            <path
+              d="M32 32 L24 24 M24 24 L29 24 M24 24 L24 29"
+              className={styles.earmarkArrow}
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }

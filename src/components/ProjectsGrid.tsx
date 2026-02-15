@@ -8,6 +8,7 @@ import type { Project } from "@/data/projects";
 import { useVideoVisibility } from "./hooks";
 import { loadedMedia } from "./mediaLoadStore";
 import styles from "./ProjectsGrid.module.css";
+import cardStyles from "./Card.module.css";
 
 // Preset filters that map to multiple tags
 const PRESETS: { label: string; tags: string[] }[] = [
@@ -15,31 +16,19 @@ const PRESETS: { label: string; tags: string[] }[] = [
   {
     label: "New Media Art",
     tags: [
-      "Installation",
-      "Interactive",
-      "AI",
-      "Performance",
-      "Conceptual Art",
-      "Media Art",
-      "Generative Art",
-      "Digital Art",
-      "Film",
-      "Kinetic",
       "Physical",
+      "AI/ML",
+      "Performance",
+      "Interactive",
+      "Digital",
+      "Quantum",
     ],
   },
   {
     label: "Design",
     tags: [
       "Product Design",
-      "App Design",
       "Branding",
-      "Graphic Design",
-      "Industrial Design",
-      "Design",
-      "Typography",
-      "Book Design",
-      "Illustration",
     ],
   },
 ];
@@ -62,13 +51,13 @@ function GridCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className={styles.card}
+      className={cardStyles.card}
       onClick={() => {
         sessionStorage.setItem("navigated-from-landing", "true");
         window.umami?.track("project-click", { project: project.slug });
       }}
     >
-      <div className={styles.thumbnailWrap}>
+      <div className={cardStyles.thumbnailWrap}>
         {canLoadMedia && isVideo && (
           <video
             ref={videoRef}
@@ -77,7 +66,7 @@ function GridCard({ project }: { project: Project }) {
             muted
             playsInline
             preload="metadata"
-            className={styles.thumbnail}
+            className={cardStyles.thumbnail}
             onLoadedData={handleLoad}
           />
         )}
@@ -87,19 +76,19 @@ function GridCard({ project }: { project: Project }) {
             alt={`${project.name} thumbnail`}
             width={project.width}
             height={project.height}
-            className={styles.thumbnail}
+            className={cardStyles.thumbnail}
             onLoad={handleLoad}
           />
         )}
       </div>
-      <div className={styles.cardInfo}>
-        <span className={styles.cardName}>{project.name}</span>
-        <span className={styles.cardYear}>{project.year}</span>
+      <div className={cardStyles.cardInfo}>
+        <span className={cardStyles.cardName}>{project.name}</span>
+        <span className={cardStyles.cardYear}>{project.year}</span>
       </div>
-      <p className={styles.cardDescription}>{project.description}</p>
-      <div className={styles.cardTags}>
+      <p className={cardStyles.cardDescription}>{project.description}</p>
+      <div className={cardStyles.cardTags}>
         {project.tags.map((tag) => (
-          <span key={tag} className={styles.cardTag}>
+          <span key={tag} className={cardStyles.cardTag}>
             {tag}
           </span>
         ))}

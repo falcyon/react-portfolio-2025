@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./ShapesGlyphin.module.css";
 
 // --- Shape data ---
@@ -102,44 +102,32 @@ const CYCLE_DURATION = PHASES.reduce((sum, p) => sum + p.duration, 0);
 const ease = (t: number) =>
   t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 
-function generateRandomPositions(count: number, minDist: number) {
-  const points: { x: number; y: number }[] = [];
-  let attempts = 0;
-  while (points.length < count && attempts < 5000) {
-    const x = Math.random() * 100;
-    const y = Math.random() * 100;
-    const tooClose = points.some((p) => {
-      const dx = p.x - x;
-      const dy = p.y - y;
-      return dx * dx + dy * dy < minDist * minDist;
-    });
-    if (!tooClose) points.push({ x, y });
-    attempts++;
-  }
-  while (points.length < count) {
-    points.push({ x: Math.random() * 100, y: Math.random() * 100 });
-  }
-  return points;
-}
+// Chaos state — hand-placed scattered positions
+const ChaosState: Record<ShapeID, { x: number; y: number }> = {
+  Lv: { x: 25, y: 20 },
+  Lh: { x: -5, y: 96 },
+  Ev: { x: 48, y: 55 },
+  Et: { x: 15, y: 80 },
+  Em: { x: 50, y: 10 },
+  Eb: { x: 30, y: 95 },
+  F1v: { x: 15, y: 74 },
+  F1t: { x: 18, y: 60 },
+  F1m: { x: 62, y: 45 },
+  F2v: { x: 40, y: -7 },
+  F2t: { x: 82, y: 88 },
+  F2m: { x: 8, y: 40 },
+  Dot: { x: 55, y: 55 },
+  Iv: { x: 80, y: -3 },
+  Nl: { x: 70, y: 70 },
+  Nr: { x: 100, y: 95 },
+  Ns: { x: 105, y: 20 },
+};
 
 export default function ShapesGlyphin() {
   const containerRef = useRef<HTMLDivElement>(null);
   const shapeRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const animRef = useRef<number>(0);
   const [containerSize, setContainerSize] = useState({ w: 0, h: 0 });
-
-  const randomPositions = useMemo(() => {
-    const points = generateRandomPositions(shapeIDs.length, 12);
-    const positions: Record<string, { x: number; y: number }> = {};
-    shapeIDs.forEach((id, i) => {
-      if (unscaledShapes[id].shapeType === "dot") {
-        positions[id] = { x: 48, y: 35 };
-      } else {
-        positions[id] = points[i];
-      }
-    });
-    return positions;
-  }, []);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -169,7 +157,7 @@ export default function ShapesGlyphin() {
     // State 0: chaos
     const chaos: Record<string, { x: number; y: number }> = {};
     for (const id of shapeIDs) {
-      const rp = randomPositions[id];
+      const rp = ChaosState[id];
       chaos[id] = {
         x: (rp.x / 100) * containerWidth * 0.85,
         y: (rp.y / 100) * containerHeight * 0.85,
@@ -206,6 +194,8 @@ export default function ShapesGlyphin() {
       shapeSizes[id] = { w: dims.w * scaleFactor, h: dims.h * scaleFactor };
     }
 
+    let wasOutlined = true; // shapes start in chaos (outlined)
+
     const startTime = performance.now();
 
     const animate = (now: number) => {
@@ -214,7 +204,6 @@ export default function ShapesGlyphin() {
       let fromPositions: Record<string, { x: number; y: number }>;
       let toPositions: Record<string, { x: number; y: number }>;
       let progress: number;
-      let fromIdx: number;
       let toIdx: number;
 
       if (elapsed < INITIAL_HOLD) {
@@ -222,7 +211,6 @@ export default function ShapesGlyphin() {
         fromPositions = statePositions[0];
         toPositions = statePositions[0];
         progress = 1;
-        fromIdx = 0;
         toIdx = 0;
       } else {
         // Find current phase in the looping cycle
@@ -241,13 +229,11 @@ export default function ShapesGlyphin() {
           fromPositions = statePositions[phase.state!];
           toPositions = statePositions[phase.state!];
           progress = 1;
-          fromIdx = phase.state!;
           toIdx = phase.state!;
         } else {
           fromPositions = statePositions[phase.from!];
           toPositions = statePositions[phase.to!];
           progress = ease(t / phase.duration);
-          fromIdx = phase.from!;
           toIdx = phase.to!;
         }
       }
@@ -265,25 +251,20 @@ export default function ShapesGlyphin() {
         const x = from.x + (to.x - from.x) * progress;
         const y = from.y + (to.y - from.y) * progress;
 
-        // Opacity: chaos = 0.15, letter states = 1, dot always 1
-        const isDot = dims.shapeType === "dot";
-        let alpha: number;
-        if (isDot) {
-          alpha = 1;
-        } else if (fromIdx === 0 && toIdx === 0) {
-          alpha = 0.15;
-        } else if (fromIdx === 0) {
-          alpha = 0.15 + 0.85 * progress;
-        } else if (toIdx === 0) {
-          alpha = 1 - 0.85 * progress;
-        } else {
-          alpha = 1;
-        }
-
         el.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
         el.style.width = `${size.w}px`;
         el.style.height = `${size.h}px`;
-        el.style.opacity = `${alpha}`;
+      }
+
+      // Toggle background color only when state changes (CSS transition handles interpolation)
+      const shouldOutline = toIdx === 0;
+      if (shouldOutline !== wasOutlined) {
+        for (const id of shapeIDs) {
+          const el = shapeRefs.current[id];
+          if (!el || unscaledShapes[id as ShapeID].shapeType === "dot") continue;
+          el.style.backgroundColor = shouldOutline ? "var(--background)" : "";
+        }
+        wasOutlined = shouldOutline;
       }
 
       animRef.current = requestAnimationFrame(animate);
@@ -291,7 +272,7 @@ export default function ShapesGlyphin() {
 
     animRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animRef.current);
-  }, [containerSize, randomPositions]);
+  }, [containerSize]);
 
   return (
     <div ref={containerRef} className={styles.container}>
@@ -309,7 +290,7 @@ export default function ShapesGlyphin() {
               position: "absolute",
               top: 0,
               left: 0,
-              opacity: isDot ? 1 : 0.15,
+              backgroundColor: isDot ? undefined : "var(--background)",
             }}
           />
         );

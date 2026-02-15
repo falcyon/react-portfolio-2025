@@ -1,45 +1,49 @@
 .container {
-  padding: 80px clamp(20px, 5vw, 60px) 60px;
+  padding: var(--page-pt) var(--page-px) 60px;
   position: relative;
-  z-index: 1;
+  z-index: var(--z-base);
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Preset filter buttons */
 .presets {
   display: flex;
-  gap: 8px;
+  gap: var(--space-sm);
   margin-bottom: 12px;
   flex-wrap: wrap;
 }
 
 .presetBtn {
-  font-family: "neuzeit-grotesk", sans-serif;
+  font-family: var(--font-sans);
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 6px 16px;
   border: 1.5px solid var(--foreground);
-  background: transparent;
+  background: var(--background);
   color: var(--foreground);
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  opacity: 0.5;
+  transition: background var(--duration-base), color var(--duration-base), border-color var(--duration-base);
 }
 
 .presetBtn:hover {
-  opacity: 0.8;
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .presetActive {
-  background: var(--foreground);
+  background: var(--accent);
   color: var(--background);
-  opacity: 1;
+  border-color: var(--accent);
 }
 
 .presetActive:hover {
-  opacity: 1;
+  color: var(--background);
+  border-color: var(--accent);
 }
 
 /* Individual tag pills */
@@ -47,43 +51,42 @@
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-lg);
 }
 
 .tagBtn {
-  font-family: "neuzeit-grotesk", sans-serif;
+  font-family: var(--font-sans);
   font-style: normal;
   font-weight: 400;
   font-size: 0.75rem;
   letter-spacing: 0.03em;
   padding: 3px 10px;
-  border: 1px solid rgba(39, 39, 38, 0.2);
-  background: transparent;
+  border: 1px solid var(--foreground);
+  background: var(--background);
   color: var(--foreground);
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  opacity: 0.5;
+  transition: background var(--duration-base), color var(--duration-base), border-color var(--duration-base);
 }
 
 .tagBtn:hover {
-  opacity: 0.8;
-  border-color: var(--foreground);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .tagActive {
-  background: var(--foreground);
+  background: var(--accent);
   color: var(--background);
-  border-color: var(--foreground);
-  opacity: 1;
+  border-color: var(--accent);
 }
 
 .tagActive:hover {
-  opacity: 1;
+  color: var(--background);
+  border-color: var(--accent);
 }
 
 /* Count */
 .count {
-  font-family: "neuzeit-grotesk", sans-serif;
+  font-family: var(--font-sans);
   font-style: normal;
   font-weight: 400;
   font-size: 0.8rem;
@@ -95,99 +98,14 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+  gap: var(--space-xl);
 }
 
-/* Card */
-.card {
-  text-decoration: none;
-  color: var(--foreground);
-  display: flex;
-  flex-direction: column;
-}
-
-/* Thumbnail — all square */
-.thumbnailWrap {
-  aspect-ratio: 1;
-  overflow: hidden;
-  border: 1.5px solid rgba(189, 175, 156, 0.15);
-  transition: border-color 0.3s;
-  background: rgba(189, 175, 156, 0.03);
-}
-
-.card:hover .thumbnailWrap {
-  border-color: var(--foreground);
-}
-
-.thumbnail {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Card info — always visible below thumbnail */
-.cardInfo {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.cardName {
-  font-family: "neuzeit-grotesk", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
-}
-
-.cardYear {
-  font-family: "neuzeit-grotesk", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.75rem;
-  opacity: 0.5;
-  flex-shrink: 0;
-}
-
-.cardDescription {
-  font-size: 0.8rem;
-  font-weight: 300;
-  margin: 4px 0 0;
-  opacity: 0.6;
-  line-height: 1.4;
-}
-
-.cardTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 6px;
-}
-
-.cardTag {
-  font-family: "neuzeit-grotesk", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.65rem;
-  letter-spacing: 0.02em;
-  opacity: 0.4;
-}
-
-.cardTag::after {
-  content: ", ";
-  white-space: pre;
-}
-
-.cardTag:last-child::after {
-  content: "";
-}
 
 /* Responsive — mobile */
 @media (max-width: 700px) {
   .container {
-    padding: 72px 16px 40px;
+    padding: var(--page-pt-mobile) var(--page-px-mobile) 40px;
   }
 
   .grid {
@@ -195,15 +113,4 @@
     gap: 20px;
   }
 
-  .cardName {
-    font-size: 0.75rem;
-  }
-
-  .cardDescription {
-    font-size: 0.7rem;
-  }
-
-  .cardTags {
-    display: none;
-  }
 }

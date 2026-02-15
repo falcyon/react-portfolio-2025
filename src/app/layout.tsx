@@ -5,6 +5,8 @@ import Nav from "@/components/Nav";
 import UmamiOptOut from "@/components/UmamiOptOut";
 import UmamiLoader from "@/components/UmamiLoader";
 import ScrollTracker from "@/components/ScrollTracker";
+import Footer from "@/components/Footer";
+
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
 
@@ -48,14 +50,18 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/qje5ynx.css" />
       </head>
       <body>
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
         <Suspense fallback={null}>
           <UmamiOptOut />
           <ScrollTracker />
         </Suspense>
         <Nav />
-        <div style={{ position: "relative", minHeight: "100vh" }}>
+        <div id="main-content" style={{ position: "relative", minHeight: "100vh" }}>
           {children}
         </div>
+        <Footer />
         <SpeedInsights />
         <Analytics />
         <UmamiLoader />

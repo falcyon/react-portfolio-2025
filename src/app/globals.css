@@ -1,17 +1,12 @@
-:root {
-  --background: rgb(235, 232, 224);
-  --foreground: rgb(39, 39, 38);
-  --disabled: #a39f90;
-  --accent: #da1f26;
-  --secondary: #3f5989;
-  --lunit: 2vw;
-}
+/* Design system */
+@import "../styles/tokens.css";
+@import "../styles/accessibility.css";
+@import "../styles/animations.css";
 
 body {
-  /* font-family: neuzeit-grotesk, sans-serif; */
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 200;
+  font-weight: 300;
   color: var(--foreground);
   background-color: var(--background);
   font-synthesis: none;
@@ -22,17 +17,4 @@ body {
   transition:
     background-color 0.4s ease,
     color 0.4s ease;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
 }

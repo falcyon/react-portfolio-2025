@@ -1,10 +1,18 @@
+.heroOuter {
+  position: relative;
+  z-index: var(--z-glyphin-ui);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--page-pt) var(--page-px) var(--space-xl);
+}
+
 .heroContainer {
   position: relative;
-  width: 100%;
   aspect-ratio: 2 / 1;
   display: flex;
   align-items: stretch;
-  overflow: hidden;
+  overflow: visible;
+  border: 1px solid var(--accent);
 }
 
 /* Glyphin content wrapper — handles wipe animation */
@@ -17,7 +25,7 @@
 }
 
 .wipeIn {
-  animation: wipeIn 0.35s ease-out both;
+  animation: wipeIn 0.35s var(--ease-out) both;
 }
 
 .wipeOut {
@@ -47,6 +55,22 @@
   }
 }
 
+/* Glyphin counter label */
+.glyphinCounter {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  z-index: var(--z-glyphin-ui);
+  pointer-events: none;
+}
+
 /* Earmark corner button — folded page corner */
 .earmark {
   position: absolute;
@@ -58,29 +82,32 @@
   border: none;
   background: none;
   cursor: pointer;
-  color: var(--disabled);
-  transition: color 0.2s, transform 0.2s;
-  z-index: 2;
-}
-
-.earmark:hover {
-  color: var(--foreground);
-  transform: scale(1.15);
-}
-
-.earmark:active {
-  transform: scale(0.95);
+  z-index: var(--z-glyphin-ui);
 }
 
 .earmark:focus-visible {
-  color: var(--foreground);
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
 }
 
 .earmarkIcon {
   width: 100%;
   height: 100%;
+}
+
+.earmarkTriangle {
+  fill: var(--accent);
+}
+
+.earmarkArrow {
+  stroke: var(--foreground);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke var(--duration-base);
+}
+
+.earmark:hover .earmarkArrow {
+  stroke: var(--accent);
 }
 
 @media (max-width: 700px) {

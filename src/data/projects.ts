@@ -26,8 +26,6 @@ export const projectsArray: Project[] = [
     "width": 1080,
     "year": 2025,
     "tags": [
-      "Installation",
-      "Conceptual Art",
       "Physical"
     ],
     "size": "2x2",
@@ -44,9 +42,9 @@ export const projectsArray: Project[] = [
     "width": 1080,
     "year": 2024,
     "tags": [
-      "Performance",
-      "Installation",
-      "Conceptual Art"
+      "Physical",
+      "AI/ML",
+      "Performance"
     ],
     "size": "2x2",
     "position": 2,
@@ -62,9 +60,9 @@ export const projectsArray: Project[] = [
     "width": 1080,
     "year": 2021,
     "tags": [
-      "Interactive",
-      "Installation",
-      "AI"
+      "Physical",
+      "AI/ML",
+      "Interactive"
     ],
     "size": "1x1",
     "position": 3,
@@ -80,8 +78,8 @@ export const projectsArray: Project[] = [
     "year": 2021,
     "tags": [
       "Interactive",
-      "Installation",
-      "Conceptual Art"
+      "Digital",
+      "AI/ML"
     ],
     "size": "1x1",
     "position": 1,
@@ -96,9 +94,9 @@ export const projectsArray: Project[] = [
     "width": 1920,
     "year": 2023,
     "tags": [
-      "Performance",
-      "Installation",
-      "Conceptual Art"
+      "Physical",
+      "Interactive",
+      "Performance"
     ],
     "size": "2x1",
     "position": 2,
@@ -113,9 +111,8 @@ export const projectsArray: Project[] = [
     "width": 800,
     "year": 2021,
     "tags": [
-      "Media Art",
-      "AI",
-      "Generative Art"
+      "Digital",
+      "AI/ML"
     ],
     "size": "2x1",
     "position": 3,
@@ -130,9 +127,7 @@ export const projectsArray: Project[] = [
     "width": 1080,
     "year": 2025,
     "tags": [
-      "Installation",
-      "Kinetic",
-      "Design"
+      "Digital"
     ],
     "size": "1x1",
     "position": 1,
@@ -147,8 +142,10 @@ export const projectsArray: Project[] = [
     "width": 500,
     "year": 2021,
     "tags": [
-      "Performance",
-      "Conceptual Art"
+      "Interactive",
+      "Digital",
+      "AI/ML",
+      "Performance"
     ],
     "size": "1x2",
     "position": 1,
@@ -164,8 +161,9 @@ export const projectsArray: Project[] = [
     "year": 2021,
     "tags": [
       "Interactive",
-      "AI",
-      "Installation"
+      "Digital",
+      "AI/ML",
+      "Performance"
     ],
     "size": "1x2",
     "position": 2,
@@ -180,8 +178,7 @@ export const projectsArray: Project[] = [
     "width": 1080,
     "year": 2022,
     "tags": [
-      "Sculpture",
-      "Conceptual Art"
+      "Physical"
     ],
     "size": "1x1",
     "position": 3,
@@ -196,8 +193,7 @@ export const projectsArray: Project[] = [
     "width": 720,
     "year": 2022,
     "tags": [
-      "Product Design",
-      "App Design"
+      "Product Design"
     ],
     "size": "1x2",
     "position": 2,
@@ -213,9 +209,9 @@ export const projectsArray: Project[] = [
     "width": 1440,
     "year": 2021,
     "tags": [
-      "Digital Art",
-      "Typography",
-      "Generative Art"
+      "Digital",
+      "Physical",
+      "AI/ML"
     ],
     "size": "2x1",
     "position": 1,
@@ -230,9 +226,7 @@ export const projectsArray: Project[] = [
     "width": 3072,
     "year": 2022,
     "tags": [
-      "Sculpture",
-      "Design",
-      "Metalwork"
+      "Physical"
     ],
     "size": "1x1",
     "position": 2,
@@ -247,8 +241,9 @@ export const projectsArray: Project[] = [
     "width": 1080,
     "year": 2023,
     "tags": [
+      "Digital",
       "Branding",
-      "Graphic Design"
+      "Product Design"
     ],
     "size": "1x1",
     "position": 3,
@@ -263,7 +258,7 @@ export const projectsArray: Project[] = [
     "width": 1500,
     "year": 2017,
     "tags": [
-      "Industrial Design",
+      "Physical",
       "Product Design"
     ],
     "size": "1x1",
@@ -279,9 +274,7 @@ export const projectsArray: Project[] = [
     "width": 717,
     "year": 2022,
     "tags": [
-      "Product Design",
-      "Service Design",
-      "Sustainability"
+      "Product Design"
     ],
     "size": "2x1",
     "position": 3,
@@ -296,8 +289,8 @@ export const projectsArray: Project[] = [
     "width": 700,
     "year": 2021,
     "tags": [
-      "Digital Art",
-      "Conceptual Art"
+      "Digital",
+      "Interactive"
     ],
     "size": "1x1",
     "position": 1,
@@ -312,8 +305,7 @@ export const projectsArray: Project[] = [
     "width": 720,
     "year": 2021,
     "tags": [
-      "Digital Art",
-      "Generative Art"
+      "Digital"
     ],
     "size": "1x1",
     "position": 2,
@@ -328,8 +320,7 @@ export const projectsArray: Project[] = [
     "width": 720,
     "year": 2021,
     "tags": [
-      "Digital Art",
-      "Conceptual Art"
+      "Digital"
     ],
     "size": "1x1",
     "position": 3,
@@ -344,9 +335,9 @@ export const projectsArray: Project[] = [
     "width": 720,
     "year": 2022,
     "tags": [
-      "Illustration",
-      "Book Design",
-      "Narrative Art"
+      "Physical",
+      "AI/ML",
+      "Branding"
     ],
     "size": "1x2",
     "position": 2,
@@ -361,8 +352,8 @@ export const projectsArray: Project[] = [
     "width": 1098,
     "year": 2021,
     "tags": [
-      "Interactive",
-      "Installation"
+      "Digital",
+      "Interactive"
     ],
     "size": "2x1",
     "description": "An interactive installation where players read through a monologue as they play.",
@@ -377,8 +368,8 @@ export const projectsArray: Project[] = [
     "year": 2022,
     "tags": [
       "Interactive",
-      "Installation",
-      "Media Art"
+      "Digital",
+      "Quantum"
     ],
     "size": "2x1",
     "position": 1,
@@ -393,8 +384,8 @@ export const projectsArray: Project[] = [
     "width": 720,
     "year": 2021,
     "tags": [
-      "Film",
-      "Media Art"
+      "Digital",
+      "Quantum"
     ],
     "size": "2x1",
     "position": 2,

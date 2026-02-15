@@ -1,38 +1,13 @@
 import type { Metadata } from "next";
 import labItems from "@/content/lab.json";
-import styles from "./lab.module.css";
+import ExternalIcon from "@/components/ExternalIcon";
+import styles from "./interactives.module.css";
 
 export const metadata: Metadata = {
-  title: "Lab",
+  title: "Interactives",
   description:
     "Interactive prototypes, p5.js sketches, and experiments by Leffin.",
 };
-
-function ExternalIcon() {
-  return (
-    <svg
-      className={styles.extIcon}
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M3.5 1.5H10.5V8.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M10.5 1.5L1.5 10.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
 
 function isExternal(href: string) {
   return href.startsWith("http");
@@ -40,9 +15,9 @@ function isExternal(href: string) {
 
 export default function LabPage() {
   return (
-    <main className={styles.lab}>
+    <main className={styles.interactives}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Lab</h1>
+        <h1 className={styles.title}>Interactives</h1>
         <p className={styles.subtitle}>
           Interactive prototypes, p5.js sketches, and experiments.
         </p>
@@ -83,7 +58,7 @@ export default function LabPage() {
               className={styles.nameLink}
             >
               {item.name}
-              <ExternalIcon />
+              <ExternalIcon className={styles.extIcon} />
             </a>
             <span className={styles.description}>{item.description}</span>
           </li>

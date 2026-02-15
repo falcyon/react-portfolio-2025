@@ -3,16 +3,21 @@
   "summary": "Multidisciplinary New Media Artist building immersive, interactive installations that use AI and the human body to ask deeply introspective questions.",
   "credentials": {
     "education": [
-      { "text": "MFA Design & Technology, Parsons", "note": "Honors" },
-      { "text": "B.Tech Aerospace, IIT Bombay", "note": "Minor in Industrial Design" }
+      {
+        "text": "MFA Design & Technology, Parsons",
+        "note": "Honors"
+      },
+      {
+        "text": "B.Tech Aerospace, IIT Bombay",
+        "note": "Minor in Industrial Design"
+      }
     ],
     "current": "Experience Design Lead, Citibank"
   },
   "contact": {
     "email": "leffin7@gmail.com",
-    "instagram": "https://www.instagram.com/leff.in",
-    "linkedin": "https://www.linkedin.com/in/leffin",
-    "resume": "/Leffin_Resume.pdf"
+    "instagram": "https://www.instagram.com/leffinc/",
+    "linkedin": "https://www.linkedin.com/in/leffin"
   },
   "exhibitions": [
     {
@@ -75,25 +80,27 @@
   "speaking": [
     {
       "event": "Parsons School of Design",
-      "role": "Guest Teacher",
+      "role": "Guest Lecturer, BFA Design & Technology",
       "year": "2023",
       "href": "https://www.newschool.edu/parsons/"
     },
     {
       "event": "MIT Reality Hack",
       "role": "Mentor, Hardware Track",
-      "year": "2023"
+      "year": "2023",
+      "href": "https://www.realityhackatmit.com/"
     },
     {
-      "event": "The New School \u00d7 IBM Qiskit",
-      "role": "Student Mentor, Quantum Design Jam",
+      "event": "The New School \u00d7 IBM Quantum",
+      "role": "Speaker & Mentor, Quantum Design Jam",
       "year": "2023",
       "href": "https://innovationcenter.newschool.edu/speakers-and-mentors/"
     },
     {
-      "event": "IBM Quantum",
+      "event": "The New School \u00d7 IBM Quantum",
       "role": "Mentor, Quantum Design Jam",
-      "year": "2022"
+      "year": "2022",
+      "href": "https://innovationcenter.newschool.edu/quantum-lab/"
     }
   ],
   "press": [
@@ -123,6 +130,48 @@
       "type": "Profile",
       "year": "2016",
       "href": "https://insightiitb.org/citi-bank-leffin-christopher-2/"
+    }
+  ],
+  "experience": [
+    {
+      "title": "VP, Experience Design Lead",
+      "company": "Citibank",
+      "period": "2024 – Present"
+    },
+    {
+      "title": "New Media Artist",
+      "company": "leff.in",
+      "period": "2021 – Present"
+    },
+    {
+      "title": "Product Manager",
+      "company": "Elements Connect",
+      "period": "2023 – 2024"
+    },
+    {
+      "title": "Branding & Product Designer",
+      "company": "Freelance",
+      "period": "2023"
+    },
+    {
+      "title": "Graduate Research & Teaching Assistant",
+      "company": "Parsons School of Design",
+      "period": "2021 – 2023"
+    },
+    {
+      "title": "Risk Manager & Data Scientist",
+      "company": "Citibank",
+      "period": "2016 – 2021"
+    },
+    {
+      "title": "Event Manager",
+      "company": "Abhyuday, IIT Bombay",
+      "period": "2013 – 2016"
+    },
+    {
+      "title": "Intern",
+      "company": "Jetstream Electric",
+      "period": "2015"
     }
   ]
 }

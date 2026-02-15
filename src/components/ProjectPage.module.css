@@ -1,48 +1,51 @@
 .projectPageDiv {
-    z-index: 1;
-    margin: 0 10% 0 10%;
-    padding: 0 25px 0 25px;
+    z-index: var(--z-base);
+    padding: 0 var(--page-px);
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tagsContainer {
-    font-weight: 100;
-    padding: 10svh 25px 0px 25px;
-    margin: 20px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: calc(var(--nav-height) + var(--space-xl)) 0 0 0;
+    margin: 20px 0;
 }
 
 .tag {
     display: inline-block;
-    border-color: black;
-    background-color: var(--foreground);
-    color: var(--background);
-    padding: 0px 5px;
-    border: 1px solid black;
-    margin: 2px 2px;
-    font-size: 1.2rem;
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    padding: 3px 10px;
+    border: 1px solid var(--foreground);
+    background: var(--background);
+    color: var(--foreground);
 }
 
 .projectPageDiv h1 {
     margin: 0;
-    font-size: 5em;
-    font-family: "neuzeit-grotesk", sans-serif;
-    font-weight: 600;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-family: var(--font-sans);
+    font-weight: 700;
     color: var(--accent);
-    padding: 0 25px 0 25px;
     text-transform: uppercase;
 }
 
 .projectPageDiv h2 {
-    font-size: 1.5em;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     margin: 0;
-    font-weight: 200;
-    padding: 0 25px 0 25px;
+    font-weight: 300;
 }
 
 .projectHeader {
     display: flex;
-    gap: 40px;
+    gap: var(--space-xl);
     align-items: flex-start;
-    padding: 0 25px;
 }
 
 .headerText {
@@ -50,14 +53,10 @@
     min-width: 0;
 }
 
-.headerText h1,
-.headerText h2 {
-    padding: 0;
-}
-
 .headerThumbnail {
     flex-shrink: 0;
     width: 300px;
+    max-width: 40%;
 }
 
 .headerMedia {
@@ -67,7 +66,7 @@
 }
 
 .contentContainer {
-    margin-top: 2em;
+    margin-top: 2rem;
 }
 
 .sectionGroup {
@@ -86,67 +85,78 @@
 }
 
 .textSection p {
-    font-weight: 100;
+    font-weight: 300;
     margin-top: 0;
-    margin-bottom: 25px;
+    margin-bottom: var(--space-lg);
 }
 
 .h {
     width: 50%;
-    padding: 25px;
+    padding: var(--space-lg);
 }
 
 .q {
     width: 25%;
-    padding: 25px;
+    padding: var(--space-lg);
 }
 
 .t {
     width: 33.33%;
-    padding: 25px;
+    padding: var(--space-lg);
 }
 
 .t2 {
     width: 66.66%;
-    padding: 25px;
+    padding: var(--space-lg);
+}
+
+.s {
+    width: 16.66%;
+    padding: var(--space-lg);
 }
 
 .f {
     width: 100%;
-    padding: 25px;
+    padding: var(--space-lg);
 }
 
 .closeButton {
     position: fixed;
-    top: 10svh;
-    right: 10vw;
+    top: calc(var(--nav-height) + var(--space-md));
+    right: var(--page-px);
     width: 40px;
     height: 40px;
     border: none;
     background: none;
     color: var(--accent);
     cursor: pointer;
-    z-index: 1000;
+    z-index: var(--z-close-button);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
+    transition: background var(--duration-base), color var(--duration-base);
 }
 
 .closeButton:hover {
-    background: var(--accent);
-    color: var(--background);
+    background: rgba(218, 31, 38, 0.12);
+    color: var(--accent);
+}
+
+.closeButton:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
 }
 
 .endOfPage {
     text-align: center;
-    font-size: 0.9em;
-    margin: 4em 0 2em;
+    font-size: 0.9rem;
+    margin: 4rem 0 2rem;
 }
 
 .endOfPage hr {
     width: 30vw;
-    margin: 5em auto 7em;
+    margin: 5rem auto 7rem;
     border: none;
     border-top: 1px solid var(--accent);
 }
@@ -154,50 +164,46 @@
 .imageSection img {
     border-style: solid;
     border-color: var(--foreground);
-    border-width: 0.5px;
+    border-width: 1px;
     width: 100%;
     height: auto;
 }
 
 @media (max-width: 700px) {
     .closeButton {
-        top: 10vw;
-        right: 5vw;
-    }
-
-    .projectPageDiv {
-        margin: 0;
+        top: calc(var(--nav-height) + var(--space-sm));
+        right: var(--space-md);
     }
 
     .projectPageDiv h1 {
-        font-size: 2em;
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
     }
 
     .projectHeader {
         flex-direction: column;
-        padding: 0;
     }
 
     .headerThumbnail {
         width: 100%;
+        max-width: 100%;
     }
 
     .sectionGroup {
         flex-direction: column;
         width: 100%;
-        margin-bottom: 0em;
     }
 
     .t,
     .t2,
     .h,
     .q,
+    .s,
     .f {
         width: 100%;
-        margin-bottom: 4em;
+        margin-bottom: 4rem;
     }
 
     .textSection p {
-        margin-bottom: 1em;
+        margin-bottom: 1rem;
     }
 }
