@@ -135,41 +135,49 @@
   "experience": [
     {
       "title": "VP, Experience Design Lead",
+      "description": "Leading design of an enterprise AI platform",
       "company": "Citibank",
-      "period": "2024 – Present"
+      "period": "2024 - Present"
     },
     {
       "title": "New Media Artist",
+      "description": "Interactive installations and immersive experiences",
       "company": "leff.in",
-      "period": "2021 – Present"
+      "period": "2021 - Present"
     },
     {
       "title": "Product Manager",
+      "description": "Led 0-to-1 launch of a B2B SaaS platform",
       "company": "Elements Connect",
-      "period": "2023 – 2024"
+      "period": "2023 - 2024"
     },
     {
-      "title": "Branding & Product Designer",
+      "title": "Branding & Editorial Designer",
+      "description": "Brand identity and editorial design",
       "company": "Freelance",
       "period": "2023"
     },
     {
-      "title": "Graduate Research & Teaching Assistant",
+      "title": "Graduate Research Assistant",
+      "description": "AI and interactive design research",
       "company": "Parsons School of Design",
-      "period": "2021 – 2023"
+      "period": "2021 - 2023"
     },
     {
-      "title": "Risk Manager & Data Scientist",
+      "title": "Data Scientist",
+      "description": "Big Data Analytics, Automation and web accessibility",
       "company": "Citibank",
-      "period": "2016 – 2021"
+      "period": "2016 - 2021"
     },
     {
       "title": "Event Manager",
+      "description": "Social entrepreneurship festival management",
       "company": "Abhyuday, IIT Bombay",
-      "period": "2013 – 2016"
+      "period": "2013 - 2016"
     },
     {
       "title": "Intern",
+      "description": "MAV to harness high-altitude wind energy",
       "company": "Jetstream Electric",
       "period": "2015"
     }

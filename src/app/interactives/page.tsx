@@ -26,41 +26,41 @@ export default function LabPage() {
       <ul className={styles.list}>
         {labItems.map((item) => (
           <li key={item.name} className={styles.row}>
-            <div className={styles.thumbCell}>
-              {item.thumbnail ? (
-                item.thumbnail.endsWith(".mp4") ? (
-                  <video
-                    src={item.thumbnail}
-                    className={styles.thumb}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
-                ) : (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={item.thumbnail}
-                    alt={item.name}
-                    className={styles.thumb}
-                  />
-                )
-              ) : (
-                <div className={styles.thumbPlaceholder}>
-                  <span>p5</span>
-                </div>
-              )}
-            </div>
             <a
               href={item.href}
               target={isExternal(item.href) ? "_blank" : undefined}
               rel={isExternal(item.href) ? "noopener noreferrer" : undefined}
-              className={styles.nameLink}
+              className={styles.rowLink}
             >
-              {item.name}
+              <div className={styles.thumbCell}>
+                {item.thumbnail ? (
+                  item.thumbnail.endsWith(".mp4") ? (
+                    <video
+                      src={item.thumbnail}
+                      className={styles.thumb}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    />
+                  ) : (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={item.thumbnail}
+                      alt={item.name}
+                      className={styles.thumb}
+                    />
+                  )
+                ) : (
+                  <div className={styles.thumbPlaceholder}>
+                    <span>p5</span>
+                  </div>
+                )}
+              </div>
+              <span className={styles.name}>{item.name}</span>
+              <span className={styles.description}>{item.description}</span>
               <ExternalIcon className={styles.extIcon} />
             </a>
-            <span className={styles.description}>{item.description}</span>
           </li>
         ))}
       </ul>

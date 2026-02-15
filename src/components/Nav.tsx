@@ -18,7 +18,7 @@ export default function Nav() {
     <nav className={styles.nav}>
       <div className={styles.navInner}>
         <Link href="/" className={styles.logo}>
-          Leffin
+          Leffin<span className={styles.logoDot} aria-hidden="true" />
         </Link>
 
         <ul className={styles.links}>

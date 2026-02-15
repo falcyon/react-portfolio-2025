@@ -94,8 +94,8 @@
   color: var(--accent);
 }
 
-/* ── External link icon ── */
-.extIcon {
+/* ── Hero external icon (inline with contact links) ── */
+.heroExtIcon {
   width: 10px;
   height: 10px;
   flex-shrink: 0;
@@ -103,7 +103,7 @@
   transition: opacity var(--duration-base);
 }
 
-a:hover .extIcon {
+a:hover .heroExtIcon {
   opacity: 1;
 }
 
@@ -121,7 +121,7 @@ a:hover .extIcon {
   text-transform: uppercase;
   margin: 0 0 0;
   padding: 12px 0;
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 1px solid var(--foreground);
   opacity: 0.5;
 }
 
@@ -131,48 +131,110 @@ a:hover .extIcon {
   padding: 0;
 }
 
+/* ── Shared row base ──
+   Each row owns its top border. The last row also owns a bottom border.
+   Each visible line is exactly one border — no overlaps. */
+.row,
+.exhibRow {
+  position: relative;
+  border-top: 1px solid var(--foreground);
+  transition: border-color var(--duration-base);
+}
+
+.row:last-child,
+.exhibRow:last-child {
+  border-bottom: 1px solid var(--foreground);
+}
+
+.row:hover,
+.exhibRow:hover {
+  border-top-color: var(--accent);
+}
+
+.row:hover + .row,
+.exhibRow:hover + .exhibRow {
+  border-top-color: var(--accent);
+}
+
+.row:last-child:hover,
+.exhibRow:last-child:hover {
+  border-bottom-color: var(--accent);
+}
+
 /* ── Row (3-col: speaking, press, experience) ── */
 .row {
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: var(--space-lg);
   align-items: baseline;
-  padding: 14px 0;
-  border-bottom: 2px solid var(--accent);
-  transition: background var(--duration-fast);
+  padding: 14px 40px 14px 0;
 }
 
-.row:hover {
-  background: var(--hover-bg);
-}
-
-/* ── Exhibition row (4-col: venue, work, location, year) ── */
+/* ── Exhibition row (4-col: fixed widths so columns align across sections) ── */
 .exhibRow {
   display: grid;
-  grid-template-columns: 1fr 1fr auto auto;
+  grid-template-columns: 1fr 1fr 180px 110px;
   gap: var(--space-lg);
   align-items: baseline;
-  padding: 14px 0;
-  border-bottom: 2px solid var(--accent);
-  transition: background var(--duration-fast);
+  padding: 14px 40px 14px 0;
 }
 
-.exhibRow:hover {
-  background: var(--hover-bg);
+/* ── Row hover — all text turns red ── */
+.row:hover .rowName,
+.row:hover .rowLink,
+.row:hover .rowMeta,
+.row:hover .rowYear,
+.row:hover .rowType,
+.row:hover .rowDesc,
+.exhibRow:hover .rowName,
+.exhibRow:hover .rowLink,
+.exhibRow:hover .rowMeta,
+.exhibRow:hover .rowYear,
+.exhibRow:hover .rowDesc,
+.exhibRow:hover .workLink {
+  color: var(--accent);
+  opacity: 1;
 }
 
+/* ── Stretched link — .rowLink::after covers entire row ── */
+.rowLink {
+  /* position: static (default) so ::after positions relative to the <li> */
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color var(--duration-base);
+}
+
+.rowLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* ── Work link (exhibitions) — elevated above stretched link, sized to text only ── */
 .workLink {
+  position: relative;
+  z-index: 1;
+  justify-self: start;
   font-style: italic;
   font-size: 0.95rem;
   color: var(--foreground);
   text-decoration: none;
-  opacity: 0.6;
   transition: color var(--duration-base), opacity var(--duration-base);
 }
 
-.workLink:hover {
-  color: var(--accent);
-  opacity: 1;
+/* ── Row description (2nd col: speaking role, experience description) ── */
+.rowDesc {
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--foreground);
+  transition: color var(--duration-base);
 }
 
 .rowMain {
@@ -189,25 +251,7 @@ a:hover .extIcon {
   font-size: clamp(1rem, 1.5vw, 1.3rem);
   text-transform: uppercase;
   letter-spacing: 0.02em;
-}
-
-.rowLink {
-  font-family: var(--font-sans);
-  font-style: normal;
-  font-weight: 700;
-  font-size: clamp(1rem, 1.5vw, 1.3rem);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: var(--foreground);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
   transition: color var(--duration-base);
-}
-
-.rowLink:hover {
-  color: var(--accent);
 }
 
 .rowType {
@@ -215,9 +259,10 @@ a:hover .extIcon {
   font-style: normal;
   font-weight: 400;
   font-size: 0.75rem;
-  opacity: 0.5;
+  color: var(--foreground);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  transition: color var(--duration-base);
 }
 
 .rowMeta {
@@ -225,8 +270,9 @@ a:hover .extIcon {
   font-style: normal;
   font-weight: 400;
   font-size: 0.85rem;
-  opacity: 0.5;
+  color: var(--foreground);
   white-space: nowrap;
+  transition: color var(--duration-base);
 }
 
 .rowYear {
@@ -234,10 +280,29 @@ a:hover .extIcon {
   font-style: normal;
   font-weight: 400;
   font-size: 0.85rem;
-  opacity: 0.5;
+  color: var(--foreground);
   white-space: nowrap;
   min-width: 32px;
-  text-align: right;
+  transition: color var(--duration-base);
+}
+
+/* ── Row external icon — absolute right edge ── */
+.extIcon {
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  opacity: 0.3;
+  color: var(--foreground);
+  transition: opacity var(--duration-base), color var(--duration-base);
+}
+
+.row:hover .extIcon,
+.exhibRow:hover .extIcon {
+  opacity: 1;
+  color: var(--accent);
 }
 
 /* ── Mobile ── */

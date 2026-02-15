@@ -261,8 +261,13 @@ export default function ShapesGlyphin() {
       if (shouldOutline !== wasOutlined) {
         for (const id of shapeIDs) {
           const el = shapeRefs.current[id];
-          if (!el || unscaledShapes[id as ShapeID].shapeType === "dot") continue;
-          el.style.backgroundColor = shouldOutline ? "var(--background)" : "";
+          if (!el) continue;
+          const isDotShape = unscaledShapes[id as ShapeID].shapeType === "dot";
+          if (shouldOutline) {
+            el.style.backgroundColor = "var(--background)";
+          } else {
+            el.style.backgroundColor = isDotShape ? "var(--accent)" : "";
+          }
         }
         wasOutlined = shouldOutline;
       }
@@ -290,7 +295,7 @@ export default function ShapesGlyphin() {
               position: "absolute",
               top: 0,
               left: 0,
-              backgroundColor: isDot ? undefined : "var(--background)",
+              backgroundColor: "var(--background)",
             }}
           />
         );

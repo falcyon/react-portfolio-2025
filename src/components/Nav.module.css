@@ -21,19 +21,32 @@
 .logo {
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.7rem;
+  line-height: 1;
   color: var(--foreground);
   text-decoration: none;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-style: normal;
-  border: 1px solid transparent;
-  padding: 3px 0;
+
+  transform: translateY(0.1rem);
   transition: color var(--duration-base);
+  -webkit-text-stroke: 1px var(--background);
+  paint-order: stroke fill;
 }
 
 .logo:hover {
   color: var(--accent);
+}
+
+.logoDot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  background: var(--accent);
+  margin-left: 0;
+  vertical-align: baseline;
+  outline: 1px solid var(--background);
 }
 
 .links {
@@ -111,7 +124,7 @@
   }
 
   .logo {
-    padding: 3px 0;
+    font-size: 2rem;
   }
 
   .link {

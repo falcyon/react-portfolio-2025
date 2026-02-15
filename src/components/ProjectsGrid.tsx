@@ -214,9 +214,6 @@ export default function ProjectsGrid({
               </button>
             ))}
           </div>
-          <p className={styles.count}>
-            {filtered.length} project{filtered.length !== 1 ? "s" : ""}
-          </p>
         </div>
 
         <div className={styles.tagsRow}>

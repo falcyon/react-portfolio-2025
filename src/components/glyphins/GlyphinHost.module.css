@@ -7,6 +7,13 @@
 }
 
 .heroContainer {
+  --earmark-size: 36px;
+  --pt-ax: 0%;
+  --pt-ay: -100%;
+  --pt-bx: 0%;
+  --pt-by: 200%;
+  --pt-cx: 150%;
+  --pt-cy: -100%;
   position: relative;
   aspect-ratio: 2 / 1;
   display: flex;
@@ -15,43 +22,65 @@
   border: 1px solid var(--accent);
 }
 
-/* Glyphin content wrapper — handles wipe animation */
+/* Glyphin content wrapper */
 .glyphinContent {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  will-change: transform, opacity;
 }
 
-.wipeIn {
-  animation: wipeIn 0.35s var(--ease-out) both;
-}
-
-.wipeOut {
-  animation: wipeOut 0.35s ease-in both;
+/* Page-turn overlay — red sweep from bottom-right corner */
+.pageTurnOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent);
+  z-index: 1;
   pointer-events: none;
+  clip-path: polygon(100% 100%, 100% 100%, 100% 100%);
 }
 
-@keyframes wipeOut {
+.covering {
+  animation: pageTurnCover 0.5s ease-in forwards;
+}
+
+.revealing {
+  animation: pageTurnReveal 0.5s var(--ease-out) forwards;
+}
+
+/* Earmark triangle grows — fold tip to TL, edges along right & bottom */
+@keyframes pageTurnCover {
   0% {
-    transform: translateY(0);
-    opacity: 1;
+    clip-path: polygon(
+      calc(100% - var(--earmark-size)) calc(100% - var(--earmark-size)),
+      calc(100% - var(--earmark-size)) 100%,
+      100% calc(100% - var(--earmark-size))
+    );
   }
   100% {
-    transform: translateY(-30px);
-    opacity: 0;
+    clip-path: polygon(
+      var(--pt-ax) var(--pt-ay),
+      var(--pt-bx) var(--pt-by),
+      var(--pt-cx) var(--pt-cy)
+    );
   }
 }
 
-@keyframes wipeIn {
+/* Diagonal continues sweeping toward TL, revealing new content from BR first */
+@keyframes pageTurnReveal {
   0% {
-    transform: translateY(20px);
-    opacity: 0;
+    clip-path: polygon(
+      var(--pt-ax) var(--pt-ay),
+      var(--pt-bx) var(--pt-by),
+      var(--pt-cx) var(--pt-cy)
+    );
   }
   100% {
-    transform: translateY(0);
-    opacity: 1;
+    clip-path: polygon(
+      var(--pt-ax) var(--pt-ay),
+      var(--pt-ax) var(--pt-ay),
+      var(--pt-ax) var(--pt-ay)
+    );
   }
 }
 
@@ -76,13 +105,31 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 36px;
-  height: 36px;
+  width: var(--earmark-size);
+  height: var(--earmark-size);
   padding: 0;
   border: none;
   background: none;
   cursor: pointer;
   z-index: var(--z-glyphin-ui);
+  transform-origin: bottom right;
+}
+
+.earmarkHidden {
+  visibility: hidden;
+}
+
+.earmarkReturning {
+  animation: earmarkReturn 0.25s var(--ease-out) both;
+}
+
+@keyframes earmarkReturn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .earmark:focus-visible {
@@ -103,11 +150,12 @@
   stroke: var(--foreground);
   stroke-width: 2;
   stroke-linecap: round;
-  transition: stroke var(--duration-base);
+  transition: stroke var(--duration-base), transform var(--duration-base);
 }
 
 .earmark:hover .earmarkArrow {
   stroke: var(--accent);
+  transform: translate(-2px, -2px);
 }
 
 @media (max-width: 700px) {
@@ -116,11 +164,13 @@
   }
 
   .heroContainer {
+    --earmark-size: 30px;
+    --pt-ax: -67%;
+    --pt-ay: 0%;
+    --pt-bx: -67%;
+    --pt-by: 160%;
+    --pt-cx: 200%;
+    --pt-cy: 0%;
     aspect-ratio: 3 / 5;
-  }
-
-  .earmark {
-    width: 30px;
-    height: 30px;
   }
 }

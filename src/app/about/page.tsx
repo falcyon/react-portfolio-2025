@@ -33,8 +33,8 @@ export default function AboutPage() {
         </div>
         <div className={styles.heroLinks}>
           <a href={`mailto:${aboutData.contact.email}`}>Email</a>
-          <a href={aboutData.contact.instagram} target="_blank" rel="noopener noreferrer">Instagram <ExternalIcon className={styles.extIcon} /></a>
-          <a href={aboutData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <ExternalIcon className={styles.extIcon} /></a>
+          <a href={aboutData.contact.instagram} target="_blank" rel="noopener noreferrer">Instagram <ExternalIcon className={styles.heroExtIcon} /></a>
+          <a href={aboutData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <ExternalIcon className={styles.heroExtIcon} /></a>
         </div>
       </section>
 
@@ -44,20 +44,19 @@ export default function AboutPage() {
         <ul className={styles.list}>
           {aboutData.exhibitions.map((e) => (
             <li key={e.venue + e.year} className={styles.exhibRow}>
-              <div className={styles.rowMain}>
-                {e.href ? (
-                  <a href={e.href} target="_blank" rel="noopener noreferrer" className={styles.rowLink}>
-                    {e.venue} <ExternalIcon className={styles.extIcon} />
-                  </a>
-                ) : (
-                  <span className={styles.rowName}>{e.venue}</span>
-                )}
-              </div>
+              {e.href ? (
+                <a href={e.href} target="_blank" rel="noopener noreferrer" className={styles.rowLink}>
+                  {e.venue}
+                </a>
+              ) : (
+                <span className={styles.rowName}>{e.venue}</span>
+              )}
               <Link href={`/projects/${e.slug}`} className={styles.workLink}>
                 {e.work}
               </Link>
               <span className={styles.rowMeta}>{e.location}</span>
               <span className={styles.rowYear}>{e.year}</span>
+              {e.href && <ExternalIcon className={styles.extIcon} />}
             </li>
           ))}
         </ul>
@@ -69,23 +68,23 @@ export default function AboutPage() {
         <ul className={styles.list}>
           {aboutData.speaking.map((s) => (
             <li key={s.event + s.year} className={styles.exhibRow}>
-              <div className={styles.rowMain}>
-                {s.href ? (
-                  <a href={s.href} target="_blank" rel="noopener noreferrer" className={styles.rowLink}>
-                    {s.event} <ExternalIcon className={styles.extIcon} />
-                  </a>
-                ) : (
-                  <span className={styles.rowName}>{s.event}</span>
-                )}
-              </div>
-              <span className={styles.rowMeta}>{s.role}</span>
+              {s.href ? (
+                <a href={s.href} target="_blank" rel="noopener noreferrer" className={styles.rowLink}>
+                  {s.event}
+                </a>
+              ) : (
+                <span className={styles.rowName}>{s.event}</span>
+              )}
+              <span className={styles.rowDesc}>{s.role}</span>
+              <span />
               <span className={styles.rowYear}>{s.year}</span>
+              {s.href && <ExternalIcon className={styles.extIcon} />}
             </li>
           ))}
         </ul>
       </section>
 
-      {/* Press */}
+      {/* Press — commented out for now
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Press & Media</h2>
         <ul className={styles.list}>
@@ -94,7 +93,7 @@ export default function AboutPage() {
               <div className={styles.rowMain}>
                 {p.href ? (
                   <a href={p.href} target="_blank" rel="noopener noreferrer" className={styles.rowLink}>
-                    {p.publication} <ExternalIcon className={styles.extIcon} />
+                    {p.publication}
                   </a>
                 ) : (
                   <span className={styles.rowName}>{p.publication}</span>
@@ -102,20 +101,21 @@ export default function AboutPage() {
                 {p.type && <span className={styles.rowType}>{p.type}</span>}
               </div>
               <span className={styles.rowYear}>{p.year}</span>
+              {p.href && <ExternalIcon className={styles.extIcon} />}
             </li>
           ))}
         </ul>
       </section>
+      */}
 
       {/* Professional Experience */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Professional Experience</h2>
         <ul className={styles.list}>
           {aboutData.experience.map((e) => (
-            <li key={e.company + e.period} className={styles.row}>
-              <div className={styles.rowMain}>
-                <span className={styles.rowName}>{e.title}</span>
-              </div>
+            <li key={e.company + e.period} className={styles.exhibRow}>
+              <span className={styles.rowName}>{e.title}</span>
+              <span className={styles.rowDesc}>{e.description}</span>
               <span className={styles.rowMeta}>{e.company}</span>
               <span className={styles.rowYear}>{e.period}</span>
             </li>

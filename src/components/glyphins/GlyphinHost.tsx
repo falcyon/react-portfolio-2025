@@ -4,42 +4,68 @@ import { useState, useCallback, useRef } from "react";
 import { glyphinRegistry } from "./glyphinRegistry";
 import styles from "./GlyphinHost.module.css";
 
+type Transition = "idle" | "covering" | "revealing" | "returning";
+
+const COVER_MS = 500;
+const REVEAL_MS = 500;
+const RETURN_MS = 250;
+
 export default function GlyphinHost() {
   const [glyphinIndex, setGlyphinIndex] = useState(0);
   const [cycleCount, setCycleCount] = useState(0);
-  const [wiping, setWiping] = useState(false);
+  const [transition, setTransition] = useState<Transition>("idle");
   const pendingIndex = useRef<number | null>(null);
 
   const cycleGlyphin = useCallback(() => {
-    if (wiping) return;
+    if (transition !== "idle") return;
 
-    // Cycle to next in order, wrapping around
     const next = (glyphinIndex + 1) % glyphinRegistry.length;
-
     pendingIndex.current = next;
-    setWiping(true);
+    setTransition("covering");
     window.umami?.track("glyphin-cycle");
 
-    // After wipe-out finishes, swap the glyphin and wipe back in
     setTimeout(() => {
       setGlyphinIndex(pendingIndex.current!);
       setCycleCount((c) => c + 1);
-      setWiping(false);
-    }, 400);
-  }, [wiping, glyphinIndex]);
+      setTransition("revealing");
+
+      setTimeout(() => {
+        setTransition("returning");
+
+        setTimeout(() => {
+          setTransition("idle");
+        }, RETURN_MS);
+      }, REVEAL_MS);
+    }, COVER_MS);
+  }, [transition, glyphinIndex]);
 
   const currentGlyphin = glyphinRegistry[glyphinIndex];
   const GlyphinComponent = currentGlyphin.component;
 
+  const overlayClass =
+    transition === "covering"
+      ? styles.covering
+      : transition === "revealing"
+        ? styles.revealing
+        : "";
+
+  const earmarkClass =
+    transition === "returning"
+      ? styles.earmarkReturning
+      : transition !== "idle"
+        ? styles.earmarkHidden
+        : "";
+
   return (
     <div className={styles.heroOuter}>
       <div className={styles.heroContainer}>
-        {/* Glyphin content with wipe animation */}
-        <div
-          className={`${styles.glyphinContent} ${wiping ? styles.wipeOut : styles.wipeIn}`}
-        >
+        {/* Glyphin content */}
+        <div className={styles.glyphinContent}>
           <GlyphinComponent key={`${currentGlyphin.id}-${cycleCount}`} />
         </div>
+
+        {/* Page-turn overlay */}
+        <div className={`${styles.pageTurnOverlay} ${overlayClass}`} />
 
         {/* Glyphin counter */}
         <span className={styles.glyphinCounter}>
@@ -48,7 +74,7 @@ export default function GlyphinHost() {
 
         {/* Earmark corner button */}
         <button
-          className={styles.earmark}
+          className={`${styles.earmark} ${earmarkClass}`}
           onClick={cycleGlyphin}
           aria-label="Show a different glyphin"
         >
