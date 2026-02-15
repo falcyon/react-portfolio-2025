@@ -10,11 +10,23 @@ export function useVideoVisibility(
     const video = videoRef.current;
     if (!video) return;
 
+    let isVisible = false;
+
+    const tryPlay = () => {
+      video.play().catch(() => {
+        // Video not ready yet — retry once it can play
+        video.addEventListener("canplay", () => {
+          if (isVisible) video.play().catch(() => {});
+        }, { once: true });
+      });
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          tryPlay();
         } else {
           video.pause();
         }

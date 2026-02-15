@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useMemo } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Project } from "@/data/projects";
@@ -11,13 +11,16 @@ import styles from "./FeaturedProjects.module.css";
 function FeaturedCard({ project }: { project: Project }) {
   const isVideo = /\.(mp4|webm|ogg)$/i.test(project.thumbnail);
   const alreadyLoaded = loadedMedia.has(project.thumbnail);
-  const [loaded, setLoaded] = useState(alreadyLoaded);
+  const [canLoadMedia, setCanLoadMedia] = useState(alreadyLoaded);
   const videoRef = useRef<HTMLVideoElement>(null);
-  useVideoVisibility(videoRef, isVideo);
+  useVideoVisibility(videoRef, isVideo && canLoadMedia);
+
+  useEffect(() => {
+    if (!alreadyLoaded) setCanLoadMedia(true);
+  }, [alreadyLoaded]);
 
   const handleLoad = () => {
     loadedMedia.add(project.thumbnail);
-    setLoaded(true);
   };
 
   return (
@@ -30,7 +33,7 @@ function FeaturedCard({ project }: { project: Project }) {
       }}
     >
       <div className={styles.thumbnailWrap}>
-        {isVideo ? (
+        {canLoadMedia && isVideo && (
           <video
             ref={videoRef}
             src={project.thumbnail}
@@ -38,16 +41,17 @@ function FeaturedCard({ project }: { project: Project }) {
             muted
             playsInline
             preload="metadata"
-            className={`${styles.thumbnail} ${loaded ? styles.loaded : ""}`}
+            className={styles.thumbnail}
             onLoadedData={handleLoad}
           />
-        ) : (
+        )}
+        {canLoadMedia && !isVideo && (
           <Image
             src={project.thumbnail}
             alt={`${project.name} thumbnail`}
             width={project.width}
             height={project.height}
-            className={`${styles.thumbnail} ${loaded ? styles.loaded : ""}`}
+            className={styles.thumbnail}
             onLoad={handleLoad}
           />
         )}

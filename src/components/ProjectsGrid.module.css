@@ -123,12 +123,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.loaded {
-  opacity: 1;
 }
 
 /* Card info — always visible below thumbnail */
