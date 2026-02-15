@@ -1,0 +1,87 @@
+.heroContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Glyphin content wrapper — handles wipe animation */
+.glyphinContent {
+  width: 100%;
+  will-change: transform, opacity;
+}
+
+.wipeIn {
+  animation: wipeIn 0.35s ease-out both;
+}
+
+.wipeOut {
+  animation: wipeOut 0.35s ease-in both;
+  pointer-events: none;
+}
+
+@keyframes wipeOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes wipeIn {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Earmark corner button — folded page corner */
+.earmark {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--disabled);
+  transition: color 0.2s, transform 0.2s;
+  z-index: 2;
+}
+
+.earmark:hover {
+  color: var(--foreground);
+  transform: scale(1.15);
+}
+
+.earmark:active {
+  transform: scale(0.95);
+}
+
+.earmarkIcon {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 700px) {
+  .heroContainer {
+    aspect-ratio: 3 / 4;
+  }
+
+  .earmark {
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -1,0 +1,125 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 5vw, 60px);
+  height: 56px;
+  background-color: rgba(235, 232, 224, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(39, 39, 38, 0.1);
+}
+
+.logo {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--foreground);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+.logo:hover {
+  color: var(--accent);
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 32px;
+}
+
+.link {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--foreground);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-style: normal;
+  transition: color 0.2s;
+  opacity: 0.7;
+}
+
+.link:hover {
+  opacity: 1;
+  color: var(--foreground);
+}
+
+.active {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* Hamburger — hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 101;
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background-color: var(--foreground);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.barOpen1 {
+  transform: translateY(3.25px) rotate(45deg);
+}
+
+.barOpen2 {
+  transform: translateY(-3.25px) rotate(-45deg);
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background-color: rgba(235, 232, 224, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .linksOpen {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .linksOpen .link {
+    font-size: 1.4rem;
+  }
+}

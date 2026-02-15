@@ -51,7 +51,7 @@ export interface Project {
   width: number;
   year: number;
   tags: string[];
-  size: "s" | "q" | "t" | "h" | "1" | "f";
+  size: "1x1" | "1x2" | "2x1" | "2x2";
   position?: 1 | 2 | 3 | 4 | 5 | 6;
   description: string;
 }

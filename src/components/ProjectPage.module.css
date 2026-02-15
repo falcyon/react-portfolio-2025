@@ -151,7 +151,7 @@
 
 .imageSection img {
     border-style: solid;
-    border-color: #111;
+    border-color: var(--foreground);
     border-width: 0.5px;
     width: 100%;
     height: auto;

@@ -1,0 +1,52 @@
+.terminal {
+  width: 100%;
+  padding: 24px;
+  font-family: "Courier New", Courier, monospace;
+  font-style: normal;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt {
+  color: var(--foreground);
+  font-weight: 600;
+  white-space: pre;
+}
+
+.output {
+  color: var(--foreground);
+  opacity: 0.6;
+  padding-left: 1em;
+  white-space: pre;
+}
+
+.cursor {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.cursorHidden {
+  opacity: 0;
+}
+
+@media (max-width: 700px) {
+  .terminal {
+    padding: 16px 0;
+    font-size: 0.75rem;
+  }
+}

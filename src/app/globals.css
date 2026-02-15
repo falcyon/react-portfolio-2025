@@ -3,21 +3,12 @@
 @import "tailwindcss/utilities";
 
 :root {
-
-  --background: rgb(17, 17, 17);
-  --foreground: rgb(189, 175, 156);
-  --disabled: #555;
-  --accent: #da1f26;
-  --secondary: #3f5989;
-  --lunit: 2vw;
-}
-
-[data-theme="light"] {
   --background: rgb(235, 232, 224);
   --foreground: rgb(39, 39, 38);
   --disabled: #a39f90;
   --accent: #da1f26;
   --secondary: #3f5989;
+  --lunit: 2vw;
 }
 
 body {
@@ -55,19 +46,5 @@ body {
 /* globals.css */
 
 .ruled-underlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  /* KEY: make it "infinite" without caring about content height */
-  height: 100%;
-  pointer-events: none;
-  z-index: -100;
-
-  background-image: repeating-linear-gradient(to bottom,
-      rgba(255, 255, 255, 0.12) 0px,
-      rgba(255, 255, 255, 0.12) 1px,
-      transparent 1px,
-      transparent 200px);
+  display: none;
 }

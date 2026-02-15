@@ -1,0 +1,88 @@
+.entry {
+  width: 100%;
+  padding: 24px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.headword {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--foreground);
+  margin-bottom: 4px;
+}
+
+.phonetic {
+  font-weight: 300;
+  font-size: 0.5em;
+  color: var(--accent);
+  margin-left: 8px;
+}
+
+.pos {
+  font-style: italic;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
+.definitions {
+  margin: 0;
+  padding: 0 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.definitions li {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.example {
+  display: block;
+  margin-top: 4px;
+  font-style: italic;
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+.origin {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  border-top: 1px solid rgba(39, 39, 38, 0.1);
+  padding-top: 12px;
+}
+
+.originLabel {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: 8px;
+}
+
+@media (max-width: 700px) {
+  .entry {
+    padding: 16px 0;
+  }
+
+  .definitions li {
+    font-size: 0.85rem;
+  }
+}

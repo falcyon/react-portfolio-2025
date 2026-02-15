@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import "./globals.css";
 // import GridOverlay from "@/components/GridOverlay";
 import LenisProvider from "@/components/LenisProvider";
+import Nav from "@/components/Nav";
 import UmamiOptOut from "@/components/UmamiOptOut";
 import UmamiLoader from "@/components/UmamiLoader";
 import ScrollTracker from "@/components/ScrollTracker";
@@ -55,6 +56,7 @@ export default function RootLayout({
           <UmamiOptOut />
           <ScrollTracker />
         </Suspense>
+        <Nav />
         <LenisProvider>
           {/* <GridOverlay /> */}
           <div style={{ position: "relative", minHeight: "100vh" }}>

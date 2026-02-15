@@ -1,0 +1,274 @@
+.about {
+  padding: 120px clamp(24px, 8vw, 120px) 100px;
+}
+
+/* ── Hero ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 80px;
+}
+
+.name {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-style: normal;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0 0 20px;
+  line-height: 0.95;
+}
+
+.summary {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.45;
+  margin: 0 0 36px;
+  max-width: 540px;
+}
+
+.credentials {
+  display: flex;
+  gap: 40px;
+}
+
+.credential {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.credential span {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.85rem;
+  opacity: 0.65;
+}
+
+.credLabel {
+  font-weight: 600 !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.4 !important;
+  margin-bottom: 4px;
+}
+
+.credential em {
+  font-style: italic;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* Contact links — stacked vertically on the right */
+.heroLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.heroLinks a {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.heroLinks a:hover {
+  color: var(--accent);
+}
+
+/* ── External link icon ── */
+.extIcon {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+a:hover .extIcon {
+  opacity: 1;
+}
+
+/* ── Sections ── */
+.section {
+  margin-bottom: 64px;
+}
+
+.sectionTitle {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0;
+  padding: 12px 0;
+  border-bottom: 1.5px solid var(--foreground);
+  opacity: 0.35;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Row (3-col: speaking, press) ── */
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 24px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(39, 39, 38, 0.07);
+  transition: background 0.15s;
+}
+
+.row:hover {
+  background: rgba(39, 39, 38, 0.03);
+}
+
+/* ── Exhibition row (4-col: venue, work, location, year) ── */
+.exhibRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto;
+  gap: 24px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(39, 39, 38, 0.07);
+  transition: background 0.15s;
+}
+
+.exhibRow:hover {
+  background: rgba(39, 39, 38, 0.03);
+}
+
+.workLink {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--foreground);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+.workLink:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.rowMain {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+}
+
+.rowName {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.rowLink {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--foreground);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s;
+}
+
+.rowLink:hover {
+  color: var(--accent);
+}
+
+.rowType {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  opacity: 0.4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.rowMeta {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8rem;
+  opacity: 0.4;
+  white-space: nowrap;
+}
+
+.rowYear {
+  font-family: "neuzeit-grotesk", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8rem;
+  opacity: 0.3;
+  white-space: nowrap;
+  min-width: 32px;
+  text-align: right;
+}
+
+/* ── Mobile ── */
+@media (max-width: 700px) {
+  .about {
+    padding: 80px 20px 60px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 56px;
+  }
+
+  .name {
+    font-size: 2.8rem;
+  }
+
+  .credentials {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .heroLinks {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .row,
+  .exhibRow {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 0;
+  }
+
+  .rowMeta,
+  .rowYear {
+    text-align: left;
+  }
+}

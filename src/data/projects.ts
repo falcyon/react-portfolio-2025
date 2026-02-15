@@ -10,7 +10,7 @@ export interface Project {
   width: number;
   year: number;
   tags: string[];
-  size: "s" | "q" | "t" | "h" | "1" | "f";
+  size: "1x1" | "1x2" | "2x1" | "2x2";
   position?: 1 | 2 | 3 | 4 | 5 | 6;
   description: string;
 }
@@ -28,7 +28,7 @@ export const projectsArray: Project[] = [
       "Conceptual Art",
       "Physical"
     ],
-    "size": "t",
+    "size": "2x2",
     "position": 2,
     "description": "An installation reflecting on humanity's grapple with legacy"
   },
@@ -44,7 +44,7 @@ export const projectsArray: Project[] = [
       "Installation",
       "Conceptual Art"
     ],
-    "size": "t",
+    "size": "2x2",
     "position": 2,
     "description": "An interactive installation where users see a silhouette of their negative self-talk as their reflection"
   },
@@ -60,7 +60,7 @@ export const projectsArray: Project[] = [
       "Installation",
       "AI"
     ],
-    "size": "t",
+    "size": "1x1",
     "position": 3,
     "description": "An interactive installation where users engage in a conversation with their digital self"
   },
@@ -76,7 +76,7 @@ export const projectsArray: Project[] = [
       "Installation",
       "Conceptual Art"
     ],
-    "size": "t",
+    "size": "1x1",
     "position": 1,
     "description": "An interactive installation critiquing the Church's opinion on masks during Covid."
   },
@@ -92,7 +92,7 @@ export const projectsArray: Project[] = [
       "Installation",
       "Conceptual Art"
     ],
-    "size": "h",
+    "size": "2x1",
     "position": 2,
     "description": "A performance installation converting conversations into pieces of thread."
   },
@@ -108,7 +108,7 @@ export const projectsArray: Project[] = [
       "AI",
       "Generative Art"
     ],
-    "size": "h",
+    "size": "2x1",
     "position": 3,
     "description": "Media Art created using DCGAN trained on images of fire."
   },
@@ -124,7 +124,7 @@ export const projectsArray: Project[] = [
       "Kinetic",
       "Design"
     ],
-    "size": "t",
+    "size": "1x1",
     "position": 1,
     "description": "A piece created by designing a motion accumulator"
   },
@@ -139,7 +139,7 @@ export const projectsArray: Project[] = [
       "Performance",
       "Conceptual Art"
     ],
-    "size": "q",
+    "size": "1x2",
     "position": 1,
     "description": "An interpretive performance exploring the human condition."
   },
@@ -155,7 +155,7 @@ export const projectsArray: Project[] = [
       "AI",
       "Installation"
     ],
-    "size": "q",
+    "size": "1x2",
     "position": 2,
     "description": "An interactive installation isolating viewers' lips and predicting their emotions."
   },
@@ -170,7 +170,7 @@ export const projectsArray: Project[] = [
       "Sculpture",
       "Conceptual Art"
     ],
-    "size": "q",
+    "size": "1x1",
     "position": 3,
     "description": "A sculpture made up of conversations about nihilism."
   },
@@ -185,7 +185,7 @@ export const projectsArray: Project[] = [
       "Product Design",
       "App Design"
     ],
-    "size": "t",
+    "size": "1x2",
     "position": 2,
     "description": "Product Design for an app for dogs to find companions."
   },
@@ -201,7 +201,7 @@ export const projectsArray: Project[] = [
       "Typography",
       "Generative Art"
     ],
-    "size": "q",
+    "size": "2x1",
     "position": 1,
     "description": "Generation of new character sets to fill up spaces in Unicode."
   },
@@ -217,7 +217,7 @@ export const projectsArray: Project[] = [
       "Design",
       "Metalwork"
     ],
-    "size": "q",
+    "size": "1x1",
     "position": 2,
     "description": "Rings made out of metal but in a fluid and organic form."
   },
@@ -232,7 +232,7 @@ export const projectsArray: Project[] = [
       "Branding",
       "Graphic Design"
     ],
-    "size": "q",
+    "size": "1x1",
     "position": 3,
     "description": "Branding, logo design, and design system for a social media startup."
   },
@@ -247,7 +247,7 @@ export const projectsArray: Project[] = [
       "Industrial Design",
       "Product Design"
     ],
-    "size": "q",
+    "size": "1x1",
     "position": 4,
     "description": "An MAV for military use."
   },
@@ -262,7 +262,7 @@ export const projectsArray: Project[] = [
       "Digital Art",
       "Conceptual Art"
     ],
-    "size": "t",
+    "size": "1x1",
     "position": 1,
     "description": "Digital art visualizing a slow burn breakdown or an 'unraveling' of the self."
   },
@@ -277,7 +277,7 @@ export const projectsArray: Project[] = [
       "Digital Art",
       "Generative Art"
     ],
-    "size": "t",
+    "size": "1x1",
     "position": 2,
     "description": "Digital art visualizing the passage of time in binary."
   },
@@ -292,7 +292,7 @@ export const projectsArray: Project[] = [
       "Digital Art",
       "Conceptual Art"
     ],
-    "size": "t",
+    "size": "1x1",
     "position": 3,
     "description": "Digital art referencing the transitory nature of time in our memories."
   },
@@ -308,7 +308,7 @@ export const projectsArray: Project[] = [
       "Book Design",
       "Narrative Art"
     ],
-    "size": "t",
+    "size": "1x2",
     "position": 2,
     "description": "An illustrated absurdist children's fairy tale book."
   },
@@ -323,7 +323,7 @@ export const projectsArray: Project[] = [
       "Interactive",
       "Installation"
     ],
-    "size": "1",
+    "size": "2x1",
     "description": "An interactive installation where players read through a monologue as they play."
   },
   {
@@ -338,7 +338,7 @@ export const projectsArray: Project[] = [
       "Installation",
       "Media Art"
     ],
-    "size": "h",
+    "size": "2x1",
     "position": 1,
     "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation."
   },
@@ -353,7 +353,7 @@ export const projectsArray: Project[] = [
       "Film",
       "Media Art"
     ],
-    "size": "h",
+    "size": "2x1",
     "position": 2,
     "description": "Using IBM's Quantum Composer to act as an editor for a short film."
   }

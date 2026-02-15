@@ -22,7 +22,7 @@ export const projectSchema = z.object({
   thumbnail: z.string().min(1),
   thumbnailWidth: z.number().int().positive(),
   thumbnailHeight: z.number().int().positive(),
-  size: z.enum(["s", "q", "t", "h", "1", "f"]),
+  size: z.enum(["1x1", "1x2", "2x1", "2x2"]),
   position: z.number().int().min(1).max(6).optional(),
   order: z.number().int().min(0).optional(),
   content: z.array(sectionGroupSchema),
