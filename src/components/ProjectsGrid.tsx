@@ -104,6 +104,21 @@ export default function ProjectsGrid({
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const filterBarRef = useRef<HTMLDivElement>(null);
+
+  // Push grid down to account for fixed filter bar height
+  useEffect(() => {
+    const el = filterBarRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver(([entry]) => {
+      el.parentElement?.style.setProperty(
+        "--filter-bar-height",
+        `${entry.contentRect.height}px`
+      );
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Parse active tags from URL
   const activeTags = useMemo(() => {
@@ -185,44 +200,45 @@ export default function ProjectsGrid({
 
   return (
     <div className={styles.container}>
-      {/* Presets */}
-      <div className={styles.presets}>
-        {PRESETS.map((preset) => (
-          <button
-            key={preset.label}
-            className={`${styles.presetBtn} ${activePreset === preset.label ? styles.presetActive : ""}`}
-            onClick={() => applyPreset(preset)}
-          >
-            {preset.label}
-          </button>
-        ))}
-      </div>
+      {/* Fixed filter bar */}
+      <div className={styles.filterBar} ref={filterBarRef}>
+        <div className={styles.presetsRow}>
+          <div className={styles.presets}>
+            {PRESETS.map((preset) => (
+              <button
+                key={preset.label}
+                className={`${styles.presetBtn} ${activePreset === preset.label ? styles.presetActive : ""}`}
+                onClick={() => applyPreset(preset)}
+              >
+                {preset.label}
+              </button>
+            ))}
+          </div>
+          <p className={styles.count}>
+            {filtered.length} project{filtered.length !== 1 ? "s" : ""}
+          </p>
+        </div>
 
-      {/* Individual tags */}
-      <div className={styles.tagsRow}>
-        {visibleTags.map((tag) => (
-          <button
-            key={tag}
-            className={`${styles.tagBtn} ${activeTags.has(tag) ? styles.tagActive : ""}`}
-            onClick={() => toggleTag(tag)}
-          >
-            {tag}
-          </button>
-        ))}
-        {allTags.length > 8 && (
-          <button
-            className={styles.tagBtn}
-            onClick={() => setShowAllTags(!showAllTags)}
-          >
-            {showAllTags ? "Less" : `+${allTags.length - 8} more`}
-          </button>
-        )}
+        <div className={styles.tagsRow}>
+          {visibleTags.map((tag) => (
+            <button
+              key={tag}
+              className={`${styles.tagBtn} ${activeTags.has(tag) ? styles.tagActive : ""}`}
+              onClick={() => toggleTag(tag)}
+            >
+              {tag}
+            </button>
+          ))}
+          {allTags.length > 8 && (
+            <button
+              className={styles.tagBtn}
+              onClick={() => setShowAllTags(!showAllTags)}
+            >
+              {showAllTags ? "Less" : `+${allTags.length - 8} more`}
+            </button>
+          )}
+        </div>
       </div>
-
-      {/* Results count */}
-      <p className={styles.count}>
-        {filtered.length} project{filtered.length !== 1 ? "s" : ""}
-      </p>
 
       {/* Grid */}
       <div className={styles.grid}>
