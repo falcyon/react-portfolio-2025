@@ -7,11 +7,13 @@
     "AI/ML"
   ],
   "description": "Media Art created using DCGAN trained on images of fire.",
-  "thumbnail": "/media/aiDiscoversFire/fire-gif.mp4",
+  "thumbnail": "/media/aiDiscoversFire/fire_gif_sq_720p.mp4",
   "thumbnailWidth": 800,
   "thumbnailHeight": 464,
   "size": "2x1",
   "position": 3,
+  "order": 5,
+  "featured": false,
   "content": [
     {
       "sections": [
@@ -79,6 +81,5 @@
         }
       ]
     }
-  ],
-  "order": 5
+  ]
 }

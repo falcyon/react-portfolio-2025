@@ -106,7 +106,7 @@ export const projectsArray: Project[] = [
   {
     "name": "AI Discovers Fire",
     "slug": "aiDiscoversFire",
-    "thumbnail": "/media/aiDiscoversFire/fire-gif.mp4",
+    "thumbnail": "/media/aiDiscoversFire/fire_gif_sq_720p.mp4",
     "height": 464,
     "width": 800,
     "year": 2021,
