@@ -1,0 +1,34 @@
+{
+  "name": "Clock",
+  "slug": "clock",
+  "year": 2021,
+  "tags": [
+    "Digital"
+  ],
+  "description": "Digital art referencing the transitory nature of time in our memories.",
+  "thumbnail": "/media/clock/clock.mp4",
+  "thumbnailWidth": 720,
+  "thumbnailHeight": 720,
+  "size": "1x1",
+  "position": 3,
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "We traded analog clocks for digital ones, and with that, time became something precise, measured, productive. But that's not how we actually experience it. Some hours vanish. Others stretch. This piece celebrates that fluidity, letting the numbers dissolve and drift the way time does in memory."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/clock/clock.mp4",
+          "alt": "Fluid clock"
+        }
+      ]
+    }
+  ],
+  "order": 17
+}

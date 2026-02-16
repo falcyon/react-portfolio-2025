@@ -1,0 +1,76 @@
+{
+  "name": "Grimmer Tales",
+  "slug": "grimmerTales",
+  "year": 2022,
+  "tags": [
+    "Physical",
+    "AI/ML",
+    "Branding"
+  ],
+  "description": "An illustrated absurdist children's fairy tale book.",
+  "thumbnail": "/media/grimmerTales/Book.mp4",
+  "thumbnailWidth": 720,
+  "thumbnailHeight": 1080,
+  "size": "1x2",
+  "position": 2,
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t2",
+          "src": "/media/grimmerTales/flip.mp4",
+          "alt": "Grimmer Flip Video"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Grimmer Tales is an experiment with Markov Chains. A computer was fed the complete Grimm's fairy tales and asked to write a new one."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/grimmerTales/funny.webp",
+          "alt": "Funny Illustration"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The result was hilariously entertaining and surprisingly coherent. Proof that even a basic model can produce something genuinely creative when given the right material."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/grimmerTales/Pg2.webp",
+          "alt": "Page 2 Illustration"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The generated text was illustrated in the style of a children's storybook, then printed and hand bound. Giving the machine's imagination a physical life."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/grimmerTales/cover.webp",
+          "alt": "Grimmer Book Cover"
+        }
+      ]
+    }
+  ],
+  "order": 18
+}

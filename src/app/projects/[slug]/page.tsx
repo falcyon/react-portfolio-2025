@@ -1,11 +1,12 @@
 import { notFound } from "next/navigation";
 import { projectsArray } from "@/data/projects";
+import aboutData from "@/content/about.json";
 import ProjectPage from "@/components/ProjectPage";
 import type { Metadata } from "next";
 
 const importProjectContent = async (slug: string) => {
     try {
-        const content = await import(`@/projects/${slug}.json`);
+        const content = await import(`@/content/projects/${slug}.json`);
         return content.default; // JSON will be exported as default in Next.js
     } catch (error) {
         console.error("Error loading project content:", error);
@@ -52,7 +53,9 @@ export default async function Page({ params }: ProjectPageProps) {
         ...content,
     };
 
-    return <ProjectPage project={projectWithContent} />;
+    const exhibitions = aboutData.exhibitions.filter((e) => e.slug === slug);
+
+    return <ProjectPage project={projectWithContent} exhibitions={exhibitions} />;
 }
 
 // ✅ Generate Static Params for all the projects

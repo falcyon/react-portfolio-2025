@@ -1,26 +1,14 @@
-"use client";
-
-import { useEffect } from "react";
-import { useRouter, useParams } from "next/navigation";
+import { notFound } from "next/navigation";
 import { trackingSources } from "@/config/trackingSources";
+import SourceTracker from "./SourceTracker";
 
-export default function SourceRedirect() {
-    const router = useRouter();
-    const params = useParams();
-    const source = params.source as string;
+export default async function SourcePage({ params }: { params: Promise<{ source: string }> }) {
+    const { source } = await params;
+    const trackingName = trackingSources[source];
 
-    useEffect(() => {
-        const trackingName = trackingSources[source];
+    if (!trackingName) {
+        notFound();
+    }
 
-        if (trackingName) {
-            // Valid tracking source - track and redirect
-            window.umami?.track("source", { from: trackingName });
-            router.replace("/");
-        } else {
-            // Unknown route - redirect to 404
-            router.replace("/not-found");
-        }
-    }, [source, router]);
-
-    return null;
+    return <SourceTracker trackingName={trackingName} />;
 }

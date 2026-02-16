@@ -1,0 +1,34 @@
+{
+  "name": "Bit by Bit",
+  "slug": "bitByBit",
+  "year": 2021,
+  "tags": [
+    "Digital"
+  ],
+  "description": "Digital art visualizing the passage of time in binary.",
+  "thumbnail": "/media/bitByBit/bitbybit.mp4",
+  "thumbnailWidth": 720,
+  "thumbnailHeight": 720,
+  "size": "1x1",
+  "position": 2,
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "This is a representation of the now-default use of computer chips to keep track of time. This is based on the idea of representing the seconds of a clock in binary, juxtaposed with the 'tick-tock' of an old grandfathers clock."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/bitByBit/bitbybit.mp4",
+          "alt": "Bit by Bit Video"
+        }
+      ]
+    }
+  ],
+  "order": 16
+}

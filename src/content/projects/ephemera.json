@@ -1,0 +1,176 @@
+{
+  "name": "Ephemera",
+  "slug": "ephemera",
+  "year": 2025,
+  "tags": [
+    "Physical"
+  ],
+  "description": "An installation reflecting on humanity's grapple with legacy",
+  "thumbnail": "/media/ephemera/ephemera.mp4",
+  "thumbnailWidth": 1080,
+  "thumbnailHeight": 1080,
+  "size": "2x2",
+  "position": 2,
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Mist rises from the bottom of a box holding a plate of copper. It slowly fills the enclosure, only to be abruptly drawn back behind the plate. No trace of the mist remains, but it leaves behind a faint condensate on the copper surface. Even that eventually drips away and vanishes. Perhaps, over time, a patina will form."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/ephemera/ephemera.mp4"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/ephemera/teaser.webp"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Ephemera reflects on the conflict between impermanence and the human drive to leave a mark. To persist beyond our physical bodies, space and time. It questions whether legacy can truly endure, and whether that endurance carries any meaning when memory, matter and time eventually dissolve into nothingness."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/ephemera/DSC01543.JPG",
+          "alt": "Installation on gallery wall with artist statement"
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/ephemera/DSC01484.JPG",
+          "alt": "Installation on pedestal showing full enclosure"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/ephemera/DSC01485.JPG",
+          "alt": "Copper plate visible through condensation on glass"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/ephemera/IMG_20250428_171238_093.webp",
+          "alt": "Macro of water droplets forming on copper surface"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/ephemera/IMG_20250428_204705929_HDR.jpg",
+          "alt": "Leffin 2025 engraved on the enclosure"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/ephemera/IMG_20250516_195143480.jpg",
+          "alt": "Visitor viewing the installation in the gallery"
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/ephemera/IMG_20250515_195902604_HDR.jpg",
+          "alt": "Audience member comparing the piece to a Rothko painting"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "This installation was showcased at 2025 New York Design Week as part of the 'What Comes After No One' exhibition. The warm copper glow and color field composition drew comparisons to Rothko from visitors, an unintended resonance that reinforced the piece's meditation on presence and absence."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/ephemera/01_TeaserPoster.webp"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/ephemera/DSC01481.JPG",
+          "alt": "Front view of installation mounted on gallery wall"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The enclosure was fabricated from matte acrylic, with the electronics engineered to control a timed mist generation and suction cycle. A microcontroller manages the sequence, releasing mist from below the copper plate and drawing it back at precise intervals."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/ephemera/IMG_0204.JPG",
+          "alt": "Motor controller, inductor, and microcontroller"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/ephemera/IMG_0215.PNG",
+          "alt": "Electronics breadboard prototype with copper plate"
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/ephemera/pComp_prototype.mp4",
+          "alt": "Physical computing prototype"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/ephemera/IMG_20250413_161904426.jpg",
+          "alt": "Enclosure being assembled in the workshop"
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/ephemera/mist_suction_mechanism.mp4",
+          "alt": "Mist suction mechanism in action"
+        }
+      ]
+    }
+  ],
+  "order": 0,
+  "featured": true,
+  "featuredOrder": 0
+}

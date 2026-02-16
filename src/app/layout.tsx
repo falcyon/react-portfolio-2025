@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Suspense } from "react";
 import "./globals.css";
-// import GridOverlay from "@/components/GridOverlay";
-import LenisProvider from "@/components/LenisProvider";
+import Nav from "@/components/Nav";
 import UmamiOptOut from "@/components/UmamiOptOut";
+import UmamiLoader from "@/components/UmamiLoader";
 import ScrollTracker from "@/components/ScrollTracker";
+import Footer from "@/components/Footer";
+
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
-// import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: {
@@ -45,34 +45,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://use.typekit.net/qje5ynx.css" />
-
       </head>
       <body>
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
         <Suspense fallback={null}>
           <UmamiOptOut />
           <ScrollTracker />
         </Suspense>
-        <LenisProvider>
-          {/* <GridOverlay /> */}
-          <div style={{ position: "relative", minHeight: "100vh" }}>
-            <div className="ruled-underlay" />
-            {children}
-          </div>
-          {/* {children} */}
-          {/* <ThemeToggle /> */}
-        </LenisProvider>
+        <Nav />
+        <div id="main-content" style={{ position: "relative", minHeight: "100vh", backgroundColor: "var(--background)", paddingBottom: "var(--space-xl)" }}>
+          {children}
+        </div>
+        <Footer />
         <SpeedInsights />
         <Analytics />
-        <Script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="836b2b5c-a53a-48d3-88d4-06959b33b93d"
-          data-domains="leff.in"
-          strategy="afterInteractive"
-        />
+        <UmamiLoader />
       </body>
     </html>
   );

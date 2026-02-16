@@ -1,11 +1,12 @@
 import Landing from "../components/Landing";
 import { projectsArray } from "../data/projects";
 
-// JSON-LD structured data for projects
+// JSON-LD structured data for featured projects on landing page
+const featured = projectsArray.slice(0, 4);
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  itemListElement: projectsArray.map((p, index) => ({
+  itemListElement: featured.map((p, index) => ({
     "@type": "ListItem",
     position: index + 1,
     url: `https://leff.in/projects/${p.slug}`,

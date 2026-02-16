@@ -1,14 +1,24 @@
+import Image from "next/image";
 import styles from "./ProjectPage.module.css";
 import UnderConstruction from "./UnderConstruction";
 import CloseButton from "./CloseButton";
 import PagePreloader from "./PagePreloader";
+import ResponsiveVideo from "./ResponsiveVideo";
 
 interface Section {
     type: "text" | "image" | "video";
-    size: "h" | "f" | "t";
+    size: "h" | "f" | "t" | "t2" | "q" | "s";
     text?: string[];
     src?: string;
     alt?: string;
+    style?: string;
+}
+
+interface Exhibition {
+    venue: string;
+    location: string;
+    year: string;
+    href: string;
 }
 
 interface ProjectProps {
@@ -17,13 +27,15 @@ interface ProjectProps {
         tags: string[];
         description: string;
         year: number;
+        interactiveUrl?: string;
         content: {
             sections: Section[];
         }[];
     };
+    exhibitions?: Exhibition[];
 }
 
-export default function ProjectPage({ project }: ProjectProps) {
+export default function ProjectPage({ project, exhibitions }: ProjectProps) {
 
     const hasContent = project.content && project.content.length > 0;
 
@@ -37,9 +49,39 @@ export default function ProjectPage({ project }: ProjectProps) {
                         <span key={index} className={styles.tag}>{tag}</span>
                     ))}
                 </div>
-                <h1>{project.name}</h1>
-                <h2>{project.description}</h2>
-                <h2>[{project.year}]</h2>
+                <div className={styles.projectHeader}>
+                    <div className={styles.headerText}>
+                        <h1>{project.name}</h1>
+                        <h2>{project.description}</h2>
+                        <h2>[{project.year}]</h2>
+                        {project.interactiveUrl && (
+                            <a
+                                href={project.interactiveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.interactiveLink}
+                            >
+                                Try Interactive Version →
+                            </a>
+                        )}
+                        {exhibitions && exhibitions.length > 0 && (
+                            <div className={styles.exhibitions}>
+                                <span className={styles.exhibitionsLabel}>Exhibited at</span>
+                                {exhibitions.map((ex, i) => (
+                                    <a
+                                        key={i}
+                                        href={ex.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.exhibition}
+                                    >
+                                        {ex.venue}, {ex.location} ({ex.year})
+                                    </a>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
 
                 <div className={styles.contentContainer}>
                     {hasContent ? (
@@ -58,19 +100,20 @@ export default function ProjectPage({ project }: ProjectProps) {
                                         case "image":
                                             return (
                                                 <div key={idx} className={`${styles[section.size]} ${styles.imageSection}`}>
-                                                    <img
-                                                        src={section.src}
-                                                        alt={section.alt ?? "Image"}
+                                                    <Image
+                                                        src={section.src || ""}
+                                                        alt={section.alt ?? ""}
+                                                        width={1200}
+                                                        height={800}
                                                         className={styles.image}
+                                                        style={section.style ? Object.fromEntries(section.style.split(";").filter(Boolean).map(s => { const [k, v] = s.split(":").map(x => x.trim()); return [k, v]; })) : undefined}
                                                     />
                                                 </div>
                                             );
                                         case "video":
                                             return (
                                                 <div key={idx} className={`${styles[section.size]} ${styles.videoSection}`}>
-                                                    <video src={section.src} loop autoPlay muted playsInline preload="metadata" style={{
-                                                    }}
-                                                    />
+                                                    <ResponsiveVideo src={section.src || ""} />
                                                 </div>
                                             );
                                         default:

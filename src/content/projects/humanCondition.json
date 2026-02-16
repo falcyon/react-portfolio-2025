@@ -1,0 +1,135 @@
+{
+  "name": "Human Condition",
+  "slug": "humanCondition",
+  "year": 2021,
+  "tags": [
+    "Interactive",
+    "Digital",
+    "AI/ML",
+    "Performance"
+  ],
+  "description": "An interpretive performance exploring the human condition.",
+  "thumbnail": "/media/humanCondition/portraiture.mp4",
+  "thumbnailWidth": 500,
+  "thumbnailHeight": 590,
+  "size": "1x2",
+  "position": 1,
+  "interactiveUrl": "https://editor.p5js.org/Falcyon/full/f0eYhED1G",
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "f",
+          "src": "/media/humanCondition/Portraiture_cc.mp4",
+          "alt": "Portraiture Performance"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "This piece explores the fast paced blur of city life through an interpretive performance. Eight years in Mumbai, one of the world's most relentless cities, followed by a move to New York in 2021. Different lives glimpsed in passing, all juxtaposed into a blurry collage of one existence."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The starting point was an idea about plucking words from the space around you, portraying some agency over your own life. That initial optimism quickly gave way to the bleaker tone in the final choreography. Radiohead's 'Fitter Happier' became the backdrop."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/humanCondition/Perf_draft1.webp",
+          "alt": "Performance Draft 1"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The final performance needed to be removed from the human body, stripped down to its essentials. Machine learning maps the performer's movements onto an abstract digital entity made entirely out of text."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/humanCondition/humanConditionPrep_bg.mp4",
+          "alt": "Human Condition Prep"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The challenge was mapping movements precisely enough to maintain a recognizable human shape. With changing depth and dimensions throughout the performance, the code had to handle font size adjustments, word wraps, and overwrites automatically in real time."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/humanCondition/Portraiture_1.mp4",
+          "alt": "Portraiture Performance 1"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The two minute song starts with a seemingly positive message about being 'fitter, happier, more productive.'"
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "It slowly crescendos into musical chaos, much like the haze in our lives."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Then the denouement. A final callback to those initial three phrases, but now carrying a completely different weight. The human condition."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The performance leaned into the jittering that the code produced, amplifying it with movement that was deliberately irresolute. Open and airy at first, then increasingly uncertain. It ends mimicking the lyrics.",
+            "'A pig'",
+            "'In a cage'",
+            "'On antibiotics'",
+            "The body closes into itself while the ML engine struggles to decipher the pose, throwing words out as the form collapses."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "t2",
+          "src": "/media/humanCondition/Portraiture_2.mp4",
+          "alt": "Portraiture Performance 2"
+        }
+      ]
+    }
+  ],
+  "order": 7
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Organic Metal",
+  "slug": "organicMetal",
+  "year": 2022,
+  "tags": [
+    "Physical"
+  ],
+  "description": "Rings made out of metal but in a fluid and organic form.",
+  "thumbnail": "/media/organicMetal/rings.webp",
+  "thumbnailWidth": 3072,
+  "thumbnailHeight": 2807,
+  "size": "1x1",
+  "position": 2,
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "These rings were made using lost wax casting. Rather than carving the wax into precise forms, it was melted with a candle, letting gravity and heat shape the material. The result is metal that looks liquid, frozen mid flow."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/organicMetal/rings.webp",
+          "alt": "Wax Casting Rings"
+        }
+      ]
+    }
+  ],
+  "order": 12
+}

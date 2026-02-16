@@ -1,73 +1,29 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+/* Design system */
+@import "../styles/tokens.css";
+@import "../styles/accessibility.css";
+@import "../styles/animations.css";
 
-:root {
-
-  --background: rgb(17, 17, 17);
-  --foreground: rgb(189, 175, 156);
-  --disabled: #555;
-  --accent: #da1f26;
-  --secondary: #3f5989;
-  --lunit: 2vw;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-[data-theme="light"] {
-  --background: rgb(235, 232, 224);
-  --foreground: rgb(39, 39, 38);
-  --disabled: #a39f90;
-  --accent: #da1f26;
-  --secondary: #3f5989;
+html {
+  background-color: var(--accent);
 }
 
 body {
-  /* font-family: neuzeit-grotesk, sans-serif; */
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-serif);
   font-style: italic;
-  font-weight: 200;
+  font-weight: 300;
   color: var(--foreground);
-  background-color: var(--background);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  transition:
-    background-color 0.4s ease,
-    color 0.4s ease;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-/* globals.css */
-
-/* globals.css */
-
-.ruled-underlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  /* KEY: make it "infinite" without caring about content height */
-  height: 100%;
-  pointer-events: none;
-  z-index: -100;
-
-  background-image: repeating-linear-gradient(to bottom,
-      rgba(255, 255, 255, 0.12) 0px,
-      rgba(255, 255, 255, 0.12) 1px,
-      transparent 1px,
-      transparent 200px);
+  transition: color 0.4s ease;
 }

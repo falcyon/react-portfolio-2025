@@ -1,0 +1,82 @@
+{
+  "name": "Quantum Touch",
+  "slug": "quantumTouch",
+  "year": 2022,
+  "tags": [
+    "Interactive",
+    "Digital",
+    "Quantum"
+  ],
+  "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation.",
+  "thumbnail": "/media/quantumTouch/qtouch.mp4",
+  "thumbnailWidth": 720,
+  "thumbnailHeight": 420,
+  "size": "2x1",
+  "position": 1,
+  "interactiveUrl": "https://editor.p5js.org/Falcyon/full/cDzpug0tm",
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/quantumTouch/qtouch.mp4",
+          "alt": "Quantum Touch"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Quantum Touch was developed for Quantum Jam 2022 as a digital art installation that makes quantum computing visible. The takeaway was simple. Data interpretation can be a creative act, and artists can work meaningfully in highly technical fields."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "This piece was inspired by Rothko. Rothko worked with fundamental shapes but was willing to let them be imperfect. This makes for a great starting place for making art with a quantum computer. Quantum computing itself is in its infancy. I set out to create art that uses quantum fundamentals themselves to celebrate the imperfections of the technology."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/quantumTouch/qTouch_td.mp4",
+          "alt": "Quantum Touch"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "TouchDesigner handled the interactions and visuals, while the data came directly from a run on IBM's quantum computers."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The code was shared with all the artists participating in the Jam, as an open resource for further experimentation."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/quantumTouch/Talk.webp",
+          "alt": "Quantum Touch Talk"
+        }
+      ]
+    }
+  ],
+  "order": 20
+}
