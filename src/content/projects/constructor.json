@@ -1,6 +1,5 @@
 {
   "name": "Constructor",
-  "slug": "constructor",
   "year": 2025,
   "tags": [
     "Digital"
@@ -31,7 +30,7 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/constructor/input.webm",
+          "src": "/media/constructor/input.mp4",
           "alt": "Input Video"
         }
       ]
@@ -41,19 +40,19 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/constructor/outputWithOutlines.webm",
+          "src": "/media/constructor/outputWithOutlines.mp4",
           "alt": "Output with Outlines"
         },
         {
           "type": "video",
           "size": "t",
-          "src": "/media/constructor/outputWithBoxes.webm",
+          "src": "/media/constructor/outputWithBoxes.mp4",
           "alt": "Output with Boxes"
         },
         {
           "type": "video",
           "size": "t",
-          "src": "/media/constructor/outputAfterMask.webm",
+          "src": "/media/constructor/outputAfterMask.mp4",
           "alt": "Output After Mask"
         }
       ]
@@ -63,19 +62,19 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/constructor/outputVideoMaskReveal.webm",
+          "src": "/media/constructor/outputVideoMaskReveal.mp4",
           "alt": "Output Video Mask Reveal"
         },
         {
           "type": "video",
           "size": "t",
-          "src": "/media/constructor/outputWithOnlyChanges.webm",
+          "src": "/media/constructor/outputWithOnlyChanges.mp4",
           "alt": "Output with Only Changes"
         },
         {
           "type": "video",
           "size": "t",
-          "src": "/media/constructor/outputFinalExplainer.webm",
+          "src": "/media/constructor/outputFinalExplainer.mp4",
           "alt": "Final Explainer"
         }
       ]

@@ -55,7 +55,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Notes to Self",
     "slug": "notesToSelf",
-    "thumbnail": "/media/notesToSelf/live.webm",
+    "thumbnail": "/media/notesToSelf/live.mp4",
     "height": 1280,
     "width": 720,
     "year": 2021,
@@ -121,7 +121,6 @@ export const projectsArray: Project[] = [
   },
   {
     "name": "Constructor",
-    "slug": "constructor",
     "thumbnail": "/media/constructor/constructor.mp4",
     "height": 1080,
     "width": 1080,

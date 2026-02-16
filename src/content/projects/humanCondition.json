@@ -21,7 +21,7 @@
         {
           "type": "video",
           "size": "f",
-          "src": "/media/humanCondition/Portraiture_cc.webm",
+          "src": "/media/humanCondition/Portraiture_cc.mp4",
           "alt": "Portraiture Performance"
         }
       ]
@@ -62,7 +62,7 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/humanCondition/humanConditionPrep_bg.webm",
+          "src": "/media/humanCondition/humanConditionPrep_bg.mp4",
           "alt": "Human Condition Prep"
         }
       ]
@@ -79,7 +79,7 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/humanCondition/Portraiture_1.webm",
+          "src": "/media/humanCondition/Portraiture_1.mp4",
           "alt": "Portraiture Performance 1"
         }
       ]
@@ -125,7 +125,7 @@
         {
           "type": "video",
           "size": "t2",
-          "src": "/media/humanCondition/Portraiture_2.webm",
+          "src": "/media/humanCondition/Portraiture_2.mp4",
           "alt": "Portraiture Performance 2"
         }
       ]

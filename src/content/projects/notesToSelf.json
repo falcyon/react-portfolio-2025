@@ -8,7 +8,7 @@
     "Interactive"
   ],
   "description": "An interactive installation where users engage in a conversation with their digital self",
-  "thumbnail": "/media/notesToSelf/live.webm",
+  "thumbnail": "/media/notesToSelf/live.mp4",
   "thumbnailWidth": 720,
   "thumbnailHeight": 1280,
   "size": "1x2",
@@ -37,7 +37,7 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/notesToSelf/live.webm",
+          "src": "/media/notesToSelf/live.mp4",
           "alt": "Notes from self video 1"
         }
       ]
@@ -47,7 +47,7 @@
         {
           "type": "video",
           "size": "t2",
-          "src": "/media/notesToSelf/deepfake_multi.webm",
+          "src": "/media/notesToSelf/deepfake_multi.mp4",
           "alt": "Deepfake video"
         },
         {
@@ -136,7 +136,7 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/notesToSelf/voices_subtitles.webm",
+          "src": "/media/notesToSelf/voices_subtitles.mp4",
           "alt": "Voices video"
         }
       ]
