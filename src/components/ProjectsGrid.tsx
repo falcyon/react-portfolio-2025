@@ -37,9 +37,12 @@ function GridCard({ project }: { project: Project }) {
   const isVideo = /\.(mp4|webm|ogg)$/i.test(project.thumbnail);
   const alreadyLoaded = loadedMedia.has(project.thumbnail);
   const [canLoadMedia, setCanLoadMedia] = useState(alreadyLoaded);
+  const [nearViewport, setNearViewport] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  useVideoVisibility(videoRef, isVideo && canLoadMedia);
+  useVideoVisibility(videoRef, isVideo && canLoadMedia && nearViewport);
 
+  // Staggered loading — join queue, load when slot available
   useEffect(() => {
     if (alreadyLoaded) return;
     const cb = () => setCanLoadMedia(true);
@@ -47,10 +50,25 @@ function GridCard({ project }: { project: Project }) {
     return () => cancelLoad(cb);
   }, [alreadyLoaded]);
 
+  // Viewport tracking — mount/unmount video elements to save memory on mobile
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setNearViewport(entry.isIntersecting),
+      { rootMargin: "400px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const handleLoad = () => {
     loadedMedia.add(project.thumbnail);
     signalLoaded();
   };
+
+  const showVideo = canLoadMedia && isVideo && nearViewport;
+  const showImage = canLoadMedia && !isVideo && nearViewport;
 
   return (
     <Link
@@ -61,8 +79,8 @@ function GridCard({ project }: { project: Project }) {
         window.umami?.track("project-click", { project: project.slug });
       }}
     >
-      <div className={cardStyles.thumbnailWrap}>
-        {canLoadMedia && isVideo && (
+      <div ref={wrapRef} className={cardStyles.thumbnailWrap}>
+        {showVideo && (
           <video
             ref={videoRef}
             src={project.thumbnail}
@@ -74,7 +92,7 @@ function GridCard({ project }: { project: Project }) {
             onLoadedData={handleLoad}
           />
         )}
-        {canLoadMedia && !isVideo && (
+        {showImage && (
           <Image
             src={project.thumbnail}
             alt={`${project.name} thumbnail`}
