@@ -14,19 +14,18 @@ const RESPONSES: Record<string, string[]> = {
   "cat tags.txt": [
     "multidisciplinary\tinteractive\ttechnologist\tintrospective\tembodied\timmersive\texperimental\thuman\tstoryteller\tbuilder",
   ],
-  "ls projects/": [
-    "# top 4",
+  "ls projects/ | head -4": [
     "ephemera/\tandWordsWillEchoInMySoul/\tnotesToSelf/\tpalimpsest/",
   ],
   ls: ["about.txt\ttags.txt\tprojects/"],
   help: [
-    "available: whoami  cat about.txt  cat tags.txt  ls  ls projects/  clear",
+    "available: whoami  cat about.txt  cat tags.txt  ls  ls projects/ | head -4  clear",
   ],
 };
 
 // Full auto-type sequence; first INITIAL_BATCH play on load,
 // the rest resume after idle periods
-const AUTO_SEQUENCE = ["whoami", "cat about.txt", "cat tags.txt", "ls projects/"];
+const AUTO_SEQUENCE = ["whoami", "cat about.txt", "cat tags.txt", "ls projects/ | head -4"];
 const INITIAL_BATCH = 2;
 const IDLE_DELAY = 2500;
 
