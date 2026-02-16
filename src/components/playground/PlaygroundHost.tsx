@@ -32,7 +32,9 @@ function createBag(exclude?: number): number[] {
 export default function PlaygroundHost() {
   const bagRef = useRef<number[]>([]);
   const pendingIndexRef = useRef<number | null>(null);
-  const [playgroundIndex, setPlaygroundIndex] = useState(0);
+  const [playgroundIndex, setPlaygroundIndex] = useState(
+    () => Math.floor(Math.random() * TOTAL)
+  );
   const [cycleCount, setCycleCount] = useState(0);
   const [transition, setTransition] = useState<Transition>("idle");
 
