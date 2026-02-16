@@ -362,7 +362,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Quantum Touch",
     "slug": "quantumTouch",
-    "thumbnail": "/media/quantumTouch/qtouch.mp4",
+    "thumbnail": "/media/quantumTouch/qtouch_sq_720p.mp4",
     "height": 420,
     "width": 720,
     "year": 2022,
