@@ -188,7 +188,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Petmania",
     "slug": "petmania",
-    "thumbnail": "/media/petmania/petmania.mp4",
+    "thumbnail": "/media/petmania/petmania_sq_720p.mp4",
     "height": 1158,
     "width": 720,
     "year": 2022,
