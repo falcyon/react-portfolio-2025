@@ -37,7 +37,7 @@ function GridCard({ project }: { project: Project }) {
   const isVideo = /\.(mp4|webm|ogg)$/i.test(project.thumbnail);
   const alreadyLoaded = loadedMedia.has(project.thumbnail);
   const [canLoadMedia, setCanLoadMedia] = useState(alreadyLoaded);
-  const [nearViewport, setNearViewport] = useState(false);
+  const [nearViewport, setNearViewport] = useState(true); // TEMP: keep everything loaded
   const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   useVideoVisibility(videoRef, isVideo && canLoadMedia && nearViewport);
@@ -51,16 +51,17 @@ function GridCard({ project }: { project: Project }) {
   }, [alreadyLoaded]);
 
   // Viewport tracking — mount/unmount video elements to save memory on mobile
-  useEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setNearViewport(entry.isIntersecting),
-      { rootMargin: "400px" }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  // TEMPORARILY DISABLED: testing with everything staying loaded
+  // useEffect(() => {
+  //   const el = wrapRef.current;
+  //   if (!el) return;
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => setNearViewport(entry.isIntersecting),
+  //     { rootMargin: "400px" }
+  //   );
+  //   observer.observe(el);
+  //   return () => observer.disconnect();
+  // }, []);
 
   const handleLoad = () => {
     loadedMedia.add(project.thumbnail);
