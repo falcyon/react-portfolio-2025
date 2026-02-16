@@ -124,14 +124,14 @@
           "alt": "Motor controller, inductor, and microcontroller"
         },
         {
-          "type": "image",
+          "type": "video",
           "size": "q",
-          "src": "/media/ephemera/IMG_0215.PNG",
+          "src": "/media/ephemera/mist_suction_mechanism.mp4",
           "alt": ""
         },
         {
           "type": "image",
-          "size": "h",
+          "size": "q",
           "src": "/media/ephemera/IMG_20250413_161904426.jpg",
           "alt": "Enclosure being assembled in the workshop"
         },
@@ -140,38 +140,6 @@
           "size": "q",
           "src": "/media/ephemera/pComp_prototype.mp4",
           "alt": "Physical computing prototype"
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "image",
-          "size": "t",
-          "src": "",
-          "alt": ""
-        },
-        {
-          "type": "video",
-          "size": "t",
-          "src": "/media/ephemera/mist_suction_mechanism.mp4",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "size": "t",
-          "src": "",
-          "alt": ""
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "image",
-          "size": "h",
-          "src": "/media/ephemera/01_TeaserPoster.webp",
-          "alt": ""
         }
       ]
     }
