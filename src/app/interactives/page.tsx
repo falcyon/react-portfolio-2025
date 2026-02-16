@@ -17,6 +17,7 @@ export default function LabPage() {
   return (
     <main className={styles.interactives}>
       <div className={styles.header}>
+        <h1 className={styles.title}>Interactives</h1>
         <p className={styles.subtitle}>
           Interactive prototypes, p5.js sketches, and experiments.
         </p>
@@ -33,7 +34,7 @@ export default function LabPage() {
             >
               <div className={styles.thumbCell}>
                 {item.thumbnail ? (
-                  /\.(mp4|webm)$/.test(item.thumbnail) ? (
+                  /\.(mp4|webm)$/i.test(item.thumbnail) ? (
                     <video
                       src={item.thumbnail}
                       className={styles.thumb}

@@ -6,7 +6,7 @@
     "Physical"
   ],
   "description": "Rings made out of metal but in a fluid and organic form.",
-  "thumbnail": "/media/organicMetal/rings.jpeg",
+  "thumbnail": "/media/organicMetal/rings.webp",
   "thumbnailWidth": 3072,
   "thumbnailHeight": 2807,
   "size": "1x1",
@@ -24,7 +24,7 @@
         {
           "type": "image",
           "size": "h",
-          "src": "/media/organicMetal/rings.jpeg",
+          "src": "/media/organicMetal/rings.webp",
           "alt": "Wax Casting Rings"
         }
       ]

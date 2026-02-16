@@ -7,10 +7,10 @@
     "Physical",
     "AI/ML"
   ],
-  "description": "ML-generated characters for scripts that don't exist, then 3D printed into physical artifacts.",
-  "thumbnail": "/media/uniicode/physical.jpeg",
-  "thumbnailWidth": 3526,
-  "thumbnailHeight": 2645,
+  "description": "Generation of new character sets to fill up spaces in Unicode.",
+  "thumbnail": "/media/uniicode/uniicode_2.webm",
+  "thumbnailWidth": 1440,
+  "thumbnailHeight": 1080,
   "size": "2x1",
   "position": 1,
   "content": [
@@ -20,21 +20,21 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Unicode is the text encoding standard used by most modern computers, supporting 161 scripts and the world's major writing systems."
+            "The [unicode](https://en.wikipedia.org/wiki/Unicode) is a text encoding standard used by most modern computers to support 161 scripts used by the world's major writing systems."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "The encoding contains intentional gaps between scripts, with each new script starting from a round number. This allows characters to be added to existing scripts without disrupting others."
+            "Unicode encoding contains gaps between scripts and ensures that a new script starts from a '00'. This allows for new characters to be added to existing scripts without having to disrupt other scripts."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "This project trained an ML model to generate entirely new characters to fill those gaps. Characters that don't exist in any language."
+            "In this project, I trained an ML model to create new characters for scripts to fill these gaps."
           ]
         }
       ]
@@ -45,13 +45,13 @@
           "type": "text",
           "size": "t",
           "text": [
-            "This character exists in no language. It was imagined entirely by the model."
+            "This character does not exist in any language. It was created by the ML model."
           ]
         },
         {
           "type": "image",
           "size": "t",
-          "src": "/media/uniicode/Asset 1.png"
+          "src": "/media/uniicode/Asset_1.webp"
         }
       ]
     },
@@ -61,65 +61,53 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Training data was prepared by rendering all characters as 128 by 128 pixel PNGs."
+            "To train the model, I created 128*128 pixel PNGs of all the characters."
           ]
         },
         {
           "type": "image",
           "size": "t",
-          "src": "/media/uniicode/english.png"
+          "src": "/media/uniicode/english.webp"
         },
         {
           "type": "image",
           "size": "t",
-          "src": "/media/uniicode/tamil.png"
+          "src": "/media/uniicode/tamil.webp"
         }
       ]
     },
     {
       "sections": [
-        {
-          "type": "image",
-          "size": "t2",
-          "src": "/media/uniicode/ml.png"
-        },
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "The Tamil script was then used to generate additional Tamil characters, extending the alphabet with forms that feel native but are entirely synthetic."
-          ]
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "The generated characters were then 3D modeled and printed, turning imaginary language into physical artifacts."
-          ]
-        },
         {
           "type": "image",
           "size": "t2",
-          "src": "/media/uniicode/physical.jpeg"
+          "src": "/media/uniicode/ml.webp"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The Tamil script was used to generate more Tamil characters."
+          ]
         }
       ]
     },
     {
       "sections": [
         {
-          "type": "video",
-          "size": "f",
-          "src": "/media/uniicode/uniicode_2.mp4",
-          "alt": "ML-generated characters animation"
+          "type": "text",
+          "size": "t",
+          "text": [
+            "These were then 3D modeled and printed to create physical characters."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/uniicode/physical.webp"
         }
       ]
     }
   ],
-  "order": 11,
-  "featured": true,
-  "featuredOrder": 1
+  "order": 11
 }

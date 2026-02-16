@@ -6,9 +6,9 @@
     "Product Design"
   ],
   "description": "A service design concept connecting consumers with local tailors for custom, sustainable clothing.",
-  "thumbnail": "/media/zoe/IMG-20221110-WA0005.jpg",
-  "thumbnailWidth": 1024,
-  "thumbnailHeight": 768,
+  "thumbnail": "/media/zoe/zoe.webp",
+  "thumbnailWidth": 717,
+  "thumbnailHeight": 387,
   "size": "2x1",
   "position": 3,
   "content": [
@@ -18,14 +18,14 @@
           "type": "text",
           "size": "h",
           "text": [
-            "Zoe is a service design concept that reimagines the relationship between consumers and clothing by connecting them directly with local tailors. The platform allows users to choose their desired fit, select patterns and materials, and have garments custom made. An alternative to fast fashion's mass produced model.",
-            "The project began with extensive stakeholder mapping across the fashion ecosystem, identifying core, direct, and indirect actors. Local communities, tailors, fast fashion brands, and government policy makers all factored into the system."
+            "Zoe is a service design concept that reimagines the relationship between consumers and clothing by connecting them directly with local tailors. The platform allows users to choose their desired fit, select patterns and materials, and have garments custom-made — offering an alternative to fast fashion's mass-produced model.",
+            "The project began with extensive stakeholder mapping across the fashion ecosystem, identifying core, direct, and indirect actors — from local communities and tailors to fast fashion brands and government policy makers."
           ]
         },
         {
           "type": "image",
           "size": "h",
-          "src": "/media/zoe/zoe.png",
+          "src": "/media/zoe/zoe.webp",
           "alt": "Stakeholder ecosystem map and influence-interest matrix for the fashion industry"
         }
       ]
@@ -35,7 +35,7 @@
         {
           "type": "image",
           "size": "h",
-          "src": "/media/zoe/IMG-20221110-WA0002.jpg",
+          "src": "/media/zoe/IMG-20221110-WA0002.webp",
           "alt": "Paper prototypes of the app spread across a design workspace"
         },
         {
@@ -53,19 +53,19 @@
         {
           "type": "image",
           "size": "t",
-          "src": "/media/zoe/IMG_20221103_211311.jpg",
+          "src": "/media/zoe/IMG_20221103_211311.webp",
           "alt": "Paper prototype showing clothing pattern selection screen"
         },
         {
           "type": "image",
           "size": "t",
-          "src": "/media/zoe/IMG-20221110-WA0009.jpg",
+          "src": "/media/zoe/IMG-20221110-WA0009.webp",
           "alt": "User testing a paper prototype of the app flow"
         },
         {
           "type": "image",
           "size": "t",
-          "src": "/media/zoe/IMG-20221110-WA0013.jpg",
+          "src": "/media/zoe/IMG-20221110-WA0013.webp",
           "alt": "Sketches exploring sustainability, material sourcing, and tailor history features"
         }
       ]
@@ -75,13 +75,13 @@
         {
           "type": "image",
           "size": "h",
-          "src": "/media/zoe/IMG-20221110-WA0005.jpg",
+          "src": "/media/zoe/IMG-20221110-WA0005.webp",
           "alt": "Design workspace with prototypes, How Might We notes, and research materials"
         },
         {
           "type": "image",
           "size": "h",
-          "src": "/media/zoe/IMG-20221110-WA0001.jpg",
+          "src": "/media/zoe/IMG-20221110-WA0001.webp",
           "alt": "Paper prototypes and sketches on a design table"
         }
       ]

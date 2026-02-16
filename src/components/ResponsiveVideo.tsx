@@ -43,10 +43,10 @@ export default function ResponsiveVideo({
         className={className}
       >
         {variants.map((v) => (
-          <source key={v.quality} src={v.path} type="video/mp4" />
+          <source key={v.quality} src={v.path} type={v.path.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
         ))}
         {/* Fallback to original */}
-        <source src={src} type="video/mp4" />
+        <source src={src} type={src.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
       </video>
     );
   }

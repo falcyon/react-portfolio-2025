@@ -6,71 +6,14 @@
     "Digital",
     "Interactive"
   ],
-  "description": "An interactive experience where a monologue about self-doubt unfolds as you run.",
-  "thumbnail": "/media/discourseParkour/discourse.mp4",
+  "description": "An interactive installation where players read through a monologue as they play.",
+  "thumbnail": "/media/discourseParkour/discourse.webm",
   "thumbnailWidth": 1098,
   "thumbnailHeight": 700,
   "size": "2x1",
-  "interactiveUrl": "https://editor.p5js.org/Falcyon/full/rifCaTlbJ",
   "content": [
     {
-      "sections": [
-        {
-          "type": "text",
-          "size": "h",
-          "text": [
-            "You play as a stick figure parkouring through a city silhouette. Other figures run alongside you, NPCs chasing the same horizon. As you move, a monologue unfolds across the screen. The character starts confused, gets excited about jumping and flipping, then slowly begins to question why they're running at all.",
-            "The text shifts from playful to existential without warning. Are the other runners friends or competition? What happens if you slow down? What are you even pursuing? The experience never answers. It just keeps scrolling."
-          ]
-        },
-        {
-          "type": "video",
-          "size": "h",
-          "src": "/media/discourseParkour/discourse.mp4",
-          "alt": "Discourse Parkour"
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "text",
-          "size": "h",
-          "text": [
-            "The monologue mirrors the way self-doubt actually works. It hides inside momentum. You're focused on the next jump, the next obstacle, and suddenly a thought slips in. \"Do I want to 'complete' life fastest?\" The interaction becomes the metaphor. You can't stop running to think about it. You have to keep going.",
-            "It ends the way most of us handle it. \"Music helps. Headphones in, self-doubt out.\""
-          ]
-        },
-        {
-          "type": "text",
-          "size": "h",
-          "text": [
-            "Early development explored the movement system and level layout before the monologue was layered in. The greybox prototype established the rhythm of the obstacles, while the stick figure tests focused on making the NPCs feel like a crowd rather than decoration."
-          ]
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "video",
-          "size": "t",
-          "src": "/media/discourseParkour/movement.mp4",
-          "alt": "Movement mechanics"
-        },
-        {
-          "type": "video",
-          "size": "t",
-          "src": "/media/discourseParkour/stickfigure.mp4",
-          "alt": "Stick figure tests"
-        },
-        {
-          "type": "video",
-          "size": "t",
-          "src": "/media/discourseParkour/greybox.mp4",
-          "alt": "Greybox prototype"
-        }
-      ]
+      "sections": []
     }
   ],
   "order": 19

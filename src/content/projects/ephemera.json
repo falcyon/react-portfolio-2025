@@ -6,7 +6,7 @@
     "Physical"
   ],
   "description": "An installation reflecting on humanity's grapple with legacy",
-  "thumbnail": "/media/ephemera/ephemera.mp4",
+  "thumbnail": "/media/ephemera/ephemera.webm",
   "thumbnailWidth": 1080,
   "thumbnailHeight": 1080,
   "size": "2x2",
@@ -24,7 +24,7 @@
         {
           "type": "video",
           "size": "h",
-          "src": "/media/ephemera/ephemera.mp4"
+          "src": "/media/ephemera/ephemera.webm"
         }
       ]
     },
@@ -33,7 +33,7 @@
         {
           "type": "image",
           "size": "h",
-          "src": "/media/ephemera/teaser.jpg"
+          "src": "/media/ephemera/teaser.webp"
         },
         {
           "type": "text",
@@ -110,7 +110,7 @@
         {
           "type": "image",
           "size": "h",
-          "src": "/media/ephemera/01_TeaserPoster.jpg"
+          "src": "/media/ephemera/01_TeaserPoster.webp"
         }
       ]
     },

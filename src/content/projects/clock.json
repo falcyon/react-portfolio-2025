@@ -6,7 +6,7 @@
     "Digital"
   ],
   "description": "Digital art referencing the transitory nature of time in our memories.",
-  "thumbnail": "/media/clock/clock.mp4",
+  "thumbnail": "/media/clock/clock.webm",
   "thumbnailWidth": 720,
   "thumbnailHeight": 720,
   "size": "1x1",
@@ -24,7 +24,7 @@
         {
           "type": "video",
           "size": "h",
-          "src": "/media/clock/clock.mp4",
+          "src": "/media/clock/clock.webm",
           "alt": "Fluid clock"
         }
       ]

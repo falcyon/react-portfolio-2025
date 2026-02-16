@@ -8,29 +8,12 @@
     "Performance"
   ],
   "description": "An interactive installation where users see a silhouette of their negative self-talk as their reflection",
-  "thumbnail": "/media/andWordsWillEchoInMySoul/insecurityMirror.mp4",
+  "thumbnail": "/media/andWordsWillEchoInMySoul/insecurityMirror.webm",
   "thumbnailWidth": 1080,
   "thumbnailHeight": 1080,
   "size": "2x2",
   "position": 2,
   "content": [
-    {
-      "sections": [
-        {
-          "type": "text",
-          "size": "h",
-          "text": [
-            "This installation was showcased at the LUMA Festival in Binghamton, NY (2024), projected at massive scale for a crowd of 30,000. It was first exhibited as part of the Art, Design, & AI Exhibition hosted by Parsons School of Design and LG AI Research in New York (2023)."
-          ]
-        },
-        {
-          "type": "video",
-          "size": "h",
-          "src": "/media/andWordsWillEchoInMySoul/LUMA_peopleInteracting.mp4",
-          "alt": "LUMA Festival projection"
-        }
-      ]
-    },
     {
       "sections": [
         {
@@ -43,22 +26,7 @@
         {
           "type": "image",
           "size": "t2",
-          "src": "/media/andWordsWillEchoInMySoul/Hero Image.jpg"
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "image",
-          "size": "h",
-          "src": "/media/andWordsWillEchoInMySoul/LUMA_peopleInteracting.jpg"
-        },
-        {
-          "type": "video",
-          "size": "h",
-          "src": "/media/andWordsWillEchoInMySoul/insecurityMirror.mp4",
-          "alt": "Installation demo"
+          "src": "/media/andWordsWillEchoInMySoul/Hero_Image.webp"
         }
       ]
     },
@@ -92,12 +60,12 @@
         {
           "type": "image",
           "size": "h",
-          "src": "/media/andWordsWillEchoInMySoul/1.jpeg"
+          "src": "/media/andWordsWillEchoInMySoul/1.webp"
         },
         {
           "type": "image",
           "size": "h",
-          "src": "/media/andWordsWillEchoInMySoul/2.jpeg"
+          "src": "/media/andWordsWillEchoInMySoul/2.webp"
         }
       ]
     },
@@ -106,12 +74,15 @@
         {
           "type": "image",
           "size": "h",
-          "src": "/media/andWordsWillEchoInMySoul/3.jpeg"
+          "src": "/media/andWordsWillEchoInMySoul/3.webp"
         },
         {
           "type": "image",
           "size": "h",
-          "src": "/media/andWordsWillEchoInMySoul/4.jpeg"
+          "src": "/media/andWordsWillEchoInMySoul/4.webp",
+          "text": [
+            "This interactive installation was showcased as part of <a href=\"https://tnsadai.com/\">Art, Design, & AI</a> Exhibition hosted by Parsons School of Design & LG AI Research."
+          ]
         }
       ]
     },
@@ -127,7 +98,7 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/andWordsWillEchoInMySoul/segmentationValues.mp4",
+          "src": "/media/andWordsWillEchoInMySoul/segmentationValues.webm",
           "alt": "Segmentation Values"
         }
       ]
@@ -144,7 +115,7 @@
         {
           "type": "video",
           "size": "t2",
-          "src": "/media/andWordsWillEchoInMySoul/smallMatrix.mp4",
+          "src": "/media/andWordsWillEchoInMySoul/smallMatrix.webm",
           "alt": "Small Matrix"
         }
       ]
@@ -154,13 +125,13 @@
         {
           "type": "video",
           "size": "t2",
-          "src": "/media/andWordsWillEchoInMySoul/skeleton.mp4",
+          "src": "/media/andWordsWillEchoInMySoul/skeleton.webm",
           "alt": "Skeleton"
         },
         {
           "type": "video",
           "size": "t2",
-          "src": "/media/andWordsWillEchoInMySoul/segmented.mp4",
+          "src": "/media/andWordsWillEchoInMySoul/segmented.webm",
           "alt": "Segmented"
         }
       ]
@@ -170,17 +141,17 @@
         {
           "type": "image",
           "size": "t",
-          "src": "/media/andWordsWillEchoInMySoul/bts1a.jpg"
+          "src": "/media/andWordsWillEchoInMySoul/bts1a.webp"
         },
         {
           "type": "image",
           "size": "t",
-          "src": "/media/andWordsWillEchoInMySoul/bts2a.jpg"
+          "src": "/media/andWordsWillEchoInMySoul/bts2a.webp"
         },
         {
           "type": "image",
           "size": "t",
-          "src": "/media/andWordsWillEchoInMySoul/bts3a.jpg"
+          "src": "/media/andWordsWillEchoInMySoul/bts3a.webp"
         }
       ]
     }

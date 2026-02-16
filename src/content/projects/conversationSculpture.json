@@ -6,7 +6,7 @@
     "Physical"
   ],
   "description": "A sculpture made up of conversations about nihilism.",
-  "thumbnail": "/media/conversationSculpture/pop2.mp4",
+  "thumbnail": "/media/conversationSculpture/pop2.webm",
   "thumbnailWidth": 1080,
   "thumbnailHeight": 1080,
   "size": "1x1",
@@ -25,7 +25,7 @@
         {
           "type": "video",
           "size": "h",
-          "src": "/media/conversationSculpture/pop2.mp4",
+          "src": "/media/conversationSculpture/pop2.webm",
           "alt": "Pop Video"
         }
       ]
