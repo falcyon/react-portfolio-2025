@@ -8,10 +8,10 @@
     "Interactive"
   ],
   "description": "An interactive installation where users engage in a conversation with their digital self",
-  "thumbnail": "/media/notesToSelf/live.webm",
-  "thumbnailWidth": 720,
-  "thumbnailHeight": 1280,
-  "size": "1x2",
+  "thumbnail": "/media/notesToSelf/notes.webm",
+  "thumbnailWidth": 1080,
+  "thumbnailHeight": 1080,
+  "size": "1x1",
   "position": 3,
   "content": [
     {
@@ -20,14 +20,14 @@
           "type": "text",
           "size": "t",
           "text": [
-            "What would it feel like to sit across from yourself? Notes to Self is an interactive installation that recreates you as a digital clone and invites you to have a conversation with it."
+            "'Notes from self' is an interactive experience that I created as an attempt to re-acquaint people with themselves."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "The aim was to give people a space where they could voice their thoughts out loud without distraction. Rather than asking direct questions, the installation offers starting points, gentle openings for thoughts to trail wherever they need to go."
+            "My aim with the project was to give people a space where they can be comfortable voicing their thoughts out loud without any distractions. I also wanted to give them the starting points from which their thoughts can trail."
           ]
         }
       ]
@@ -38,7 +38,7 @@
           "type": "video",
           "size": "t",
           "src": "/media/notesToSelf/live.webm",
-          "alt": "Notes to Self live experience"
+          "alt": "Notes from self video 1"
         }
       ]
     },
@@ -54,14 +54,14 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The project splits into three layers. The technology, the narrative, and the experience design."
+            "I split the project into 3 parts, the technologies, the narrative and the experience design."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "Four ML models work together to mimic a person. One generates conversation, another captures and maps body movements onto a photo of the user, a third creates lip sync for the generated speech, and a fourth clones the user's voice to deliver it."
+            "I used 4 different ML models to mimic a person: One to generate conversation, one to capture and impose body movements onto a picture of the person, another to create lip-syncing to the generated conversation and yet another to clone the voice of the person to speak out the generated text."
           ]
         }
       ]
@@ -94,14 +94,14 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The narrative follows a classic four act structure. Exposition, complication, climax, and denouement."
+            "The narrative follows the classic four act structure: Exposition, complication, climax and denouement."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "Originally it included a positive turn near the end to ensure users didn't leave with heavy emotions. That safety net was removed after user research showed people preferred to sit with what they felt. They wanted to mull over the questions even after the experience ended."
+            "The narrative initially included a positive turn towards the end of the conversation to ensure that the users did not leave the experience with any negative emotions, but later on, I removed this aspect to allow the users to carry whatever emotions they felt like as the user research showed people preferred to mull over the questions even after the experience ended."
           ]
         }
       ]
@@ -112,21 +112,21 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The experience begins with the user sitting in front of a blank screen in a living room setting."
+            "The experience starts with the user sitting in front of a blank canvas in a living room-eque setting."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "The screen lights up and strikes up a conversation, each sentence seemingly voiced by a different person."
+            "The screen lights up. It then strikes up a conversation. Each sentence is seemingly voiced by a different person."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "'Talking to a literal screen must be unnerving,' it empathizes. Then things shift. The screen becomes a live video stream of the digital clone in a white space. The clone, now speaking in the user's voice, confirms, 'I am you, or rather a version of you.' It begins asking questions that blur the boundary between self and other. 'When was the last time we sat in silence?' 'What was the last thing our inner voice told you?'"
+            "“Talking to a literal screen must be un-nerving”, it empathizes. But soon things take a turn when the screen suddenly turns into a video stream of the digital clone in a white space. The clone (now emulating the voice of the user) confirms, “I am you, or rather a version of you”. The clone then asks several questions referring to the user and themselves collectively as 'we'. 'When was the last time we sat in silence?'. 'What was the last thing our inner voice told you?'."
           ]
         }
       ]
@@ -147,14 +147,14 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The experience ends with the clone acknowledging that it isn't human, and that the user has helped it understand a little more about the human experience."
+            "The experience ends with the clone acknowledging that it isn't human, and that the user has helped the clone understand a little bit more about the human experience."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "The user is then encouraged to stay for as long as they like. They can use the clone as a mirror, talking to themselves without prompts. A closed, judgement free space to process the conversation, or anything else on their mind. Much like a confessional."
+            "The user is then encouraged to stay on for as long as they like with the digital clone. They can use the clone as a mirror to talk to themselves without any prompts to direct their thoughts. This allows the user to be in a closed, judgement-free space to think about the conversation they just had, or anything else that they feel like talking about, much like a church confessional."
           ]
         }
       ]
