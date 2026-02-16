@@ -49,7 +49,7 @@ function canPlace(
 
 function placeWord(
   grid: string[][],
-  highlighted: Set<string>,
+  cells: Set<string>,
   word: string,
   row: number,
   col: number,
@@ -59,26 +59,30 @@ function placeWord(
     const r = row + dir[0] * i;
     const c = col + dir[1] * i;
     grid[r][c] = word[i];
-    highlighted.add(`${r},${c}`);
+    cells.add(`${r},${c}`);
   }
 }
 
-function generateGrid(): { grid: string[][]; highlighted: Set<string> } {
+function generateGrid(): {
+  grid: string[][];
+  leffinCells: Set<string>;
+  wordCells: Set<string>;
+} {
   const grid: string[][] = Array.from({ length: ROWS }, () =>
     Array(COLS).fill(""),
   );
-  const highlighted = new Set<string>();
+  const leffinCells = new Set<string>();
+  const wordCells = new Set<string>();
 
   // Place LEFFIN in the center
   const centerRow = Math.floor(ROWS / 2);
   const startCol = Math.floor((COLS - CENTER_WORD.length) / 2);
-  placeWord(grid, highlighted, CENTER_WORD, centerRow, startCol, [0, 1]);
+  placeWord(grid, leffinCells, CENTER_WORD, centerRow, startCol, [0, 1]);
 
   // Place identity words longest-first for best fit
   const sorted = [...WORDS].sort((a, b) => b.length - a.length);
 
   for (const word of sorted) {
-    // Only right or down — skip down if word is taller than grid
     const dirs =
       word.length > ROWS ? [DIRECTIONS[0]] : DIRECTIONS;
 
@@ -88,7 +92,7 @@ function generateGrid(): { grid: string[][]; highlighted: Set<string> } {
       const col = Math.floor(Math.random() * COLS);
 
       if (canPlace(grid, word, row, col, dir)) {
-        placeWord(grid, highlighted, word, row, col, dir);
+        placeWord(grid, wordCells, word, row, col, dir);
         break;
       }
     }
@@ -103,47 +107,54 @@ function generateGrid(): { grid: string[][]; highlighted: Set<string> } {
     }
   }
 
-  return { grid, highlighted };
+  return { grid, leffinCells, wordCells };
 }
 
 export default function WordSearchPlayground() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [cellSize, setCellSize] = useState(14);
-  const [{ grid, highlighted }] = useState(generateGrid);
+  const [sizes, setSizes] = useState({ colW: 0, rowH: 0 });
+  const [{ grid, leffinCells, wordCells }] = useState(generateGrid);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     const observer = new ResizeObserver((entries) => {
       const { width, height } = entries[0].contentRect;
-      const size = Math.min(width / COLS, height / ROWS);
-      setCellSize(size);
+      if (width > 0 && height > 0) {
+        setSizes({ colW: width / COLS, rowH: height / ROWS });
+      }
     });
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
+  const cellClass = (r: number, c: number) => {
+    const key = `${r},${c}`;
+    if (leffinCells.has(key)) return `${styles.cell} ${styles.leffin}`;
+    if (wordCells.has(key)) return styles.cell;
+    return `${styles.cell} ${styles.filler}`;
+  };
+
   return (
     <div ref={containerRef} className={styles.container}>
-      <div
-        className={styles.grid}
-        style={{
-          gridTemplateColumns: `repeat(${COLS}, ${cellSize}px)`,
-          gridTemplateRows: `repeat(${ROWS}, ${cellSize}px)`,
-          fontSize: `${cellSize * 0.55}px`,
-        }}
-      >
-        {grid.flatMap((row, r) =>
-          row.map((letter, c) => (
-            <span
-              key={`${r}-${c}`}
-              className={`${styles.cell} ${highlighted.has(`${r},${c}`) ? styles.accent : styles.dim}`}
-            >
-              {letter}
-            </span>
-          )),
-        )}
-      </div>
+      {sizes.colW > 0 && (
+        <div
+          className={styles.grid}
+          style={{
+            gridTemplateColumns: `repeat(${COLS}, ${sizes.colW}px)`,
+            gridTemplateRows: `repeat(${ROWS}, ${sizes.rowH}px)`,
+            fontSize: `${Math.min(sizes.colW, sizes.rowH) * 0.55}px`,
+          }}
+        >
+          {grid.flatMap((row, r) =>
+            row.map((letter, c) => (
+              <span key={`${r}-${c}`} className={cellClass(r, c)}>
+                {letter}
+              </span>
+            )),
+          )}
+        </div>
+      )}
     </div>
   );
 }

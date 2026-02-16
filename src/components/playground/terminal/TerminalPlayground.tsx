@@ -47,7 +47,7 @@ export default function TerminalPlayground() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const nextAutoRef = useRef(0);
   const inputValueRef = useRef("");
-  const idleTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const idleTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const typingCleanupRef = useRef<(() => void) | null>(null);
   const mountedRef = useRef(true);
 
