@@ -1,7 +1,7 @@
 {
   "name": "Leffin",
   "tagline": "Artist. Designer. Engineer.",
-  "summaryArt": "Leffin makes interactive installations about identity, self-perception, and impermanence using AI, physical computing, and the human body.",
+  "summaryArt": "Leffin makes interactive installations about identity and meaning using technology and the human body.",
   "summaryCorp": "He also leads experience design at Citibank, building enterprise AI platforms.",
   "credentials": {
     "education": [
@@ -27,7 +27,7 @@
       "work": "Ephemera",
       "slug": "ephemera",
       "location": "Santa Fe, NM",
-      "year": "2026 (upcoming)",
+      "year": "Jun 2026",
       "href": "https://currentsnewmedia.org"
     },
     {
@@ -35,7 +35,7 @@
       "work": "Ephemera",
       "slug": "ephemera",
       "location": "New York, NY",
-      "year": "2025",
+      "year": "May 2025",
       "href": "https://nycxdesign.org/event/what-comes-after-no-one-future-artifacts-for-a-final-generation/"
     },
     {
@@ -43,65 +43,65 @@
       "work": "\u2026And Words Will Echo in My Soul",
       "slug": "andWordsWillEchoInMySoul",
       "location": "Binghamton, NY",
-      "year": "2024",
+      "year": "Sep 2024",
       "href": "https://lumafestival.com/feature/but-words-will-echo-in-my-soul/"
-    },
-    {
-      "venue": "Grace Exhibition Space",
-      "work": "Palimpsest",
-      "slug": "palimpsest",
-      "location": "New York, NY",
-      "year": "2023",
-      "href": "https://pixelmouth.org/follow-the-machine"
     },
     {
       "venue": "Parsons \u00d7 LG AI Research",
       "work": "\u2026And Words Will Echo in My Soul",
       "slug": "andWordsWillEchoInMySoul",
       "location": "New York, NY",
-      "year": "2023",
+      "year": "Dec 2023",
       "href": "https://tnsadai.com/artistss"
     },
     {
-      "venue": "AMT Moving Image Festival",
-      "work": "Human Condition",
-      "slug": "humanCondition",
+      "venue": "Grace Exhibition Space",
+      "work": "Palimpsest",
+      "slug": "palimpsest",
       "location": "New York, NY",
-      "year": "2023",
-      "href": "https://amtmovingimagefetival2023.webflow.io/"
+      "year": "Jun 2023",
+      "href": "https://pixelmouth.org/follow-the-machine"
     },
     {
       "venue": "Entropy, Parsons MFA Thesis",
       "work": "Palimpsest",
       "slug": "palimpsest",
       "location": "New York, NY",
-      "year": "2023",
+      "year": "May 2023",
       "href": "https://parsons.edu/dt-2023/palimpsest/"
+    },
+    {
+      "venue": "AMT Moving Image Festival",
+      "work": "Human Condition",
+      "slug": "humanCondition",
+      "location": "New York, NY",
+      "year": "Apr 2023",
+      "href": "https://amtmovingimagefetival2023.webflow.io/"
     }
   ],
   "speaking": [
     {
       "event": "Parsons School of Design",
       "role": "Guest Lecturer, BFA Design & Technology",
-      "year": "2023",
+      "year": "Nov 2023",
       "href": "https://www.newschool.edu/parsons/"
     },
     {
       "event": "MIT Reality Hack",
       "role": "Mentor, Hardware Track",
-      "year": "2023",
+      "year": "Jan 2023",
       "href": "https://www.realityhackatmit.com/"
     },
     {
       "event": "The New School \u00d7 IBM Quantum",
       "role": "Speaker & Mentor, Quantum Design Jam",
-      "year": "2023",
+      "year": "Oct 2023",
       "href": "https://innovationcenter.newschool.edu/speakers-and-mentors/"
     },
     {
       "event": "The New School \u00d7 IBM Quantum",
       "role": "Mentor, Quantum Design Jam",
-      "year": "2022",
+      "year": "Oct 2022",
       "href": "https://innovationcenter.newschool.edu/quantum-lab/"
     }
   ],

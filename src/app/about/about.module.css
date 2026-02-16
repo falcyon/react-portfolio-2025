@@ -38,10 +38,10 @@
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-/* ── Cycling highlight: 8s, 4 phases ── */
-.tagArt { animation: wordCycle1 8s ease-in-out infinite; }
-.tagDesign { animation: wordCycle2 8s ease-in-out infinite; }
-.tagEng { animation: wordCycle3 8s ease-in-out infinite; }
+/* ── Cycling highlight: 6s, 3 phases ── */
+.tagArt { animation: wordCycle1 6s ease-in-out infinite; }
+.tagDesign { animation: wordCycle2 6s ease-in-out infinite; }
+.tagEng { animation: wordCycle3 6s ease-in-out infinite; }
 
 .summary {
   font-size: clamp(1.1rem, 1.8vw, 1.4rem);
@@ -51,48 +51,48 @@
   transition: color 0.3s ease, opacity 0.3s ease;
 }
 
-.summaryArt { animation: paraCycleArt 8s ease-in-out infinite; margin-bottom: 8px; }
+.summaryArt { animation: paraCycleArt 6s ease-in-out infinite; margin-bottom: 8px; }
 .summaryCorp {
   margin-bottom: 36px;
-  animation: paraCycleCorp 8s ease-in-out infinite;
+  animation: paraCycleCorp 6s ease-in-out infinite;
 }
 
-/* Phase 1: Artist — red when active, dim otherwise */
+/* Phase 1: Artist — red in P1, dim in P2, black in P3 */
 @keyframes wordCycle1 {
-  0%, 21% { color: var(--accent); border-color: var(--accent); opacity: 1; }
-  25%, 96% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
+  0%, 28% { color: var(--accent); border-color: var(--accent); opacity: 1; }
+  33%, 61% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
+  66%, 94% { color: inherit; border-color: var(--foreground); opacity: 1; }
   100% { color: var(--accent); border-color: var(--accent); opacity: 1; }
 }
 
-/* Phase 2: Designer — red when active, dim otherwise */
+/* Phase 2: Designer — dim in P1, red in P2, black in P3 */
 @keyframes wordCycle2 {
-  0%, 21% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
-  25%, 46% { color: var(--accent); border-color: var(--accent); opacity: 1; }
-  50%, 100% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
+  0%, 28% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
+  33%, 61% { color: var(--accent); border-color: var(--accent); opacity: 1; }
+  66%, 94% { color: inherit; border-color: var(--foreground); opacity: 1; }
+  100% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
 }
 
-/* Phase 3: Engineer — black when active, dim otherwise */
+/* Phase 3: Engineer — red in P1+P2, black in P3 */
 @keyframes wordCycle3 {
-  0%, 46% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
-  50%, 71% { color: inherit; border-color: var(--foreground); opacity: 1; }
-  75%, 100% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
+  0%, 61% { color: var(--accent); border-color: var(--accent); opacity: 1; }
+  66%, 94% { color: inherit; border-color: var(--foreground); opacity: 1; }
+  100% { color: var(--accent); border-color: var(--accent); opacity: 1; }
 }
 
-/* Art para: red in phase 1, dim in phase 2, black in phase 3, dim in phase 4 */
+/* Art para: red in P1, dim in P2, black in P3 */
 @keyframes paraCycleArt {
-  0%, 21% { color: var(--accent); opacity: 1; }
-  25%, 46% { color: inherit; opacity: 0.35; }
-  50%, 71% { color: inherit; opacity: 1; }
-  75%, 96% { color: inherit; opacity: 0.35; }
+  0%, 28% { color: var(--accent); opacity: 1; }
+  33%, 61% { color: inherit; opacity: 0.35; }
+  66%, 94% { color: inherit; opacity: 1; }
   100% { color: var(--accent); opacity: 1; }
 }
 
-/* Corp para: dim in phase 1, red in phase 2, black in phase 3, dim in phase 4 */
+/* Corp para: dim in P1, red in P2, black in P3 */
 @keyframes paraCycleCorp {
-  0%, 21% { color: inherit; opacity: 0.35; }
-  25%, 46% { color: var(--accent); opacity: 1; }
-  50%, 71% { color: inherit; opacity: 1; }
-  75%, 96% { color: inherit; opacity: 0.35; }
+  0%, 28% { color: inherit; opacity: 0.35; }
+  33%, 61% { color: var(--accent); opacity: 1; }
+  66%, 94% { color: inherit; opacity: 1; }
   100% { color: inherit; opacity: 0.35; }
 }
 
