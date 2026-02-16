@@ -8,9 +8,9 @@
     "AI/ML"
   ],
   "description": "Generation of new character sets to fill up spaces in Unicode.",
-  "thumbnail": "/media/uniicode/uniicode_2.webm",
-  "thumbnailWidth": 1440,
-  "thumbnailHeight": 1080,
+  "thumbnail": "/media/uniicode/physical.webp",
+  "thumbnailWidth": 3526,
+  "thumbnailHeight": 2645,
   "size": "2x1",
   "position": 1,
   "content": [
@@ -109,5 +109,7 @@
       ]
     }
   ],
-  "order": 11
+  "order": 11,
+  "featured": true,
+  "featuredOrder": 1
 }

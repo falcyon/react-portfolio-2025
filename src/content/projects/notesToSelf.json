@@ -8,10 +8,10 @@
     "Interactive"
   ],
   "description": "An interactive installation where users engage in a conversation with their digital self",
-  "thumbnail": "/media/notesToSelf/notes.webm",
-  "thumbnailWidth": 1080,
-  "thumbnailHeight": 1080,
-  "size": "1x1",
+  "thumbnail": "/media/notesToSelf/live.webm",
+  "thumbnailWidth": 720,
+  "thumbnailHeight": 1280,
+  "size": "1x2",
   "position": 3,
   "content": [
     {
