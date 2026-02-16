@@ -121,6 +121,7 @@ export const projectsArray: Project[] = [
   },
   {
     "name": "Constructor",
+    "slug": "constructor",
     "thumbnail": "/media/constructor/constructor.mp4",
     "height": 1080,
     "width": 1080,
