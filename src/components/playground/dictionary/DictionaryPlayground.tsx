@@ -194,22 +194,13 @@ export default function DictionaryPlayground() {
       <ol className={styles.definitions}>
         <li>
           A new media artist building interactive installations on the human condition.
-          <span className={styles.example}>
-            &ldquo;Have you seen the Leffin at NYCxDESIGN?&rdquo;
-          </span>
         </li>
         <li>
           A creative technologist who bridges code, physical materials, and
           human experience into immersive work.
-          <span className={styles.example}>
-            &ldquo;We need a Leffin for the interactive exhibit.&rdquo;
-          </span>
         </li>
         <li>
           An AI product manager and designer who ships things from concept to reality.
-          <span className={styles.example}>
-            &ldquo;She&rsquo;s the Leffin on this project.&rdquo;
-          </span>
         </li>
       </ol>
 
@@ -219,10 +210,6 @@ export default function DictionaryPlayground() {
         <li>
           To relentlessly bridge disciplines that aren&rsquo;t supposed to go
           together.
-          <span className={styles.example}>
-            &ldquo;She really leffin&rsquo;d that projection-mapped
-            installation.&rdquo;
-          </span>
         </li>
       </ol>
 
