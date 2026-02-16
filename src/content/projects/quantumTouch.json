@@ -13,6 +13,7 @@
   "thumbnailHeight": 420,
   "size": "2x1",
   "position": 1,
+  "interactiveUrl": "https://editor.p5js.org/Falcyon/full/cDzpug0tm",
   "content": [
     {
       "sections": [
@@ -30,7 +31,7 @@
           "type": "text",
           "size": "h",
           "text": [
-            "QuantumTouch was developed for Quantum Jam 2022 as a digital art installation to showcase the technology in a visual form. I had a simple takeaway that I wanted to make visceral - Data interpretation can be a creative act, allowing artists to work in highly technical fields like quantum computing."
+            "Quantum Touch was developed for Quantum Jam 2022 as a digital art installation that makes quantum computing visible. The takeaway was simple. Data interpretation can be a creative act, and artists can work meaningfully in highly technical fields."
           ]
         },
         {
@@ -54,7 +55,7 @@
           "type": "text",
           "size": "h",
           "text": [
-            "TouchDesigner was used for the interactions and visuals, while the data came directly from a run on IBM's quantum computers"
+            "TouchDesigner handled the interactions and visuals, while the data came directly from a run on IBM's quantum computers."
           ]
         }
       ]
@@ -65,7 +66,7 @@
           "type": "text",
           "size": "h",
           "text": [
-            "The code to this piece was given out to all the artists participating in the design Jam"
+            "The code was shared with all the artists participating in the Jam, as an open resource for further experimentation."
           ]
         },
         {

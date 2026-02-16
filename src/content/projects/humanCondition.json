@@ -14,6 +14,7 @@
   "thumbnailHeight": 590,
   "size": "1x2",
   "position": 1,
+  "interactiveUrl": "https://editor.p5js.org/Falcyon/full/NmCT_pCwr",
   "content": [
     {
       "sections": [
@@ -31,14 +32,14 @@
           "type": "text",
           "size": "t",
           "text": [
-            "I wanted to explore the fast paced blur of city life through a performance. The past eight years of my life were spent in Mumbai, an extremely fast paced city. The different lives that I had the opportunity to glimpse all juxtaposed into a blurry collage of one life. And the move to New York City in 2021 only reinforced this idea."
+            "This piece explores the fast paced blur of city life through an interpretive performance. Eight years in Mumbai, one of the world's most relentless cities, followed by a move to New York in 2021. Different lives glimpsed in passing, all juxtaposed into a blurry collage of one existence."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "I started out with an idea of plucking different words from the space around me, to portray that we do have some agency over our lives. But this idea soon gave way to the bleaker tone in the final choreography. Radiohead's 'Fitter Happier' was my immediate choice as the backdrop against which I could perform."
+            "The starting point was an idea about plucking words from the space around you, portraying some agency over your own life. That initial optimism quickly gave way to the bleaker tone in the final choreography. Radiohead's 'Fitter Happier' became the backdrop."
           ]
         }
       ]
@@ -55,7 +56,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "I wanted the final performance to be removed from my human body, to strip it down to its essentials. Hence I decided to use machine learning to map my movements onto an abstract digital entity made completely out of text."
+            "The final performance needed to be removed from the human body, stripped down to its essentials. Machine learning maps the performer's movements onto an abstract digital entity made entirely out of text."
           ]
         },
         {
@@ -72,7 +73,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The challenge was to create the shape using AI to map my movements precisely and to keep a consistent form so as to still retain a human-like shape. With changing depth and dimensions during the performance, I had to ensure the code I wrote was robust enough to handle change in font size, word wraps and overwrites automatically in real time."
+            "The challenge was mapping movements precisely enough to maintain a recognizable human shape. With changing depth and dimensions throughout the performance, the code had to handle font size adjustments, word wraps, and overwrites automatically in real time."
           ]
         },
         {
@@ -89,21 +90,21 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The 2-minute song starts with a seemingly positive message about being 'fitter, happier, more productive'."
+            "The two minute song starts with a seemingly positive message about being 'fitter, happier, more productive.'"
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "This slowly crescendos into the musical chaos much like the haze in our lives."
+            "It slowly crescendos into musical chaos, much like the haze in our lives."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "And as we reach the denouement, a final callback to the initial 3 phrases 'fitter, happier, more productive' but now with a completely different meaning, presents to us the harsh reality of the lives we're living. The human condition."
+            "Then the denouement. A final callback to those initial three phrases, but now carrying a completely different weight. The human condition."
           ]
         }
       ]
@@ -114,11 +115,11 @@
           "type": "text",
           "size": "t",
           "text": [
-            "I leveraged the jittering the coding produced and added on to it with movement that was irresolute. Open and airy initially, but with time, uncertainty. The performance ends mimicking the lyrics-",
+            "The performance leaned into the jittering that the code produced, amplifying it with movement that was deliberately irresolute. Open and airy at first, then increasingly uncertain. It ends mimicking the lyrics.",
             "'A pig'",
             "'In a cage'",
             "'On antibiotics'",
-            "The body closes into itself while the ML engine haphazardly throws the words out as it struggles to decipher the pose."
+            "The body closes into itself while the ML engine struggles to decipher the pose, throwing words out as the form collapses."
           ]
         },
         {

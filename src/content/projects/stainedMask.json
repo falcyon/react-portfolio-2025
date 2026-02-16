@@ -13,6 +13,7 @@
   "thumbnailHeight": 540,
   "size": "1x1",
   "position": 1,
+  "interactiveUrl": "https://editor.p5js.org/Falcyon/full/ouUtT5cHm",
   "content": [
     {
       "sections": [
@@ -21,9 +22,9 @@
           "size": "h",
           "text": [
             "It's 2021.",
-            "After a year cooped up inside, a cautious freedom bloomed. We ventured out, masks a shield, a constant reminder to stay distant, to keep our neighbors safe. After all, in a world so fragile, every life mattered. Every breath held the weight of caution.",
-            "But the church, its pews and stained glass windows, seemed to disagree. The very idea of a mask, a symbol of protection for one another, was met with fervent opposition. It was a curious dissonance - the teachings of love thy neighbor set against this rejection of a simple act of care.",
-            "This tension, this clash of values, was interesting, to say the least. I designed this interactive piece to juxtapose the classic beauty of stained glass, a predominant feature of the church, with the utilitarian form of a mask that it now steadfastly opposes."
+            "After a year cooped up inside, a cautious freedom bloomed. We ventured out, masks as shields, a constant reminder to stay distant, to keep our neighbors safe. In a world so fragile, every life mattered. Every breath held the weight of caution.",
+            "But the church, its pews and stained glass windows, seemed to disagree. The very idea of a mask, a symbol of protection for one another, was met with fervent opposition. A curious dissonance. The teachings of love thy neighbor set against the rejection of a simple act of care.",
+            "This piece juxtaposes the beauty of stained glass, one of the church's most enduring visual symbols, with the utilitarian form of a mask that it now steadfastly opposes."
           ]
         },
         {
@@ -31,6 +32,23 @@
           "size": "h",
           "src": "/media/stainedMask/StainedMask.mp4",
           "alt": "Stained Glass Mask Video"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/stainedMask/mesh_map.jpg",
+          "alt": "Voronoi triangle mesh mapped to face landmarks"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The effect is built on a face mesh tracked in real time. Voronoi triangles subdivide the surface of the face, with each triangle assigned a different color to mimic the fragmented glow of stained glass. The colors shift over time, so the mask is never static. The triangulation is denser around the eyes, nose, and mouth, where facial landmarks cluster, and sparser toward the edges."
+          ]
         }
       ]
     }

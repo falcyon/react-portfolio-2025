@@ -1,6 +1,6 @@
 .projectPageDiv {
     z-index: var(--z-base);
-    padding: 0 var(--page-px);
+    padding: var(--page-pt) var(--page-px) 0;
     max-width: var(--content-max-width);
     margin-left: auto;
     margin-right: auto;
@@ -10,8 +10,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    padding: calc(var(--nav-height) + var(--space-xl) + 20px) 0 0 0;
-    margin: 0 0 20px 0;
+    margin: 0 0 8px 0;
 }
 
 .tag {
@@ -23,7 +22,6 @@
     letter-spacing: 0.03em;
     padding: 3px 10px;
     border: 1px solid var(--foreground);
-    background: var(--background);
     color: var(--foreground);
 }
 
@@ -53,6 +51,27 @@
     min-width: 0;
 }
 
+.interactiveLink {
+    display: inline-block;
+    margin-top: var(--space-md);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    background: var(--background);
+    transition: background var(--duration-base), color var(--duration-base);
+}
+
+.interactiveLink:hover {
+    background: var(--accent);
+    color: var(--background);
+}
+
 .contentContainer {
     margin-top: 2rem;
 }
@@ -69,6 +88,9 @@
 }
 
 .videoSection video {
+    border-style: solid;
+    border-color: var(--foreground);
+    border-width: 1px;
     width: 100%;
     height: auto;
 }
@@ -112,11 +134,11 @@
 .closeButton {
     position: fixed;
     top: calc(var(--nav-height) + var(--space-md));
-    right: var(--page-px);
+    right: max(var(--page-px), calc((100vw - var(--content-max-width)) / 2 + var(--page-px)));
     width: 40px;
     height: 40px;
-    border: none;
-    background: none;
+    border: 1px solid var(--accent);
+    background: var(--background);
     color: var(--accent);
     cursor: pointer;
     z-index: var(--z-close-button);
@@ -160,7 +182,7 @@
 
 @media (max-width: 700px) {
     .projectPageDiv {
-        padding: 0 var(--page-px-mobile);
+        padding: var(--page-pt-mobile) var(--page-px-mobile) 0;
     }
 
     .closeButton {

@@ -11,6 +11,7 @@
   "thumbnailHeight": 720,
   "size": "1x1",
   "position": 2,
+  "interactiveUrl": "https://editor.p5js.org/Falcyon/full/HswNMtGfl",
   "content": [
     {
       "sections": [
@@ -18,14 +19,32 @@
           "type": "text",
           "size": "h",
           "text": [
-            "This is a representation of the now-default use of computer chips to keep track of time. This is based on the idea of representing the seconds of a clock in binary, juxtaposed with the 'tick-tock' of an old grandfathers clock."
+            "Two ways of keeping time, collapsed into one. The seconds of a clock are converted into binary and displayed as a digital notation that rotates like the second hand of a grandfather clock.",
+            "The 1 and 0 of binary double as the letters 'i' and 'o' in 'tick' and 'tock,' merging the mechanical rhythm of analog timekeeping with the logic of computation."
           ]
         },
         {
           "type": "video",
           "size": "h",
           "src": "/media/bitByBit/bitbybit.mp4",
-          "alt": "Bit by Bit Video"
+          "alt": "Bit by Bit"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The prep version below strips the concept down to its simplest form. Just the seconds, converted to binary, with the 1 and 0 forming the 'i' and 'o' of tick and tock."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/bitByBit/BitbyBitPrep.mp4",
+          "alt": "Bit by Bit prep version"
         }
       ]
     }

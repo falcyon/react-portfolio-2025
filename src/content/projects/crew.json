@@ -18,16 +18,16 @@
       "sections": [
         {
           "type": "text",
-          "size": "t",
+          "size": "h",
           "text": [
-            "Crew is a social media startup that connects influencers with brands, aiming to foster a vibrant community where influencers can collaborate, share, and grow. The team at Crew sought a branding that would be familiar to its community while also standing out in the crowded social media landscape."
+            "Crew is a social media startup that connects influencers with brands. They needed a visual identity that felt familiar to creators but stood apart from the polished, corporate look of existing platforms.",
+            "I designed the logo, brand system, color palette, and typography. The goal was to capture something the competitors missed entirely. Playfulness."
           ]
         },
         {
           "type": "image",
-          "size": "t2",
-          "src": "/media/crew/Logo.png",
-          "alt": "Crew Logo"
+          "size": "h",
+          "src": "/media/crew/Logo.png"
         }
       ]
     },
@@ -35,15 +35,15 @@
       "sections": [
         {
           "type": "image",
-          "size": "t2",
-          "src": "/media/crew/Branding.png",
-          "alt": "Crew Branding"
+          "size": "h",
+          "src": "/media/crew/Branding.png"
         },
         {
           "type": "text",
-          "size": "t",
+          "size": "h",
           "text": [
-            "The primary objective was to highlight the playfulness and uniqueness of social media influencers. The branding & design needed to reflect the celebratory and diverse nature of the influencer community."
+            "Every other platform in this space leans into clean, professional design. Functional, but flat. Crew wanted the opposite. The brand needed to feel like a celebration, not a corporate partnership dashboard.",
+            "Confetti became the central motif. It represents festivity, individuality, and the energy of creator culture. The zigzag shapes scatter across the brand, giving every surface a sense of occasion."
           ]
         }
       ]
@@ -54,39 +54,28 @@
           "type": "text",
           "size": "t",
           "text": [
-            "1. User Research: To understand the preferences and behaviors of influencers, we conducted interviews and surveys with a diverse group of influencers. Key findings included a preference for vibrant, playful designs and a desire for branding that felt personal and unique."
-          ]
-        },
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "2. Competitive Analysis: We analyzed the branding and design systems of similar platforms, noting a tendency towards clean and professional designs, but with limited visual excitement or playfulness. Their focus was on functionality and partnership management. This highlighted an opportunity for Crew to differentiate itself with a more distinctive and engaging visual approach that reflects the celebratory nature of influencer culture."
-          ]
-        },
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "3. Design Inspiration: Inspired by themes of celebration and individuality, we chose confetti as the central theme. Confetti represents festivity, excitement, and a sense of occasion - all qualities that align with the influencer lifestyle and the collaborative nature of Crew."
-          ]
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "Logo: The redesigned Crew logo features a minimalistic approach with the word 'Crew' prominently displayed. The letters are made up of parts of confetti."
+            "The Crew logo is built entirely from confetti. Each letter is constructed from the same zigzag shapes that make up the brand pattern, so the wordmark and the visual system are one and the same."
           ]
         },
         {
           "type": "video",
-          "size": "t",
+          "size": "t2",
           "src": "/media/crew/Design.mp4",
-          "alt": "Crew Logo Design"
+          "alt": "Logo design animation"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/crew/colors4.png"
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/crew/colors2.png"
         }
       ]
     },
@@ -94,20 +83,9 @@
       "sections": [
         {
           "type": "text",
-          "size": "t",
-          "text": []
-        },
-        {
-          "type": "image",
-          "size": "t",
-          "src": "/media/crew/colors4.png",
-          "alt": "Crew Colors"
-        },
-        {
-          "type": "text",
-          "size": "t",
+          "size": "h",
           "text": [
-            "The primary colors of the CMYK color scheme, adjusted for digital screens, were selected to forge a vibrant and eye-catching visual identity. The colors are bold and distinct, and are used individually by major social media platforms. Combining all 3 colors enhanced the playful and energetic nature of the brand."
+            "The palette pulls from the primary colors of CMYK, adjusted for screens. Pink, teal, and yellow. Each of these colors is already claimed individually by major social platforms. Combining all three gives Crew a vibrant, energetic identity that nods to the broader social media landscape without belonging to any single player."
           ]
         }
       ]
@@ -116,21 +94,47 @@
       "sections": [
         {
           "type": "text",
-          "size": "t",
+          "size": "h",
           "text": [
-            "Typography: We went with Satoshi designed by Indian Type Foundry. A modern, sans-serif typeface with clean lines was selected to complement the minimalistic design. This choice ensures readability and aligns with the overall aesthetic of simplicity and clarity."
+            "Satoshi by Indian Type Foundry was chosen for its clean geometry and warmth. It stays readable at every scale while complementing the playful brand elements without competing with them."
           ]
         },
         {
           "type": "image",
-          "size": "t",
-          "src": "/media/crew/typography2.png",
-          "alt": "Crew Typography"
+          "size": "h",
+          "src": "/media/crew/typography2.png"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/crew/Screenshot 2023-09-14 125750.png"
         },
         {
           "type": "text",
-          "size": "t",
-          "text": []
+          "size": "h",
+          "text": [
+            "This was Crew's existing brand before the redesign. It worked, but the yellow and black palette felt generic and didn't reflect the energy of the creator community it served."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "An early variation explored a more professional, subdued aesthetic. The confetti shapes are still present, but muted and glowing against a dark background. The team ultimately chose the vibrant direction, which better matched the personality of their users."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/crew/Screenshot 2023-08-29 015120.png"
         }
       ]
     }

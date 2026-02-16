@@ -18,8 +18,8 @@
           "type": "text",
           "size": "h",
           "text": [
-            "This sculpture could be a storyteller. Their abstract forms weren't meant to be clear-cut, but invitations. Invitations to delve deeper, to share their stories without feeling pressured.",
-            "By keeping myself occupied in the primary task of creating the sculpture, the conversation became secondary. It no longer felt like I was questioning them. It became more of a space where they could keep the conversation in the sub-conscious."
+            "This sculpture was built during conversations about nihilism. The abstract form isn't meant to represent anything specific. The act of creating was an invitation, shaped in real time as people shared their thoughts without the pressure of being directly questioned.",
+            "The act of making became camouflage. By staying occupied with the sculpture, the conversation shifted from foreground to background. People stopped performing their answers and started thinking out loud. The resulting forms are physical traces of those unguarded moments"
           ]
         },
         {
@@ -27,6 +27,45 @@
           "size": "h",
           "src": "/media/conversationSculpture/pop2.mp4",
           "alt": "Pop Video"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/conversationSculpture/convo1.png"
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/conversationSculpture/convo3.png"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The paintings below were an early prototype, testing whether the same conversational method could work with a different form of creation. Sculpting won out. The three dimensions gave people something to orbit, something to hold and turn over, which made the conversation feel less like an interview and more like a shared activity."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/conversationSculpture/IMG-20221018-WA0027.jpg"
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/conversationSculpture/IMG-20221018-WA0030.jpg"
         }
       ]
     }

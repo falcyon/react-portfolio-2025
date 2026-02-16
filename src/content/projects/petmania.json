@@ -5,7 +5,7 @@
   "tags": [
     "Product Design"
   ],
-  "description": "Product Design for an app for dogs to find companions.",
+  "description": "Product design for an app connecting pet owners in urban neighborhoods.",
   "thumbnail": "/media/petmania/petmania.mp4",
   "thumbnailWidth": 720,
   "thumbnailHeight": 1158,
@@ -18,8 +18,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Made in collaboration with 2 other Parsons graduates, this app is meant to create a community of pet-owners as a way to connect their pets and also with other pet-owners.",
-            "There is currently no good way for pet owners to connect with other nearby pet-owners especially in busy cities like NYC where interaction with neighbours is limited."
+            "Made in collaboration with two Parsons graduates, Petmania addresses a real gap in urban life. There's no good way for pet owners to connect with nearby pet owners, especially in cities like New York where interactions with neighbors are rare. Pets need companionship, owners need trusted people who can pet sit, and neighborhoods lack a system for making those connections happen."
           ]
         },
         {
@@ -36,8 +35,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "People need friends to pet-sit a lot of times and their pets need companionship.",
-            "We started by making some proto-personas."
+            "The design process started with proto-personas to map out the target audience and understand their daily frustrations."
           ]
         },
         {
@@ -55,9 +53,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "We then sketched out our various ideas for the app-screens on paper as a form of rapid prototyping.",
-            "Some common threads we had was giving users personalised options to choose types of pets they'd like to connect with.",
-            "We also had the idea to double the app as a photo-sharing and cataloging service for pictures of their pets and to view pictures of others' pets."
+            "Paper sketches served as rapid prototypes. Common threads emerged across the team's ideas, including personalized filters for types of pets and a photo sharing layer that doubles as a social catalog."
           ]
         },
         {
@@ -74,7 +70,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Figma was our weapon of choice for this project. We designed 10 pages based on user-testing from our lo-fi prototype. We created wireframes for these 10 pages."
+            "Ten pages were designed in Figma based on user testing from the lo-fi prototype, starting with wireframes to establish the information architecture."
           ]
         },
         {
@@ -92,7 +88,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "We created a user-flow"
+            "A user flow mapped the complete journey through the app, from onboarding to connecting with nearby owners."
           ]
         },
         {
@@ -110,8 +106,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "For its visual design, we went with a paw as logo. We wanted the app to indicate trust, warmth and fun.",
-            "We iterated and landed on a warm aqua blue and gold color palette since the colors were reminiscent of a beach and reflected the app's themes."
+            "For the visual identity, a paw became the logo. The brand needed to feel trustworthy, warm, and fun. After several iterations, the team landed on a warm aqua and gold palette. The colors evoke beach tones and reflect the app's themes of outdoor connection and play."
           ]
         },
         {

@@ -1,6 +1,8 @@
 {
   "name": "Leffin",
-  "summary": "Multidisciplinary New Media Artist building immersive, interactive installations that use AI and the human body to ask deeply introspective questions.",
+  "tagline": "Artist. Designer. Engineer.",
+  "summaryArt": "Leffin makes interactive installations about identity, self-perception, and impermanence using AI, physical computing, and the human body.",
+  "summaryCorp": "He also leads experience design at Citibank, building enterprise AI platforms.",
   "credentials": {
     "education": [
       {
@@ -12,7 +14,7 @@
         "note": "Minor in Industrial Design"
       }
     ],
-    "current": "Experience Design Lead, Citibank"
+    "current": "VP, Experience Design Lead, Citibank"
   },
   "contact": {
     "email": "leffin7@gmail.com",

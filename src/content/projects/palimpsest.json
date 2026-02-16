@@ -8,10 +8,10 @@
     "Performance"
   ],
   "description": "A performance installation converting conversations into pieces of thread.",
-  "thumbnail": "/media/palimpsest/palimpsest2.mp4",
+  "thumbnail": "/media/palimpsest/2ndInstall.mp4",
   "thumbnailWidth": 1920,
-  "thumbnailHeight": 1080,
-  "size": "2x1",
+  "thumbnailHeight": 1920,
+  "size": "2x2",
   "position": 2,
   "content": [
     {
@@ -20,14 +20,14 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Palimpsest is a performance-based interactive installation that aims to explore and illustrate humanity's fascination with the question of the meaning of life. The installation seeks to gain a better understanding of our collective preoccupation with this question and other fundamental questions that feed into it. Through the act of questioning, we may find meaning and direction in life, despite the uncertainty that surrounds us."
+            "What would it look like if a conversation had a physical form? Palimpsest turns spoken exchanges about the meaning of life into tangible sculptures made of thread. Participants sit across from each other and talk, and the installation translates their words into something you can see and touch."
           ]
         },
         {
           "type": "image",
           "size": "t2",
           "src": "/media/palimpsest/1.jpg",
-          "alt": "Palimpsest Installation Image"
+          "alt": "Palimpsest Installation"
         }
       ]
     },
@@ -43,7 +43,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "This interactive performance prompts participants to confront these questions head-on and contemplate them deeply. By incorporating an external element and thought-provoking questions, participants are guided towards introspection, and their responses are encoded and transformed into a dynamic and interactive installation that invites viewers to engage with them in a new and exciting way."
+            "Participants are prompted with fundamental questions. What gives life meaning? What are we afraid of? As they talk, their responses are encoded and transformed into a spatial installation that others can walk through and engage with."
           ]
         }
       ]
@@ -54,7 +54,7 @@
           "type": "text",
           "size": "f",
           "text": [
-            "2 shows of 3 hours each were performed in 2023."
+            "Two performances of three hours each were held in 2023."
           ]
         }
       ]
@@ -65,19 +65,19 @@
           "type": "image",
           "size": "t",
           "src": "/media/palimpsest/Asset 3-100.jpg",
-          "alt": "Palimpsest Image 1"
+          "alt": "Thread sculpture detail"
         },
         {
           "type": "image",
           "size": "t",
           "src": "/media/palimpsest/Asset 2-100.jpg",
-          "alt": "Palimpsest Image 2"
+          "alt": "Installation view"
         },
         {
           "type": "image",
           "size": "t",
           "src": "/media/palimpsest/Asset 5-100.jpg",
-          "alt": "Palimpsest Image 3"
+          "alt": "Thread detail"
         }
       ]
     },
@@ -87,13 +87,13 @@
           "type": "video",
           "size": "t",
           "src": "/media/palimpsest/Conversations_Rotation.mp4",
-          "alt": "Palimpsest Conversations Rotation"
+          "alt": "Conversation to vector visualization"
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "The conversations were converted into vector representations by the machine. This vector from a 'latent-space' was then mapped onto reality constrained within a metal cube."
+            "Each conversation is converted into a vector representation by the machine. This abstract point in latent space is then mapped onto physical coordinates within a metal cube, determining where and how the thread is placed."
           ]
         }
       ]
@@ -104,14 +104,24 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The physicality of the conversation was represented by multi colored threads of various lengths, signifying the intensity and emotions of the conversations that took place."
+            "The threads vary in color and length, encoding the intensity and emotion of what was said. Each strand makes the invisible weight of words tangible."
           ]
         },
         {
           "type": "image",
           "size": "t",
           "src": "/media/palimpsest/colors.jpg",
-          "alt": "Palimpsest Colored Threads"
+          "alt": "Colored threads representing conversation emotions"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "f",
+          "src": "/media/palimpsest/palimpsest2.mp4",
+          "alt": "Palimpsest first installation"
         }
       ]
     },
@@ -121,7 +131,7 @@
           "type": "video",
           "size": "f",
           "src": "/media/palimpsest/2ndInstall.mp4",
-          "alt": "Palimpsest Second Installation"
+          "alt": "Palimpsest second installation"
         }
       ]
     }

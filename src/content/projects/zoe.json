@@ -6,9 +6,9 @@
     "Product Design"
   ],
   "description": "A service design concept connecting consumers with local tailors for custom, sustainable clothing.",
-  "thumbnail": "/media/zoe/zoe.png",
-  "thumbnailWidth": 717,
-  "thumbnailHeight": 387,
+  "thumbnail": "/media/zoe/IMG-20221110-WA0005.jpg",
+  "thumbnailWidth": 1024,
+  "thumbnailHeight": 768,
   "size": "2x1",
   "position": 3,
   "content": [
@@ -18,8 +18,8 @@
           "type": "text",
           "size": "h",
           "text": [
-            "Zoe is a service design concept that reimagines the relationship between consumers and clothing by connecting them directly with local tailors. The platform allows users to choose their desired fit, select patterns and materials, and have garments custom-made — offering an alternative to fast fashion's mass-produced model.",
-            "The project began with extensive stakeholder mapping across the fashion ecosystem, identifying core, direct, and indirect actors — from local communities and tailors to fast fashion brands and government policy makers."
+            "Zoe is a service design concept that reimagines the relationship between consumers and clothing by connecting them directly with local tailors. The platform allows users to choose their desired fit, select patterns and materials, and have garments custom made. An alternative to fast fashion's mass produced model.",
+            "The project began with extensive stakeholder mapping across the fashion ecosystem, identifying core, direct, and indirect actors. Local communities, tailors, fast fashion brands, and government policy makers all factored into the system."
           ]
         },
         {

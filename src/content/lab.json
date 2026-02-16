@@ -1,9 +1,15 @@
 [
   {
     "name": "Revenge for Dino",
-    "description": " A browser game where Gemini 3 Pro generates physics objects from a prompt and drops them into a 2D physics world",
+    "description": "A browser experience where Gemini 3 Pro generates physics objects from a prompt and drops them into a 2D physics world.",
     "href": "/interactives/dinoRevenge",
     "thumbnail": "/media/thumbnails/Untitled_video_-_Made_with_Clipchamp.webm"
+  },
+  {
+    "name": "Discourse Parkour",
+    "description": "An interactive parkour experience where a monologue about self-doubt unfolds as you run alongside other stick figures.",
+    "href": "https://editor.p5js.org/Falcyon/full/rifCaTlbJ",
+    "thumbnail": "/media/discourseParkour/discourse.mp4"
   },
   {
     "name": "Human Condition",
@@ -19,8 +25,8 @@
   },
   {
     "name": "Bit by Bit",
-    "description": "Pixel-level deconstruction of an image, rebuilt one bit at a time. Prep for the Bit by Bit piece.",
-    "href": "https://editor.p5js.org/Falcyon/full/BzzwCfNDG",
+    "description": "A binary clock that converts seconds into 1s and 0s, rotating like the second hand of a grandfather clock.",
+    "href": "https://editor.p5js.org/Falcyon/full/HswNMtGfl",
     "thumbnail": "/media/bitByBit/bitbybit.mp4"
   },
   {

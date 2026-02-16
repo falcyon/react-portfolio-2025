@@ -26,7 +26,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "This book is an experiment with Markov Chains. I force-fed a computer Grimms' fairy tales and asked it to come up with a new tale."
+            "Grimmer Tales is an experiment with Markov Chains. A computer was fed the complete Grimm's fairy tales and asked to write a new one."
           ]
         }
       ]
@@ -43,7 +43,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The result was a hilariously entertaining read and proof of how good even a very basic model such as Markov Chain can be."
+            "The result was hilariously entertaining and surprisingly coherent. Proof that even a basic model can produce something genuinely creative when given the right material."
           ]
         },
         {
@@ -60,8 +60,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Once I generated the text, I illustrated it in the style of children's story books.",
-            "I then printed and bound the book to give it some physicality and dimensionality."
+            "The generated text was illustrated in the style of a children's storybook, then printed and hand bound. Giving the machine's imagination a physical life."
           ]
         },
         {

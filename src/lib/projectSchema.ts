@@ -27,6 +27,7 @@ export const projectSchema = z.object({
   order: z.number().int().min(0).optional(),
   featured: z.boolean().optional().default(false),
   featuredOrder: z.number().int().optional(),
+  interactiveUrl: z.string().url().optional(),
   content: z.array(sectionGroupSchema),
 });
 

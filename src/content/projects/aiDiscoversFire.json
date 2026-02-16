@@ -19,25 +19,31 @@
           "type": "text",
           "size": "h",
           "text": [
-            "Fire is arguably the first discovery of humanity. In 2021, just before the AI revolution took hold, a different kind of fire burned in our minds — Could AI, this nascent intelligence, ever truly become human?",
-            "DCGAN, one of the earliest AI models to generate images, produces outputs that seem a little unhinged and 'fluid'. This, coupled with the concept of latent space - a hidden dimension where images morphed and danced - gave a feeling of effervescence of images",
-            "Keeping fire as my muse, I force-fed DCGAN a diet of flames. Could AI crack the code of humanity's earliest discovery?"
+            "Fire was arguably humanity's first discovery, the spark that separated us from everything else. In 2021, just before the AI revolution took hold, I wanted to close that loop. What happens when you ask an artificial intelligence to discover fire for itself?",
+            "DCGAN, one of the earliest generative image models, produces outputs that feel unhinged and fluid. Artifacts of a network learning to see. Trained on hundreds of images of flames, the model learns to hallucinate fire that never existed. The results live in latent space, a hidden dimension where one imagined flame morphs seamlessly into the next."
           ]
         },
         {
-          "type": "image",
-          "size": "h",
-          "src": "/media/aiDiscoversFire/fire.png"
+          "type": "video",
+          "size": "f",
+          "src": "/media/aiDiscoversFire/fire-gif.mp4",
+          "alt": "AI Discovers Fire"
         }
       ]
     },
     {
       "sections": [
         {
-          "type": "video",
-          "size": "f",
-          "src": "/media/aiDiscoversFire/fire-gif.mp4",
-          "alt": "AI Discovers Fire"
+          "type": "image",
+          "size": "h",
+          "src": "/media/aiDiscoversFire/fire.png"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Each frame below captures the model at a different stage of training. Early epochs produce nothing but noise and color. Gradually, shapes emerge. Warmth, movement, the flicker of something recognizable. By the final epoch, the network has taught itself to dream of fire."
+          ]
         }
       ]
     },

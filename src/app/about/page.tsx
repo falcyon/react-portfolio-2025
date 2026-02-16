@@ -16,8 +16,13 @@ export default function AboutPage() {
       {/* Hero bio */}
       <section className={styles.hero}>
         <div className={styles.heroText}>
-          <h1 className={styles.name}>{aboutData.name}</h1>
-          <p className={styles.summary}>{aboutData.summary}</p>
+          <p className={styles.tagline}>
+            <span className={styles.tagArt}>Artist.</span>{' '}
+            <span className={styles.tagDesign}>Designer.</span>{' '}
+            <span className={styles.tagEng}>Engineer.</span>
+          </p>
+          <p className={`${styles.summary} ${styles.summaryArt}`}>{aboutData.summaryArt}</p>
+          <p className={`${styles.summary} ${styles.summaryCorp}`}>{aboutData.summaryCorp}</p>
           <div className={styles.credentials}>
             <div className={styles.credential}>
               <span className={styles.credLabel}>Education</span>
@@ -31,10 +36,12 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-        <div className={styles.heroLinks}>
+        <div className={styles.heroAside}>
+          <div className={styles.heroLinks}>
           <a href={`mailto:${aboutData.contact.email}`}>Email</a>
           <a href={aboutData.contact.instagram} target="_blank" rel="noopener noreferrer">Instagram <ExternalIcon className={styles.heroExtIcon} /></a>
           <a href={aboutData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <ExternalIcon className={styles.heroExtIcon} /></a>
+          </div>
         </div>
       </section>
 

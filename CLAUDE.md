@@ -53,11 +53,11 @@ All editable content lives in `src/content/`:
 
 The hero section uses shuffleable visual identity cards called **Playground** items.
 
-- Located in `src/components/playground/`, each in its own subfolder (`shapes/`, `dictionary/`, `museum/`, `terminal/`)
+- Located in `src/components/playground/`, each in its own subfolder (`explosion/`, `dictionary/`, `terminal/`, `physics/`)
 - `PlaygroundHost.tsx` manages the shuffle cycle (earmark button in bottom-right corner)
-- `playgroundRegistry.ts` registers all playground items
-- Always starts with **ShapesPlayground** (animated rectangles forming "LEFFIN.")
-- 4 playground items: Shapes, Dictionary, Museum, Terminal
+- `playgroundRegistry.ts` registers all playground items (each entry has `id`, `name`, `label`, `component`)
+- Always starts with **ExplosionPlayground** (animated rectangles forming "LEFFIN.")
+- 4 playground items: Explosion, Dictionary, Terminal, 2D Bodies (Physics)
 - Umami tracks shuffles as `playground-cycle`
 
 ## Site Structure

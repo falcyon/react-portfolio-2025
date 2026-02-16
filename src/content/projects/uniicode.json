@@ -7,10 +7,10 @@
     "Physical",
     "AI/ML"
   ],
-  "description": "Generation of new character sets to fill up spaces in Unicode.",
-  "thumbnail": "/media/uniicode/uniicode_2.mp4",
-  "thumbnailWidth": 1440,
-  "thumbnailHeight": 1080,
+  "description": "ML-generated characters for scripts that don't exist, then 3D printed into physical artifacts.",
+  "thumbnail": "/media/uniicode/physical.jpeg",
+  "thumbnailWidth": 3526,
+  "thumbnailHeight": 2645,
   "size": "2x1",
   "position": 1,
   "content": [
@@ -20,21 +20,21 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The [unicode](https://en.wikipedia.org/wiki/Unicode) is a text encoding standard used by most modern computers to support 161 scripts used by the world's major writing systems."
+            "Unicode is the text encoding standard used by most modern computers, supporting 161 scripts and the world's major writing systems."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "Unicode encoding contains gaps between scripts and ensures that a new script starts from a '00'. This allows for new characters to be added to existing scripts without having to disrupt other scripts."
+            "The encoding contains intentional gaps between scripts, with each new script starting from a round number. This allows characters to be added to existing scripts without disrupting others."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "In this project, I trained an ML model to create new characters for scripts to fill these gaps."
+            "This project trained an ML model to generate entirely new characters to fill those gaps. Characters that don't exist in any language."
           ]
         }
       ]
@@ -45,7 +45,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "This character does not exist in any language. It was created by the ML model."
+            "This character exists in no language. It was imagined entirely by the model."
           ]
         },
         {
@@ -61,7 +61,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "To train the model, I created 128*128 pixel PNGs of all the characters."
+            "Training data was prepared by rendering all characters as 128 by 128 pixel PNGs."
           ]
         },
         {
@@ -87,7 +87,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The Tamil script was used to generate more Tamil characters."
+            "The Tamil script was then used to generate additional Tamil characters, extending the alphabet with forms that feel native but are entirely synthetic."
           ]
         }
       ]
@@ -98,13 +98,23 @@
           "type": "text",
           "size": "t",
           "text": [
-            "These were then 3D modeled and printed to create physical characters."
+            "The generated characters were then 3D modeled and printed, turning imaginary language into physical artifacts."
           ]
         },
         {
           "type": "image",
           "size": "t2",
           "src": "/media/uniicode/physical.jpeg"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "f",
+          "src": "/media/uniicode/uniicode_2.mp4",
+          "alt": "ML-generated characters animation"
         }
       ]
     }

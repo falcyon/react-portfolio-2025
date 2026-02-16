@@ -67,6 +67,11 @@ export default function PlaygroundHost() {
         {/* Page-turn overlay */}
         <div className={`${styles.pageTurnOverlay} ${overlayClass}`} />
 
+        {/* Playground name */}
+        <span className={styles.playgroundName}>
+          {currentPlayground.name}
+        </span>
+
         {/* Playground counter */}
         <span className={styles.playgroundCounter}>
           Playground #{playgroundIndex + 1}/{playgroundRegistry.length}

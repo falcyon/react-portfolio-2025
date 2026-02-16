@@ -20,6 +20,7 @@ interface ProjectProps {
         tags: string[];
         description: string;
         year: number;
+        interactiveUrl?: string;
         content: {
             sections: Section[];
         }[];
@@ -45,6 +46,16 @@ export default function ProjectPage({ project }: ProjectProps) {
                         <h1>{project.name}</h1>
                         <h2>{project.description}</h2>
                         <h2>[{project.year}]</h2>
+                        {project.interactiveUrl && (
+                            <a
+                                href={project.interactiveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.interactiveLink}
+                            >
+                                Try Interactive Version →
+                            </a>
+                        )}
                     </div>
                 </div>
 

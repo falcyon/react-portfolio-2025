@@ -18,6 +18,23 @@
       "sections": [
         {
           "type": "text",
+          "size": "h",
+          "text": [
+            "This installation was showcased at the LUMA Festival in Binghamton, NY (2024), projected at massive scale for a crowd of 30,000. It was first exhibited as part of the Art, Design, & AI Exhibition hosted by Parsons School of Design and LG AI Research in New York (2023)."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/andWordsWillEchoInMySoul/LUMA_peopleInteracting.mp4",
+          "alt": "LUMA Festival projection"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
           "size": "t",
           "text": [
             "Mirrors have this incredible power of capturing our attention whenever we encounter it. Everytime we look at one, we immediately primp and scrutinize ourselves. In this intimate act of self-reflection, we tend to magnify what we perceive as flaws, even if they are nearly imperceptible to others."
@@ -27,6 +44,21 @@
           "type": "image",
           "size": "t2",
           "src": "/media/andWordsWillEchoInMySoul/Hero Image.jpg"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/andWordsWillEchoInMySoul/LUMA_peopleInteracting.jpg"
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/andWordsWillEchoInMySoul/insecurityMirror.mp4",
+          "alt": "Installation demo"
         }
       ]
     },
@@ -79,10 +111,7 @@
         {
           "type": "image",
           "size": "h",
-          "src": "/media/andWordsWillEchoInMySoul/4.jpeg",
-          "text": [
-            "This interactive installation was showcased as part of <a href=\"https://tnsadai.com/\">Art, Design, & AI</a> Exhibition hosted by Parsons School of Design & LG AI Research."
-          ]
+          "src": "/media/andWordsWillEchoInMySoul/4.jpeg"
         }
       ]
     },

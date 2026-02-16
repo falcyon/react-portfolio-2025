@@ -48,8 +48,25 @@
   font-size: 0.85rem;
 }
 
+.synonyms {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.synonymsLabel {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: 8px;
+}
+
 .origin {
-  margin-top: 20px;
+  margin-top: 16px;
   font-size: 0.8rem;
   opacity: 0.5;
   border-top: 1px solid var(--border-light);

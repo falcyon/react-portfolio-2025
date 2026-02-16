@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./ShapesPlayground.module.css";
+import styles from "./ExplosionPlayground.module.css";
 
 // --- Shape data ---
 
@@ -38,6 +38,44 @@ const unscaledShapes: Record<ShapeID, ShapeDims> = {
   Nr: { w: 3, h: 15, shapeType: "long" },
   Ns: { w: 15.84, h: 3, rotation: 57.55, shapeType: "slant" },
 };
+
+// --- Text element data ---
+
+interface TextElement {
+  id: string;
+  content: string;
+  fontScale: number;
+  minFontSize: number;
+}
+
+const textElements: TextElement[] = [
+  { id: "t_0", content: "MULTIDISCIPLINARY", fontScale: 1.0, minFontSize: 9 },
+  { id: "t_1", content: "INTERACTIVE", fontScale: 1.0, minFontSize: 9 },
+  { id: "t_2", content: "TECHNOLOGIST", fontScale: 1.0, minFontSize: 9 },
+  { id: "t_3", content: "INTROSPECTIVE", fontScale: 1.0, minFontSize: 9 },
+  { id: "t_4", content: "EMBODIED", fontScale: 1.0, minFontSize: 9 },
+  { id: "t_5", content: "IMMERSIVE", fontScale: 1.0, minFontSize: 9 },
+  { id: "t_6", content: "EXPERIMENTAL", fontScale: 1.0, minFontSize: 9 },
+  { id: "t_7", content: "HUMAN", fontScale: 1.0, minFontSize: 9 },
+  { id: "t_8", content: "STORYTELLER", fontScale: 1.0, minFontSize: 9 },
+  { id: "t_9", content: "BUILDER", fontScale: 1.0, minFontSize: 9 },
+];
+
+// Chaos positions for text (percentage-based, like shape chaos)
+const textChaosPositions: Record<string, { x: number; y: number }> = {
+  t_0: { x: 70, y: 10 },
+  t_1: { x: 15, y: 60 },
+  t_2: { x: 80, y: 45 },
+  t_3: { x: 35, y: 80 },
+  t_4: { x: 60, y: 5 },
+  t_5: { x: 25, y: 42 },
+  t_6: { x: 85, y: 75 },
+  t_7: { x: 50, y: 30 },
+  t_8: { x: 8, y: 88 },
+  t_9: { x: 92, y: 55 },
+};
+
+// --- Shape states ---
 
 // "LEFF.IN" — dot between F and I (the domain)
 const LeffInState: Record<ShapeID, { x: number; y: number }> = {
@@ -123,9 +161,9 @@ const ChaosState: Record<ShapeID, { x: number; y: number }> = {
   Ns: { x: 105, y: 20 },
 };
 
-export default function ShapesPlayground() {
+export default function ExplosionPlayground() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const shapeRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const elRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const animRef = useRef<number>(0);
   const [containerSize, setContainerSize] = useState({ w: 0, h: 0 });
 
@@ -147,11 +185,59 @@ export default function ShapesPlayground() {
     const containerHeight = containerSize.h;
     const scaleFactor = containerWidth / 100;
     const X_OFFSET = 18;
-    // Center vertically: content spans 15 unscaled units tall
-    const contentHeight = 15 * scaleFactor;
-    const Y_OFFSET = (containerHeight - contentHeight) / 2;
 
-    // Pre-compute scaled positions for all 3 states
+    // --- Compute text font sizes ---
+    const wordFontSize = Math.max(9, 1.0 * scaleFactor);
+
+    // --- Compute text settled layout (to determine total content height) ---
+    const nameHeightPx = 15 * scaleFactor;
+    const gapNameToWords = Math.max(12, 5 * scaleFactor);
+    const nameWidthPx = 65 * scaleFactor;
+    const charWidthPx = wordFontSize * 0.55;
+    const tagPadHPx = wordFontSize * 0.5; // horizontal padding inside tag
+    const wordGapPx = wordFontSize * 0.6;
+    const lineHeightPx = wordFontSize * 2.2;
+
+    // Dry-run word layout to count rows
+    let tempX = 0;
+    let numWordRows = 1;
+    for (const t of textElements) {
+      const tagWidth = t.content.length * charWidthPx + tagPadHPx * 2;
+      if (tempX + tagWidth > nameWidthPx && tempX > 0) {
+        tempX = 0;
+        numWordRows++;
+      }
+      tempX += tagWidth + wordGapPx;
+    }
+
+    const totalContentPx =
+      nameHeightPx + gapNameToWords + numWordRows * lineHeightPx;
+    const Y_OFFSET = (containerHeight - totalContentPx) / 2;
+
+    // --- Compute settled text positions (px, with Y_OFFSET) ---
+    const textSettled: Record<string, { x: number; y: number; fontSize: number }> = {};
+
+    // Word rows: flow left-to-right, wrap when exceeding name width
+    const wordsStartY = nameHeightPx + gapNameToWords + Y_OFFSET;
+    let rowX = 0;
+    let rowY = wordsStartY;
+    for (const t of textElements) {
+      const tagWidth = t.content.length * charWidthPx + tagPadHPx * 2;
+      if (rowX + tagWidth > nameWidthPx && rowX > 0) {
+        rowX = 0;
+        rowY += lineHeightPx;
+      }
+      textSettled[t.id] = { x: X_OFFSET * scaleFactor + rowX, y: rowY, fontSize: wordFontSize };
+      rowX += tagWidth + wordGapPx;
+    }
+
+    // --- Set text font sizes (constant, set once) ---
+    for (const t of textElements) {
+      const el = elRefs.current[t.id];
+      if (el) el.style.fontSize = `${textSettled[t.id].fontSize}px`;
+    }
+
+    // --- Pre-compute state positions for ALL elements ---
     const statePositions: Record<string, { x: number; y: number }>[] = [];
 
     // State 0: chaos
@@ -163,9 +249,16 @@ export default function ShapesPlayground() {
         y: (rp.y / 100) * containerHeight * 0.85,
       };
     }
+    for (const t of textElements) {
+      const rp = textChaosPositions[t.id];
+      chaos[t.id] = {
+        x: (rp.x / 100) * containerWidth * 0.85,
+        y: (rp.y / 100) * containerHeight * 0.85,
+      };
+    }
     statePositions.push(chaos);
 
-    // State 1: LEFF.IN
+    // State 1: LEFF.IN (shapes form domain, text settled)
     const leffIn: Record<string, { x: number; y: number }> = {};
     for (const id of shapeIDs) {
       const pos = LeffInState[id];
@@ -174,9 +267,12 @@ export default function ShapesPlayground() {
         y: pos.y * scaleFactor + Y_OFFSET,
       };
     }
+    for (const t of textElements) {
+      leffIn[t.id] = { x: textSettled[t.id].x, y: textSettled[t.id].y };
+    }
     statePositions.push(leffIn);
 
-    // State 2: LEFFIN.
+    // State 2: LEFFIN. (shapes form name, text settled — same positions)
     const leffinDot: Record<string, { x: number; y: number }> = {};
     for (const id of shapeIDs) {
       const pos = LeffinDotState[id];
@@ -184,6 +280,9 @@ export default function ShapesPlayground() {
         x: (pos.x + X_OFFSET) * scaleFactor,
         y: pos.y * scaleFactor + Y_OFFSET,
       };
+    }
+    for (const t of textElements) {
+      leffinDot[t.id] = { x: textSettled[t.id].x, y: textSettled[t.id].y };
     }
     statePositions.push(leffinDot);
 
@@ -238,8 +337,9 @@ export default function ShapesPlayground() {
         }
       }
 
+      // Animate shapes
       for (const id of shapeIDs) {
-        const el = shapeRefs.current[id];
+        const el = elRefs.current[id];
         if (!el) continue;
 
         const from = fromPositions[id];
@@ -256,11 +356,25 @@ export default function ShapesPlayground() {
         el.style.height = `${size.h}px`;
       }
 
-      // Toggle background color only when state changes (CSS transition handles interpolation)
+      // Animate text elements
+      for (const t of textElements) {
+        const el = elRefs.current[t.id];
+        if (!el) continue;
+
+        const from = fromPositions[t.id];
+        const to = toPositions[t.id];
+
+        const x = from.x + (to.x - from.x) * progress;
+        const y = from.y + (to.y - from.y) * progress;
+
+        el.style.transform = `translate(${x}px, ${y}px)`;
+      }
+
+      // Toggle shape background color when state changes
       const shouldOutline = toIdx === 0;
       if (shouldOutline !== wasOutlined) {
         for (const id of shapeIDs) {
-          const el = shapeRefs.current[id];
+          const el = elRefs.current[id];
           if (!el) continue;
           const isDotShape = unscaledShapes[id as ShapeID].shapeType === "dot";
           if (shouldOutline) {
@@ -288,7 +402,7 @@ export default function ShapesPlayground() {
           <div
             key={id}
             ref={(el) => {
-              shapeRefs.current[id] = el;
+              elRefs.current[id] = el;
             }}
             className={`${styles.shape} ${isDot ? styles.dot : ""}`}
             style={{
@@ -300,6 +414,22 @@ export default function ShapesPlayground() {
           />
         );
       })}
+      {textElements.map((t) => (
+        <div
+          key={t.id}
+          ref={(el) => {
+            elRefs.current[t.id] = el;
+          }}
+          className={styles.tag}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+          }}
+        >
+          {t.content}
+        </div>
+      ))}
     </div>
   );
 }

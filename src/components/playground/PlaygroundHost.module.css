@@ -84,6 +84,23 @@
   }
 }
 
+/* Playground name label — top center */
+.playgroundName {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  z-index: var(--z-playground-ui);
+  pointer-events: none;
+}
+
 /* Playground counter label */
 .playgroundCounter {
   position: absolute;

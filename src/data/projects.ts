@@ -55,16 +55,16 @@ export const projectsArray: Project[] = [
   {
     "name": "Notes to Self",
     "slug": "notesToSelf",
-    "thumbnail": "/media/notesToSelf/notes.mp4",
-    "height": 1080,
-    "width": 1080,
+    "thumbnail": "/media/notesToSelf/live.webm",
+    "height": 1280,
+    "width": 720,
     "year": 2021,
     "tags": [
       "Physical",
       "AI/ML",
       "Interactive"
     ],
-    "size": "1x1",
+    "size": "1x2",
     "position": 3,
     "description": "An interactive installation where users engage in a conversation with their digital self",
     "featured": false
@@ -89,8 +89,8 @@ export const projectsArray: Project[] = [
   {
     "name": "Palimpsest",
     "slug": "palimpsest",
-    "thumbnail": "/media/palimpsest/palimpsest2.mp4",
-    "height": 1080,
+    "thumbnail": "/media/palimpsest/2ndInstall.mp4",
+    "height": 1920,
     "width": 1920,
     "year": 2023,
     "tags": [
@@ -98,7 +98,7 @@ export const projectsArray: Project[] = [
       "Interactive",
       "Performance"
     ],
-    "size": "2x1",
+    "size": "2x2",
     "position": 2,
     "description": "A performance installation converting conversations into pieces of thread.",
     "featured": false
@@ -131,7 +131,7 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 1,
-    "description": "A piece created by designing a motion accumulator",
+    "description": "A motion accumulation piece revealing the invisible labor of construction workers.",
     "featured": false
   },
   {
@@ -197,16 +197,16 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x2",
     "position": 2,
-    "description": "Product Design for an app for dogs to find companions.",
+    "description": "Product design for an app connecting pet owners in urban neighborhoods.",
     "featured": true,
     "featuredOrder": 1
   },
   {
     "name": "unIIcode",
     "slug": "uniicode",
-    "thumbnail": "/media/uniicode/uniicode_2.mp4",
-    "height": 1080,
-    "width": 1440,
+    "thumbnail": "/media/uniicode/physical.jpeg",
+    "height": 2645,
+    "width": 3526,
     "year": 2021,
     "tags": [
       "Digital",
@@ -215,7 +215,7 @@ export const projectsArray: Project[] = [
     ],
     "size": "2x1",
     "position": 1,
-    "description": "Generation of new character sets to fill up spaces in Unicode.",
+    "description": "ML-generated characters for scripts that don't exist, then 3D printed into physical artifacts.",
     "featured": false
   },
   {
@@ -263,15 +263,15 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "position": 4,
-    "description": "An MAV for military use.",
+    "description": "Designing a 250g surveillance drone from scratch, leading a team of eight across aerospace disciplines.",
     "featured": false
   },
   {
     "name": "Zoe",
     "slug": "zoe",
-    "thumbnail": "/media/zoe/zoe.png",
-    "height": 387,
-    "width": 717,
+    "thumbnail": "/media/zoe/IMG-20221110-WA0005.jpg",
+    "height": 768,
+    "width": 1024,
     "year": 2022,
     "tags": [
       "Product Design"
@@ -356,7 +356,7 @@ export const projectsArray: Project[] = [
       "Interactive"
     ],
     "size": "2x1",
-    "description": "An interactive installation where players read through a monologue as they play.",
+    "description": "An interactive experience where a monologue about self-doubt unfolds as you run.",
     "featured": false
   },
   {
