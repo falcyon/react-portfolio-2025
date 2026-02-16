@@ -88,6 +88,7 @@ function GridCard({ project }: { project: Project }) {
             muted
             playsInline
             preload="metadata"
+            tabIndex={-1}
             className={cardStyles.thumbnail}
             onLoadedData={handleLoad}
             onError={handleLoad}
