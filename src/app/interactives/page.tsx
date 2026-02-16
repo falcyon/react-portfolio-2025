@@ -16,12 +16,9 @@ function isExternal(href: string) {
 export default function LabPage() {
   return (
     <main className={styles.interactives}>
-      <div className={styles.header}>
-        <h1 className={styles.title}>Interactives</h1>
-        <p className={styles.subtitle}>
-          Interactive prototypes, p5.js sketches, and experiments.
-        </p>
-      </div>
+      <p className={styles.subtitle}>
+        Interactive prototypes, p5.js sketches, and experiments.
+      </p>
 
       <ul className={styles.list}>
         {labItems.map((item) => (
