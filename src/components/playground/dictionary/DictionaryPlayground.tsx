@@ -206,7 +206,7 @@ export default function DictionaryPlayground() {
           </span>
         </li>
         <li>
-          A product lead and engineer who ships things from concept to reality.
+          An AI product manager and designer who ships things from concept to reality.
           <span className={styles.example}>
             &ldquo;She&rsquo;s the Leffin on this project.&rdquo;
           </span>
