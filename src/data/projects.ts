@@ -21,7 +21,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Ephemera",
     "slug": "ephemera",
-    "thumbnail": "/media/ephemera/ephemera.webm",
+    "thumbnail": "/media/ephemera/ephemera.mp4",
     "height": 1080,
     "width": 1080,
     "year": 2025,
@@ -72,7 +72,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Stained Mask",
     "slug": "stainedMask",
-    "thumbnail": "/media/stainedMask/StainedMask.webm",
+    "thumbnail": "/media/stainedMask/StainedMask.mp4",
     "height": 540,
     "width": 540,
     "year": 2021,
@@ -89,7 +89,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Palimpsest",
     "slug": "palimpsest",
-    "thumbnail": "/media/palimpsest/2ndInstall.webm",
+    "thumbnail": "/media/palimpsest/2ndInstall.mp4",
     "height": 1920,
     "width": 1920,
     "year": 2023,
@@ -188,7 +188,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Petmania",
     "slug": "petmania",
-    "thumbnail": "/media/petmania/petmania.webm",
+    "thumbnail": "/media/petmania/petmania.mp4",
     "height": 1158,
     "width": 720,
     "year": 2022,
@@ -236,7 +236,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Crew App Branding",
     "slug": "crew",
-    "thumbnail": "/media/crew/crew.webm",
+    "thumbnail": "/media/crew/crew.mp4",
     "height": 1080,
     "width": 1080,
     "year": 2023,
@@ -330,7 +330,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Grimmer Tales",
     "slug": "grimmerTales",
-    "thumbnail": "/media/grimmerTales/Book.webm",
+    "thumbnail": "/media/grimmerTales/Book.mp4",
     "height": 1080,
     "width": 720,
     "year": 2022,

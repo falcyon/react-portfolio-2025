@@ -41,6 +41,7 @@ export default function ResponsiveVideo({
         preload="metadata"
         poster={poster}
         className={className}
+        onError={() => {}}
       >
         {variants.map((v) => (
           <source key={v.quality} src={v.path} type={v.path.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
@@ -61,6 +62,7 @@ export default function ResponsiveVideo({
       preload="metadata"
       poster={poster}
       className={className}
+      onError={() => {}}
     />
   );
 }

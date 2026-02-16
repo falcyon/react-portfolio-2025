@@ -8,7 +8,7 @@
     "AI/ML"
   ],
   "description": "An interactive installation critiquing the Church's opinion on masks during Covid.",
-  "thumbnail": "/media/stainedMask/StainedMask.webm",
+  "thumbnail": "/media/stainedMask/StainedMask.mp4",
   "thumbnailWidth": 540,
   "thumbnailHeight": 540,
   "size": "1x1",
@@ -30,7 +30,7 @@
         {
           "type": "video",
           "size": "h",
-          "src": "/media/stainedMask/StainedMask.webm",
+          "src": "/media/stainedMask/StainedMask.mp4",
           "alt": "Stained Glass Mask Video"
         }
       ]

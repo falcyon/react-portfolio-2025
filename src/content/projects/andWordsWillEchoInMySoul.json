@@ -125,13 +125,13 @@
         {
           "type": "video",
           "size": "t2",
-          "src": "/media/andWordsWillEchoInMySoul/skeleton.webm",
+          "src": "/media/andWordsWillEchoInMySoul/skeleton.mp4",
           "alt": "Skeleton"
         },
         {
           "type": "video",
           "size": "t2",
-          "src": "/media/andWordsWillEchoInMySoul/segmented.webm",
+          "src": "/media/andWordsWillEchoInMySoul/segmented.mp4",
           "alt": "Segmented"
         }
       ]

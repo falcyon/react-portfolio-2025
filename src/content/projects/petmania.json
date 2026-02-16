@@ -6,7 +6,7 @@
     "Product Design"
   ],
   "description": "Product Design for an app for dogs to find companions.",
-  "thumbnail": "/media/petmania/petmania.webm",
+  "thumbnail": "/media/petmania/petmania.mp4",
   "thumbnailWidth": 720,
   "thumbnailHeight": 1158,
   "size": "1x2",
@@ -25,7 +25,7 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/petmania/petmania.webm",
+          "src": "/media/petmania/petmania.mp4",
           "alt": "PetMania Video"
         }
       ]

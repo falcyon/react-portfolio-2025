@@ -8,7 +8,7 @@
     "Performance"
   ],
   "description": "A performance installation converting conversations into pieces of thread.",
-  "thumbnail": "/media/palimpsest/2ndInstall.webm",
+  "thumbnail": "/media/palimpsest/2ndInstall.mp4",
   "thumbnailWidth": 1920,
   "thumbnailHeight": 1920,
   "size": "2x2",
@@ -120,7 +120,7 @@
         {
           "type": "video",
           "size": "f",
-          "src": "/media/palimpsest/2ndInstall.webm",
+          "src": "/media/palimpsest/2ndInstall.mp4",
           "alt": "Palimpsest Second Installation"
         }
       ]

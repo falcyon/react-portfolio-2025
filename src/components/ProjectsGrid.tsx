@@ -90,6 +90,7 @@ function GridCard({ project }: { project: Project }) {
             preload="metadata"
             className={cardStyles.thumbnail}
             onLoadedData={handleLoad}
+            onError={handleLoad}
           />
         )}
         {showImage && (

@@ -8,7 +8,7 @@
     "Product Design"
   ],
   "description": "Branding, logo design, and design system for a social media startup.",
-  "thumbnail": "/media/crew/crew.webm",
+  "thumbnail": "/media/crew/crew.mp4",
   "thumbnailWidth": 1080,
   "thumbnailHeight": 1080,
   "size": "1x1",
@@ -85,7 +85,7 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/crew/Design.webm",
+          "src": "/media/crew/Design.mp4",
           "alt": "Crew Logo Design"
         }
       ]

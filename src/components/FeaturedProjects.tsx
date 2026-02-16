@@ -48,6 +48,7 @@ function FeaturedCard({ project }: { project: Project }) {
             preload="metadata"
             className={cardStyles.thumbnail}
             onLoadedData={handleLoad}
+            onError={handleLoad}
           />
         )}
         {canLoadMedia && !isVideo && (
