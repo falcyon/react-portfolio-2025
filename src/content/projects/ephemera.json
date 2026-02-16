@@ -87,8 +87,8 @@
         {
           "type": "image",
           "size": "t",
-          "src": "/media/ephemera/IMG_20250428_204705929_HDR.jpg",
-          "alt": "Leffin 2025 engraved on the enclosure"
+          "src": "/media/ephemera/DSC01481.JPG",
+          "alt": "Front view of installation mounted on gallery wall"
         }
       ]
     },
@@ -97,8 +97,8 @@
         {
           "type": "image",
           "size": "t",
-          "src": "/media/ephemera/DSC01481.JPG",
-          "alt": "Front view of installation mounted on gallery wall"
+          "src": "/media/ephemera/IMG_20250428_204705929_HDR.jpg",
+          "alt": "Leffin 2025 engraved on the enclosure"
         },
         {
           "type": "text",
@@ -119,19 +119,25 @@
       "sections": [
         {
           "type": "image",
-          "size": "t",
+          "size": "q",
           "src": "/media/ephemera/IMG_0204.JPG",
           "alt": "Motor controller, inductor, and microcontroller"
         },
         {
-          "type": "video",
-          "size": "t",
-          "src": "/media/ephemera/mist_suction_mechanism.mp4",
-          "alt": "Mist suction mechanism in action"
+          "type": "image",
+          "size": "q",
+          "src": "/media/ephemera/IMG_0215.PNG",
+          "alt": ""
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/ephemera/IMG_20250413_161904426.jpg",
+          "alt": "Enclosure being assembled in the workshop"
         },
         {
           "type": "video",
-          "size": "t",
+          "size": "q",
           "src": "/media/ephemera/pComp_prototype.mp4",
           "alt": "Physical computing prototype"
         }
@@ -142,18 +148,28 @@
         {
           "type": "image",
           "size": "t",
-          "src": "/media/ephemera/IMG_20250413_161904426.jpg",
-          "alt": "Enclosure being assembled in the workshop"
+          "src": "",
+          "alt": ""
         },
         {
-          "type": "image",
+          "type": "video",
           "size": "t",
-          "src": "/media/ephemera/IMG_0215.PNG",
+          "src": "/media/ephemera/mist_suction_mechanism.mp4",
           "alt": ""
         },
         {
           "type": "image",
           "size": "t",
+          "src": "",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
           "src": "/media/ephemera/01_TeaserPoster.webp",
           "alt": ""
         }
