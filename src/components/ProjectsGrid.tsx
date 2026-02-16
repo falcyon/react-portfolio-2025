@@ -37,10 +37,9 @@ function GridCard({ project }: { project: Project }) {
   const isVideo = /\.(mp4|webm|ogg)$/i.test(project.thumbnail);
   const alreadyLoaded = loadedMedia.has(project.thumbnail);
   const [canLoadMedia, setCanLoadMedia] = useState(alreadyLoaded);
-  const [nearViewport, setNearViewport] = useState(true); // TEMP: keep everything loaded
   const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  useVideoVisibility(videoRef, isVideo && canLoadMedia && nearViewport);
+  useVideoVisibility(videoRef, isVideo && canLoadMedia);
 
   // Staggered loading — join queue, load when slot available
   useEffect(() => {
@@ -50,26 +49,13 @@ function GridCard({ project }: { project: Project }) {
     return () => cancelLoad(cb);
   }, [alreadyLoaded]);
 
-  // Viewport tracking — mount/unmount video elements to save memory on mobile
-  // TEMPORARILY DISABLED: testing with everything staying loaded
-  // useEffect(() => {
-  //   const el = wrapRef.current;
-  //   if (!el) return;
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => setNearViewport(entry.isIntersecting),
-  //     { rootMargin: "400px" }
-  //   );
-  //   observer.observe(el);
-  //   return () => observer.disconnect();
-  // }, []);
-
   const handleLoad = () => {
     loadedMedia.add(project.thumbnail);
     signalLoaded();
   };
 
-  const showVideo = canLoadMedia && isVideo && nearViewport;
-  const showImage = canLoadMedia && !isVideo && nearViewport;
+  const showVideo = canLoadMedia && isVideo;
+  const showImage = canLoadMedia && !isVideo;
 
   return (
     <Link
