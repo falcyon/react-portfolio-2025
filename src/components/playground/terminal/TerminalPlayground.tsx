@@ -9,7 +9,7 @@ const RESPONSES: Record<string, string[]> = {
     "Artist and Engineer",
     "builds immersive interactive installations",
     "product lead at Citibank",
-    "IIT Bombay \u2192 Parsons MFA (2024)",
+    "Aerospace Engineering \u2192 High Performance Scientific Computing \u2192 Data Science \u2192 Design \u2192 Art",
   ],
   "cat tags.txt": [
     "multidisciplinary\tinteractive\ttechnologist\tintrospective\tembodied\timmersive\texperimental\thuman\tstoryteller\tbuilder",
