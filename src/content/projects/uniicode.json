@@ -119,5 +119,7 @@
       ]
     }
   ],
-  "order": 11
+  "order": 11,
+  "featured": true,
+  "featuredOrder": 1
 }

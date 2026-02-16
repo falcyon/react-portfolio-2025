@@ -13,7 +13,7 @@
   border: 1px solid var(--foreground);
   pointer-events: none;
   will-change: transform;
-  transition: background-color 750ms ease-in-out;
+
 }
 
 .dot {

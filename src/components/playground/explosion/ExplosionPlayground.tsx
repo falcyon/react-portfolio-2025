@@ -120,20 +120,16 @@ const LeffinDotState: Record<ShapeID, { x: number; y: number }> = {
 };
 
 // --- Animation config ---
-const INITIAL_HOLD = 100;
 const TRANSITION = 750;
 const LETTER_HOLD = 1250;
-const CHAOS_HOLD = 750;
 
-// Phase definitions for the looping cycle
-// State 0 = chaos, State 1 = LEFF.IN, State 2 = LEFFIN.
+// Phase definitions — base cycle between LEFF.IN (0) and LEFFIN. (1)
+// Chaos is driven by mouse proximity, not time
 const PHASES: { type: "transition" | "hold"; from?: number; to?: number; state?: number; duration: number }[] = [
   { type: "transition", from: 0, to: 1, duration: TRANSITION },
   { type: "hold", state: 1, duration: LETTER_HOLD },
-  { type: "transition", from: 1, to: 2, duration: TRANSITION },
-  { type: "hold", state: 2, duration: LETTER_HOLD },
-  { type: "transition", from: 2, to: 0, duration: TRANSITION },
-  { type: "hold", state: 0, duration: CHAOS_HOLD },
+  { type: "transition", from: 1, to: 0, duration: TRANSITION },
+  { type: "hold", state: 0, duration: LETTER_HOLD },
 ];
 const CYCLE_DURATION = PHASES.reduce((sum, p) => sum + p.duration, 0);
 
@@ -165,6 +161,8 @@ export default function ExplosionPlayground() {
   const containerRef = useRef<HTMLDivElement>(null);
   const elRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const animRef = useRef<number>(0);
+  const mousePos = useRef<{ x: number; y: number } | null>(null);
+  const tapStartRef = useRef(0);
   const [containerSize, setContainerSize] = useState({ w: 0, h: 0 });
 
   useEffect(() => {
@@ -176,6 +174,33 @@ export default function ExplosionPlayground() {
     });
     observer.observe(el);
     return () => observer.disconnect();
+  }, []);
+
+  // Track mouse/touch for chaos interaction
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onMouse = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      mousePos.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    };
+    const onLeave = () => { mousePos.current = null; };
+    const onTouchStart = () => {
+      tapStartRef.current = performance.now();
+    };
+    const onTouchMove = () => {
+      tapStartRef.current = performance.now();
+    };
+    el.addEventListener("mousemove", onMouse);
+    el.addEventListener("mouseleave", onLeave);
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchmove", onTouchMove, { passive: true });
+    return () => {
+      el.removeEventListener("mousemove", onMouse);
+      el.removeEventListener("mouseleave", onLeave);
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchmove", onTouchMove);
+    };
   }, []);
 
   useEffect(() => {
@@ -237,28 +262,27 @@ export default function ExplosionPlayground() {
       if (el) el.style.fontSize = `${textSettled[t.id].fontSize}px`;
     }
 
-    // --- Pre-compute state positions for ALL elements ---
-    const statePositions: Record<string, { x: number; y: number }>[] = [];
-
-    // State 0: chaos
-    const chaos: Record<string, { x: number; y: number }> = {};
+    // --- Pre-compute chaos positions (mouse-driven, not in phase cycle) ---
+    const chaosPositions: Record<string, { x: number; y: number }> = {};
     for (const id of shapeIDs) {
       const rp = ChaosState[id];
-      chaos[id] = {
+      chaosPositions[id] = {
         x: (rp.x / 100) * containerWidth * 0.85,
         y: (rp.y / 100) * containerHeight * 0.85,
       };
     }
     for (const t of textElements) {
       const rp = textChaosPositions[t.id];
-      chaos[t.id] = {
+      chaosPositions[t.id] = {
         x: (rp.x / 100) * containerWidth * 0.85,
         y: (rp.y / 100) * containerHeight * 0.85,
       };
     }
-    statePositions.push(chaos);
 
-    // State 1: LEFF.IN (shapes form domain, text settled)
+    // --- Pre-compute assembled state positions ---
+    const statePositions: Record<string, { x: number; y: number }>[] = [];
+
+    // State 0: LEFF.IN (shapes form domain, text settled)
     const leffIn: Record<string, { x: number; y: number }> = {};
     for (const id of shapeIDs) {
       const pos = LeffInState[id];
@@ -272,7 +296,7 @@ export default function ExplosionPlayground() {
     }
     statePositions.push(leffIn);
 
-    // State 2: LEFFIN. (shapes form name, text settled — same positions)
+    // State 1: LEFFIN. (shapes form name, text settled)
     const leffinDot: Record<string, { x: number; y: number }> = {};
     for (const id of shapeIDs) {
       const pos = LeffinDotState[id];
@@ -293,97 +317,103 @@ export default function ExplosionPlayground() {
       shapeSizes[id] = { w: dims.w * scaleFactor, h: dims.h * scaleFactor };
     }
 
-    let wasOutlined = true; // shapes start in chaos (outlined)
+    // All element keys for interpolation
+    const allKeys: string[] = [...shapeIDs, ...textElements.map(t => t.id)];
+
+    let currentChaosBlend = 0;
 
     const startTime = performance.now();
 
     const animate = (now: number) => {
       const elapsed = now - startTime;
 
-      let fromPositions: Record<string, { x: number; y: number }>;
-      let toPositions: Record<string, { x: number; y: number }>;
-      let progress: number;
-      let toIdx: number;
-
-      if (elapsed < INITIAL_HOLD) {
-        // Initial hold: show chaos
-        fromPositions = statePositions[0];
-        toPositions = statePositions[0];
-        progress = 1;
-        toIdx = 0;
-      } else {
-        // Find current phase in the looping cycle
-        const cycleTime = (elapsed - INITIAL_HOLD) % CYCLE_DURATION;
-        let t = cycleTime;
-        let phase = PHASES[0];
-        for (const p of PHASES) {
-          if (t < p.duration) {
-            phase = p;
-            break;
-          }
-          t -= p.duration;
+      // --- Base assembled animation (2-state cycle: LEFF.IN ↔ LEFFIN.) ---
+      const cycleTime = elapsed % CYCLE_DURATION;
+      let t = cycleTime;
+      let phase = PHASES[0];
+      for (const p of PHASES) {
+        if (t < p.duration) {
+          phase = p;
+          break;
         }
+        t -= p.duration;
+      }
 
-        if (phase.type === "hold") {
-          fromPositions = statePositions[phase.state!];
-          toPositions = statePositions[phase.state!];
-          progress = 1;
-          toIdx = phase.state!;
-        } else {
-          fromPositions = statePositions[phase.from!];
-          toPositions = statePositions[phase.to!];
-          progress = ease(t / phase.duration);
-          toIdx = phase.to!;
+      let assembledPos: Record<string, { x: number; y: number }>;
+      if (phase.type === "hold") {
+        assembledPos = statePositions[phase.state!];
+      } else {
+        const progress = ease(t / phase.duration);
+        assembledPos = {};
+        const from = statePositions[phase.from!];
+        const to = statePositions[phase.to!];
+        for (const key of allKeys) {
+          assembledPos[key] = {
+            x: from[key].x + (to[key].x - from[key].x) * progress,
+            y: from[key].y + (to[key].y - from[key].y) * progress,
+          };
         }
       }
 
-      // Animate shapes
+      // --- Compute chaos blend from mouse proximity ---
+      let targetChaos = 0;
+      if (mousePos.current) {
+        const mx = mousePos.current.x;
+        const my = mousePos.current.y;
+        const cx = containerWidth / 2;
+        const cy = containerHeight / 2;
+        const maxDist = Math.sqrt(cx * cx + cy * cy);
+        const dist = Math.sqrt((mx - cx) ** 2 + (my - cy) ** 2);
+        targetChaos = Math.max(0, 1 - dist / maxDist);
+        targetChaos = Math.pow(targetChaos, 0.6);
+      }
+
+      // Tap chaos for mobile (linear decay over 3 seconds)
+      if (tapStartRef.current > 0) {
+        const tapElapsed = now - tapStartRef.current;
+        if (tapElapsed < 3000) {
+          targetChaos = Math.max(targetChaos, 1 - tapElapsed / 3000);
+        } else {
+          tapStartRef.current = 0;
+        }
+      }
+
+      // Smooth interpolation toward target (faster ramp-up, slower decay)
+      const blendRate = targetChaos > currentChaosBlend ? 0.15 : 0.06;
+      currentChaosBlend += (targetChaos - currentChaosBlend) * blendRate;
+      const blend = Math.max(0, Math.min(1, currentChaosBlend));
+
+      // --- Animate shapes with chaos blend ---
       for (const id of shapeIDs) {
         const el = elRefs.current[id];
         if (!el) continue;
 
-        const from = fromPositions[id];
-        const to = toPositions[id];
+        const aPos = assembledPos[id];
+        const cPos = chaosPositions[id];
         const size = shapeSizes[id];
         const dims = unscaledShapes[id as ShapeID];
         const rotation = dims.rotation ?? 0;
 
-        const x = from.x + (to.x - from.x) * progress;
-        const y = from.y + (to.y - from.y) * progress;
+        const x = aPos.x + (cPos.x - aPos.x) * blend;
+        const y = aPos.y + (cPos.y - aPos.y) * blend;
 
         el.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
         el.style.width = `${size.w}px`;
         el.style.height = `${size.h}px`;
       }
 
-      // Animate text elements
-      for (const t of textElements) {
-        const el = elRefs.current[t.id];
+      // --- Animate text elements with chaos blend ---
+      for (const te of textElements) {
+        const el = elRefs.current[te.id];
         if (!el) continue;
 
-        const from = fromPositions[t.id];
-        const to = toPositions[t.id];
+        const aPos = assembledPos[te.id];
+        const cPos = chaosPositions[te.id];
 
-        const x = from.x + (to.x - from.x) * progress;
-        const y = from.y + (to.y - from.y) * progress;
+        const x = aPos.x + (cPos.x - aPos.x) * blend;
+        const y = aPos.y + (cPos.y - aPos.y) * blend;
 
         el.style.transform = `translate(${x}px, ${y}px)`;
-      }
-
-      // Toggle shape background color when state changes
-      const shouldOutline = toIdx === 0;
-      if (shouldOutline !== wasOutlined) {
-        for (const id of shapeIDs) {
-          const el = elRefs.current[id];
-          if (!el) continue;
-          const isDotShape = unscaledShapes[id as ShapeID].shapeType === "dot";
-          if (shouldOutline) {
-            el.style.backgroundColor = "var(--background)";
-          } else {
-            el.style.backgroundColor = isDotShape ? "var(--accent)" : "";
-          }
-        }
-        wasOutlined = shouldOutline;
       }
 
       animRef.current = requestAnimationFrame(animate);
@@ -409,7 +439,6 @@ export default function ExplosionPlayground() {
               position: "absolute",
               top: 0,
               left: 0,
-              backgroundColor: "var(--background)",
             }}
           />
         );

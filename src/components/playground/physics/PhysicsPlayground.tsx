@@ -30,6 +30,7 @@ const TAGS = [
 const PPM = 30;
 const toM = (px: number) => px / PPM;
 const toPx = (m: number) => m * PPM;
+const FLOOR_INSET = 30;
 
 export default function PhysicsPlayground() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -122,10 +123,11 @@ export default function PhysicsPlayground() {
       // Create world with gravity
       const world = World(Vec2(0, 10));
 
-      // Floor
+      // Floor (raised FLOOR_INSET px from bottom)
+      const floorY = ch - FLOOR_INSET;
       const floorBody = world.createBody();
       floorBody.createFixture(
-        Edge(Vec2(toM(-60), toM(ch)), Vec2(toM(cw + 60), toM(ch))),
+        Edge(Vec2(toM(-60), toM(floorY)), Vec2(toM(cw + 60), toM(floorY))),
         { friction: 0.6 }
       );
 
@@ -377,6 +379,7 @@ export default function PhysicsPlayground() {
         </div>
       ))}
       <div ref={cursorElRef} className={styles.cursorDot} />
+      <div className={styles.groundLine} style={{ bottom: `${FLOOR_INSET}px` }} />
     </div>
   );
 }

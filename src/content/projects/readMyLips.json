@@ -9,6 +9,7 @@
     "Performance"
   ],
   "description": "An interactive installation isolating viewers' lips and predicting their emotions.",
+  "interactiveUrl": "https://editor.p5js.org/Falcyon/full/PMDIeJxA_",
   "thumbnail": "/media/readMyLips/ReadMyLips2.mp4",
   "thumbnailWidth": 720,
   "thumbnailHeight": 850,

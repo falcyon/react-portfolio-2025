@@ -72,6 +72,37 @@
     color: var(--background);
 }
 
+.exhibitions {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.exhibitionsLabel {
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--foreground);
+    opacity: 0.5;
+    margin-bottom: 2px;
+}
+
+.exhibition {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--foreground);
+    text-decoration: none;
+    transition: color var(--duration-base);
+}
+
+.exhibition:hover {
+    color: var(--accent);
+}
+
 .contentContainer {
     margin-top: 2rem;
 }

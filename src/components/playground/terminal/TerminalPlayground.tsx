@@ -15,6 +15,7 @@ const RESPONSES: Record<string, string[]> = {
     "multidisciplinary\tinteractive\ttechnologist\tintrospective\tembodied\timmersive\texperimental\thuman\tstoryteller\tbuilder",
   ],
   "ls projects/": [
+    "# top 4",
     "ephemera/\tandWordsWillEchoInMySoul/\tnotesToSelf/\tpalimpsest/",
   ],
   ls: ["about.txt\ttags.txt\tprojects/"],

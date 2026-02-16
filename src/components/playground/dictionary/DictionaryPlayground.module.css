@@ -1,5 +1,8 @@
 .entry {
   width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
   padding: var(--space-lg);
   animation: fadeIn 0.6s var(--ease-out);
 }
@@ -85,10 +88,14 @@
 
 @media (max-width: 700px) {
   .entry {
-    padding: var(--space-md) 0;
+    padding: var(--space-sm);
   }
 
   .definitions li {
     font-size: 0.85rem;
+  }
+
+  .example {
+    display: none;
   }
 }

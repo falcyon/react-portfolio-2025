@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { projectsArray } from "@/data/projects";
+import aboutData from "@/content/about.json";
 import ProjectPage from "@/components/ProjectPage";
 import type { Metadata } from "next";
 
@@ -52,7 +53,9 @@ export default async function Page({ params }: ProjectPageProps) {
         ...content,
     };
 
-    return <ProjectPage project={projectWithContent} />;
+    const exhibitions = aboutData.exhibitions.filter((e) => e.slug === slug);
+
+    return <ProjectPage project={projectWithContent} exhibitions={exhibitions} />;
 }
 
 // ✅ Generate Static Params for all the projects

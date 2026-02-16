@@ -60,6 +60,16 @@
   will-change: transform;
 }
 
+.groundLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--foreground);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .cursorDot {
   position: absolute;
   top: 0;

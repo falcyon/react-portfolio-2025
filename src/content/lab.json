@@ -6,22 +6,28 @@
     "thumbnail": "/media/thumbnails/Untitled_video_-_Made_with_Clipchamp.webm"
   },
   {
+    "name": "Human Condition",
+    "description": "An interactive exxperience using body segmentation with pose detection. Sketch for the Human Condition performance.",
+    "href": "https://editor.p5js.org/Falcyon/full/f0eYhED1G",
+    "thumbnail": "/media/humanCondition/portraiture.mp4"
+  },
+  {
     "name": "Discourse Parkour",
     "description": "An interactive parkour experience where a monologue about self-doubt unfolds as you run alongside other stick figures.",
     "href": "https://editor.p5js.org/Falcyon/full/rifCaTlbJ",
     "thumbnail": "/media/discourseParkour/discourse.mp4"
   },
   {
-    "name": "Human Condition",
-    "description": "Real-time body segmentation with pose detection overlays. Sketch for the Human Condition installation.",
-    "href": "https://editor.p5js.org/Falcyon/full/NmCT_pCwr",
-    "thumbnail": "/media/humanCondition/portraiture.mp4"
+    "name": "Read My Lips",
+    "description": "Interactive installation isolating viewers' lips and predicting their emotions.",
+    "href": "https://editor.p5js.org/Falcyon/full/PMDIeJxA_",
+    "thumbnail": "/media/readMyLips/ReadMyLips2.mp4"
   },
   {
-    "name": "Unraveling",
-    "description": "Generative thread simulation that slowly disintegrates into noise.",
-    "href": "https://editor.p5js.org/Falcyon/full/uYdaF57i4",
-    "thumbnail": "/media/unraveling/unraveling.mp4"
+    "name": "Stained Glass Face Mask",
+    "description": "A digital face mask with stained glass effect. Commentary on the Church's stance on face masks",
+    "href": "https://editor.p5js.org/Falcyon/full/1F26lFOeg",
+    "thumbnail": "/media/stainedMask/StainedMask.mp4"
   },
   {
     "name": "Bit by Bit",
@@ -30,77 +36,29 @@
     "thumbnail": "/media/bitByBit/bitbybit.mp4"
   },
   {
-    "name": "Quantum Bit",
-    "description": "Visualizing a single qubit state on the Bloch sphere with interactive rotation.",
-    "href": "https://editor.p5js.org/Falcyon/full/cDzpug0tm",
-    "thumbnail": "/media/quantumTouch/qtouch.mp4"
+    "name": "Unraveling",
+    "description": "Generative thread simulation that slowly disintegrates into noise.",
+    "href": "https://editor.p5js.org/Falcyon/full/uYdaF57i4",
+    "thumbnail": "/media/unraveling/unraveling.mp4"
   },
   {
-    "name": "Qubit-2",
-    "description": "Two entangled qubits rendered as coupled oscillations.",
-    "href": "https://editor.p5js.org/Falcyon/full/7Z2Dsncft",
-    "thumbnail": "/media/quantumTouch/qtouch.mp4"
+    "name": "Quantum Bit",
+    "description": "Creative visualization of a single qubit state collapsing upon observation (hover)",
+    "href": "https://editor.p5js.org/Falcyon/full/cDzpug0tm"
+  },
+  {
+    "name": "Quantum Entanglement",
+    "description": "Creative visualization of two entangled qubits",
+    "href": "https://editor.p5js.org/Falcyon/full/S6FFpEdIY"
   },
   {
     "name": "Quantum Superposition",
-    "description": "Superposition states visualized as overlapping probability clouds.",
-    "href": "https://editor.p5js.org/Falcyon/full/VbNi3YKbO",
-    "thumbnail": "/media/quantumTriptych/triptych2.mp4"
+    "description": "Creative visualization of Quantum Superposition ",
+    "href": "https://editor.p5js.org/Falcyon/full/VbNi3YKbO"
   },
   {
-    "name": "Face Mask Delaunay",
-    "description": "Delaunay triangulation mapped to facial landmarks in real time. Sketch for Stained Mask.",
-    "href": "https://editor.p5js.org/Falcyon/full/ouUtT5cHm",
-    "thumbnail": "/media/stainedMask/StainedMask.mp4"
-  },
-  {
-    "name": "Interference",
-    "description": "Wave interference patterns generated from two oscillating point sources.",
+    "name": "Quantum Interference",
+    "description": "Creative Visualization of interference from superpositionedd qubits",
     "href": "https://editor.p5js.org/Falcyon/full/O43Eb2nPb"
-  },
-  {
-    "name": "Circles Face",
-    "description": "Concentric circles that track and mirror facial features via webcam.",
-    "href": "https://editor.p5js.org/Falcyon/full/-qVxYZAlj"
-  },
-  {
-    "name": "Tree of Life",
-    "description": "Recursive fractal tree with randomized branching angles.",
-    "href": "https://editor.p5js.org/Falcyon/full/M9Ax006Hj"
-  },
-  {
-    "name": "Lost & Found",
-    "description": "Interactive particle system that responds to mouse position.",
-    "href": "https://editor.p5js.org/Falcyon/full/vUwgtrwcw"
-  },
-  {
-    "name": "Lost & Found Gesture",
-    "description": "Gesture-controlled variant using hand tracking.",
-    "href": "https://editor.p5js.org/Falcyon/full/9Hdo9m79M"
-  },
-  {
-    "name": "Frame Difference + Posenet",
-    "description": "Frame differencing combined with PoseNet for motion-reactive visuals.",
-    "href": "https://editor.p5js.org/Falcyon/full/dH-UsAsUb"
-  },
-  {
-    "name": "Exquisite Corpse",
-    "description": "Digital take on the surrealist drawing game — three segments composed independently.",
-    "href": "https://editor.p5js.org/Falcyon/full/xvA8bAxOC"
-  },
-  {
-    "name": "Clovers in My Eyes",
-    "description": "Kaleidoscopic clover patterns generated from webcam input.",
-    "href": "https://editor.p5js.org/Falcyon/full/7JHA02yau"
-  },
-  {
-    "name": "Comp Portrait",
-    "description": "Facial expression detection mapped to generative visual responses.",
-    "href": "https://editor.p5js.org/Falcyon/full/3_Ydio3ez"
-  },
-  {
-    "name": "Youtube Watch",
-    "description": "Time-based visualization synced to video playback.",
-    "href": "https://editor.p5js.org/Falcyon/full/lLubts4rp"
   }
 ]

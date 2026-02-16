@@ -51,61 +51,54 @@
 /* Earmark triangle grows — fold tip to TL, edges along right & bottom */
 @keyframes pageTurnCover {
   0% {
-    clip-path: polygon(
-      calc(100% - var(--earmark-size)) calc(100% - var(--earmark-size)),
-      calc(100% - var(--earmark-size)) 100%,
-      100% calc(100% - var(--earmark-size))
-    );
+    clip-path: polygon(calc(100% - var(--earmark-size)) calc(100% - var(--earmark-size)),
+        calc(100% - var(--earmark-size)) 100%,
+        100% calc(100% - var(--earmark-size)));
   }
+
   100% {
-    clip-path: polygon(
-      var(--pt-ax) var(--pt-ay),
-      var(--pt-bx) var(--pt-by),
-      var(--pt-cx) var(--pt-cy)
-    );
+    clip-path: polygon(var(--pt-ax) var(--pt-ay),
+        var(--pt-bx) var(--pt-by),
+        var(--pt-cx) var(--pt-cy));
   }
 }
 
 /* Diagonal continues sweeping toward TL, revealing new content from BR first */
 @keyframes pageTurnReveal {
   0% {
-    clip-path: polygon(
-      var(--pt-ax) var(--pt-ay),
-      var(--pt-bx) var(--pt-by),
-      var(--pt-cx) var(--pt-cy)
-    );
+    clip-path: polygon(var(--pt-ax) var(--pt-ay),
+        var(--pt-bx) var(--pt-by),
+        var(--pt-cx) var(--pt-cy));
   }
+
   100% {
-    clip-path: polygon(
-      var(--pt-ax) var(--pt-ay),
-      var(--pt-ax) var(--pt-ay),
-      var(--pt-ax) var(--pt-ay)
-    );
+    clip-path: polygon(var(--pt-ax) var(--pt-ay),
+        var(--pt-ax) var(--pt-ay),
+        var(--pt-ax) var(--pt-ay));
   }
 }
 
-/* Playground name label — top center */
+/* Playground name label — top right */
 .playgroundName {
   position: absolute;
   top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 10px;
   font-family: var(--font-sans);
   font-style: normal;
   font-weight: 700;
   font-size: 0.65rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--disabled);
   z-index: var(--z-playground-ui);
   pointer-events: none;
 }
 
-/* Playground counter label */
+/* Playground counter label — bottom right, left of earmark */
 .playgroundCounter {
   position: absolute;
-  top: 8px;
-  right: 10px;
+  bottom: 8px;
+  right: calc(var(--earmark-size) + 6px);
   font-family: var(--font-sans);
   font-style: normal;
   font-weight: 700;
@@ -144,6 +137,7 @@
   0% {
     transform: scale(0);
   }
+
   100% {
     transform: scale(1);
   }
@@ -188,6 +182,11 @@
     --pt-by: 160%;
     --pt-cx: 200%;
     --pt-cy: 0%;
-    aspect-ratio: 3 / 5;
+    aspect-ratio: 3 / 4;
+  }
+
+  .playgroundName,
+  .playgroundCounter {
+    font-size: 0.5rem;
   }
 }

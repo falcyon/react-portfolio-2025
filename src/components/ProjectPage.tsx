@@ -14,6 +14,13 @@ interface Section {
     style?: string;
 }
 
+interface Exhibition {
+    venue: string;
+    location: string;
+    year: string;
+    href: string;
+}
+
 interface ProjectProps {
     project: {
         name: string;
@@ -25,9 +32,10 @@ interface ProjectProps {
             sections: Section[];
         }[];
     };
+    exhibitions?: Exhibition[];
 }
 
-export default function ProjectPage({ project }: ProjectProps) {
+export default function ProjectPage({ project, exhibitions }: ProjectProps) {
 
     const hasContent = project.content && project.content.length > 0;
 
@@ -55,6 +63,22 @@ export default function ProjectPage({ project }: ProjectProps) {
                             >
                                 Try Interactive Version →
                             </a>
+                        )}
+                        {exhibitions && exhibitions.length > 0 && (
+                            <div className={styles.exhibitions}>
+                                <span className={styles.exhibitionsLabel}>Exhibited at</span>
+                                {exhibitions.map((ex, i) => (
+                                    <a
+                                        key={i}
+                                        href={ex.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.exhibition}
+                                    >
+                                        {ex.venue}, {ex.location} ({ex.year})
+                                    </a>
+                                ))}
+                            </div>
                         )}
                     </div>
                 </div>

@@ -198,8 +198,7 @@ export const projectsArray: Project[] = [
     "size": "1x2",
     "position": 2,
     "description": "Product design for an app connecting pet owners in urban neighborhoods.",
-    "featured": true,
-    "featuredOrder": 1
+    "featured": false
   },
   {
     "name": "unIIcode",
@@ -216,7 +215,8 @@ export const projectsArray: Project[] = [
     "size": "2x1",
     "position": 1,
     "description": "ML-generated characters for scripts that don't exist, then 3D printed into physical artifacts.",
-    "featured": false
+    "featured": true,
+    "featuredOrder": 1
   },
   {
     "name": "Organic Metal",
