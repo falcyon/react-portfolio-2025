@@ -8,7 +8,7 @@
     "Quantum"
   ],
   "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation.",
-  "thumbnail": "/media/quantumTouch/qtouch.webm",
+  "thumbnail": "/media/quantumTouch/qtouch.mp4",
   "thumbnailWidth": 720,
   "thumbnailHeight": 420,
   "size": "2x1",
@@ -20,7 +20,7 @@
         {
           "type": "video",
           "size": "h",
-          "src": "/media/quantumTouch/qtouch.webm",
+          "src": "/media/quantumTouch/qtouch.mp4",
           "alt": "Quantum Touch"
         }
       ]
@@ -48,7 +48,7 @@
         {
           "type": "video",
           "size": "h",
-          "src": "/media/quantumTouch/qTouch_td.webm",
+          "src": "/media/quantumTouch/qTouch_td.mp4",
           "alt": "Quantum Touch"
         },
         {

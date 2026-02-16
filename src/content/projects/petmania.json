@@ -25,7 +25,7 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/thumbnails/petmania.mp4",
+          "src": "/media/petmania/petmania.webm",
           "alt": "PetMania Video"
         }
       ]

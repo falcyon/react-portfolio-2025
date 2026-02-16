@@ -6,7 +6,7 @@
     "Digital"
   ],
   "description": "A piece created by designing a motion accumulator",
-  "thumbnail": "/media/constructor/constructor.webm",
+  "thumbnail": "/media/constructor/constructor.mp4",
   "thumbnailWidth": 1080,
   "thumbnailHeight": 1080,
   "size": "1x1",
@@ -85,7 +85,7 @@
         {
           "type": "video",
           "size": "f",
-          "src": "/media/constructor/constructor.webm",
+          "src": "/media/constructor/constructor.mp4",
           "alt": "Constructor Final Video"
         }
       ]

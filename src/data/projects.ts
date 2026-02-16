@@ -37,7 +37,7 @@ export const projectsArray: Project[] = [
   {
     "name": "...And Words Will Echo in My Soul",
     "slug": "andWordsWillEchoInMySoul",
-    "thumbnail": "/media/andWordsWillEchoInMySoul/insecurityMirror.webm",
+    "thumbnail": "/media/andWordsWillEchoInMySoul/insecurityMirror.mp4",
     "height": 1080,
     "width": 1080,
     "year": 2024,
@@ -106,7 +106,7 @@ export const projectsArray: Project[] = [
   {
     "name": "AI Discovers Fire",
     "slug": "aiDiscoversFire",
-    "thumbnail": "/media/aiDiscoversFire/fire-gif.webm",
+    "thumbnail": "/media/aiDiscoversFire/fire-gif.mp4",
     "height": 464,
     "width": 800,
     "year": 2021,
@@ -122,7 +122,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Constructor",
     "slug": "constructor",
-    "thumbnail": "/media/constructor/constructor.webm",
+    "thumbnail": "/media/constructor/constructor.mp4",
     "height": 1080,
     "width": 1080,
     "year": 2025,
@@ -137,7 +137,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Human Condition",
     "slug": "humanCondition",
-    "thumbnail": "/media/humanCondition/portraiture.webm",
+    "thumbnail": "/media/humanCondition/portraiture.mp4",
     "height": 590,
     "width": 500,
     "year": 2021,
@@ -155,7 +155,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Read my Lips",
     "slug": "readMyLips",
-    "thumbnail": "/media/readMyLips/ReadMyLips2.webm",
+    "thumbnail": "/media/readMyLips/ReadMyLips2.mp4",
     "height": 850,
     "width": 720,
     "year": 2021,
@@ -173,7 +173,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Conversation Sculpture",
     "slug": "conversationSculpture",
-    "thumbnail": "/media/conversationSculpture/pop2.webm",
+    "thumbnail": "/media/conversationSculpture/pop2.mp4",
     "height": 1080,
     "width": 1080,
     "year": 2022,
@@ -284,7 +284,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Unraveling",
     "slug": "unraveling",
-    "thumbnail": "/media/unraveling/unraveling.webm",
+    "thumbnail": "/media/unraveling/unraveling.mp4",
     "height": 700,
     "width": 700,
     "year": 2021,
@@ -300,7 +300,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Bit by Bit",
     "slug": "bitByBit",
-    "thumbnail": "/media/bitByBit/bitbybit.webm",
+    "thumbnail": "/media/bitByBit/bitbybit.mp4",
     "height": 720,
     "width": 720,
     "year": 2021,
@@ -315,7 +315,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Clock",
     "slug": "clock",
-    "thumbnail": "/media/clock/clock.webm",
+    "thumbnail": "/media/clock/clock.mp4",
     "height": 720,
     "width": 720,
     "year": 2021,
@@ -347,7 +347,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Discourse Parkour",
     "slug": "discourseParkour",
-    "thumbnail": "/media/discourseParkour/discourse.webm",
+    "thumbnail": "/media/discourseParkour/discourse.mp4",
     "height": 700,
     "width": 1098,
     "year": 2021,
@@ -362,7 +362,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Quantum Touch",
     "slug": "quantumTouch",
-    "thumbnail": "/media/quantumTouch/qtouch.webm",
+    "thumbnail": "/media/quantumTouch/qtouch.mp4",
     "height": 420,
     "width": 720,
     "year": 2022,
@@ -379,7 +379,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Quantum Triptych",
     "slug": "quantumTriptych",
-    "thumbnail": "/media/quantumTriptych/triptych2.webm",
+    "thumbnail": "/media/quantumTriptych/triptych2.mp4",
     "height": 420,
     "width": 720,
     "year": 2021,

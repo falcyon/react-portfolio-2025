@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Project } from "@/data/projects";
 import { useVideoVisibility } from "./hooks";
-import { loadedMedia } from "./mediaLoadStore";
+import { loadedMedia, requestLoad, cancelLoad, signalLoaded } from "./mediaLoadStore";
 import styles from "./ProjectsGrid.module.css";
 import cardStyles from "./Card.module.css";
 
@@ -41,11 +41,15 @@ function GridCard({ project }: { project: Project }) {
   useVideoVisibility(videoRef, isVideo && canLoadMedia);
 
   useEffect(() => {
-    if (!alreadyLoaded) setCanLoadMedia(true);
+    if (alreadyLoaded) return;
+    const cb = () => setCanLoadMedia(true);
+    requestLoad(cb);
+    return () => cancelLoad(cb);
   }, [alreadyLoaded]);
 
   const handleLoad = () => {
     loadedMedia.add(project.thumbnail);
+    signalLoaded();
   };
 
   return (

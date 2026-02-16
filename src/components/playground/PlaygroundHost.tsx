@@ -30,11 +30,9 @@ function createBag(exclude?: number): number[] {
 }
 
 export default function PlaygroundHost() {
-  const bagRef = useRef(createBag());
+  const bagRef = useRef<number[]>([]);
   const pendingIndexRef = useRef<number | null>(null);
-  const [playgroundIndex, setPlaygroundIndex] = useState(
-    () => bagRef.current.shift()!,
-  );
+  const [playgroundIndex, setPlaygroundIndex] = useState(0);
   const [cycleCount, setCycleCount] = useState(0);
   const [transition, setTransition] = useState<Transition>("idle");
 

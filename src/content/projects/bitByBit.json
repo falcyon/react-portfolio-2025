@@ -6,7 +6,7 @@
     "Digital"
   ],
   "description": "Digital art visualizing the passage of time in binary.",
-  "thumbnail": "/media/bitByBit/bitbybit.webm",
+  "thumbnail": "/media/bitByBit/bitbybit.mp4",
   "thumbnailWidth": 720,
   "thumbnailHeight": 720,
   "size": "1x1",
@@ -24,7 +24,7 @@
         {
           "type": "video",
           "size": "h",
-          "src": "/media/bitByBit/bitbybit.webm",
+          "src": "/media/bitByBit/bitbybit.mp4",
           "alt": "Bit by Bit Video"
         }
       ]

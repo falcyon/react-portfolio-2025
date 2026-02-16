@@ -8,7 +8,7 @@
     "Performance"
   ],
   "description": "An interactive installation where users see a silhouette of their negative self-talk as their reflection",
-  "thumbnail": "/media/andWordsWillEchoInMySoul/insecurityMirror.webm",
+  "thumbnail": "/media/andWordsWillEchoInMySoul/insecurityMirror.mp4",
   "thumbnailWidth": 1080,
   "thumbnailHeight": 1080,
   "size": "2x2",
@@ -98,7 +98,7 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/andWordsWillEchoInMySoul/segmentationValues.webm",
+          "src": "/media/andWordsWillEchoInMySoul/segmentationValues.mp4",
           "alt": "Segmentation Values"
         }
       ]
@@ -115,7 +115,7 @@
         {
           "type": "video",
           "size": "t2",
-          "src": "/media/andWordsWillEchoInMySoul/smallMatrix.webm",
+          "src": "/media/andWordsWillEchoInMySoul/smallMatrix.mp4",
           "alt": "Small Matrix"
         }
       ]

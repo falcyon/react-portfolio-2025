@@ -36,7 +36,7 @@
         {
           "type": "video",
           "size": "t2",
-          "src": "/media/palimpsest/perf1.webm",
+          "src": "/media/palimpsest/perf1.mp4",
           "alt": "Palimpsest Performance"
         },
         {
@@ -86,7 +86,7 @@
         {
           "type": "video",
           "size": "t",
-          "src": "/media/palimpsest/Conversations_Rotation.webm",
+          "src": "/media/palimpsest/Conversations_Rotation.mp4",
           "alt": "Palimpsest Conversations Rotation"
         },
         {
