@@ -13,6 +13,9 @@
   "thumbnailHeight": 1080,
   "size": "2x1",
   "position": 1,
+  "order": 11,
+  "featured": true,
+  "featuredOrder": 1,
   "content": [
     {
       "sections": [
@@ -108,6 +111,5 @@
         }
       ]
     }
-  ],
-  "order": 11
+  ]
 }

@@ -198,8 +198,7 @@ export const projectsArray: Project[] = [
     "size": "1x2",
     "position": 2,
     "description": "Product Design for an app for dogs to find companions.",
-    "featured": true,
-    "featuredOrder": 1
+    "featured": false
   },
   {
     "name": "unIIcode",
@@ -216,7 +215,8 @@ export const projectsArray: Project[] = [
     "size": "2x1",
     "position": 1,
     "description": "Generation of new character sets to fill up spaces in Unicode.",
-    "featured": false
+    "featured": true,
+    "featuredOrder": 1
   },
   {
     "name": "Organic Metal",
