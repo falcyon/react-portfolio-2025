@@ -375,21 +375,5 @@ export const projectsArray: Project[] = [
     "position": 1,
     "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation.",
     "featured": false
-  },
-  {
-    "name": "Quantum Triptych",
-    "slug": "quantumTriptych",
-    "thumbnail": "/media/quantumTriptych/triptych2.mp4",
-    "height": 420,
-    "width": 720,
-    "year": 2021,
-    "tags": [
-      "Digital",
-      "Quantum"
-    ],
-    "size": "2x1",
-    "position": 2,
-    "description": "Using IBM's Quantum Composer to act as an editor for a short film.",
-    "featured": false
   }
 ];
