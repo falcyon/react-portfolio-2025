@@ -1,6 +1,6 @@
 # leff.in
 
-Hand-built portfolio website showcasing my projects and experiements. 
+Hand-built portfolio website showcasing my projects and experiments.
 
 **Live at [leff.in](https://leff.in)**
 
@@ -17,12 +17,13 @@ Hand-built portfolio website showcasing my projects and experiements.
 
 ### Playground — Shuffleable Visual Identity
 
-The hero section uses four distinct visual identity cards called **Playground** items that cycle on demand via an earmark button in the corner.
+The hero section uses five distinct visual identity cards called **Playground** items that cycle on demand via an earmark button in the corner.
 
-- **Shapes** — 17 SVG rectangles animate between chaos and letterforms using `requestAnimationFrame` with custom easing. Three positional states (random scatter &rarr; "LEFF.IN" &rarr; "LEFFIN.") with per-frame interpolation and responsive scaling via `ResizeObserver`.
+- **Explosion** — 17 SVG rectangles animate between chaos and letterforms using `requestAnimationFrame` with custom easing. Three positional states (random scatter &rarr; "LEFF.IN" &rarr; "LEFFIN.") with per-frame interpolation and responsive scaling via `ResizeObserver`.
 - **Dictionary** — Styled as a dictionary entry with phonetic spelling, definitions, and etymology.
-- **Museum** — Museum placard aesthetic with bio, materials, and exhibition history.
 - **Terminal** — Simulated terminal with character-by-character typing animation (35ms per char) and a blinking cursor.
+- **2D Bodies** — Physics simulation using `planck.js` (Box2D). Letters hang from threads attached to the ceiling via revolute joints; identity words fall as rigid bodies and pile up on a floor. A kinematic cursor body lets visitors push elements around.
+- **Word Search** — A responsive letter grid (40x20 landscape, 20x30 portrait) with "LEFFIN" centered and identity words (Multidisciplinary, Interactive, etc.) placed as crosswords. Hovering or touching cells swaps their color, with a self-healing timer that restores them after 3 seconds.
 
 Transitions use a wipe animation (400ms translateY + opacity). Each shuffle is tracked via Umami analytics.
 
@@ -33,7 +34,7 @@ All site content lives in `src/content/` as plain JSON files — no CMS, no data
 - **Projects**: `src/content/projects/[slug].json` — metadata, tags, thumbnail info, and a flexible content array of text/image/video sections with configurable sizes
 - **About**: `src/content/about.json` — bio, credentials, exhibitions, speaking, press
 - **News**: `src/content/news.json` — ticker items with explicit expiry dates
-- **Lab**: `src/content/lab.json` — p5.js experiments
+- **Interactives**: `src/content/lab.json` — interactive experiments
 
 A build script (`scripts/generate-projects-array.mjs`) reads all project JSONs, sorts by `order`, and generates a static `src/data/projects.ts` array. This runs automatically before every build. Client components import the generated array; server components use an fs-based loader with **Zod validation** (`src/lib/projectSchema.ts`).
 
@@ -90,9 +91,9 @@ The `[source]` catch-all route maps short URLs to Umami events and redirects hom
 
 Configured in `src/config/trackingSources.ts`. Invalid paths redirect to 404.
 
-### Lab
+### Interactives
 
-A collection of p5.js sketches and interactive experiments. One route (`/lab/dinoRevenge`) is proxied via Vercel rewrite to a separate deployment. External experiments open in new tabs; internal ones route within the site.
+A collection of interactive prototypes, p5.js sketches, and experiments. One route (`/interactives/dinoRevenge`) is proxied via Vercel rewrite to a separate deployment. External experiments open in new tabs; internal ones route within the site.
 
 ### SEO & Structured Data
 
@@ -134,9 +135,9 @@ A collection of p5.js sketches and interactive experiments. One route (`/lab/din
 
 ```text
 src/
-  app/            # Next.js routes (/, /projects, /about, /lab, /[source])
+  app/            # Next.js routes (/, /projects, /about, /interactives, /[source])
   components/     # UI components, playground/, hooks, CSS modules
-  content/        # JSON content (projects/, about, news, lab)
+  content/        # JSON content (projects/, about, news, interactives)
   data/           # Auto-generated projects.ts
   lib/            # Zod schema, fs-based project loader
   config/         # Tracking sources config
