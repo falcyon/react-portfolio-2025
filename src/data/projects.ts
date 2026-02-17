@@ -269,7 +269,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Zoe",
     "slug": "zoe",
-    "thumbnail": "/media/zoe/zoe.webp",
+    "thumbnail": "/media/zoe/IMG_20221103_211311.webp",
     "height": 387,
     "width": 717,
     "year": 2022,
