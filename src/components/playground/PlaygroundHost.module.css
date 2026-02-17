@@ -143,6 +143,29 @@
   }
 }
 
+/* Periodic nudge — mini version of the earmarkReturn scale animation */
+.earmarkNudge {
+  animation: earmarkNudge 4s ease-in-out infinite;
+}
+
+.earmarkNudge:hover {
+  animation: none;
+}
+
+@keyframes earmarkNudge {
+  0%, 30%, 100% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(0.7);
+  }
+
+  20% {
+    transform: scale(1.05);
+  }
+}
+
 .earmark:focus-visible {
   outline: var(--focus-outline);
   outline-offset: var(--focus-offset);

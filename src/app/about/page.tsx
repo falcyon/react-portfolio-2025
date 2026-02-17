@@ -41,6 +41,7 @@ export default function AboutPage() {
           <a href={`mailto:${aboutData.contact.email}`}>Email</a>
           <a href={aboutData.contact.instagram} target="_blank" rel="noopener noreferrer">Instagram <ExternalIcon className={styles.heroExtIcon} /></a>
           <a href={aboutData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <ExternalIcon className={styles.heroExtIcon} /></a>
+          <a href={aboutData.contact.github} target="_blank" rel="noopener noreferrer">GitHub <ExternalIcon className={styles.heroExtIcon} /></a>
           </div>
         </div>
       </section>

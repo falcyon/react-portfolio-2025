@@ -4,7 +4,8 @@
   "year": 2021,
   "tags": [
     "Digital",
-    "AI/ML"
+    "AI/ML",
+    "Python"
   ],
   "description": "Media Art created using DCGAN trained on images of fire.",
   "thumbnail": "/media/aiDiscoversFire/fire_gif_sq_720p.mp4",

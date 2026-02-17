@@ -3,7 +3,8 @@
   "slug": "petmania",
   "year": 2022,
   "tags": [
-    "Product Design"
+    "Product Design",
+    "Figma"
   ],
   "description": "Product Design for an app for dogs to find companions.",
   "thumbnail": "/media/petmania/petmania_sq_720p.mp4",
@@ -13,6 +14,18 @@
   "position": 2,
   "order": 10,
   "featured": false,
+  "collaborators": [
+    {
+      "name": "Beatriz Ribeiro",
+      "role": "Collaborator",
+      "url": "https://shorturl.at/bfqzO"
+    },
+    {
+      "name": "Laiba Tasleem",
+      "role": "Collaborator",
+      "url": "https://www.conceptshaheen.com/"
+    }
+  ],
   "content": [
     {
       "sections": [

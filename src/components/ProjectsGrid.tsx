@@ -21,7 +21,10 @@ const PRESETS: { label: string; tags: string[] }[] = [
       "Performance",
       "Interactive",
       "Digital",
-      "Quantum",
+      "Arduino",
+      "Python",
+      "Computer Vision",
+      "p5.js",
     ],
   },
   {
@@ -29,6 +32,7 @@ const PRESETS: { label: string; tags: string[] }[] = [
     tags: [
       "Product Design",
       "Branding",
+      "Figma",
     ],
   },
 ];

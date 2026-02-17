@@ -80,7 +80,7 @@ export default function PlaygroundHost() {
       ? styles.earmarkReturning
       : transition !== "idle"
         ? styles.earmarkHidden
-        : "";
+        : styles.earmarkNudge;
 
   return (
     <div className={styles.heroOuter}>
@@ -100,7 +100,7 @@ export default function PlaygroundHost() {
 
         {/* Playground counter */}
         <span className={styles.playgroundCounter}>
-          Playground #{playgroundIndex + 1}/{TOTAL}
+          Interactive Playground #{playgroundIndex + 1}/{TOTAL}
         </span>
 
         {/* Earmark corner button */}

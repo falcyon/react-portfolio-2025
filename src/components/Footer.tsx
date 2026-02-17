@@ -5,13 +5,15 @@ export default function Footer() {
     <footer className={styles.footerOuter}>
       <div className={styles.footerInner}>
         <div className={styles.left}>
-          <span>&copy; 2026 | Designed and coded by Leffin</span>
+          <span>&copy; 2026 | Designed and coded by Leffin - </span>
+          <a href="https://github.com/falcyon/react-portfolio-2025" target="_blank" rel="noopener noreferrer">Source</a>
         </div>
         <div className={styles.center}>
           <div className={styles.linkGroup}>
             <a href="mailto:leffin7@gmail.com">Email</a>
             <a href="https://www.linkedin.com/in/leffin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://www.instagram.com/leffinc/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://github.com/falcyon" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
         <div className={styles.links}>

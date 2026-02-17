@@ -5,7 +5,8 @@
   "tags": [
     "Digital",
     "Physical",
-    "AI/ML"
+    "AI/ML",
+    "Python"
   ],
   "description": "Generation of new character sets to fill up spaces in Unicode.",
   "thumbnail": "/media/uniicode/physical.webp",

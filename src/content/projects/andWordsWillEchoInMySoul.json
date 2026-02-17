@@ -5,7 +5,9 @@
   "tags": [
     "Physical",
     "AI/ML",
-    "Performance"
+    "Performance",
+    "Python",
+    "Computer Vision"
   ],
   "description": "An interactive installation where users see a silhouette of their negative self-talk as their reflection",
   "thumbnail": "/media/andWordsWillEchoInMySoul/insecurityMirror.mp4",

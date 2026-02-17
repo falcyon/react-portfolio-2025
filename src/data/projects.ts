@@ -26,7 +26,8 @@ export const projectsArray: Project[] = [
     "width": 1080,
     "year": 2025,
     "tags": [
-      "Physical"
+      "Physical",
+      "Arduino"
     ],
     "size": "2x2",
     "position": 2,
@@ -44,7 +45,9 @@ export const projectsArray: Project[] = [
     "tags": [
       "Physical",
       "AI/ML",
-      "Performance"
+      "Performance",
+      "Python",
+      "Computer Vision"
     ],
     "size": "2x2",
     "position": 2,
@@ -62,7 +65,9 @@ export const projectsArray: Project[] = [
     "tags": [
       "Physical",
       "AI/ML",
-      "Interactive"
+      "Interactive",
+      "Python",
+      "Computer Vision"
     ],
     "size": "1x2",
     "position": 3,
@@ -79,7 +84,9 @@ export const projectsArray: Project[] = [
     "tags": [
       "Interactive",
       "Digital",
-      "AI/ML"
+      "AI/ML",
+      "p5.js",
+      "Computer Vision"
     ],
     "size": "1x1",
     "position": 1,
@@ -96,7 +103,10 @@ export const projectsArray: Project[] = [
     "tags": [
       "Physical",
       "Interactive",
-      "Performance"
+      "Performance",
+      "Arduino",
+      "AI/ML",
+      "Python"
     ],
     "size": "2x2",
     "position": 2,
@@ -112,7 +122,8 @@ export const projectsArray: Project[] = [
     "year": 2021,
     "tags": [
       "Digital",
-      "AI/ML"
+      "AI/ML",
+      "Python"
     ],
     "size": "2x1",
     "position": 3,
@@ -127,7 +138,9 @@ export const projectsArray: Project[] = [
     "width": 1080,
     "year": 2025,
     "tags": [
-      "Digital"
+      "Digital",
+      "Python",
+      "Computer Vision"
     ],
     "size": "1x1",
     "position": 1,
@@ -145,7 +158,9 @@ export const projectsArray: Project[] = [
       "Interactive",
       "Digital",
       "AI/ML",
-      "Performance"
+      "Performance",
+      "Python",
+      "Computer Vision"
     ],
     "size": "1x2",
     "position": 1,
@@ -163,7 +178,9 @@ export const projectsArray: Project[] = [
       "Interactive",
       "Digital",
       "AI/ML",
-      "Performance"
+      "Performance",
+      "p5.js",
+      "Computer Vision"
     ],
     "size": "1x2",
     "position": 2,
@@ -193,7 +210,8 @@ export const projectsArray: Project[] = [
     "width": 720,
     "year": 2022,
     "tags": [
-      "Product Design"
+      "Product Design",
+      "Figma"
     ],
     "size": "1x2",
     "position": 2,
@@ -210,7 +228,8 @@ export const projectsArray: Project[] = [
     "tags": [
       "Digital",
       "Physical",
-      "AI/ML"
+      "AI/ML",
+      "Python"
     ],
     "size": "2x1",
     "position": 1,
@@ -243,7 +262,8 @@ export const projectsArray: Project[] = [
     "tags": [
       "Digital",
       "Branding",
-      "Product Design"
+      "Product Design",
+      "Figma"
     ],
     "size": "1x1",
     "position": 3,
@@ -274,7 +294,8 @@ export const projectsArray: Project[] = [
     "width": 717,
     "year": 2022,
     "tags": [
-      "Product Design"
+      "Product Design",
+      "Figma"
     ],
     "size": "2x1",
     "position": 3,
@@ -290,7 +311,8 @@ export const projectsArray: Project[] = [
     "year": 2021,
     "tags": [
       "Digital",
-      "Interactive"
+      "Interactive",
+      "p5.js"
     ],
     "size": "1x1",
     "position": 1,
@@ -305,7 +327,8 @@ export const projectsArray: Project[] = [
     "width": 720,
     "year": 2021,
     "tags": [
-      "Digital"
+      "Digital",
+      "p5.js"
     ],
     "size": "1x1",
     "position": 2,
@@ -320,7 +343,8 @@ export const projectsArray: Project[] = [
     "width": 720,
     "year": 2021,
     "tags": [
-      "Digital"
+      "Digital",
+      "p5.js"
     ],
     "size": "1x1",
     "position": 3,
@@ -337,7 +361,8 @@ export const projectsArray: Project[] = [
     "tags": [
       "Physical",
       "AI/ML",
-      "Branding"
+      "Branding",
+      "Python"
     ],
     "size": "1x2",
     "position": 2,
@@ -353,7 +378,8 @@ export const projectsArray: Project[] = [
     "year": 2021,
     "tags": [
       "Digital",
-      "Interactive"
+      "Interactive",
+      "p5.js"
     ],
     "size": "2x1",
     "description": "An interactive installation where players read through a monologue as they play.",
@@ -368,8 +394,7 @@ export const projectsArray: Project[] = [
     "year": 2022,
     "tags": [
       "Interactive",
-      "Digital",
-      "Quantum"
+      "Digital"
     ],
     "size": "2x1",
     "position": 1,

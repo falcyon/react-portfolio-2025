@@ -13,6 +13,12 @@ const sectionGroupSchema = z.object({
   sections: z.array(sectionSchema),
 });
 
+const collaboratorSchema = z.object({
+  name: z.string().min(1),
+  role: z.string().min(1),
+  url: z.string().url(),
+});
+
 export const projectSchema = z.object({
   name: z.string().min(1),
   slug: z.string().min(1),
@@ -28,6 +34,8 @@ export const projectSchema = z.object({
   featured: z.boolean().optional().default(false),
   featuredOrder: z.number().int().optional(),
   interactiveUrl: z.string().url().optional(),
+  githubUrl: z.string().url().optional(),
+  collaborators: z.array(collaboratorSchema).optional(),
   content: z.array(sectionGroupSchema),
 });
 

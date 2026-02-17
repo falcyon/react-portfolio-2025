@@ -12,6 +12,23 @@
   "thumbnailHeight": 1500,
   "size": "1x1",
   "position": 4,
+  "collaborators": [
+    {
+      "name": "Shubham Chauhan",
+      "role": "Collaborator",
+      "url": "https://www.linkedin.com/in/urlshubhamchauhan/"
+    },
+    {
+      "name": "Sriharsha Gangisetty",
+      "role": "Collaborator",
+      "url": "https://www.linkedin.com/in/sriharshagangisetty/"
+    },
+    {
+      "name": "Suhani Gupta",
+      "role": "Collaborator",
+      "url": "https://www.linkedin.com/in/suhanigupta9/"
+    }
+  ],
   "content": [
     {
       "sections": [

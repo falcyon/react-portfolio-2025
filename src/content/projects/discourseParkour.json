@@ -4,13 +4,15 @@
   "year": 2021,
   "tags": [
     "Digital",
-    "Interactive"
+    "Interactive",
+    "p5.js"
   ],
   "description": "An interactive installation where players read through a monologue as they play.",
   "thumbnail": "/media/discourseParkour/discourse.mp4",
   "thumbnailWidth": 1098,
   "thumbnailHeight": 700,
   "size": "2x1",
+  "interactiveUrl": "https://editor.p5js.org/Falcyon/full/rifCaTlbJ",
   "content": [
     {
       "sections": []

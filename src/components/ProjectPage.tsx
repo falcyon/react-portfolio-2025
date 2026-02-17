@@ -21,6 +21,12 @@ interface Exhibition {
     href: string;
 }
 
+interface Collaborator {
+    name: string;
+    role: string;
+    url: string;
+}
+
 interface ProjectProps {
     project: {
         name: string;
@@ -28,6 +34,8 @@ interface ProjectProps {
         description: string;
         year: number;
         interactiveUrl?: string;
+        githubUrl?: string;
+        collaborators?: Collaborator[];
         content: {
             sections: Section[];
         }[];
@@ -38,6 +46,10 @@ interface ProjectProps {
 export default function ProjectPage({ project, exhibitions }: ProjectProps) {
 
     const hasContent = project.content && project.content.length > 0;
+    const sourceUrl = project.githubUrl
+        ?? (project.interactiveUrl?.includes("editor.p5js.org")
+            ? project.interactiveUrl.replace("/full/", "/sketches/")
+            : null);
 
     return (
         <>
@@ -54,15 +66,29 @@ export default function ProjectPage({ project, exhibitions }: ProjectProps) {
                         <h1>{project.name}</h1>
                         <h2>{project.description}</h2>
                         <h2>[{project.year}]</h2>
-                        {project.interactiveUrl && (
-                            <a
-                                href={project.interactiveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.interactiveLink}
-                            >
-                                Try Interactive Version →
-                            </a>
+                        {(project.interactiveUrl || sourceUrl) && (
+                            <div className={styles.projectLinks}>
+                                {project.interactiveUrl && (
+                                    <a
+                                        href={project.interactiveUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.interactiveLink}
+                                    >
+                                        Try Interactive Version →
+                                    </a>
+                                )}
+                                {sourceUrl && (
+                                    <a
+                                        href={sourceUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.interactiveLink}
+                                    >
+                                        View Source →
+                                    </a>
+                                )}
+                            </div>
                         )}
                         {exhibitions && exhibitions.length > 0 && (
                             <div className={styles.exhibitions}>
@@ -76,6 +102,22 @@ export default function ProjectPage({ project, exhibitions }: ProjectProps) {
                                         className={styles.exhibition}
                                     >
                                         {ex.venue}, {ex.location} ({ex.year})
+                                    </a>
+                                ))}
+                            </div>
+                        )}
+                        {project.collaborators && project.collaborators.length > 0 && (
+                            <div className={styles.collaborators}>
+                                <span className={styles.collaboratorsLabel}>Collaborators</span>
+                                {project.collaborators.map((collab, i) => (
+                                    <a
+                                        key={i}
+                                        href={collab.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.collaborator}
+                                    >
+                                        {collab.name} <span className={styles.collaboratorRole}>({collab.role})</span>
                                     </a>
                                 ))}
                             </div>

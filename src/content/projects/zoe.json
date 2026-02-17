@@ -3,7 +3,8 @@
   "slug": "zoe",
   "year": 2022,
   "tags": [
-    "Product Design"
+    "Product Design",
+    "Figma"
   ],
   "description": "A service design concept connecting consumers with local tailors for custom, sustainable clothing.",
   "thumbnail": "/media/zoe/IMG_20221103_211311.webp",
@@ -13,6 +14,13 @@
   "position": 3,
   "order": 14,
   "featured": false,
+  "collaborators": [
+    {
+      "name": "Bhuvan Srivastava",
+      "role": "Collaborator",
+      "url": "https://bhuvansrivastava.com/"
+    }
+  ],
   "content": [
     {
       "sections": [

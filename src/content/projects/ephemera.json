@@ -3,7 +3,8 @@
   "slug": "ephemera",
   "year": 2025,
   "tags": [
-    "Physical"
+    "Physical",
+    "Arduino"
   ],
   "description": "An installation reflecting on humanity's grapple with legacy",
   "thumbnail": "/media/ephemera/ephemera.mp4",

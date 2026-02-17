@@ -5,7 +5,9 @@
   "tags": [
     "Physical",
     "AI/ML",
-    "Interactive"
+    "Interactive",
+    "Python",
+    "Computer Vision"
   ],
   "description": "An interactive installation where users engage in a conversation with their digital self",
   "thumbnail": "/media/notesToSelf/live.mp4",
