@@ -330,7 +330,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Grimmer Tales",
     "slug": "grimmerTales",
-    "thumbnail": "/media/grimmerTales/Book.mp4",
+    "thumbnail": "/media/grimmerTales/book_sq_720p.mp4",
     "height": 1080,
     "width": 720,
     "year": 2022,
