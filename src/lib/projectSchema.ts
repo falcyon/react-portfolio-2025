@@ -15,7 +15,7 @@ const sectionGroupSchema = z.object({
   sections: z.array(sectionSchema),
 });
 
-const collaboratorSchema = z.object({
+const creditSchema = z.object({
   name: z.string().min(1),
   role: z.string().min(1),
   url: z.string().url(),
@@ -37,7 +37,7 @@ export const projectSchema = z.object({
   featuredOrder: z.number().int().optional(),
   interactiveUrl: z.string().url().optional(),
   githubUrl: z.string().url().optional(),
-  collaborators: z.array(collaboratorSchema).optional(),
+  credits: z.array(creditSchema).optional(),
   content: z.array(sectionGroupSchema),
 });
 

@@ -24,7 +24,7 @@ interface Exhibition {
     href: string;
 }
 
-interface Collaborator {
+interface Credit {
     name: string;
     role: string;
     url: string;
@@ -38,7 +38,7 @@ interface ProjectProps {
         year: number;
         interactiveUrl?: string;
         githubUrl?: string;
-        collaborators?: Collaborator[];
+        credits?: Credit[];
         content: {
             sections: Section[];
         }[];
@@ -109,18 +109,18 @@ export default function ProjectPage({ project, exhibitions }: ProjectProps) {
                                 ))}
                             </div>
                         )}
-                        {project.collaborators && project.collaborators.length > 0 && (
-                            <div className={styles.collaborators}>
-                                <span className={styles.collaboratorsLabel}>Collaborators</span>
-                                {project.collaborators.map((collab, i) => (
+                        {project.credits && project.credits.length > 0 && (
+                            <div className={styles.credits}>
+                                <span className={styles.creditsLabel}>Credits</span>
+                                {project.credits.map((credit, i) => (
                                     <a
                                         key={i}
-                                        href={collab.url}
+                                        href={credit.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={styles.collaborator}
+                                        className={styles.credit}
                                     >
-                                        {collab.name} <span className={styles.collaboratorRole}>({collab.role})</span>
+                                        {credit.name} <span className={styles.creditRole}>({credit.role})</span>
                                     </a>
                                 ))}
                             </div>

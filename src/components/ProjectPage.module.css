@@ -117,14 +117,14 @@
     color: var(--accent);
 }
 
-.collaborators {
+.credits {
     margin-top: var(--space-lg);
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.collaboratorsLabel {
+.creditsLabel {
     font-family: var(--font-sans);
     font-style: normal;
     font-weight: 700;
@@ -136,7 +136,7 @@
     margin-bottom: 2px;
 }
 
-.collaborator {
+.credit {
     font-size: 0.85rem;
     font-weight: 300;
     color: var(--foreground);
@@ -144,11 +144,11 @@
     transition: color var(--duration-base);
 }
 
-.collaborator:hover {
+.credit:hover {
     color: var(--accent);
 }
 
-.collaboratorRole {
+.creditRole {
     opacity: 0.5;
 }
 
