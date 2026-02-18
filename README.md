@@ -31,7 +31,7 @@ Transitions use a wipe animation (400ms translateY + opacity). Each shuffle is t
 
 All site content lives in `src/content/` as plain JSON files — no CMS, no database:
 
-- **Projects**: `src/content/projects/[slug].json` — metadata, tags, thumbnail info, and a flexible content array of text/image/video sections with configurable sizes
+- **Projects**: `src/content/projects/[slug].json` — metadata, tags, thumbnail info, and a flexible content array of text/image/video/heading sections with configurable sizes
 - **About**: `src/content/about.json` — bio, credentials, exhibitions, speaking, press
 - **News**: `src/content/news.json` — ticker items with explicit expiry dates
 - **Interactives**: `src/content/lab.json` — interactive experiments
@@ -54,8 +54,12 @@ Thumbnail loading uses a three-layer strategy:
 
 Each project page is statically generated at build time via `generateStaticParams()`. The content system supports flexible section layouts:
 
-- **Section types**: text, image, video (with `ResponsiveVideo` supporting quality variants via `<source>` elements)
-- **Section sizes**: half, full, third, two-thirds, quarter, small, single — mapped to CSS classes
+- **Section types**: text, image, video, heading
+  - `text` — body paragraphs (Times New Roman italic), supports multiple strings rendered as separate `<p>` elements
+  - `image` — static media with alt text
+  - `video` — auto-playing looping background video via `ResponsiveVideo` (supports quality variants via `<source>` elements). Optional `controls: true` switches to user-controlled playback (non-muted, non-looping, no autoplay). Optional `poster` for a preview frame.
+  - `heading` — section divider rendered as `<h3>` (uppercase Neuzeit Grotesk with red accent underline). Always full-width (`"size": "f"`) and alone in its section group.
+- **Section sizes**: half (`h`), full (`f`), third (`t`), two-thirds (`t2`), quarter (`q`), small (`s`), single (`1`) — mapped to CSS classes
 - Header displays project name, description, year, tags, and a thumbnail/video hero
 
 ### Filtering & Discovery

@@ -30,16 +30,16 @@
       "sections": [
         {
           "type": "text",
-          "size": "t",
+          "size": "h",
           "text": [
             "What would it look like if a conversation had a physical form? Palimpsest turns spoken exchanges about the meaning of life into tangible sculptures made of thread. Participants sit across from each other and talk, and the installation translates their words into something you can see and touch."
           ]
         },
         {
           "type": "image",
-          "size": "t2",
-          "src": "/media/palimpsest/1.webp",
-          "alt": "Palimpsest Installation"
+          "size": "h",
+          "src": "/media/palimpsest/DSC_0055.webp",
+          "alt": "Macro detail of threads knotted together at an intersection point inside the frame"
         }
       ]
     },
@@ -49,13 +49,86 @@
           "type": "video",
           "size": "t2",
           "src": "/media/palimpsest/perf1.mp4",
-          "alt": "Palimpsest Performance"
+          "alt": "Performance documentation showing the conversation and thread placement process"
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "Participants are prompted with fundamental questions. What gives life meaning? What are we afraid of? As they talk, their responses are encoded and transformed into a spatial installation that others can walk through and engage with. Two performances of three hours each were held in 2023."
+            "Participants are prompted with fundamental questions. What gives life meaning? What are we afraid of? As they respond, their words are encoded and transformed into a growing spatial installation, each conversation adding a new layer of thread to the structure."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "The System"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/palimpsest/Conversations_Rotation.mp4",
+          "alt": "3D visualization of conversations mapped as vectors rotating in latent space"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Each conversation is converted into a vector representation by the machine. This abstract point in latent space is mapped onto physical coordinates within a metal cube, determining where and how the thread is placed. The name comes from a palimpsest, a manuscript written over without erasing what came before. Each new conversation layers onto the last."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Six colors of thread are held in a custom 3D-printed spool mechanism. The color and length of each strand encode the intensity and emotion of what was said, making the invisible weight of words tangible. A custom PCB controls the motors that feed thread from the spools."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/palimpsest/colors.webp",
+          "alt": "Six colored thread spools arranged in a 3D-printed holder, viewed from above"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t2",
+          "src": "/media/palimpsest/palimpsest2.mp4",
+          "alt": "The spool mechanism selecting a color, unwinding thread, and dispensing it for placement"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "This video shows the spool mechanism at work. It first rotates to select a color based on the conversation's emotional signature, then unwinds a measured length of thread. Once the thread is dispensed, it is cut by hand and tied into position within the cube."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "First Performance"
           ]
         }
       ]
@@ -66,47 +139,19 @@
           "type": "image",
           "size": "t",
           "src": "/media/palimpsest/Asset_3-100.webp",
-          "alt": "Thread sculpture detail"
+          "alt": "Event poster featuring colorful threads against a black background"
         },
         {
           "type": "image",
           "size": "t",
           "src": "/media/palimpsest/Asset_2-100.webp",
-          "alt": "Installation view"
+          "alt": "Event poster featuring the custom PCB designed for the installation"
         },
         {
           "type": "image",
           "size": "t",
           "src": "/media/palimpsest/Asset_5-100.webp",
-          "alt": "Thread detail"
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "heading",
-          "size": "f",
-          "text": [
-            "Thread and Color"
-          ]
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "video",
-          "size": "t",
-          "src": "/media/palimpsest/Conversations_Rotation.mp4",
-          "alt": "Conversation to vector visualization"
-        },
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "Each conversation is converted into a vector representation by the machine. This abstract point in latent space is then mapped onto physical coordinates within a metal cube, determining where and how the thread is placed."
-          ]
+          "alt": "Event poster with the dictionary definition of palimpsest overlaid on scattered pages"
         }
       ]
     },
@@ -116,45 +161,14 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The threads vary in color and length, encoding the intensity and emotion of what was said. Each strand makes the invisible weight of words tangible."
+            "The first performance was held at Parsons. Over three hours, participants sat at a desk with a microphone and engaged in open conversation while the system analyzed their words in real time. Each response generated coordinates and a color, guiding the placement of a new thread within the frame."
           ]
         },
         {
           "type": "image",
-          "size": "t",
-          "src": "/media/palimpsest/colors.webp",
-          "alt": "Colored threads representing conversation emotions"
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "heading",
-          "size": "f",
-          "text": [
-            "Performances"
-          ]
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "video",
-          "size": "f",
-          "src": "/media/palimpsest/palimpsest2.mp4",
-          "alt": "Palimpsest first installation"
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "video",
-          "size": "f",
-          "src": "/media/palimpsest/2ndInstall.mp4",
-          "alt": "Palimpsest second installation"
+          "size": "t2",
+          "src": "/media/palimpsest/1.webp",
+          "alt": "A participant converses into a microphone while Leffin places threads inside the metal cube frame"
         }
       ]
     },
@@ -164,53 +178,13 @@
           "type": "video",
           "size": "h",
           "src": "/media/palimpsest/FirstPerformance_Conversation_1080p.mp4",
-          "alt": "One of the conversations from the first performance. "
-        },
-        {
-          "type": "video",
-          "size": "h",
-          "src": "/media/palimpsest/SecondPerformance_AlternateView_1080p.mp4",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "size": "h",
-          "src": "/media/palimpsest/FirstPerformanceFinalPic.webp",
-          "alt": ""
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "image",
-          "size": "h",
-          "src": "/media/palimpsest/ModelVersion.webp",
-          "alt": ""
+          "alt": "A full conversation from the first performance"
         },
         {
           "type": "image",
           "size": "h",
           "src": "/media/palimpsest/D7CE5764-B4B0-49DA-A2EE-97E85D98C300_1_105_c.webp",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "size": "h",
-          "src": "/media/palimpsest/72601E85-E74F-40BE-9282-874594B6F0C2_1_105_c.webp",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "size": "h",
-          "src": "/media/palimpsest/DSC_0055.webp",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "size": "h",
-          "src": "/media/palimpsest/IMG_20230517_122055.webp",
-          "alt": ""
+          "alt": "Leffin inside the metal frame placing threads while a participant converses at the desk"
         }
       ]
     },
@@ -218,21 +192,81 @@
       "sections": [
         {
           "type": "image",
-          "size": "h",
-          "src": "/media/palimpsest/IMG_20230516_212503.webp",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "size": "h",
+          "size": "t",
           "src": "/media/palimpsest/IMG_20230516_190346.webp",
-          "alt": ""
+          "alt": "Leffin reaching up to adjust the thread mechanism during a live performance"
         },
         {
           "type": "image",
-          "size": "h",
+          "size": "t",
           "src": "/media/palimpsest/IMG_20230516_202601.webp",
-          "alt": ""
+          "alt": "The dense web of colorful threads filling the installation frame after many conversations"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/palimpsest/72601E85-E74F-40BE-9282-874594B6F0C2_1_105_c.webp",
+          "alt": "View from inside the installation showing cascading threads, the acrylic model, and the control system"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/palimpsest/IMG_20230516_212503.webp",
+          "alt": "Gallery view showing the exhibition label and visitors exploring the installation at Parsons"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/palimpsest/IMG_20230517_122055.webp",
+          "alt": "Looking up inside the frame at the dense colorful web of accumulated threads"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/palimpsest/FirstPerformanceFinalPic.webp",
+          "alt": "The metal cube frame after the first performance, threads accumulated from hours of conversation"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Second Performance"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/palimpsest/SecondPerformance_AlternateView_1080p.mp4",
+          "alt": "The second performance at Grace Exhibition Space, showing the full frame and audience"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The second performance took place at Grace Exhibition Space. The same system and prompts were used in a new architectural context, with the installation filling the space over the course of the evening."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/palimpsest/2ndInstall.mp4",
+          "alt": "The Palimpsest installation filling a room with colorful threads over the course of an evening"
         }
       ]
     }
