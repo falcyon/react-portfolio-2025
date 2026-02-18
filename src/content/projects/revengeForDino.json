@@ -1,0 +1,32 @@
+{
+  "name": "Revenge for Dino",
+  "slug": "revengeForDino",
+  "year": 2026,
+  "tags": [
+    "AI/ML"
+  ],
+  "description": "A project about revenge for dino",
+  "thumbnail": "/media/revengeForDino/TankHeadBonk_1080p.mp4 ",
+  "thumbnailWidth": 1920,
+  "thumbnailHeight": 1080,
+  "size": "1x1",
+  "interactiveUrl": "https://leff.in/interactives/dinoRevenge",
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/revengeForDino/TankHeadBonk_1080p.mp4 ",
+          "alt": ""
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/revengeForDino/DinoRising_1080p.mp4",
+          "alt": ""
+        }
+      ]
+    }
+  ]
+}

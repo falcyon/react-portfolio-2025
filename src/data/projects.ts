@@ -400,5 +400,19 @@ export const projectsArray: Project[] = [
     "position": 1,
     "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation.",
     "featured": false
+  },
+  {
+    "name": "Revenge for Dino",
+    "slug": "revengeForDino",
+    "thumbnail": "/media/revengeForDino/TankHeadBonk_1080p.mp4 ",
+    "height": 1080,
+    "width": 1920,
+    "year": 2026,
+    "tags": [
+      "AI/ML"
+    ],
+    "size": "1x1",
+    "description": "A project about revenge for dino",
+    "featured": false
   }
 ];
