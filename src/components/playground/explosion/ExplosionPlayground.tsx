@@ -162,6 +162,7 @@ export default function ExplosionPlayground() {
   const elRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const animRef = useRef<number>(0);
   const mousePos = useRef<{ x: number; y: number } | null>(null);
+  const tapStartRef = useRef(0);
   const [containerSize, setContainerSize] = useState({ w: 0, h: 0 });
 
   useEffect(() => {
@@ -184,7 +185,7 @@ export default function ExplosionPlayground() {
       mousePos.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
     };
     const onLeave = () => { mousePos.current = null; };
-    const onTouch = () => { mousePos.current = null; };
+    const onTouch = () => { tapStartRef.current = performance.now(); };
     el.addEventListener("mousemove", onMouse);
     el.addEventListener("mouseleave", onLeave);
     el.addEventListener("touchstart", onTouch, { passive: true });
@@ -361,6 +362,16 @@ export default function ExplosionPlayground() {
         const dist = Math.sqrt((mx - cx) ** 2 + (my - cy) ** 2);
         targetChaos = Math.max(0, 1 - dist / maxDist);
         targetChaos = Math.pow(targetChaos, 0.6);
+      }
+
+      // Tap chaos for mobile (peaks then decays over 2 seconds)
+      if (tapStartRef.current > 0) {
+        const tapElapsed = now - tapStartRef.current;
+        if (tapElapsed < 2000) {
+          targetChaos = Math.max(targetChaos, 1 - tapElapsed / 2000);
+        } else {
+          tapStartRef.current = 0;
+        }
       }
 
       // Smooth interpolation toward target (faster ramp-up, slower decay)
