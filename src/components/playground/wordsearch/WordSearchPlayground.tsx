@@ -34,7 +34,7 @@ const LANDSCAPE: WordPlacement[] = [
   { word: "IMMERSIVE", row: 5, col: 34, dir: V },
   { word: "EMBODIED", row: 18, col: 0, dir: H },
   { word: "BUILDER", row: 17, col: 13, dir: H },
-  { word: "ARTIST", row: 0, col: 0, dir: H },
+  { word: "EXPERIENTIAL", row: 0, col: 0, dir: H },
 ];
 
 // Portrait (20×30), LEFFIN at row 15 col 7
@@ -54,45 +54,55 @@ const PORTRAIT: WordPlacement[] = [
   { word: "IMMERSIVE", row: 5, col: 18, dir: V },
   { word: "EMBODIED", row: 0, col: 8, dir: H },
   { word: "BUILDER", row: 28, col: 0, dir: H },
-  { word: "ARTIST", row: 29, col: 0, dir: H },
+  { word: "EXPERIENTIAL", row: 29, col: 0, dir: H },
 ];
 
-function placeWord(
-  grid: string[][],
-  cells: Set<string>,
-  word: string,
-  row: number,
-  col: number,
-  dir: Dir,
-) {
-  for (let i = 0; i < word.length; i++) {
-    const r = row + dir[0] * i;
-    const c = col + dir[1] * i;
-    grid[r][c] = word[i];
-    cells.add(`${r},${c}`);
-  }
-}
+const LETTER_TICK = 50; // ms per letter reveal
+const WORD_GAP_TICKS = 8; // extra ticks (400ms) pause between words
 
 function generateGrid(cols: number, rows: number): {
   grid: string[][];
-  leffinCells: Set<string>;
-  wordCells: Set<string>;
+  cellWordIndex: Map<string, number>;
+  cellRevealStep: Map<string, number>;
+  totalSteps: number;
+  totalWords: number;
 } {
   const grid: string[][] = Array.from({ length: rows }, () =>
     Array(cols).fill(""),
   );
-  const leffinCells = new Set<string>();
-  const wordCells = new Set<string>();
+  const cellWordIndex = new Map<string, number>();
+  const cellRevealStep = new Map<string, number>();
+  let step = 0;
 
-  // Place LEFFIN in the center
+  // Place LEFFIN in the center (word index 0)
   const centerRow = Math.floor(rows / 2);
   const startCol = Math.floor((cols - CENTER_WORD.length) / 2);
-  placeWord(grid, leffinCells, CENTER_WORD, centerRow, startCol, H);
+  for (let i = 0; i < CENTER_WORD.length; i++) {
+    const key = `${centerRow},${startCol + i}`;
+    grid[centerRow][startCol + i] = CENTER_WORD[i];
+    cellWordIndex.set(key, 0);
+    cellRevealStep.set(key, step++);
+  }
+  step += WORD_GAP_TICKS;
 
-  // Place words from hardcoded layout
+  // Place identity words (word index 1, 2, ...)
   const layout = cols >= 40 ? LANDSCAPE : PORTRAIT;
-  for (const p of layout) {
-    placeWord(grid, wordCells, p.word, p.row, p.col, p.dir);
+  for (let wi = 0; wi < layout.length; wi++) {
+    const p = layout[wi];
+    for (let i = 0; i < p.word.length; i++) {
+      const r = p.row + p.dir[0] * i;
+      const c = p.col + p.dir[1] * i;
+      grid[r][c] = p.word[i];
+      const key = `${r},${c}`;
+      if (!cellWordIndex.has(key)) {
+        cellWordIndex.set(key, wi + 1);
+      }
+      if (!cellRevealStep.has(key)) {
+        cellRevealStep.set(key, step);
+      }
+      step++;
+    }
+    if (wi < layout.length - 1) step += WORD_GAP_TICKS;
   }
 
   // Fill empty cells with random letters
@@ -104,7 +114,7 @@ function generateGrid(cols: number, rows: number): {
     }
   }
 
-  return { grid, leffinCells, wordCells };
+  return { grid, cellWordIndex, cellRevealStep, totalSteps: step, totalWords: 1 + layout.length };
 }
 
 function swapCellColor(
@@ -147,11 +157,14 @@ export default function WordSearchPlayground() {
   const [config, setConfig] = useState<GridConfig | null>(null);
   const [gridData, setGridData] = useState<{
     grid: string[][];
-    leffinCells: Set<string>;
-    wordCells: Set<string>;
+    cellWordIndex: Map<string, number>;
+    cellRevealStep: Map<string, number>;
+    totalSteps: number;
+    totalWords: number;
     cols: number;
     rows: number;
   } | null>(null);
+  const [revealedStep, setRevealedStep] = useState(0);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -178,7 +191,32 @@ export default function WordSearchPlayground() {
     prevDimsRef.current = key;
     const data = generateGrid(config.cols, config.rows);
     setGridData({ ...data, cols: config.cols, rows: config.rows });
+    setRevealedStep(0);
   }, [config]);
+
+  // Sequential letter-by-letter reveal animation
+  useEffect(() => {
+    if (!gridData) return;
+    const { totalSteps } = gridData;
+
+    let current = 0;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
+
+    const startTimer = setTimeout(() => {
+      intervalId = setInterval(() => {
+        current++;
+        setRevealedStep(current);
+        if (current >= totalSteps) {
+          if (intervalId) clearInterval(intervalId);
+        }
+      }, LETTER_TICK);
+    }, 600);
+
+    return () => {
+      clearTimeout(startTimer);
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [gridData]);
 
   // Touch handler for mobile
   useEffect(() => {
@@ -232,17 +270,31 @@ export default function WordSearchPlayground() {
   const cellClass = (r: number, c: number) => {
     if (!gridData) return styles.cell;
     const key = `${r},${c}`;
-    if (gridData.leffinCells.has(key))
-      return `${styles.cell} ${styles.leffin}`;
-    if (gridData.wordCells.has(key)) return styles.cell;
+    const wordIdx = gridData.cellWordIndex.get(key);
+    const step = gridData.cellRevealStep.get(key);
+
+    if (wordIdx === undefined) {
+      return `${styles.cell} ${styles.filler}`;
+    }
+
+    if (step !== undefined && step < revealedStep) {
+      if (wordIdx === 0) return `${styles.cell} ${styles.leffin}`;
+      return styles.cell;
+    }
+
     return `${styles.cell} ${styles.filler}`;
   };
 
   const cellType = (r: number, c: number): string => {
     if (!gridData) return "filler";
     const key = `${r},${c}`;
-    if (gridData.leffinCells.has(key)) return "leffin";
-    if (gridData.wordCells.has(key)) return "word";
+    const wordIdx = gridData.cellWordIndex.get(key);
+    const step = gridData.cellRevealStep.get(key);
+
+    if (wordIdx === undefined) return "filler";
+    if (step !== undefined && step < revealedStep) {
+      return wordIdx === 0 ? "leffin" : "word";
+    }
     return "filler";
   };
 

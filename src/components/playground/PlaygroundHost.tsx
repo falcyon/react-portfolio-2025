@@ -100,7 +100,7 @@ export default function PlaygroundHost() {
 
         {/* Playground counter */}
         <span className={styles.playgroundCounter}>
-          Interactive Playground #{playgroundIndex + 1}/{TOTAL}
+          Playground #{playgroundIndex + 1}/{TOTAL}
         </span>
 
         {/* Earmark corner button */}

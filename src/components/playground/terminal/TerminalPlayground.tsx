@@ -12,7 +12,7 @@ const RESPONSES: Record<string, string[]> = {
     "Aerospace Engineering \u2192 High Performance Scientific Computing \u2192 Data Science \u2192 Design \u2192 Art",
   ],
   "cat tags.txt": [
-    "multidisciplinary\tinteractive\ttechnologist\tintrospective\tembodied\timmersive\texperimental\thuman\tstoryteller\tbuilder",
+    "multidisciplinary\tinteractive\ttechnologist\tintrospective\texperiential\timmersive\thuman\tstoryteller\tbuilder",
   ],
   "ls projects/ | head -4": [
     "ephemera/\tandWordsWillEchoInMySoul/\tnotesToSelf/\tpalimpsest/",

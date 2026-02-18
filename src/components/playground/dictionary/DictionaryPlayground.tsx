@@ -197,7 +197,7 @@ export default function DictionaryPlayground() {
         </li>
         <li>
           A creative technologist who bridges code, physical materials, and
-          human experience into immersive work.
+          human experience into experiential work.
         </li>
         <li>
           An AI product manager and designer who ships things from concept to reality.
@@ -215,8 +215,8 @@ export default function DictionaryPlayground() {
 
       <div className={styles.synonyms}>
         <span className={styles.synonymsLabel}>Synonyms</span>
-        multidisciplinary, interactive, technologist, introspective, embodied,
-        immersive, experimental, human, storyteller, builder
+        multidisciplinary, interactive, technologist, experiential, introspective,
+        immersive, human, storyteller, builder
       </div>
 
       <div className={styles.origin}>

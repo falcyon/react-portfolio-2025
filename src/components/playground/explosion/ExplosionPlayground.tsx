@@ -55,7 +55,7 @@ const textElements: TextElement[] = [
   { id: "t_3", content: "INTROSPECTIVE", fontScale: 1.0, minFontSize: 9 },
   { id: "t_4", content: "EMBODIED", fontScale: 1.0, minFontSize: 9 },
   { id: "t_5", content: "IMMERSIVE", fontScale: 1.0, minFontSize: 9 },
-  { id: "t_6", content: "EXPERIMENTAL", fontScale: 1.0, minFontSize: 9 },
+  { id: "t_6", content: "EXPERIENTIAL", fontScale: 1.0, minFontSize: 9 },
   { id: "t_7", content: "HUMAN", fontScale: 1.0, minFontSize: 9 },
   { id: "t_8", content: "STORYTELLER", fontScale: 1.0, minFontSize: 9 },
   { id: "t_9", content: "BUILDER", fontScale: 1.0, minFontSize: 9 },
@@ -162,7 +162,6 @@ export default function ExplosionPlayground() {
   const elRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const animRef = useRef<number>(0);
   const mousePos = useRef<{ x: number; y: number } | null>(null);
-  const tapStartRef = useRef(0);
   const [containerSize, setContainerSize] = useState({ w: 0, h: 0 });
 
   useEffect(() => {
@@ -185,21 +184,14 @@ export default function ExplosionPlayground() {
       mousePos.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
     };
     const onLeave = () => { mousePos.current = null; };
-    const onTouchStart = () => {
-      tapStartRef.current = performance.now();
-    };
-    const onTouchMove = () => {
-      tapStartRef.current = performance.now();
-    };
+    const onTouch = () => { mousePos.current = null; };
     el.addEventListener("mousemove", onMouse);
     el.addEventListener("mouseleave", onLeave);
-    el.addEventListener("touchstart", onTouchStart, { passive: true });
-    el.addEventListener("touchmove", onTouchMove, { passive: true });
+    el.addEventListener("touchstart", onTouch, { passive: true });
     return () => {
       el.removeEventListener("mousemove", onMouse);
       el.removeEventListener("mouseleave", onLeave);
-      el.removeEventListener("touchstart", onTouchStart);
-      el.removeEventListener("touchmove", onTouchMove);
+      el.removeEventListener("touchstart", onTouch);
     };
   }, []);
 
@@ -211,15 +203,24 @@ export default function ExplosionPlayground() {
     const scaleFactor = containerWidth / 100;
     const X_OFFSET = 18;
 
-    // --- Compute text font sizes ---
+    // --- Set text font sizes (must happen before measuring) ---
     const wordFontSize = Math.max(9, 1.0 * scaleFactor);
+    for (const t of textElements) {
+      const el = elRefs.current[t.id];
+      if (el) el.style.fontSize = `${wordFontSize}px`;
+    }
+
+    // --- Measure actual rendered tag widths ---
+    const tagWidths: Record<string, number> = {};
+    for (const t of textElements) {
+      const el = elRefs.current[t.id];
+      tagWidths[t.id] = el ? el.offsetWidth : 0;
+    }
 
     // --- Compute text settled layout (to determine total content height) ---
     const nameHeightPx = 15 * scaleFactor;
     const gapNameToWords = Math.max(12, 5 * scaleFactor);
     const nameWidthPx = 65 * scaleFactor;
-    const charWidthPx = wordFontSize * 0.55;
-    const tagPadHPx = wordFontSize * 0.5; // horizontal padding inside tag
     const wordGapPx = wordFontSize * 0.6;
     const lineHeightPx = wordFontSize * 2.2;
 
@@ -227,7 +228,7 @@ export default function ExplosionPlayground() {
     let tempX = 0;
     let numWordRows = 1;
     for (const t of textElements) {
-      const tagWidth = t.content.length * charWidthPx + tagPadHPx * 2;
+      const tagWidth = tagWidths[t.id];
       if (tempX + tagWidth > nameWidthPx && tempX > 0) {
         tempX = 0;
         numWordRows++;
@@ -247,19 +248,13 @@ export default function ExplosionPlayground() {
     let rowX = 0;
     let rowY = wordsStartY;
     for (const t of textElements) {
-      const tagWidth = t.content.length * charWidthPx + tagPadHPx * 2;
+      const tagWidth = tagWidths[t.id];
       if (rowX + tagWidth > nameWidthPx && rowX > 0) {
         rowX = 0;
         rowY += lineHeightPx;
       }
       textSettled[t.id] = { x: X_OFFSET * scaleFactor + rowX, y: rowY, fontSize: wordFontSize };
       rowX += tagWidth + wordGapPx;
-    }
-
-    // --- Set text font sizes (constant, set once) ---
-    for (const t of textElements) {
-      const el = elRefs.current[t.id];
-      if (el) el.style.fontSize = `${textSettled[t.id].fontSize}px`;
     }
 
     // --- Pre-compute chaos positions (mouse-driven, not in phase cycle) ---
@@ -366,16 +361,6 @@ export default function ExplosionPlayground() {
         const dist = Math.sqrt((mx - cx) ** 2 + (my - cy) ** 2);
         targetChaos = Math.max(0, 1 - dist / maxDist);
         targetChaos = Math.pow(targetChaos, 0.6);
-      }
-
-      // Tap chaos for mobile (linear decay over 3 seconds)
-      if (tapStartRef.current > 0) {
-        const tapElapsed = now - tapStartRef.current;
-        if (tapElapsed < 3000) {
-          targetChaos = Math.max(targetChaos, 1 - tapElapsed / 3000);
-        } else {
-          tapStartRef.current = 0;
-        }
       }
 
       // Smooth interpolation toward target (faster ramp-up, slower decay)
