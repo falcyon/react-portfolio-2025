@@ -211,7 +211,7 @@ export default function ProjectsGrid({
 
   // Show/hide individual tags
   const [showAllTags, setShowAllTags] = useState(false);
-  const visibleTags = showAllTags ? allTags : allTags.slice(0, 8);
+  const visibleTags = showAllTags ? allTags : allTags.slice(0, 12);
 
   return (
     <div className={styles.container}>
@@ -241,12 +241,12 @@ export default function ProjectsGrid({
               {tag}
             </button>
           ))}
-          {allTags.length > 8 && (
+          {allTags.length > 12 && (
             <button
               className={styles.tagBtn}
               onClick={() => setShowAllTags(!showAllTags)}
             >
-              {showAllTags ? "Less" : `+${allTags.length - 8} more`}
+              {showAllTags ? "Less" : `+${allTags.length - 12} more`}
             </button>
           )}
         </div>
