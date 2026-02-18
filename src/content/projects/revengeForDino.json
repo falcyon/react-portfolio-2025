@@ -27,6 +27,177 @@
           "size": "h",
           "src": "/media/revengeForDino/DinoRising_1080p.mp4",
           "alt": ""
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Team up with Gemini to defeat the <em>Collapsing Corrupting Core of Crashes.</em>",
+            "",
+            "Type anything in the search bar and watch",
+            "Gemini 3 Pro build it in real time, code and all, and drop it in the game.&nbsp;<br>",
+            "Each object is one-shot generated: body, physics, behavior, and logic, injected live."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "The What"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Users get to see the power of Gemini Pro 3 in the familiar google search page, but gamified.&nbsp;",
+            "",
+            "They see the depth and nuance in Gemini’s reasoning and coding through the live creation of autonomous bots that:"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "<em>are complex &amp; delightful</em>"
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "<em>create ephemeral objects themselves</em>"
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "<em>are heat-seeking</em>"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/revengeForDino/Train_480p.mp4",
+          "alt": ""
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/revengeForDino/tank_480p.mp4",
+          "alt": ""
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/revengeForDino/rain_480p.mp4",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "THE WHY"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "With AI dominating conversations everywhere, it is crucial to give people hands-on experience with the model and to differentiate in the market.&nbsp;",
+            "",
+            "This project:"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "shows, doesn’t tell"
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "is uniquely Google"
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "is uniquely Gemini 3 Pro"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "",
+          "alt": ""
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/revengeForDino/comparison_720p.mp4",
+          "alt": ""
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/revengeForDino/longPlaythrough_1080p.mp4",
+          "alt": ""
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/revengeForDino/frontpage_1080p.mp4",
+          "alt": ""
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "This project uses a physics simulation engine called box 2d and recreates every element of the google search page. There is a custom parser which then takes the generated string from Gemini and then creates the functions in-game.&nbsp;2d physics bodies,&nbsp;code generation by Gemini , objects generated from code"
+          ]
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": []
         }
       ]
     }
