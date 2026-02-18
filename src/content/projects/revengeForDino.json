@@ -3,14 +3,16 @@
   "slug": "revengeForDino",
   "year": 2026,
   "tags": [
-    "AI/ML"
+    "AI/ML",
+    "Interactive",
+    "Game"
   ],
-  "description": "A project about revenge for dino",
+  "description": "A physics combat game on a gamified Google search page, where Gemini generates playable objects from natural language in real time.",
   "thumbnail": "/media/revengeForDino/TankHeadBonk_1080p.mp4",
   "thumbnailWidth": 1920,
   "thumbnailHeight": 1080,
   "size": "1x1",
-  "order": 1,
+  "order": -1,
   "featured": false,
   "interactiveUrl": "https://leff.in/interactives/dinoRevenge",
   "content": [
@@ -19,14 +21,14 @@
         {
           "type": "video",
           "size": "h",
-          "src": "/media/revengeForDino/TankHeadBonk_1080p.mp4 ",
-          "alt": ""
+          "src": "/media/revengeForDino/TankHeadBonk_1080p.mp4",
+          "alt": "The Crash boss looms on a Google search page while Gemini displays generated Planck.js code in a speech bubble"
         },
         {
           "type": "video",
           "size": "h",
           "src": "/media/revengeForDino/DinoRising_1080p.mp4",
-          "alt": ""
+          "alt": "The Crash boss corrupts the Google search page while the dinosaur ragdoll braces for impact"
         },
         {
           "type": "text",
@@ -34,9 +36,7 @@
           "text": [
             "Team up with Gemini to defeat the <em>Collapsing Corrupting Core of Crashes.</em>",
             "",
-            "Type anything in the search bar and watch",
-            "Gemini 3 Pro build it in real time, code and all, and drop it in the game.&nbsp;<br>",
-            "Each object is one-shot generated: body, physics, behavior, and logic, injected live."
+            "Type anything into the search bar and watch Gemini build it in real time, code and all, and drop it into the game. Each object is one-shot generated: body, physics, behavior, and logic, injected live into a Box2D simulation."
           ]
         }
       ]
@@ -46,9 +46,7 @@
         {
           "type": "heading",
           "size": "f",
-          "text": [
-            "The What"
-          ]
+          "text": ["The Game"]
         }
       ]
     },
@@ -58,34 +56,9 @@
           "type": "text",
           "size": "h",
           "text": [
-            "Users get to see the power of Gemini Pro 3 in the familiar google search page, but gamified.&nbsp;",
+            "The game disguises itself as a Google search page. Every element on the page, the logo, the buttons, the navigation links, are real physics bodies. Players type natural language prompts into the search bar, and Gemini generates executable Planck.js code in real time, spawning autonomous objects that can be dragged, thrown, and hurled at a growing void enemy.",
             "",
-            "They see the depth and nuance in Gemini’s reasoning and coding through the live creation of autonomous bots that:"
-          ]
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "<em>are complex &amp; delightful</em>"
-          ]
-        },
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "<em>create ephemeral objects themselves</em>"
-          ]
-        },
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "<em>are heat-seeking</em>"
+            "The boss is a corrupting core that devours everything it touches. Its one vulnerability is a roaming eye on its perimeter. Hit it hard enough, and it takes damage. Let it grow too large, and the game is over."
           ]
         }
       ]
@@ -96,19 +69,44 @@
           "type": "video",
           "size": "t",
           "src": "/media/revengeForDino/Train_480p.mp4",
-          "alt": ""
+          "alt": "A toy train with smoke particles rolls along the ground, generated from a search prompt"
         },
         {
           "type": "video",
           "size": "t",
           "src": "/media/revengeForDino/tank_480p.mp4",
-          "alt": ""
+          "alt": "An olive-green tank with a crosshair targets the enemy"
         },
         {
           "type": "video",
           "size": "t",
           "src": "/media/revengeForDino/rain_480p.mp4",
-          "alt": ""
+          "alt": "A rain cloud drops blue particles that accumulate on the ground"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "<em>Complex and delightful</em>"
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "<em>Create ephemeral objects themselves</em>"
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "<em>Heat-seeking</em>"
+          ]
         }
       ]
     },
@@ -117,9 +115,7 @@
         {
           "type": "heading",
           "size": "f",
-          "text": [
-            "THE WHY"
-          ]
+          "text": ["AI Meets Physics"]
         }
       ]
     },
@@ -129,75 +125,72 @@
           "type": "text",
           "size": "t",
           "text": [
-            "With AI dominating conversations everywhere, it is crucial to give people hands-on experience with the model and to differentiate in the market.&nbsp;",
+            "A two-model pipeline powers object creation. Gemini 2.0 Flash normalizes prompts into cache keys, while Gemini 3 Pro writes the actual Planck.js code. Generated functions are sandboxed and executed live, creating bodies, joints, and update loops that interact with the existing physics world.",
             "",
-            "This project:"
+            "A two-tier caching system (curated objects locally, novel generations in Firebase) means popular objects load instantly, while new prompts trigger fresh generation."
           ]
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "shows, doesn’t tell"
-          ]
-        },
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "is uniquely Google"
-          ]
-        },
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "is uniquely Gemini 3 Pro"
-          ]
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "image",
-          "size": "t",
-          "src": "",
-          "alt": ""
         },
         {
           "type": "video",
-          "size": "t",
+          "size": "t2",
           "src": "/media/revengeForDino/comparison_720p.mp4",
-          "alt": ""
-        },
+          "alt": "Side-by-side comparison of Gemini 2 Flash and Gemini 3 Pro generating objects from the same prompt"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["The Search Page"]
+        }
+      ]
+    },
+    {
+      "sections": [
         {
           "type": "video",
-          "size": "t",
-          "src": "/media/revengeForDino/longPlaythrough_1080p.mp4",
-          "alt": ""
-        },
-        {
-          "type": "video",
-          "size": "t",
+          "size": "h",
           "src": "/media/revengeForDino/frontpage_1080p.mp4",
-          "alt": ""
+          "alt": "The full game interface mimicking a Google search page in a browser, with the Crash boss lurking in the corner"
         },
         {
           "type": "text",
           "size": "h",
           "text": [
-            "This project uses a physics simulation engine called box 2d and recreates every element of the google search page. There is a custom parser which then takes the generated string from Gemini and then creates the functions in-game.&nbsp;2d physics bodies,&nbsp;code generation by Gemini , objects generated from code"
+            "The entire Google search page is recreated in Canvas. Every UI element, from logo letters to footer links, exists as a Box2D static body. Drag any element and it converts to a dynamic body, subject to gravity and the void's gravitational pull. The Gemini companion, an animated star icon, follows your cursor, flies to the spawn location, and delivers each new creation."
           ]
-        },
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["The Why"]
+        }
+      ]
+    },
+    {
+      "sections": [
         {
           "type": "text",
           "size": "h",
-          "text": []
+          "text": [
+            "With AI dominating conversations everywhere, it is crucial to give people hands-on experience with the model and to differentiate in the market. This project shows rather than tells. It takes something uniquely Google, the search page, and something uniquely Gemini, real-time code generation, and turns them into a playable experience."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/revengeForDino/longPlaythrough_1080p.mp4",
+          "alt": "Extended gameplay showing multiple AI-generated objects being thrown at the Crash boss"
         }
       ]
     }
