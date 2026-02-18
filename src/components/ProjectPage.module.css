@@ -177,6 +177,7 @@
 
 .textSection p {
     font-weight: 300;
+    font-style: normal;
     margin-top: 0;
     margin-bottom: var(--space-lg);
 }
@@ -299,6 +300,7 @@
     .sectionGroup {
         flex-direction: column;
         width: 100%;
+        margin: 0 0 var(--space-md) 0;
     }
 
     .t,
@@ -308,7 +310,7 @@
     .s,
     .f {
         width: 100%;
-        margin-bottom: 4rem;
+        padding: var(--space-sm) 0;
     }
 
     .textSection p {

@@ -25,11 +25,9 @@ The hero section uses five distinct visual identity cards called **Playground** 
 - **2D Bodies** — Physics simulation using `planck.js` (Box2D). Letters hang from threads attached to the ceiling via revolute joints; identity words fall as rigid bodies and pile up on a floor. A kinematic cursor body lets visitors push elements around.
 - **Word Search** — A responsive letter grid (40x20 landscape, 20x30 portrait) with "LEFFIN" centered and identity words (Multidisciplinary, Interactive, etc.) placed as crosswords. Hovering or touching cells swaps their color, with a self-healing timer that restores them after 3 seconds.
 
-Transitions use a wipe animation (400ms translateY + opacity). Each shuffle is tracked via Umami analytics.
-
 ### JSON-Driven Content System
 
-All site content lives in `src/content/` as plain JSON files — no CMS, no database:
+All site content lives in `src/content/` as plain JSON files. No CMS, no database:
 
 - **Projects**: `src/content/projects/[slug].json` — metadata, tags, thumbnail info, and a flexible content array of text/image/video/heading sections with configurable sizes
 - **About**: `src/content/about.json` — bio, credentials, exhibitions, speaking, press
@@ -74,16 +72,9 @@ The projects grid offers two-tier filtering backed by URL query params (`?tags=t
 
 A seamless horizontal scroll loop built with CSS `translateX` animation. Content is repeated 6x for gapless looping. Items have explicit `expires` dates — expired items are filtered client-side. Pauses on hover. Masked edges with CSS `mask-image` gradient.
 
-### Analytics — Lazy Umami
+### Interactives
 
-Umami analytics loads lazily on first user interaction (mousemove, scroll, click, touchstart, keydown) to avoid impacting initial page load. Supports opt-out via `?notrack` URL parameter persisted to localStorage.
-
-**Tracked events:**
-
-- `playground-cycle` — hero shuffle
-- `project-click` / `featured-click` — with project slug
-- `scroll-depth` — milestone tracking at 10% increments per page
-- `source` — from tracking redirects
+A collection of interactive prototypes, p5.js sketches, and experiments. One route (`/interactives/dinoRevenge`) is proxied via Vercel rewrite to a separate deployment. External experiments open in new tabs; internal ones route within the site.
 
 ### Tracking Redirects
 
@@ -94,10 +85,6 @@ The `[source]` catch-all route maps short URLs to Umami events and redirects hom
 - `/gm` &rarr; tracks "email-signature" visit
 
 Configured in `src/config/trackingSources.ts`. Invalid paths redirect to 404.
-
-### Interactives
-
-A collection of interactive prototypes, p5.js sketches, and experiments. One route (`/interactives/dinoRevenge`) is proxied via Vercel rewrite to a separate deployment. External experiments open in new tabs; internal ones route within the site.
 
 ### SEO & Structured Data
 
@@ -133,7 +120,7 @@ A collection of interactive prototypes, p5.js sketches, and experiments. One rou
 | `--accent` | `#da1f26` | Red highlights, CTAs |
 | `--disabled` | `#a39f90` | Muted taupe |
 
-**Typography**: Neuzeit Grotesk (Adobe Typekit) for headings and UI — uppercase, tight tracking. Times New Roman italic for body/descriptive text.
+**Typography**: Neuzeit Grotesk (Adobe Typekit) for headings and UI — uppercase, tight tracking. Times New Roman for body/descriptive text.
 
 ## Project Structure
 
@@ -149,11 +136,4 @@ public/
   media/[slug]/   # Project thumbnails and detail media
 scripts/
   generate-projects-array.mjs
-```
-
-## Development
-
-```bash
-npm run dev          # Start dev server
-npm run build        # Auto-generate projects.ts + Next.js build
 ```
