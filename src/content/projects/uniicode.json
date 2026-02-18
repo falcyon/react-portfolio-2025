@@ -43,6 +43,15 @@
     {
       "sections": [
         {
+          "type": "heading",
+          "size": "f",
+          "text": ["Machine Learning"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "text",
           "size": "t",
           "text": [
@@ -90,6 +99,15 @@
           "text": [
             "The Tamil script was used to generate more Tamil characters."
           ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["Physical Form"]
         }
       ]
     },

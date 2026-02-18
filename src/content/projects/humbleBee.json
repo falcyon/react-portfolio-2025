@@ -65,6 +65,15 @@
     {
       "sections": [
         {
+          "type": "heading",
+          "size": "f",
+          "text": ["Design Process"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "image",
           "size": "h",
           "src": "/media/humbleBee/Humble-bee_glass.webp",
@@ -138,6 +147,15 @@
           "text": [
             "We identified all the design parameters for our 8 subsystems, finalized a data flow structure, and assigned 2 people per subsystem so that everyone had another person to bounce ideas off of. This enabled us to get offbeat solutions to most of our problems, the most significant one being a novel way of implementing swivel wings, partially inspired from the golden snitch in the Harry Potter universe. We developed a swivel propeller system specially for our use case. The momentum counter usually present (in helicopters using a similar flight mechanism) was replaced by a counter-rotating propeller to the bottom of the body to produce extra lift and give the craft more stability."
           ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["Results"]
         }
       ]
     },

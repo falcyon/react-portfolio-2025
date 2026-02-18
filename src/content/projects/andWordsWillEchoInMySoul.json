@@ -79,6 +79,15 @@
     {
       "sections": [
         {
+          "type": "heading",
+          "size": "f",
+          "text": ["Exhibitions"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "image",
           "size": "t2",
           "src": "/media/andWordsWillEchoInMySoul/LUMA_peopleInteracting.jpg",
@@ -118,6 +127,15 @@
           "type": "image",
           "size": "h",
           "src": "/media/andWordsWillEchoInMySoul/4.webp"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["Technical Approach"]
         }
       ]
     },
@@ -168,6 +186,15 @@
           "size": "t2",
           "src": "/media/andWordsWillEchoInMySoul/segmented.mp4",
           "alt": "Segmented"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["Behind the Scenes"]
         }
       ]
     },

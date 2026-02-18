@@ -52,25 +52,9 @@
     {
       "sections": [
         {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "1. User Research: To understand the preferences and behaviors of influencers, we conducted interviews and surveys with a diverse group of influencers. Key findings included a preference for vibrant, playful designs and a desire for branding that felt personal and unique."
-          ]
-        },
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "2. Competitive Analysis: We analyzed the branding and design systems of similar platforms, noting a tendency towards clean and professional designs, but with limited visual excitement or playfulness. Their focus was on functionality and partnership management. This highlighted an opportunity for Crew to differentiate itself with a more distinctive and engaging visual approach that reflects the celebratory nature of influencer culture."
-          ]
-        },
-        {
-          "type": "text",
-          "size": "t",
-          "text": [
-            "3. Design Inspiration: Inspired by themes of celebration and individuality, we chose confetti as the central theme. Confetti represents festivity, excitement, and a sense of occasion - all qualities that align with the influencer lifestyle and the collaborative nature of Crew."
-          ]
+          "type": "heading",
+          "size": "f",
+          "text": ["Discovery"]
         }
       ]
     },
@@ -80,7 +64,41 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Logo: The redesigned Crew logo features a minimalistic approach with the word 'Crew' prominently displayed. The letters are made up of parts of confetti."
+            "We conducted interviews and surveys with a diverse group of influencers to understand their preferences and behaviors. Key findings included a preference for vibrant, playful designs and a desire for branding that felt personal and unique."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "We analyzed the branding of similar platforms, noting a tendency towards clean, professional designs with limited visual excitement or playfulness. Their focus was on functionality and partnership management. This highlighted an opportunity for Crew to differentiate itself with a more engaging visual approach."
+          ]
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Inspired by themes of celebration and individuality, we chose confetti as the central theme. Confetti represents festivity, excitement and a sense of occasion. These qualities align with the influencer lifestyle and the collaborative nature of Crew."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["Identity System"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The redesigned Crew logo features a minimalistic approach with the word 'Crew' prominently displayed. The letters are made up of parts of confetti."
           ]
         },
         {
@@ -94,11 +112,6 @@
     {
       "sections": [
         {
-          "type": "text",
-          "size": "t",
-          "text": []
-        },
-        {
           "type": "image",
           "size": "t",
           "src": "/media/crew/colors4.webp",
@@ -106,7 +119,7 @@
         },
         {
           "type": "text",
-          "size": "t",
+          "size": "t2",
           "text": [
             "The primary colors of the CMYK color scheme, adjusted for digital screens, were selected to forge a vibrant and eye-catching visual identity. The colors are bold and distinct, and are used individually by major social media platforms. Combining all 3 colors enhanced the playful and energetic nature of the brand."
           ]
@@ -119,19 +132,14 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Typography: We went with Satoshi designed by Indian Type Foundry. A modern, sans-serif typeface with clean lines was selected to complement the minimalistic design. This choice ensures readability and aligns with the overall aesthetic of simplicity and clarity."
+            "We chose Satoshi, designed by Indian Type Foundry. The modern, sans-serif typeface has clean lines that complement the minimalistic design and ensure readability."
           ]
         },
         {
           "type": "image",
-          "size": "t",
+          "size": "t2",
           "src": "/media/crew/typography2.webp",
           "alt": "Crew Typography"
-        },
-        {
-          "type": "text",
-          "size": "t",
-          "text": []
         }
       ]
     }

@@ -1,12 +1,14 @@
 import { z } from "zod";
 
 const sectionSchema = z.object({
-  type: z.enum(["text", "image", "video"]),
+  type: z.enum(["text", "image", "video", "heading"]),
   size: z.enum(["h", "f", "t", "t2", "q", "s", "1"]),
   text: z.array(z.string()).optional(),
   src: z.string().optional(),
   alt: z.string().optional(),
   style: z.string().optional(),
+  controls: z.boolean().optional(),
+  poster: z.string().optional(),
 });
 
 const sectionGroupSchema = z.object({

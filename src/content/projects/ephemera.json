@@ -57,6 +57,15 @@
     {
       "sections": [
         {
+          "type": "heading",
+          "size": "f",
+          "text": ["The Exhibition"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "text",
           "size": "t",
           "text": [
@@ -90,6 +99,15 @@
           "size": "t",
           "src": "/media/ephemera/DSC01481.JPG",
           "alt": "Front view of installation mounted on gallery wall"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["Making"]
         }
       ]
     },

@@ -59,7 +59,9 @@
 }
 
 .interactiveLink {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-family: var(--font-sans);
     font-size: 0.85rem;
     font-weight: 400;
@@ -71,6 +73,12 @@
     color: var(--accent);
     background: var(--background);
     transition: background var(--duration-base), color var(--duration-base);
+}
+
+.linkIcon {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
 }
 
 .interactiveLink:hover {
@@ -171,6 +179,19 @@
     font-weight: 300;
     margin-top: 0;
     margin-bottom: var(--space-lg);
+}
+
+.headingSection h3 {
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--foreground);
+    margin: var(--space-xl) 0 0 0;
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--accent);
 }
 
 .h {

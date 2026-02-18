@@ -13,6 +13,7 @@ interface ResponsiveVideoProps {
   poster?: string;
   variants?: VideoVariant[];
   className?: string;
+  controls?: boolean;
 }
 
 /**
@@ -25,9 +26,10 @@ export default function ResponsiveVideo({
   poster,
   variants,
   className,
+  controls,
 }: ResponsiveVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  useVideoVisibility(videoRef, true);
+  useVideoVisibility(videoRef, !controls);
 
   // If we have variants, use them as <source> elements (browser picks best)
   // Order: highest quality first, browser will pick what it can handle
@@ -35,12 +37,13 @@ export default function ResponsiveVideo({
     return (
       <video
         ref={videoRef}
-        loop
-        muted
+        loop={!controls}
+        muted={!controls}
         playsInline
         preload="metadata"
         poster={poster}
         className={className}
+        controls={controls}
         onError={() => {}}
       >
         {variants.map((v) => (
@@ -56,12 +59,13 @@ export default function ResponsiveVideo({
     <video
       ref={videoRef}
       src={src}
-      loop
-      muted
+      loop={!controls}
+      muted={!controls}
       playsInline
       preload="metadata"
       poster={poster}
       className={className}
+      controls={controls}
       onError={() => {}}
     />
   );

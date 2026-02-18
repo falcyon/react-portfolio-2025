@@ -53,18 +53,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Participants are prompted with fundamental questions. What gives life meaning? What are we afraid of? As they talk, their responses are encoded and transformed into a spatial installation that others can walk through and engage with."
-          ]
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "text",
-          "size": "f",
-          "text": [
-            "Two performances of three hours each were held in 2023."
+            "Participants are prompted with fundamental questions. What gives life meaning? What are we afraid of? As they talk, their responses are encoded and transformed into a spatial installation that others can walk through and engage with. Two performances of three hours each were held in 2023."
           ]
         }
       ]
@@ -88,6 +77,15 @@
           "size": "t",
           "src": "/media/palimpsest/Asset_5-100.webp",
           "alt": "Thread detail"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["Thread and Color"]
         }
       ]
     },
@@ -122,6 +120,15 @@
           "size": "t",
           "src": "/media/palimpsest/colors.webp",
           "alt": "Colored threads representing conversation emotions"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["Performances"]
         }
       ]
     },

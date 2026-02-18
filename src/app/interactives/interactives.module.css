@@ -79,6 +79,7 @@
   align-items: center;
   justify-content: center;
   background: var(--placeholder-bg);
+  border: 1px solid var(--foreground);
   font-family: var(--font-sans);
   font-style: normal;
   font-weight: 700;

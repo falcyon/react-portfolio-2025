@@ -22,7 +22,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "'Notes from self' is an interactive experience that I created as an attempt to re-acquaint people with themselves."
+            "'Notes to Self' is an interactive experience that I created as an attempt to re-acquaint people with themselves."
           ]
         },
         {
@@ -41,6 +41,15 @@
           "size": "t",
           "src": "/media/notesToSelf/live.mp4",
           "alt": "Notes from self video 1"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["How It Works"]
         }
       ]
     },
@@ -81,6 +90,15 @@
     {
       "sections": [
         {
+          "type": "heading",
+          "size": "f",
+          "text": ["Narrative Design"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "image",
           "size": "t",
           "src": "/media/notesToSelf/paperPrototype.webp",
@@ -111,10 +129,19 @@
     {
       "sections": [
         {
+          "type": "heading",
+          "size": "f",
+          "text": ["The Experience"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "text",
           "size": "t",
           "text": [
-            "The experience starts with the user sitting in front of a blank canvas in a living room-eque setting."
+            "The experience starts with the user sitting in front of a blank canvas in a living room-esque setting."
           ]
         },
         {
@@ -128,7 +155,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "“Talking to a literal screen must be un-nerving”, it empathizes. But soon things take a turn when the screen suddenly turns into a video stream of the digital clone in a white space. The clone (now emulating the voice of the user) confirms, “I am you, or rather a version of you”. The clone then asks several questions referring to the user and themselves collectively as 'we'. 'When was the last time we sat in silence?'. 'What was the last thing our inner voice told you?'."
+            "“Talking to a literal screen must be unnerving”, it empathizes. But soon things take a turn when the screen suddenly turns into a video stream of the digital clone in a white space. The clone (now emulating the voice of the user) confirms, “I am you, or rather a version of you”. The clone then asks several questions referring to the user and themselves collectively as 'we'. 'When was the last time we sat in silence?'. 'What was the last thing our inner voice told you?'."
           ]
         }
       ]

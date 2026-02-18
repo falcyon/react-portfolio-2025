@@ -4,14 +4,17 @@ import UnderConstruction from "./UnderConstruction";
 import CloseButton from "./CloseButton";
 import PagePreloader from "./PagePreloader";
 import ResponsiveVideo from "./ResponsiveVideo";
+import ExternalIcon from "./ExternalIcon";
 
 interface Section {
-    type: "text" | "image" | "video";
+    type: "text" | "image" | "video" | "heading";
     size: "h" | "f" | "t" | "t2" | "q" | "s";
     text?: string[];
     src?: string;
     alt?: string;
     style?: string;
+    controls?: boolean;
+    poster?: string;
 }
 
 interface Exhibition {
@@ -75,7 +78,7 @@ export default function ProjectPage({ project, exhibitions }: ProjectProps) {
                                         rel="noopener noreferrer"
                                         className={styles.interactiveLink}
                                     >
-                                        Try Interactive Version →
+                                        Try Interactive Version <ExternalIcon className={styles.linkIcon} />
                                     </a>
                                 )}
                                 {sourceUrl && (
@@ -85,7 +88,7 @@ export default function ProjectPage({ project, exhibitions }: ProjectProps) {
                                         rel="noopener noreferrer"
                                         className={styles.interactiveLink}
                                     >
-                                        View Source →
+                                        View Source <ExternalIcon className={styles.linkIcon} />
                                     </a>
                                 )}
                             </div>
@@ -155,7 +158,13 @@ export default function ProjectPage({ project, exhibitions }: ProjectProps) {
                                         case "video":
                                             return (
                                                 <div key={idx} className={`${styles[section.size]} ${styles.videoSection}`}>
-                                                    <ResponsiveVideo src={section.src || ""} />
+                                                    <ResponsiveVideo src={section.src || ""} controls={section.controls} poster={section.poster} />
+                                                </div>
+                                            );
+                                        case "heading":
+                                            return (
+                                                <div key={idx} className={`${styles.f} ${styles.headingSection}`}>
+                                                    <h3>{section.text?.[0]}</h3>
                                                 </div>
                                             );
                                         default:

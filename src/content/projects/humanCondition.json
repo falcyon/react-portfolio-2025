@@ -24,7 +24,9 @@
           "type": "video",
           "size": "f",
           "src": "/media/humanCondition/Portraiture_cc.mp4",
-          "alt": "Portraiture Performance"
+          "alt": "Portraiture Performance",
+          "controls": true,
+          "poster": "/media/humanCondition/portraiture.webp"
         }
       ]
     },
@@ -43,6 +45,15 @@
           "text": [
             "The starting point was an idea about plucking words from the space around you, portraying some agency over your own life. That initial optimism quickly gave way to the bleaker tone in the final choreography. Radiohead's 'Fitter Happier' became the backdrop."
           ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["Movement to Text"]
         }
       ]
     },
@@ -83,6 +94,15 @@
           "size": "t",
           "src": "/media/humanCondition/Portraiture_1.mp4",
           "alt": "Portraiture Performance 1"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["The Performance"]
         }
       ]
     },

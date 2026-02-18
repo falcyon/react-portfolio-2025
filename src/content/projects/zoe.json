@@ -43,6 +43,15 @@
     {
       "sections": [
         {
+          "type": "heading",
+          "size": "f",
+          "text": ["Prototyping"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "image",
           "size": "h",
           "src": "/media/zoe/IMG-20221110-WA0002.webp",

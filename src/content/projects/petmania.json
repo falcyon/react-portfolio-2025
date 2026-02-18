@@ -33,8 +33,8 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Made in collaboration with 2 other Parsons graduates, this app is meant to create a community of pet-owners as a way to connect their pets and also with other pet-owners.",
-            "There is currently no good way for pet owners to connect with other nearby pet-owners especially in busy cities like NYC where interaction with neighbours is limited."
+            "This app creates a community of pet owners as a way to connect their pets with other animals and meet nearby pet owners.",
+            "In busy cities like NYC, interaction with neighbors is limited. There is no good way for pet owners to find companions for their pets or connect with others in their area."
           ]
         },
         {
@@ -48,11 +48,19 @@
     {
       "sections": [
         {
+          "type": "heading",
+          "size": "f",
+          "text": ["Research"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "text",
           "size": "t",
           "text": [
-            "People need friends to pet-sit a lot of times and their pets need companionship.",
-            "We started by making some proto-personas."
+            "Pet owners often need help with pet-sitting, and their pets need companionship. We started by making some proto-personas."
           ]
         },
         {
@@ -67,12 +75,20 @@
     {
       "sections": [
         {
+          "type": "heading",
+          "size": "f",
+          "text": ["Prototyping"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "text",
           "size": "t",
           "text": [
-            "We then sketched out our various ideas for the app-screens on paper as a form of rapid prototyping.",
-            "Some common threads we had was giving users personalised options to choose types of pets they'd like to connect with.",
-            "We also had the idea to double the app as a photo-sharing and cataloging service for pictures of their pets and to view pictures of others' pets."
+            "We sketched out ideas for the app screens on paper as a form of rapid prototyping.",
+            "Common threads included giving users personalized options to choose types of pets they'd like to connect with. We also explored doubling the app as a photo-sharing service for pictures of their pets."
           ]
         },
         {
@@ -89,7 +105,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Figma was our weapon of choice for this project. We designed 10 pages based on user-testing from our lo-fi prototype. We created wireframes for these 10 pages."
+            "We designed 10 pages in Figma based on user testing from our lo-fi prototype, creating wireframes for each."
           ]
         },
         {
@@ -107,7 +123,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "We created a user-flow"
+            "We mapped the full user flow to ensure smooth navigation between screens."
           ]
         },
         {
@@ -122,11 +138,20 @@
     {
       "sections": [
         {
+          "type": "heading",
+          "size": "f",
+          "text": ["Visual Design"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "text",
           "size": "t",
           "text": [
-            "For its visual design, we went with a paw as logo. We wanted the app to indicate trust, warmth and fun.",
-            "We iterated and landed on a warm aqua blue and gold color palette since the colors were reminiscent of a beach and reflected the app's themes."
+            "For its visual design, we chose a paw as the logo to convey trust, warmth and fun.",
+            "We iterated on the color palette and chose a warm aqua blue and gold. The colors are reminiscent of a beach and reflect the app's playful, welcoming themes."
           ]
         },
         {
