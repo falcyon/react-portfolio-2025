@@ -19,6 +19,22 @@ export interface Project {
 
 export const projectsArray: Project[] = [
   {
+    "name": "Revenge for Dino",
+    "slug": "revengeForDino",
+    "thumbnail": "/media/revengeForDino/TankHeadBonk_1080p.mp4",
+    "height": 1080,
+    "width": 1920,
+    "year": 2026,
+    "tags": [
+      "AI/ML",
+      "Interactive",
+      "Game"
+    ],
+    "size": "1x1",
+    "description": "A physics combat game on a gamified Google search page, where Gemini generates playable objects from natural language in real time.",
+    "featured": false
+  },
+  {
     "name": "Ephemera",
     "slug": "ephemera",
     "thumbnail": "/media/ephemera/ephemera.mp4",
@@ -34,22 +50,6 @@ export const projectsArray: Project[] = [
     "description": "An installation reflecting on humanity's grapple with legacy",
     "featured": true,
     "featuredOrder": 0
-  },
-  {
-    "name": "Revenge for Dino",
-    "slug": "revengeForDino",
-    "thumbnail": "/media/revengeForDino/TankHeadBonk_1080p.mp4",
-    "height": 1080,
-    "width": 1920,
-    "year": 2026,
-    "tags": [
-      "AI/ML",
-      "Interactive",
-      "Game"
-    ],
-    "size": "1x1",
-    "description": "A physics combat game on a gamified Google search page, where Gemini generates playable objects from natural language in real time.",
-    "featured": false
   },
   {
     "name": "...And Words Will Echo in My Soul",
