@@ -16,6 +16,8 @@
   "thumbnailHeight": 1920,
   "size": "2x2",
   "position": 2,
+  "order": 4,
+  "featured": false,
   "collaborators": [
     {
       "name": "Franco Chen",
@@ -85,7 +87,9 @@
         {
           "type": "heading",
           "size": "f",
-          "text": ["Thread and Color"]
+          "text": [
+            "Thread and Color"
+          ]
         }
       ]
     },
@@ -128,7 +132,9 @@
         {
           "type": "heading",
           "size": "f",
-          "text": ["Performances"]
+          "text": [
+            "Performances"
+          ]
         }
       ]
     },
@@ -151,7 +157,84 @@
           "alt": "Palimpsest second installation"
         }
       ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/palimpsest/FirstPerformance_Conversation_1080p.mp4",
+          "alt": "One of the conversations from the first performance. "
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/palimpsest/SecondPerformance_AlternateView_1080p.mp4",
+          "alt": ""
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/palimpsest/FirstPerformanceFinalPic.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/palimpsest/ModelVersion.webp",
+          "alt": ""
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/palimpsest/D7CE5764-B4B0-49DA-A2EE-97E85D98C300_1_105_c.webp",
+          "alt": ""
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/palimpsest/72601E85-E74F-40BE-9282-874594B6F0C2_1_105_c.webp",
+          "alt": ""
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/palimpsest/DSC_0055.webp",
+          "alt": ""
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/palimpsest/IMG_20230517_122055.webp",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/palimpsest/IMG_20230516_212503.webp",
+          "alt": ""
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/palimpsest/IMG_20230516_190346.webp",
+          "alt": ""
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/palimpsest/IMG_20230516_202601.webp",
+          "alt": ""
+        }
+      ]
     }
-  ],
-  "order": 4
+  ]
 }
