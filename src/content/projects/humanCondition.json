@@ -16,6 +16,8 @@
   "thumbnailHeight": 590,
   "size": "1x2",
   "position": 1,
+  "order": 7,
+  "featured": false,
   "interactiveUrl": "https://editor.p5js.org/Falcyon/full/f0eYhED1G",
   "content": [
     {
@@ -23,7 +25,7 @@
         {
           "type": "video",
           "size": "f",
-          "src": "/media/humanCondition/Portraiture_cc.mp4",
+          "src": "/media/humanCondition/DesignTechnology_Independent_Leffin_1080p.mp4",
           "alt": "Portraiture Performance",
           "controls": true,
           "poster": "/media/humanCondition/portraiture.webp"
@@ -53,7 +55,9 @@
         {
           "type": "heading",
           "size": "f",
-          "text": ["Movement to Text"]
+          "text": [
+            "Movement to Text"
+          ]
         }
       ]
     },
@@ -102,7 +106,9 @@
         {
           "type": "heading",
           "size": "f",
-          "text": ["The Performance"]
+          "text": [
+            "The Performance"
+          ]
         }
       ]
     },
@@ -152,6 +158,5 @@
         }
       ]
     }
-  ],
-  "order": 7
+  ]
 }
