@@ -31,7 +31,7 @@ export const projectsArray: Project[] = [
       "Game"
     ],
     "size": "1x1",
-    "description": "A physics combat game on a gamified Google search page, where Gemini generates playable objects from natural language in real time.",
+    "description": "A 2d physics game where Gemini 3 pro generates playable objects from natural language in real time.",
     "featured": false
   },
   {
