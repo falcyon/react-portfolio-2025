@@ -15,6 +15,8 @@
   "thumbnailHeight": 1280,
   "size": "1x2",
   "position": 3,
+  "order": 3,
+  "featured": false,
   "content": [
     {
       "sections": [
@@ -31,16 +33,12 @@
           "text": [
             "My aim with the project was to give people a space where they can be comfortable voicing their thoughts out loud without any distractions. I also wanted to give them the starting points from which their thoughts can trail."
           ]
-        }
-      ]
-    },
-    {
-      "sections": [
+        },
         {
           "type": "video",
           "size": "t",
           "src": "/media/notesToSelf/live.mp4",
-          "alt": "Notes from self video 1"
+          "alt": "Notes from self video of user interacting with their clone"
         }
       ]
     },
@@ -49,7 +47,9 @@
         {
           "type": "heading",
           "size": "f",
-          "text": ["How It Works"]
+          "text": [
+            "How It Works"
+          ]
         }
       ]
     },
@@ -92,7 +92,9 @@
         {
           "type": "heading",
           "size": "f",
-          "text": ["Narrative Design"]
+          "text": [
+            "Narrative Design"
+          ]
         }
       ]
     },
@@ -131,7 +133,9 @@
         {
           "type": "heading",
           "size": "f",
-          "text": ["The Experience"]
+          "text": [
+            "The Experience"
+          ]
         }
       ]
     },
@@ -188,6 +192,5 @@
         }
       ]
     }
-  ],
-  "order": 3
+  ]
 }
