@@ -29,9 +29,9 @@ export default function ThumbnailPreloader({
 
       if (isVideo) {
         const video = document.createElement("video");
-        video.preload = "metadata";
+        video.preload = "auto";
         video.src = src;
-        video.onloadedmetadata = () => {
+        video.oncanplaythrough = () => {
           loadedMedia.add(src);
           advance();
         };

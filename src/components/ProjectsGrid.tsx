@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo, useCallback, useRef } from "react";
+import { useEffect, useState, useMemo, useCallback, useRef, useLayoutEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +9,60 @@ import { useVideoVisibility, useVideoRetry } from "./hooks";
 import { loadedMedia, requestLoad, cancelLoad, signalLoaded } from "./mediaLoadStore";
 import styles from "./ProjectsGrid.module.css";
 import cardStyles from "./Card.module.css";
+
+const FLIP_DURATION = 300; // ms — matches --duration-slow
+
+/* ── Animation helpers ── */
+
+function shouldAnimate() {
+  return !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+/** Set elements to hidden state before a staggered reveal. */
+function prepareReveal(elements: HTMLElement[]) {
+  for (const el of elements) {
+    el.style.opacity = "0";
+    el.style.transform = "scale(0.97)";
+    el.style.transition = "none";
+  }
+}
+
+/**
+ * Start a staggered reveal transition.
+ * Call AFTER a forced reflow (void el.offsetHeight) so the browser
+ * has committed the initial hidden state from prepareReveal().
+ * Returns one cleanup function per element.
+ */
+function startReveal(
+  elements: HTMLElement[],
+  duration: number,
+  maxStepMs = 20,
+): (() => void)[] {
+  const step = elements.length > 1
+    ? Math.min(maxStepMs, duration / elements.length)
+    : 0;
+
+  return elements.map((el, i) => {
+    const delay = Math.round(i * step);
+    el.style.transition = `opacity ${duration}ms ease ${delay}ms, transform ${duration}ms ease ${delay}ms`;
+    el.style.opacity = "";
+    el.style.transform = "";
+    return () => {
+      el.style.transition = "";
+      el.style.opacity = "";
+      el.style.transform = "";
+    };
+  });
+}
+
+/** Total time for a staggered reveal (animation + last card's delay). */
+function revealTotalMs(count: number, duration: number, maxStepMs = 20): number {
+  const step = count > 1 ? Math.min(maxStepMs, duration / count) : 0;
+  return duration + Math.round(count * step);
+}
+
+// Persists across client-side navigations so return visits skip the entrance animation
+let hasAnimatedInitial = false;
 
 // Preset filters that map to multiple tags
 const PRESETS: { label: string; tags: string[] }[] = [
@@ -37,11 +91,21 @@ const PRESETS: { label: string; tags: string[] }[] = [
   },
 ];
 
-function GridCard({ project, onTagClick, activeTags }: { project: Project; onTagClick: (tag: string) => void; activeTags: Set<string> }) {
+function GridCard({
+  project,
+  onTagClick,
+  activeTags,
+  cardRef,
+}: {
+  project: Project;
+  onTagClick: (tag: string) => void;
+  activeTags: Set<string>;
+  cardRef?: (el: HTMLDivElement | null) => void;
+}) {
   const isVideo = /\.(mp4|webm|ogg)$/i.test(project.thumbnail);
   const alreadyLoaded = loadedMedia.has(project.thumbnail);
   const [canLoadMedia, setCanLoadMedia] = useState(alreadyLoaded);
-  const wrapRef = useRef<HTMLDivElement>(null);
+  const [mediaLoaded, setMediaLoaded] = useState(alreadyLoaded);
   const videoRef = useRef<HTMLVideoElement>(null);
   useVideoVisibility(videoRef, isVideo && canLoadMedia);
 
@@ -58,14 +122,14 @@ function GridCard({ project, onTagClick, activeTags }: { project: Project; onTag
     videoRef,
     src: project.thumbnail,
     enabled: canLoadMedia && isVideo,
-    onSuccess: () => { loadedMedia.add(project.thumbnail); signalLoaded(); },
+    onSuccess: () => { loadedMedia.add(project.thumbnail); signalLoaded(); setMediaLoaded(true); },
     onGiveUp: () => { signalLoaded(); },
   });
 
   // Image retry via key remount
   const [imgKey, setImgKey] = useState(0);
   const imgRetries = useRef(0);
-  const handleImageLoad = () => { loadedMedia.add(project.thumbnail); signalLoaded(); };
+  const handleImageLoad = () => { loadedMedia.add(project.thumbnail); signalLoaded(); setMediaLoaded(true); };
   const handleImageError = () => {
     if (imgRetries.current < 2) {
       imgRetries.current++;
@@ -77,9 +141,10 @@ function GridCard({ project, onTagClick, activeTags }: { project: Project; onTag
 
   const showVideo = canLoadMedia && isVideo;
   const showImage = canLoadMedia && !isVideo;
+  const thumbClass = `${cardStyles.thumbnail} ${mediaLoaded ? cardStyles.thumbnailLoaded : ""}`;
 
   return (
-    <div className={cardStyles.card}>
+    <div ref={cardRef} className={cardStyles.card}>
       <Link
         href={`/projects/${project.slug}`}
         className={cardStyles.cardLink}
@@ -88,7 +153,7 @@ function GridCard({ project, onTagClick, activeTags }: { project: Project; onTag
           window.umami?.track("project-click", { project: project.slug });
         }}
       >
-        <div ref={wrapRef} className={cardStyles.thumbnailWrap}>
+        <div className={`${cardStyles.thumbnailWrap} ${mediaLoaded ? cardStyles.thumbnailWrapLoaded : ""}`}>
           {showVideo && (
             <video
               ref={videoRef}
@@ -98,7 +163,7 @@ function GridCard({ project, onTagClick, activeTags }: { project: Project; onTag
               playsInline
               preload="metadata"
               tabIndex={-1}
-              className={cardStyles.thumbnail}
+              className={thumbClass}
               onLoadedData={handleLoadedData}
               onError={handleError}
             />
@@ -110,7 +175,7 @@ function GridCard({ project, onTagClick, activeTags }: { project: Project; onTag
               alt={`${project.name} thumbnail`}
               width={project.width}
               height={project.height}
-              className={cardStyles.thumbnail}
+              className={thumbClass}
               onLoad={handleImageLoad}
               onError={handleImageError}
             />
@@ -144,6 +209,30 @@ export default function ProjectsGrid({
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const gridRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  const snapshotRef = useRef<{
+    positions: Map<string, DOMRect>;
+    clones: Map<string, HTMLElement>;
+    gridRect: DOMRect;
+  } | null>(null);
+  const pendingCleanups = useRef<(() => void)[]>([]);
+  const cleanupTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  /** Cancel any in-progress animation and run all pending cleanups. */
+  const flushCleanups = useCallback(() => {
+    if (cleanupTimer.current) { clearTimeout(cleanupTimer.current); cleanupTimer.current = undefined; }
+    pendingCleanups.current.forEach((fn) => fn());
+    pendingCleanups.current = [];
+  }, []);
+
+  /** Schedule cleanup after animation finishes. */
+  const scheduleCleanup = useCallback((totalMs: number) => {
+    cleanupTimer.current = setTimeout(() => {
+      pendingCleanups.current.forEach((fn) => fn());
+      pendingCleanups.current = [];
+    }, totalMs + 50);
+  }, []);
 
   // Parse active tags from URL
   const activeTags = useMemo(() => {
@@ -166,13 +255,26 @@ export default function ProjectsGrid({
     if (activeTags.size === 0) return "All";
     for (const preset of PRESETS) {
       if (preset.tags.length === 0) continue;
-      // Check if all active tags belong to this preset
       const presetSet = new Set(preset.tags);
       const allInPreset = [...activeTags].every((t) => presetSet.has(t));
       if (allInPreset) return preset.label;
     }
     return null;
   }, [activeTags]);
+
+  // Snapshot card positions + clone DOM nodes before a filter change
+  const snapshot = useCallback(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    const gridRect = grid.getBoundingClientRect();
+    const positions = new Map<string, DOMRect>();
+    const clones = new Map<string, HTMLElement>();
+    cardRefs.current.forEach((el, slug) => {
+      positions.set(slug, el.getBoundingClientRect());
+      clones.set(slug, el.cloneNode(true) as HTMLElement);
+    });
+    snapshotRef.current = { positions, clones, gridRect };
+  }, []);
 
   const updateTags = useCallback(
     (newTags: Set<string>) => {
@@ -190,34 +292,146 @@ export default function ProjectsGrid({
 
   const toggleTag = useCallback(
     (tag: string) => {
-      // If tag is already the only active one, deselect it
+      snapshot();
       if (activeTags.has(tag) && activeTags.size === 1) {
         updateTags(new Set());
       } else {
-        // Single-select: replace with just this tag
         updateTags(new Set([tag]));
       }
     },
-    [activeTags, updateTags]
+    [activeTags, updateTags, snapshot]
   );
 
   const applyPreset = useCallback(
     (preset: (typeof PRESETS)[number]) => {
+      snapshot();
       if (preset.tags.length === 0) {
         updateTags(new Set());
       } else {
         updateTags(new Set(preset.tags));
       }
     },
-    [updateTags]
+    [updateTags, snapshot]
   );
 
-  // Filter projects: AND logic — project must have at least one of the active tags
-  // (With presets selecting broad categories, OR within the active set makes more sense)
+  // Filter projects: OR logic — project must have at least one of the active tags
   const filtered = useMemo(() => {
     if (activeTags.size === 0) return projects;
     return projects.filter((p) => p.tags.some((t) => activeTags.has(t)));
   }, [projects, activeTags]);
+
+  // Initial page-load entrance: staggered fade-in for all cards
+  useLayoutEffect(() => {
+    if (hasAnimatedInitial) return;
+    hasAnimatedInitial = true;
+
+    if (!shouldAnimate()) return;
+
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    const cards: HTMLDivElement[] = [];
+    cardRefs.current.forEach((el) => cards.push(el));
+    if (cards.length === 0) return;
+
+    prepareReveal(cards);
+    void grid.offsetHeight;
+    pendingCleanups.current = startReveal(cards, FLIP_DURATION, 25);
+    scheduleCleanup(revealTotalMs(cards.length, FLIP_DURATION, 25));
+
+    return flushCleanups;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // FLIP + exit/enter animation after filter change
+  useLayoutEffect(() => {
+    const snap = snapshotRef.current;
+    if (!snap) return flushCleanups;
+    snapshotRef.current = null;
+
+    if (!shouldAnimate()) return flushCleanups;
+
+    const grid = gridRef.current;
+    if (!grid) return flushCleanups;
+
+    // Cancel any in-progress animation (including initial entrance)
+    flushCleanups();
+
+    const currentSlugs = new Set(filtered.map((p) => p.slug));
+
+    // EXIT: append clones for removed cards, fade out at old position
+    const exitClones: HTMLElement[] = [];
+    snap.positions.forEach((oldRect, slug) => {
+      if (currentSlugs.has(slug)) return;
+      const clone = snap.clones.get(slug);
+      if (!clone) return;
+
+      Object.assign(clone.style, {
+        position: "absolute",
+        left: `${oldRect.left - snap.gridRect.left}px`,
+        top: `${oldRect.top - snap.gridRect.top}px`,
+        width: `${oldRect.width}px`,
+        height: `${oldRect.height}px`,
+        margin: "0",
+        pointerEvents: "none",
+        zIndex: "1",
+      });
+      grid.appendChild(clone);
+      exitClones.push(clone);
+      pendingCleanups.current.push(() => clone.remove());
+    });
+
+    // Categorize remaining cards: FLIP (existed before) vs ENTER (new)
+    const entering: HTMLDivElement[] = [];
+    const flipping: { el: HTMLDivElement; dx: number; dy: number }[] = [];
+
+    cardRefs.current.forEach((el, slug) => {
+      const oldRect = snap.positions.get(slug);
+      if (!oldRect) {
+        entering.push(el);
+        return;
+      }
+
+      const newRect = el.getBoundingClientRect();
+      const dx = oldRect.left - newRect.left;
+      const dy = oldRect.top - newRect.top;
+      if (Math.abs(dx) < 1 && Math.abs(dy) < 1) return;
+
+      flipping.push({ el, dx, dy });
+    });
+
+    // Phase 1: set initial states BEFORE reflow
+    flipping.forEach(({ el, dx, dy }) => {
+      el.style.transform = `translate(${dx}px, ${dy}px)`;
+      el.style.transition = "none";
+    });
+    prepareReveal(entering);
+
+    // Force reflow so the browser commits all initial states
+    void grid.offsetHeight;
+
+    // Phase 2: start all transitions
+    exitClones.forEach((clone) => {
+      clone.style.transition = `opacity ${FLIP_DURATION}ms ease, transform ${FLIP_DURATION}ms ease`;
+      clone.style.opacity = "0";
+      clone.style.transform = "scale(0.95)";
+    });
+
+    flipping.forEach(({ el }) => {
+      el.style.transition = `transform ${FLIP_DURATION}ms ease`;
+      el.style.transform = "";
+      pendingCleanups.current.push(() => {
+        el.style.transition = "";
+        el.style.transform = "";
+      });
+    });
+
+    pendingCleanups.current.push(...startReveal(entering, FLIP_DURATION, 20));
+
+    scheduleCleanup(revealTotalMs(entering.length, FLIP_DURATION, 20));
+
+    return flushCleanups;
+  }, [filtered, flushCleanups, scheduleCleanup]);
 
   // Show/hide individual tags
   const [showAllTags, setShowAllTags] = useState(false);
@@ -262,9 +476,18 @@ export default function ProjectsGrid({
       </div>
 
       {/* Grid */}
-      <div className={styles.grid}>
+      <div ref={gridRef} className={styles.grid}>
         {filtered.map((project) => (
-          <GridCard key={project.slug} project={project} onTagClick={toggleTag} activeTags={activeTags} />
+          <GridCard
+            key={project.slug}
+            project={project}
+            onTagClick={toggleTag}
+            activeTags={activeTags}
+            cardRef={(el) => {
+              if (el) cardRefs.current.set(project.slug, el);
+              else cardRefs.current.delete(project.slug);
+            }}
+          />
         ))}
       </div>
     </div>

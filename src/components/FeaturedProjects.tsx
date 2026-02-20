@@ -13,6 +13,7 @@ function FeaturedCard({ project }: { project: Project }) {
   const isVideo = /\.(mp4|webm|ogg)$/i.test(project.thumbnail);
   const alreadyLoaded = loadedMedia.has(project.thumbnail);
   const [canLoadMedia, setCanLoadMedia] = useState(alreadyLoaded);
+  const [mediaLoaded, setMediaLoaded] = useState(alreadyLoaded);
   const videoRef = useRef<HTMLVideoElement>(null);
   useVideoVisibility(videoRef, isVideo && canLoadMedia);
 
@@ -28,14 +29,14 @@ function FeaturedCard({ project }: { project: Project }) {
     videoRef,
     src: project.thumbnail,
     enabled: canLoadMedia && isVideo,
-    onSuccess: () => { loadedMedia.add(project.thumbnail); signalLoaded(); },
+    onSuccess: () => { loadedMedia.add(project.thumbnail); signalLoaded(); setMediaLoaded(true); },
     onGiveUp: () => { signalLoaded(); },
   });
 
   // Image retry via key remount
   const [imgKey, setImgKey] = useState(0);
   const imgRetries = useRef(0);
-  const handleImageLoad = () => { loadedMedia.add(project.thumbnail); signalLoaded(); };
+  const handleImageLoad = () => { loadedMedia.add(project.thumbnail); signalLoaded(); setMediaLoaded(true); };
   const handleImageError = () => {
     if (imgRetries.current < 2) {
       imgRetries.current++;
@@ -54,7 +55,7 @@ function FeaturedCard({ project }: { project: Project }) {
         window.umami?.track("featured-click", { project: project.slug });
       }}
     >
-      <div className={cardStyles.thumbnailWrap}>
+      <div className={`${cardStyles.thumbnailWrap} ${mediaLoaded ? cardStyles.thumbnailWrapLoaded : ""}`}>
         {canLoadMedia && isVideo && (
           <video
             ref={videoRef}
@@ -64,7 +65,7 @@ function FeaturedCard({ project }: { project: Project }) {
             playsInline
             preload="metadata"
             tabIndex={-1}
-            className={cardStyles.thumbnail}
+            className={`${cardStyles.thumbnail} ${mediaLoaded ? cardStyles.thumbnailLoaded : ""}`}
             onLoadedData={handleLoadedData}
             onError={handleError}
           />
@@ -76,7 +77,7 @@ function FeaturedCard({ project }: { project: Project }) {
             alt={`${project.name} thumbnail`}
             width={project.width}
             height={project.height}
-            className={cardStyles.thumbnail}
+            className={`${cardStyles.thumbnail} ${mediaLoaded ? cardStyles.thumbnailLoaded : ""}`}
             onLoad={handleImageLoad}
             onError={handleImageError}
           />

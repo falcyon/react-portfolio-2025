@@ -2,7 +2,7 @@
 export const loadedMedia = new Set<string>();
 
 // Sequential load queue — limits concurrent media loads
-const CONCURRENCY = 2;
+const CONCURRENCY = 6;
 let active = 0;
 const queue: (() => void)[] = [];
 

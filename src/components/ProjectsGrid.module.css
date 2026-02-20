@@ -107,6 +107,7 @@
 
 /* Grid — 3 columns */
 .grid {
+  position: relative; /* anchor for absolutely-positioned exit clones */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);

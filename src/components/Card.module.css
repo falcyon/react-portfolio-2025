@@ -26,12 +26,16 @@
 .thumbnailWrap {
   aspect-ratio: 1;
   overflow: hidden;
-  border: 1.5px solid var(--foreground);
+  border: 1.5px solid transparent;
   transition: border-color var(--duration-slow);
   background: var(--card-bg);
 }
 
-.cardLink:hover .thumbnailWrap {
+.thumbnailWrapLoaded {
+  border-color: var(--foreground);
+}
+
+.cardLink:hover .thumbnailWrapLoaded {
   border-color: var(--accent);
 }
 
@@ -39,6 +43,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--duration-base) ease;
+}
+
+.thumbnailLoaded {
+  opacity: 1;
 }
 
 .cardInfo {
