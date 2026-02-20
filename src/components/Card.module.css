@@ -77,11 +77,13 @@
 .cardTags {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-xs);
   margin-top: 6px;
 }
 
 .cardTag {
+  position: relative;
   font-family: var(--font-sans);
   font-style: normal;
   font-weight: 400;
@@ -100,6 +102,29 @@
   border-color: var(--accent);
 }
 
+.cardTag::after {
+  content: "filter";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  transform: translateY(-4px);
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--disabled);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-base), transform var(--duration-base);
+  margin-top: 4px;
+}
+
+.cardTag:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .cardTagActive {
   background: var(--accent);
   color: var(--background);
@@ -109,6 +134,10 @@
 .cardTagActive:hover {
   color: var(--background);
   border-color: var(--accent);
+}
+
+.cardTagActive::after {
+  content: "reset";
 }
 
 @media (max-width: 700px) {
