@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useVideoVisibility } from "./hooks";
+import { useVideoVisibility, useVideoRetry } from "./hooks";
 
 interface VideoVariant {
   quality: string;
@@ -31,6 +31,15 @@ export default function ResponsiveVideo({
   const videoRef = useRef<HTMLVideoElement>(null);
   useVideoVisibility(videoRef, !controls);
 
+  const noop = () => {};
+  const { handleLoadedData, handleError } = useVideoRetry({
+    videoRef,
+    src,
+    enabled: true,
+    onSuccess: noop,
+    onGiveUp: noop,
+  });
+
   // If we have variants, use them as <source> elements (browser picks best)
   // Order: highest quality first, browser will pick what it can handle
   if (variants && variants.length > 0) {
@@ -44,7 +53,8 @@ export default function ResponsiveVideo({
         poster={poster}
         className={className}
         controls={controls}
-        onError={() => {}}
+        onLoadedData={handleLoadedData}
+        onError={handleError}
       >
         {variants.map((v) => (
           <source key={v.quality} src={v.path} type={v.path.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
@@ -66,7 +76,8 @@ export default function ResponsiveVideo({
       poster={poster}
       className={className}
       controls={controls}
-      onError={() => {}}
+      onLoadedData={handleLoadedData}
+      onError={handleError}
     />
   );
 }

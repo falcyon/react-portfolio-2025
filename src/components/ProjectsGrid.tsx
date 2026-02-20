@@ -5,7 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import type { Project } from "@/data/projects";
-import { useVideoVisibility } from "./hooks";
+import { useVideoVisibility, useVideoRetry } from "./hooks";
 import { loadedMedia, requestLoad, cancelLoad, signalLoaded } from "./mediaLoadStore";
 import styles from "./ProjectsGrid.module.css";
 import cardStyles from "./Card.module.css";
@@ -53,9 +53,26 @@ function GridCard({ project, onTagClick, activeTags }: { project: Project; onTag
     return () => cancelLoad(cb);
   }, [alreadyLoaded]);
 
-  const handleLoad = () => {
-    loadedMedia.add(project.thumbnail);
-    signalLoaded();
+  // Video retry on error / stall
+  const { handleLoadedData, handleError } = useVideoRetry({
+    videoRef,
+    src: project.thumbnail,
+    enabled: canLoadMedia && isVideo,
+    onSuccess: () => { loadedMedia.add(project.thumbnail); signalLoaded(); },
+    onGiveUp: () => { signalLoaded(); },
+  });
+
+  // Image retry via key remount
+  const [imgKey, setImgKey] = useState(0);
+  const imgRetries = useRef(0);
+  const handleImageLoad = () => { loadedMedia.add(project.thumbnail); signalLoaded(); };
+  const handleImageError = () => {
+    if (imgRetries.current < 2) {
+      imgRetries.current++;
+      setImgKey(k => k + 1);
+    } else {
+      signalLoaded();
+    }
   };
 
   const showVideo = canLoadMedia && isVideo;
@@ -82,18 +99,20 @@ function GridCard({ project, onTagClick, activeTags }: { project: Project; onTag
               preload="metadata"
               tabIndex={-1}
               className={cardStyles.thumbnail}
-              onLoadedData={handleLoad}
-              onError={handleLoad}
+              onLoadedData={handleLoadedData}
+              onError={handleError}
             />
           )}
           {showImage && (
             <Image
+              key={imgKey}
               src={project.thumbnail}
               alt={`${project.name} thumbnail`}
               width={project.width}
               height={project.height}
               className={cardStyles.thumbnail}
-              onLoad={handleLoad}
+              onLoad={handleImageLoad}
+              onError={handleImageError}
             />
           )}
         </div>
