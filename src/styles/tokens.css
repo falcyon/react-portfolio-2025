@@ -48,9 +48,9 @@
   --font-mono: "Courier New", Courier, monospace;
 
   /* ── Transitions ── */
-  --duration-fast: 0.15s;
-  --duration-base: 0.2s;
-  --duration-slow: 0.3s;
+  --duration-fast: 0.2s;
+  --duration-base: 0.3s;
+  --duration-slow: 0.45s;
   --ease-out: ease-out;
   --ease-in-out: ease-in-out;
 

@@ -10,7 +10,7 @@ import { loadedMedia, requestLoad, cancelLoad, signalLoaded } from "./mediaLoadS
 import styles from "./ProjectsGrid.module.css";
 import cardStyles from "./Card.module.css";
 
-const FLIP_DURATION = 300; // ms — matches --duration-slow
+const FLIP_DURATION = 450; // ms — matches --duration-slow
 
 /* ── Animation helpers ── */
 
@@ -271,7 +271,24 @@ export default function ProjectsGrid({
     const clones = new Map<string, HTMLElement>();
     cardRefs.current.forEach((el, slug) => {
       positions.set(slug, el.getBoundingClientRect());
-      clones.set(slug, el.cloneNode(true) as HTMLElement);
+      const clone = el.cloneNode(true) as HTMLElement;
+
+      // Capture current video frame as a static canvas so the clone
+      // shows the last visible frame instead of a blank video element
+      const origVideo = el.querySelector("video");
+      const cloneVideo = clone.querySelector("video");
+      if (origVideo && cloneVideo && origVideo.readyState >= 2) {
+        try {
+          const canvas = document.createElement("canvas");
+          canvas.width = origVideo.videoWidth;
+          canvas.height = origVideo.videoHeight;
+          canvas.getContext("2d")?.drawImage(origVideo, 0, 0);
+          canvas.className = cloneVideo.className;
+          cloneVideo.replaceWith(canvas);
+        } catch { /* cross-origin or other error — keep the clone video as-is */ }
+      }
+
+      clones.set(slug, clone);
     });
     snapshotRef.current = { positions, clones, gridRect };
   }, []);
@@ -336,8 +353,8 @@ export default function ProjectsGrid({
 
     prepareReveal(cards);
     void grid.offsetHeight;
-    pendingCleanups.current = startReveal(cards, FLIP_DURATION, 25);
-    scheduleCleanup(revealTotalMs(cards.length, FLIP_DURATION, 25));
+    pendingCleanups.current = startReveal(cards, FLIP_DURATION, 80);
+    scheduleCleanup(revealTotalMs(cards.length, FLIP_DURATION, 80));
 
     return flushCleanups;
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -411,8 +428,10 @@ export default function ProjectsGrid({
     void grid.offsetHeight;
 
     // Phase 2: start all transitions
-    exitClones.forEach((clone) => {
-      clone.style.transition = `opacity ${FLIP_DURATION}ms ease, transform ${FLIP_DURATION}ms ease`;
+    const EXIT_STAGGER = 60; // ms between each exit clone
+    exitClones.forEach((clone, i) => {
+      const delay = Math.round(i * EXIT_STAGGER);
+      clone.style.transition = `opacity ${FLIP_DURATION}ms ease ${delay}ms, transform ${FLIP_DURATION}ms ease ${delay}ms`;
       clone.style.opacity = "0";
       clone.style.transform = "scale(0.95)";
     });
@@ -426,9 +445,11 @@ export default function ProjectsGrid({
       });
     });
 
-    pendingCleanups.current.push(...startReveal(entering, FLIP_DURATION, 20));
+    pendingCleanups.current.push(...startReveal(entering, FLIP_DURATION, 80));
 
-    scheduleCleanup(revealTotalMs(entering.length, FLIP_DURATION, 20));
+    const exitTotalMs = FLIP_DURATION + Math.round(exitClones.length * EXIT_STAGGER);
+    const enterTotalMs = revealTotalMs(entering.length, FLIP_DURATION, 80);
+    scheduleCleanup(Math.max(exitTotalMs, enterTotalMs));
 
     return flushCleanups;
   }, [filtered, flushCleanups, scheduleCleanup]);
