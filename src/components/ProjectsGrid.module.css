@@ -7,16 +7,9 @@
   margin-right: auto;
 }
 
-/* Fixed filter bar */
+/* Filter bar */
 .filterBar {
-  position: fixed;
-  top: var(--nav-height);
-  left: 0;
-  right: 0;
-  z-index: 10;
-  padding: calc(var(--page-pt) - var(--nav-height)) var(--page-px) var(--space-md);
-  max-width: var(--content-max-width);
-  margin: 0 auto;
+  padding-bottom: var(--space-md);
 }
 
 /* Presets + count on same row */
@@ -117,7 +110,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);
-  padding-top: var(--filter-bar-height, 100px);
+  padding-top: 0;
 }
 
 
@@ -128,7 +121,7 @@
   }
 
   .filterBar {
-    padding: calc(var(--page-pt-mobile) - var(--nav-height)) var(--page-px-mobile) var(--space-sm);
+    padding-bottom: var(--space-sm);
   }
 
   .grid {

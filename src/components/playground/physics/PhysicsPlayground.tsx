@@ -121,7 +121,7 @@ export default function PhysicsPlayground() {
       }
 
       // Create world with gravity
-      const world = World(Vec2(0, 10));
+      const world = World(Vec2(0, 15));
 
       // Floor (raised FLOOR_INSET px from bottom)
       const floorY = ch - FLOOR_INSET;
@@ -235,8 +235,8 @@ export default function PhysicsPlayground() {
         const body = world.createDynamicBody({
           position: Vec2(toM(xPx), toM(yPx)),
           angle: (Math.random() - 0.5) * 0.3,
-          linearDamping: 0.1,
-          angularDamping: 0.2,
+          linearDamping: 0.5,
+          angularDamping: 0.5,
         });
         body.createFixture(
           Box(toM(size.w / 2), toM(size.h / 2)),
@@ -253,7 +253,7 @@ export default function PhysicsPlayground() {
       });
       cursorBody.createFixture(
         Box(toM(cursorSizePx / 2), toM(cursorSizePx / 2)),
-        { density: 0, friction: 0, restitution: 0.8 }
+        { density: 0, friction: 0, restitution: 0.15 }
       );
 
       // Animation loop

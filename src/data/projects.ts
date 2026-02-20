@@ -26,9 +26,9 @@ export const projectsArray: Project[] = [
     "width": 1920,
     "year": 2026,
     "tags": [
-      "AI/ML",
+      "Digital",
       "Interactive",
-      "Game"
+      "AI/ML"
     ],
     "size": "1x1",
     "description": "A 2d physics game where Gemini 3 pro generates playable objects from natural language in real time.",

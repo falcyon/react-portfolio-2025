@@ -119,21 +119,6 @@ export default function ProjectsGrid({
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const filterBarRef = useRef<HTMLDivElement>(null);
-
-  // Push grid down to account for fixed filter bar height
-  useEffect(() => {
-    const el = filterBarRef.current;
-    if (!el) return;
-    const observer = new ResizeObserver(() => {
-      el.parentElement?.style.setProperty(
-        "--filter-bar-height",
-        `${el.offsetHeight}px`
-      );
-    });
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   // Parse active tags from URL
   const activeTags = useMemo(() => {
@@ -215,8 +200,7 @@ export default function ProjectsGrid({
 
   return (
     <div className={styles.container}>
-      {/* Fixed filter bar */}
-      <div className={styles.filterBar} ref={filterBarRef}>
+      <div className={styles.filterBar}>
         <div className={styles.presetsRow}>
           <div className={styles.presets}>
             {PRESETS.map((preset) => (
