@@ -5,19 +5,21 @@
    ═══════════════════════════════════════════════════════ */
 
 .card {
-  text-decoration: none;
   color: var(--foreground);
   display: flex;
   flex-direction: column;
 }
 
-.card:hover {
-  color: var(--accent);
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
-.card:hover .cardName,
-.card:hover .cardYear,
-.card:hover .cardDescription {
+.cardLink:hover .cardName,
+.cardLink:hover .cardYear,
+.cardLink:hover .cardDescription {
   color: var(--accent);
 }
 
@@ -29,7 +31,7 @@
   background: var(--card-bg);
 }
 
-.card:hover .thumbnailWrap {
+.cardLink:hover .thumbnailWrap {
   border-color: var(--accent);
 }
 
@@ -89,11 +91,23 @@
   border: 1px solid var(--foreground);
   background: var(--background);
   color: var(--foreground);
+  cursor: pointer;
   transition: color var(--duration-base), border-color var(--duration-base);
 }
 
-.card:hover .cardTag {
+.cardTag:hover {
   color: var(--accent);
+  border-color: var(--accent);
+}
+
+.cardTagActive {
+  background: var(--accent);
+  color: var(--background);
+  border-color: var(--accent);
+}
+
+.cardTagActive:hover {
+  color: var(--background);
   border-color: var(--accent);
 }
 

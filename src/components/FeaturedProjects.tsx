@@ -31,7 +31,7 @@ function FeaturedCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className={cardStyles.card}
+      className={`${cardStyles.card} ${cardStyles.cardLink}`}
       onClick={() => {
         sessionStorage.setItem("navigated-from-landing", "true");
         window.umami?.track("featured-click", { project: project.slug });

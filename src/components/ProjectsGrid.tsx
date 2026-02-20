@@ -37,7 +37,7 @@ const PRESETS: { label: string; tags: string[] }[] = [
   },
 ];
 
-function GridCard({ project }: { project: Project }) {
+function GridCard({ project, onTagClick, activeTags }: { project: Project; onTagClick: (tag: string) => void; activeTags: Set<string> }) {
   const isVideo = /\.(mp4|webm|ogg)$/i.test(project.thumbnail);
   const alreadyLoaded = loadedMedia.has(project.thumbnail);
   const [canLoadMedia, setCanLoadMedia] = useState(alreadyLoaded);
@@ -62,53 +62,59 @@ function GridCard({ project }: { project: Project }) {
   const showImage = canLoadMedia && !isVideo;
 
   return (
-    <Link
-      href={`/projects/${project.slug}`}
-      className={cardStyles.card}
-      onClick={() => {
-        sessionStorage.setItem("navigated-from-landing", "true");
-        window.umami?.track("project-click", { project: project.slug });
-      }}
-    >
-      <div ref={wrapRef} className={cardStyles.thumbnailWrap}>
-        {showVideo && (
-          <video
-            ref={videoRef}
-            src={project.thumbnail}
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            tabIndex={-1}
-            className={cardStyles.thumbnail}
-            onLoadedData={handleLoad}
-            onError={handleLoad}
-          />
-        )}
-        {showImage && (
-          <Image
-            src={project.thumbnail}
-            alt={`${project.name} thumbnail`}
-            width={project.width}
-            height={project.height}
-            className={cardStyles.thumbnail}
-            onLoad={handleLoad}
-          />
-        )}
-      </div>
-      <div className={cardStyles.cardInfo}>
-        <span className={cardStyles.cardName}>{project.name}</span>
-        <span className={cardStyles.cardYear}>{project.year}</span>
-      </div>
-      <p className={cardStyles.cardDescription}>{project.description}</p>
+    <div className={cardStyles.card}>
+      <Link
+        href={`/projects/${project.slug}`}
+        className={cardStyles.cardLink}
+        onClick={() => {
+          sessionStorage.setItem("navigated-from-landing", "true");
+          window.umami?.track("project-click", { project: project.slug });
+        }}
+      >
+        <div ref={wrapRef} className={cardStyles.thumbnailWrap}>
+          {showVideo && (
+            <video
+              ref={videoRef}
+              src={project.thumbnail}
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              tabIndex={-1}
+              className={cardStyles.thumbnail}
+              onLoadedData={handleLoad}
+              onError={handleLoad}
+            />
+          )}
+          {showImage && (
+            <Image
+              src={project.thumbnail}
+              alt={`${project.name} thumbnail`}
+              width={project.width}
+              height={project.height}
+              className={cardStyles.thumbnail}
+              onLoad={handleLoad}
+            />
+          )}
+        </div>
+        <div className={cardStyles.cardInfo}>
+          <span className={cardStyles.cardName}>{project.name}</span>
+          <span className={cardStyles.cardYear}>{project.year}</span>
+        </div>
+        <p className={cardStyles.cardDescription}>{project.description}</p>
+      </Link>
       <div className={cardStyles.cardTags}>
         {project.tags.map((tag) => (
-          <span key={tag} className={cardStyles.cardTag}>
+          <button
+            key={tag}
+            className={`${cardStyles.cardTag} ${activeTags.has(tag) ? cardStyles.cardTagActive : ""}`}
+            onClick={() => onTagClick(tag)}
+          >
             {tag}
-          </span>
+          </button>
         ))}
       </div>
-    </Link>
+    </div>
   );
 }
 
@@ -165,13 +171,13 @@ export default function ProjectsGrid({
 
   const toggleTag = useCallback(
     (tag: string) => {
-      const next = new Set(activeTags);
-      if (next.has(tag)) {
-        next.delete(tag);
+      // If tag is already the only active one, deselect it
+      if (activeTags.has(tag) && activeTags.size === 1) {
+        updateTags(new Set());
       } else {
-        next.add(tag);
+        // Single-select: replace with just this tag
+        updateTags(new Set([tag]));
       }
-      updateTags(next);
     },
     [activeTags, updateTags]
   );
@@ -239,7 +245,7 @@ export default function ProjectsGrid({
       {/* Grid */}
       <div className={styles.grid}>
         {filtered.map((project) => (
-          <GridCard key={project.slug} project={project} />
+          <GridCard key={project.slug} project={project} onTagClick={toggleTag} activeTags={activeTags} />
         ))}
       </div>
     </div>
