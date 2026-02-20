@@ -61,8 +61,6 @@ function revealTotalMs(count: number, duration: number, maxStepMs = 20): number 
   return duration + Math.round(count * step);
 }
 
-// Persists across client-side navigations so return visits skip the entrance animation
-let hasAnimatedInitial = false;
 
 // Preset filters that map to multiple tags
 const PRESETS: { label: string; tags: string[] }[] = [
@@ -338,9 +336,10 @@ export default function ProjectsGrid({
   }, [projects, activeTags]);
 
   // Initial page-load entrance: staggered fade-in for all cards
+  const hasAnimatedInitial = useRef(false);
   useLayoutEffect(() => {
-    if (hasAnimatedInitial) return;
-    hasAnimatedInitial = true;
+    if (hasAnimatedInitial.current) return;
+    hasAnimatedInitial.current = true;
 
     if (!shouldAnimate()) return;
 
