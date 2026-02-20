@@ -61,7 +61,7 @@ export const projectsArray: Project[] = [
     "tags": [
       "Physical",
       "AI/ML",
-      "Performance",
+      "Interactive",
       "Python",
       "Computer Vision"
     ],
