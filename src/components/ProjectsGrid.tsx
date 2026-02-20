@@ -360,7 +360,7 @@ export default function ProjectsGrid({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // FLIP + exit/enter animation after filter change
+  // Exit/enter animation after filter change
   useLayoutEffect(() => {
     const snap = snapshotRef.current;
     if (!snap) return flushCleanups;
@@ -376,13 +376,11 @@ export default function ProjectsGrid({
 
     const currentSlugs = new Set(filtered.map((p) => p.slug));
 
-    // EXIT: append clones for removed cards, fade out at old position
+    // Helper to append an exit clone at its old position
     const exitClones: HTMLElement[] = [];
-    snap.positions.forEach((oldRect, slug) => {
-      if (currentSlugs.has(slug)) return;
+    const addExitClone = (slug: string, oldRect: DOMRect) => {
       const clone = snap.clones.get(slug);
       if (!clone) return;
-
       Object.assign(clone.style, {
         position: "absolute",
         left: `${oldRect.left - snap.gridRect.left}px`,
@@ -396,53 +394,42 @@ export default function ProjectsGrid({
       grid.appendChild(clone);
       exitClones.push(clone);
       pendingCleanups.current.push(() => clone.remove());
+    };
+
+    // EXIT: clones for removed cards
+    snap.positions.forEach((oldRect, slug) => {
+      if (!currentSlugs.has(slug)) addExitClone(slug, oldRect);
     });
 
-    // Categorize remaining cards: FLIP (existed before) vs ENTER (new)
+    // Categorize remaining cards: moved (exit + enter) vs new (enter only)
     const entering: HTMLDivElement[] = [];
-    const flipping: { el: HTMLDivElement; dx: number; dy: number }[] = [];
-
     cardRefs.current.forEach((el, slug) => {
       const oldRect = snap.positions.get(slug);
       if (!oldRect) {
+        // New card — enter animation
         entering.push(el);
         return;
       }
-
+      // Existing card — check if it moved
       const newRect = el.getBoundingClientRect();
-      const dx = oldRect.left - newRect.left;
-      const dy = oldRect.top - newRect.top;
-      if (Math.abs(dx) < 1 && Math.abs(dy) < 1) return;
-
-      flipping.push({ el, dx, dy });
+      if (Math.abs(oldRect.left - newRect.left) > 1 || Math.abs(oldRect.top - newRect.top) > 1) {
+        // Moved — exit clone at old position, enter at new position
+        addExitClone(slug, oldRect);
+        entering.push(el);
+      }
     });
 
-    // Phase 1: set initial states BEFORE reflow
-    flipping.forEach(({ el, dx, dy }) => {
-      el.style.transform = `translate(${dx}px, ${dy}px)`;
-      el.style.transition = "none";
-    });
+    // Set initial states before reflow
     prepareReveal(entering);
-
-    // Force reflow so the browser commits all initial states
     void grid.offsetHeight;
 
-    // Phase 2: start all transitions
+    // Start transitions
     const EXIT_STAGGER = 60; // ms between each exit clone
     exitClones.forEach((clone, i) => {
       const delay = Math.round(i * EXIT_STAGGER);
       clone.style.transition = `opacity ${FLIP_DURATION}ms ease ${delay}ms, transform ${FLIP_DURATION}ms ease ${delay}ms`;
       clone.style.opacity = "0";
       clone.style.transform = "scale(0.95)";
-    });
-
-    flipping.forEach(({ el }) => {
-      el.style.transition = `transform ${FLIP_DURATION}ms ease`;
-      el.style.transform = "";
-      pendingCleanups.current.push(() => {
-        el.style.transition = "";
-        el.style.transform = "";
-      });
     });
 
     pendingCleanups.current.push(...startReveal(entering, FLIP_DURATION, 80));
