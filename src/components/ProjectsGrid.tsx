@@ -83,11 +83,17 @@ const PRESETS: { label: string; tags: string[] }[] = [
     label: "Design",
     tags: [
       "Product Design",
-      "Branding",
       "Figma",
     ],
   },
 ];
+
+// --- Temporarily hidden projects (commented out from display, not deleted) ---
+const HIDDEN_SLUGS = new Set(["petmania", "zoe", "crew"]);
+
+// --- Custom tail ordering (these appear at the end of the grid, in this order) ---
+const TAIL_ORDER = ["constructor", "conversationSculpture", "unraveling", "bitByBit", "clock", "organicMetal"];
+const TAIL_SET = new Set(TAIL_ORDER);
 
 function GridCard({
   project,
@@ -209,6 +215,14 @@ export default function ProjectsGrid({
   const router = useRouter();
   const gridRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+
+  // Process projects: hide commented-out projects and apply custom ordering
+  const processedProjects = useMemo(() => {
+    const visible = projects.filter((p) => !HIDDEN_SLUGS.has(p.slug));
+    const head = visible.filter((p) => !TAIL_SET.has(p.slug));
+    const tail = TAIL_ORDER.map((slug) => visible.find((p) => p.slug === slug)).filter(Boolean) as Project[];
+    return [...head, ...tail];
+  }, [projects]);
   const snapshotRef = useRef<{
     positions: Map<string, DOMRect>;
     clones: Map<string, HTMLElement>;
@@ -242,11 +256,11 @@ export default function ProjectsGrid({
   // All unique tags sorted by frequency
   const allTags = useMemo(() => {
     const counts: Record<string, number> = {};
-    projects.forEach((p) => p.tags.forEach((t) => (counts[t] = (counts[t] || 0) + 1)));
+    processedProjects.forEach((p) => p.tags.forEach((t) => (counts[t] = (counts[t] || 0) + 1)));
     return Object.entries(counts)
       .sort((a, b) => b[1] - a[1])
       .map(([tag]) => tag);
-  }, [projects]);
+  }, [processedProjects]);
 
   // Active preset detection
   const activePreset = useMemo(() => {
@@ -331,9 +345,9 @@ export default function ProjectsGrid({
 
   // Filter projects: OR logic — project must have at least one of the active tags
   const filtered = useMemo(() => {
-    if (activeTags.size === 0) return projects;
-    return projects.filter((p) => p.tags.some((t) => activeTags.has(t)));
-  }, [projects, activeTags]);
+    if (activeTags.size === 0) return processedProjects;
+    return processedProjects.filter((p) => p.tags.some((t) => activeTags.has(t)));
+  }, [processedProjects, activeTags]);
 
   // Initial page-load entrance: staggered fade-in for all cards
   const hasAnimatedInitial = useRef(false);
@@ -447,6 +461,7 @@ export default function ProjectsGrid({
   return (
     <div className={styles.container}>
       <div className={styles.filterBar}>
+        {/* --- Presets row commented out ---
         <div className={styles.presetsRow}>
           <div className={styles.presets}>
             {PRESETS.map((preset) => (
@@ -460,6 +475,7 @@ export default function ProjectsGrid({
             ))}
           </div>
         </div>
+        --- end presets row --- */}
 
         <div className={styles.tagsRow}>
           {visibleTags.map((tag) => (

@@ -16,9 +16,12 @@ export default function Footer() {
             <a href="https://github.com/falcyon" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
+        {/* --- Portfolio archives commented out ---
         <div className={styles.links}>
           Portfolio Archives:<a href="https://2025.leff.in" target="_blank" rel="noopener noreferrer">2025</a>
         </div>
+        --- end portfolio archives --- */}
+        <div className={styles.links} />
       </div>
     </footer>
   );

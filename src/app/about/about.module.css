@@ -57,67 +57,66 @@
   animation: paraCycleCorp 6s ease-in-out infinite;
 }
 
-/* Phase 1: Artist — red in P1, dim in P2, black in P3 */
+/* P1: default (all normal) → P2: Artist red → P3: Engineer red */
 @keyframes wordCycle1 {
-  0%, 28% { color: var(--accent); border-color: var(--accent); opacity: 1; }
-  33%, 61% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
-  66%, 94% { color: inherit; border-color: var(--foreground); opacity: 1; }
-  100% { color: var(--accent); border-color: var(--accent); opacity: 1; }
-}
-
-/* Phase 2: Designer — dim in P1, red in P2, black in P3 */
-@keyframes wordCycle2 {
-  0%, 28% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
+  0%, 28% { color: inherit; border-color: var(--foreground); opacity: 1; }
   33%, 61% { color: var(--accent); border-color: var(--accent); opacity: 1; }
-  66%, 94% { color: inherit; border-color: var(--foreground); opacity: 1; }
-  100% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
+  66%, 94% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
+  100% { color: inherit; border-color: var(--foreground); opacity: 1; }
 }
 
-/* Phase 3: Engineer — red in P1+P2, black in P3 */
+@keyframes wordCycle2 {
+  0%, 28% { color: inherit; border-color: var(--foreground); opacity: 1; }
+  33%, 61% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
+  66%, 94% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
+  100% { color: inherit; border-color: var(--foreground); opacity: 1; }
+}
+
 @keyframes wordCycle3 {
-  0%, 61% { color: var(--accent); border-color: var(--accent); opacity: 1; }
-  66%, 94% { color: inherit; border-color: var(--foreground); opacity: 1; }
-  100% { color: var(--accent); border-color: var(--accent); opacity: 1; }
+  0%, 28% { color: inherit; border-color: var(--foreground); opacity: 1; }
+  33%, 61% { color: inherit; border-color: var(--foreground); opacity: 0.35; }
+  66%, 94% { color: var(--accent); border-color: var(--accent); opacity: 1; }
+  100% { color: inherit; border-color: var(--foreground); opacity: 1; }
 }
 
-/* Art para: red in P1, dim in P2, black in P3 */
+/* Art para: normal P1, red P2, dim P3 */
 @keyframes paraCycleArt {
-  0%, 28% { color: var(--accent); opacity: 1; }
-  33%, 61% { color: inherit; opacity: 0.35; }
-  66%, 94% { color: inherit; opacity: 1; }
-  100% { color: var(--accent); opacity: 1; }
+  0%, 28% { color: inherit; opacity: 1; }
+  33%, 61% { color: var(--accent); opacity: 1; }
+  66%, 94% { color: inherit; opacity: 0.35; }
+  100% { color: inherit; opacity: 1; }
 }
 
-/* Corp para: dim in P1, red in P2, black in P3 */
+/* Corp para: normal P1, dim P2, red P3 */
 @keyframes paraCycleCorp {
-  0%, 28% { color: inherit; opacity: 0.35; }
-  33%, 61% { color: var(--accent); opacity: 1; }
-  66%, 94% { color: inherit; opacity: 1; }
-  100% { color: inherit; opacity: 0.35; }
+  0%, 28% { color: inherit; opacity: 1; }
+  33%, 61% { color: inherit; opacity: 0.35; }
+  66%, 94% { color: var(--accent); opacity: 1; }
+  100% { color: inherit; opacity: 1; }
 }
 
 /* ── Hover overrides ── */
 @media (hover: hover) {
-  /* Hover Artist → art para red, others dim */
+  /* Hover Artist → Artist red, summaryArt red, others dim */
   .hero:has(.tagArt:hover) .tagArt { animation: none; color: var(--accent); border-color: var(--accent); opacity: 1; }
   .hero:has(.tagArt:hover) .tagDesign { animation: none; color: inherit; border-color: var(--foreground); opacity: 0.35; }
   .hero:has(.tagArt:hover) .tagEng { animation: none; color: inherit; border-color: var(--foreground); opacity: 0.35; }
   .hero:has(.tagArt:hover) .summaryArt { animation: none; color: var(--accent); opacity: 1; }
   .hero:has(.tagArt:hover) .summaryCorp { animation: none; color: inherit; opacity: 0.35; }
 
-  /* Hover Designer → corp para red, others dim */
+  /* Hover Designer → Designer normal, others dim, both paras normal */
   .hero:has(.tagDesign:hover) .tagArt { animation: none; color: inherit; border-color: var(--foreground); opacity: 0.35; }
-  .hero:has(.tagDesign:hover) .tagDesign { animation: none; color: var(--accent); border-color: var(--accent); opacity: 1; }
+  .hero:has(.tagDesign:hover) .tagDesign { animation: none; color: inherit; border-color: var(--foreground); opacity: 1; }
   .hero:has(.tagDesign:hover) .tagEng { animation: none; color: inherit; border-color: var(--foreground); opacity: 0.35; }
-  .hero:has(.tagDesign:hover) .summaryArt { animation: none; color: inherit; opacity: 0.35; }
-  .hero:has(.tagDesign:hover) .summaryCorp { animation: none; color: var(--accent); opacity: 1; }
+  .hero:has(.tagDesign:hover) .summaryArt { animation: none; color: inherit; opacity: 1; }
+  .hero:has(.tagDesign:hover) .summaryCorp { animation: none; color: inherit; opacity: 1; }
 
-  /* Hover Engineer → both paras black, word black, others dim */
+  /* Hover Engineer → Engineer red, summaryCorp red, others dim */
   .hero:has(.tagEng:hover) .tagArt { animation: none; color: inherit; border-color: var(--foreground); opacity: 0.35; }
   .hero:has(.tagEng:hover) .tagDesign { animation: none; color: inherit; border-color: var(--foreground); opacity: 0.35; }
-  .hero:has(.tagEng:hover) .tagEng { animation: none; color: inherit; border-color: var(--foreground); opacity: 1; }
-  .hero:has(.tagEng:hover) .summaryArt { animation: none; color: inherit; opacity: 1; }
-  .hero:has(.tagEng:hover) .summaryCorp { animation: none; color: inherit; opacity: 1; }
+  .hero:has(.tagEng:hover) .tagEng { animation: none; color: var(--accent); border-color: var(--accent); opacity: 1; }
+  .hero:has(.tagEng:hover) .summaryArt { animation: none; color: inherit; opacity: 0.35; }
+  .hero:has(.tagEng:hover) .summaryCorp { animation: none; color: var(--accent); opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {

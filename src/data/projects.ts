@@ -295,7 +295,7 @@ export const projectsArray: Project[] = [
     "year": 2017,
     "tags": [
       "Physical",
-      "Product Design"
+      "Arduino"
     ],
     "size": "1x1",
     "position": 4,
@@ -377,7 +377,6 @@ export const projectsArray: Project[] = [
     "tags": [
       "Physical",
       "AI/ML",
-      "Branding",
       "Python"
     ],
     "size": "1x2",

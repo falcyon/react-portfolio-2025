@@ -18,8 +18,8 @@ export default function AboutPage() {
         <div className={styles.heroText}>
           <p className={styles.tagline}>
             <span className={styles.tagArt}>Artist.</span>{' '}
-            <span className={styles.tagDesign}>Designer.</span>{' '}
-            <span className={styles.tagEng}>Engineer.</span>
+            <span className={styles.tagEng}>Engineer.</span>{' '}
+            <span className={styles.tagDesign}>Designer.</span>
           </p>
           <p className={`${styles.summary} ${styles.summaryArt}`}>{aboutData.summaryArt}</p>
           <p className={`${styles.summary} ${styles.summaryCorp}`}>{aboutData.summaryCorp}</p>
@@ -30,10 +30,12 @@ export default function AboutPage() {
                 <span key={ed.text}>{ed.text} — <em>{ed.note}</em></span>
               ))}
             </div>
+            {/* --- Current credential commented out ---
             <div className={styles.credential}>
               <span className={styles.credLabel}>Current</span>
               <span>{aboutData.credentials.current}</span>
             </div>
+            --- end current credential --- */}
           </div>
         </div>
         <div className={styles.heroAside}>
@@ -116,7 +118,7 @@ export default function AboutPage() {
       </section>
       */}
 
-      {/* Professional Experience */}
+      {/* --- Professional Experience commented out ---
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Professional Experience</h2>
         <ul className={styles.list}>
@@ -130,6 +132,7 @@ export default function AboutPage() {
           ))}
         </ul>
       </section>
+      --- end professional experience --- */}
     </main>
   );
 }

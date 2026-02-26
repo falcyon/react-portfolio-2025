@@ -17,13 +17,15 @@ Hand-built portfolio website showcasing my projects and experiments.
 
 ### Playground — Shuffleable Visual Identity
 
-The hero section uses five distinct visual identity cards called **Playground** items that cycle on demand via an earmark button in the corner.
+The hero section is a rotating set of **Playground** items — each one a distinct visual interpretation of the same identity information. Every playground carries three layers: the name ("Leffin"), the positioning ("Artist and Engineer"), and ten identity words (Multidisciplinary, Interactive, Technologist, Introspective, Embodied, Immersive, Experimental, Human, Storyteller, Builder). The constraint is that each playground must present this information in its own native format, so the identity feels discovered rather than declared.
 
-- **Explosion** — 17 SVG rectangles animate between chaos and letterforms using `requestAnimationFrame` with custom easing. Three positional states (random scatter &rarr; "LEFF.IN" &rarr; "LEFFIN.") with per-frame interpolation and responsive scaling via `ResizeObserver`.
-- **Dictionary** — Styled as a dictionary entry with phonetic spelling, definitions, and etymology.
-- **Terminal** — Simulated terminal with character-by-character typing animation (35ms per char) and a blinking cursor.
-- **2D Bodies** — Physics simulation using `planck.js` (Box2D). Letters hang from threads attached to the ceiling via revolute joints; identity words fall as rigid bodies and pile up on a floor. A kinematic cursor body lets visitors push elements around.
-- **Word Search** — A responsive letter grid (40x20 landscape, 20x30 portrait) with "LEFFIN" centered and identity words (Multidisciplinary, Interactive, etc.) placed as crosswords. Hovering or touching cells swaps their color, with a self-healing timer that restores them after 3 seconds.
+Visitors cycle through playgrounds via an earmark button in the bottom-right corner. The site always starts with the Explosion playground, then shuffles randomly. Each cycle is tracked via Umami (`playground-cycle`). All playgrounds live in `src/components/playground/`, each in its own subfolder, registered in `playgroundRegistry.ts`.
+
+- **Explosion** — 17 SVG rectangles animate between chaos and letterforms using `requestAnimationFrame` with custom easing. Three positional states (random scatter &rarr; "LEFF.IN" &rarr; "LEFFIN.") with per-frame interpolation and responsive scaling via `ResizeObserver`. The identity words and positioning appear as animated text beneath the letterforms.
+- **Dictionary** — Presents the identity as a dictionary entry — phonetic spelling, part of speech, numbered definitions, usage examples, and etymology. The identity words appear as synonyms. The format makes the self-description feel like a found object rather than a bio.
+- **Terminal** — A simulated command-line session that runs `cat tags.txt`, listing the identity words line by line with character-by-character typing animation (35ms per char) and a blinking cursor. The positioning and name appear as the terminal prompt and file contents.
+- **2D Bodies** — Physics simulation using `planck.js` (Box2D). The name's letters hang from threads attached to the ceiling via revolute joints; the ten identity words fall as rigid bodies and pile up on a floor. A kinematic cursor body lets visitors push elements around. The identity is literally physical and playful.
+- **Word Search** — A responsive letter grid (40x20 landscape, 20x30 portrait) with "LEFFIN" centered and identity words placed as crosswords. Hovering or touching cells swaps their color, with a self-healing timer that restores them after 3 seconds. The identity words are hidden in plain sight, waiting to be found.
 
 ### JSON-Driven Content System
 
