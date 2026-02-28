@@ -2,7 +2,7 @@
   "name": "Leffin",
   "tagline": "Artist. Designer. Engineer.",
   "summaryArt": "Leffin makes interactive installations about identity and meaning using technology and the human body.",
-  "summaryCorp": "His work incorporates physical computing, generative systems, and AI.",
+  "summaryCorp": "He works across physical computing, generative systems, and machine intelligence",
   "credentials": {
     "education": [
       {
@@ -150,13 +150,13 @@
     },
     {
       "title": "Product Manager",
-      "description": "Led 0-to-1 launch of a B2B SaaS platform",
+      "description": "0-to-1 launch of B2B product, and innovation projects",
       "company": "Elements Connect",
       "period": "2023 - 2024"
     },
     {
-      "title": "Branding & Editorial Designer",
-      "description": "Brand identity and editorial design",
+      "title": "Creative Director",
+      "description": "Brand identity systems and visual design for startups",
       "company": "Freelance",
       "period": "2023"
     },
@@ -168,12 +168,12 @@
     },
     {
       "title": "Data Scientist",
-      "description": "Big Data Analytics, Automation and Web Accessibility",
+      "description": "AI, Automation, and web accessibility",
       "company": "Citibank",
       "period": "2016 - 2021"
     },
     {
-      "title": "Intern",
+      "title": "Plane Design and Optimization Intern",
       "description": "MAV to harness high-altitude wind energy",
       "company": "Jetstream Electric",
       "period": "2015"
