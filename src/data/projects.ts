@@ -32,7 +32,8 @@ export const projectsArray: Project[] = [
     ],
     "size": "1x1",
     "description": "A 2d physics game where Gemini 3 pro generates playable objects from natural language in real time.",
-    "featured": false
+    "featured": true,
+    "featuredOrder": 1
   },
   {
     "name": "Ephemera",
@@ -250,8 +251,7 @@ export const projectsArray: Project[] = [
     "size": "2x1",
     "position": 1,
     "description": "Generation of new character sets to fill up spaces in Unicode.",
-    "featured": true,
-    "featuredOrder": 1
+    "featured": false
   },
   {
     "name": "Organic Metal",

@@ -13,7 +13,8 @@
   "thumbnailHeight": 1080,
   "size": "1x1",
   "order": 0,
-  "featured": false,
+  "featured": true,
+  "featuredOrder": 1,
   "interactiveUrl": "https://leff.in/interactives/dinoRevenge",
   "githubUrl": "https://github.com/falcyon/RevengeForDino",
   "content": [

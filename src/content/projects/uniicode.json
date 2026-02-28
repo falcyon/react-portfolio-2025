@@ -129,6 +129,5 @@
     }
   ],
   "order": 12,
-  "featured": true,
-  "featuredOrder": 1
+  "featured": false
 }
