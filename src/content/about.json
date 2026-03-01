@@ -2,7 +2,7 @@
   "name": "Leffin",
   "tagline": "Artist. Designer. Engineer.",
   "summaryArt": "Leffin makes interactive installations about identity and meaning using technology and the human body.",
-  "summaryCorp": "He works across physical computing, generative systems, and machine intelligence",
+  "summaryCorp": "He works across physical computing, generative systems, and machine intelligence.",
   "credentials": {
     "education": [
       {
@@ -14,7 +14,7 @@
         "note": "Minor in Industrial Design"
       }
     ],
-    "current": "VP, Experience Design Lead, Citibank"
+    "current": "VP, AI Experience Design Lead, Citibank"
   },
   "contact": {
     "email": "leffin7@gmail.com",
