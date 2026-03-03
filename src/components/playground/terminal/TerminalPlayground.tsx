@@ -27,7 +27,7 @@ const RESPONSES: Record<string, string[]> = {
 // the rest resume after idle periods
 const AUTO_SEQUENCE = ["whoami", "cat about.txt", "cat tags.txt", "ls projects/ | head -4"];
 const INITIAL_BATCH = 2;
-const IDLE_DELAY = 2500;
+const IDLE_DELAY = 800;
 
 const TYPE_SPEED = 35;
 const OUTPUT_DELAY = 150;
@@ -70,7 +70,7 @@ export default function TerminalPlayground() {
 
   // Focus input when interactive
   useEffect(() => {
-    if (phase === "interactive") inputRef.current?.focus();
+    if (phase === "interactive") inputRef.current?.focus({ preventScroll: true });
   }, [phase]);
 
   // Cursor blink
@@ -262,7 +262,7 @@ export default function TerminalPlayground() {
   return (
     <div
       className={styles.terminal}
-      onClick={() => inputRef.current?.focus()}
+      onClick={() => inputRef.current?.focus({ preventScroll: true })}
     >
       <div ref={scrollRef} className={styles.lines}>
         {lines.map((line, i) => (
