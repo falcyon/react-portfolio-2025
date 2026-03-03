@@ -63,6 +63,22 @@
     {
       "sections": [
         {
+          "type": "video",
+          "size": "h",
+          "src": "/media/palimpsest/2ndInstall.mp4",
+          "alt": "The second performance at Grace Exhibition Space, showing the full frame"
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/palimpsest/SecondPerformance_AlternateView_1080p.mp4",
+          "alt": "The Palimpsest installation filling a room with colorful threads over the course of an evening"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "heading",
           "size": "f",
           "text": [
@@ -267,22 +283,6 @@
           "size": "h",
           "src": "/media/palimpsest/353575079_221884570695035_2364049287337248655_n.webp",
           "alt": ""
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "video",
-          "size": "h",
-          "src": "/media/palimpsest/2ndInstall.mp4",
-          "alt": "The second performance at Grace Exhibition Space, showing the full frame"
-        },
-        {
-          "type": "video",
-          "size": "h",
-          "src": "/media/palimpsest/SecondPerformance_AlternateView_1080p.mp4",
-          "alt": "The Palimpsest installation filling a room with colorful threads over the course of an evening"
         }
       ]
     }
