@@ -94,7 +94,7 @@ export const projectsArray: Project[] = [
       "Industry"
     ],
     "size": "1x1",
-    "description": "An enterprise AI platform that consolidated 20+ dashboards into a single card-based interface, reducing executive decision turnaround from weeks to minutes.",
+    "description": "An AI platform for Citi's senior executives that surfaces actionable insights as cards, with conversational AI embedded in every interaction.",
     "featured": false,
     "locked": true
   },
