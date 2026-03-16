@@ -325,6 +325,7 @@ export default function ProjectsGrid({
   const toggleTag = useCallback(
     (tag: string) => {
       snapshot();
+      window.umami?.track("tag-click", { tag });
       if (activeTags.has(tag) && activeTags.size === 1) {
         updateTags(new Set());
       } else {
@@ -337,6 +338,7 @@ export default function ProjectsGrid({
   const applyPreset = useCallback(
     (preset: (typeof PRESETS)[number]) => {
       snapshot();
+      window.umami?.track("preset-click", { preset: preset.label });
       if (preset.tags.length === 0) {
         updateTags(new Set());
       } else {
