@@ -32,6 +32,7 @@ for (const file of files) {
     ...(raw.position !== undefined && { position: raw.position }),
     description: raw.description,
     featured: raw.featured ?? false,
+    ...(raw.locked && { locked: true }),
     ...(raw.featuredOrder !== undefined && { featuredOrder: raw.featuredOrder }),
     _order: raw.order ?? 999,
   });
@@ -58,6 +59,7 @@ export interface Project {
   description: string;
   featured: boolean;
   featuredOrder?: number;
+  locked?: boolean;
 }
 
 export const projectsArray: Project[] = ${JSON.stringify(projects, null, 2)};

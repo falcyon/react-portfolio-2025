@@ -1,0 +1,103 @@
+{
+  "name": "GNY Point Magazine",
+  "slug": "gnyPoint",
+  "year": 2023,
+  "tags": [
+    "Design",
+    "Print",
+    "Industry"
+  ],
+  "description": "Editorial design and layout for the IIT Bombay Greater New York alumni magazine, printed and distributed to 500+ alumni.",
+  "thumbnail": "/media/gnyPoint/cover.png",
+  "thumbnailWidth": 1080,
+  "thumbnailHeight": 1440,
+  "size": "1x1",
+  "order": 10,
+  "featured": false,
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Editorial design and layout for GNY Point, the annual magazine of the IIT Bombay Greater New York alumni chapter. The 2023 edition featured articles on space exploration, genetic research, nostalgia pieces, poetry, and opinion essays. The magazine was designed in InDesign, printed, and distributed at the annual alumni reunion."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/gnyPoint/cover.png",
+          "alt": "The GNY Point Vol 2023 cover featuring bold typography and a vintage pocket watch"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Layout"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The magazine uses a color-coded section system. Cyan for editorial and correspondence, magenta for poetry and reflective pieces, green for technology articles. Each section has its own visual rhythm while maintaining a consistent typographic grid across 70+ pages. Drop caps, pull quotes, and full-bleed photography break up dense multi-column text."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/gnyPoint/contents.png",
+          "alt": "Table of contents showing color-coded sections"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/gnyPoint/spread_editorial.png",
+          "alt": "Editor's letter spread with cyan background and decorative geometric accents"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/gnyPoint/spread_article.png",
+          "alt": "Article spread with two-column text layout and embedded photography"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/gnyPoint/spread_poetry.png",
+          "alt": "Poetry section with magenta accent blocks"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/gnyPoint/printed.png",
+          "alt": "The printed magazine"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The cover features the magazine's bold custom masthead in a gradient from green to yellow, set against a vibrant cyan background with a vintage pocket watch. The typography throughout pairs bold sans-serif headings with justified serif body text for readability across long-form articles."
+          ]
+        }
+      ]
+    }
+  ]
+}

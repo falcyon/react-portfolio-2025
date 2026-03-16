@@ -3,8 +3,9 @@
   "slug": "bitByBit",
   "year": 2021,
   "tags": [
-    "Digital",
-    "p5.js"
+    "p5.js",
+    "Web",
+    "Art"
   ],
   "description": "Digital art visualizing the passage of time in binary.",
   "thumbnail": "/media/bitByBit/bitbybit.mp4",
@@ -32,5 +33,5 @@
       ]
     }
   ],
-  "order": 17
+  "order": 24
 }

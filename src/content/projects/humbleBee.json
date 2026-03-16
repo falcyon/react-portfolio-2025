@@ -4,7 +4,8 @@
   "year": 2017,
   "tags": [
     "Physical",
-    "Arduino"
+    "Arduino",
+    "Art"
   ],
   "description": "An MAV for military use.",
   "thumbnail": "/media/humbleBee/humblebee_sq.webp",
@@ -177,5 +178,5 @@
       ]
     }
   ],
-  "order": 15
+  "order": 20
 }

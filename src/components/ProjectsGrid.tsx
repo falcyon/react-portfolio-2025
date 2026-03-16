@@ -63,37 +63,13 @@ function revealTotalMs(count: number, duration: number, maxStepMs = 20): number 
 
 
 // Preset filters that map to multiple tags
+const HIDDEN_TAGS = new Set(["Art", "Industry"]);
+
 const PRESETS: { label: string; tags: string[] }[] = [
   { label: "All", tags: [] },
-  {
-    label: "New Media Art",
-    tags: [
-      "Physical",
-      "AI/ML",
-      "Performance",
-      "Interactive",
-      "Digital",
-      "Arduino",
-      "Python",
-      "Computer Vision",
-      "p5.js",
-    ],
-  },
-  {
-    label: "Design",
-    tags: [
-      "Product Design",
-      "Figma",
-    ],
-  },
+  { label: "Art", tags: ["Art"] },
+  { label: "Industry", tags: ["Industry"] },
 ];
-
-// --- Temporarily hidden projects (commented out from display, not deleted) ---
-const HIDDEN_SLUGS = new Set(["petmania", "zoe", "crew"]);
-
-// --- Custom tail ordering (these appear at the end of the grid, in this order) ---
-const TAIL_ORDER = ["constructor", "conversationSculpture", "unraveling", "bitByBit", "clock", "organicMetal"];
-const TAIL_SET = new Set(TAIL_ORDER);
 
 function GridCard({
   project,
@@ -110,6 +86,8 @@ function GridCard({
   const alreadyLoaded = loadedMedia.has(project.thumbnail);
   const [canLoadMedia, setCanLoadMedia] = useState(alreadyLoaded);
   const [mediaLoaded, setMediaLoaded] = useState(alreadyLoaded);
+  const [showConfidential, setShowConfidential] = useState(false);
+  const lockRef = useRef<HTMLSpanElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   useVideoVisibility(videoRef, isVideo && canLoadMedia);
 
@@ -147,50 +125,80 @@ function GridCard({
   const showImage = canLoadMedia && !isVideo;
   const thumbClass = `${cardStyles.thumbnail} ${mediaLoaded ? cardStyles.thumbnailLoaded : ""}`;
 
+  const thumbnailContent = (
+    <>
+      <div className={`${cardStyles.thumbnailWrap} ${mediaLoaded ? cardStyles.thumbnailWrapLoaded : ""} ${project.locked ? cardStyles.thumbnailWrapLocked : ""}`}>
+        {showVideo && (
+          <video
+            ref={videoRef}
+            src={project.thumbnail}
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            tabIndex={-1}
+            className={thumbClass}
+            onLoadedData={handleLoadedData}
+            onError={handleError}
+          />
+        )}
+        {showImage && (
+          <Image
+            key={imgKey}
+            src={project.thumbnail}
+            alt={`${project.name} thumbnail`}
+            width={project.width}
+            height={project.height}
+            className={thumbClass}
+            onLoad={handleImageLoad}
+            onError={handleImageError}
+          />
+        )}
+        {project.locked && (
+          <div className={cardStyles.lockedOverlay}>
+            <span ref={lockRef} className={cardStyles.lockIcon}>&#x1F512;</span>
+            {showConfidential && <span className={cardStyles.confidentialText}>Confidential</span>}
+          </div>
+        )}
+      </div>
+      <div className={cardStyles.cardInfo}>
+        <span className={cardStyles.cardName}>{project.name}</span>
+        <span className={cardStyles.cardYear}>{project.year}</span>
+      </div>
+      <p className={cardStyles.cardDescription}>{project.description}</p>
+    </>
+  );
+
   return (
     <div ref={cardRef} className={cardStyles.card}>
-      <Link
-        href={`/projects/${project.slug}`}
-        className={cardStyles.cardLink}
-        onClick={() => {
-          sessionStorage.setItem("navigated-from-landing", "true");
-          window.umami?.track("project-click", { project: project.slug });
-        }}
-      >
-        <div className={`${cardStyles.thumbnailWrap} ${mediaLoaded ? cardStyles.thumbnailWrapLoaded : ""}`}>
-          {showVideo && (
-            <video
-              ref={videoRef}
-              src={project.thumbnail}
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              tabIndex={-1}
-              className={thumbClass}
-              onLoadedData={handleLoadedData}
-              onError={handleError}
-            />
-          )}
-          {showImage && (
-            <Image
-              key={imgKey}
-              src={project.thumbnail}
-              alt={`${project.name} thumbnail`}
-              width={project.width}
-              height={project.height}
-              className={thumbClass}
-              onLoad={handleImageLoad}
-              onError={handleImageError}
-            />
-          )}
+      {project.locked ? (
+        <div
+          className={`${cardStyles.cardLink} ${cardStyles.cardLocked}`}
+          onClick={() => {
+            setShowConfidential(true);
+            setTimeout(() => setShowConfidential(false), 2000);
+            const el = lockRef.current;
+            if (el) {
+              el.classList.remove(cardStyles.lockWiggle);
+              void el.offsetWidth;
+              el.classList.add(cardStyles.lockWiggle);
+            }
+          }}
+        >
+          {thumbnailContent}
         </div>
-        <div className={cardStyles.cardInfo}>
-          <span className={cardStyles.cardName}>{project.name}</span>
-          <span className={cardStyles.cardYear}>{project.year}</span>
-        </div>
-        <p className={cardStyles.cardDescription}>{project.description}</p>
-      </Link>
+      ) : (
+        <Link
+          href={`/projects/${project.slug}`}
+          className={cardStyles.cardLink}
+          onClick={() => {
+            sessionStorage.setItem("navigated-from-landing", "true");
+            window.umami?.track("project-click", { project: project.slug });
+          }}
+        >
+          {thumbnailContent}
+        </Link>
+      )}
       <div className={cardStyles.cardTags}>
         {project.tags.map((tag) => (
           <button
@@ -216,13 +224,6 @@ export default function ProjectsGrid({
   const gridRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
-  // Process projects: hide commented-out projects and apply custom ordering
-  const processedProjects = useMemo(() => {
-    const visible = projects.filter((p) => !HIDDEN_SLUGS.has(p.slug));
-    const head = visible.filter((p) => !TAIL_SET.has(p.slug));
-    const tail = TAIL_ORDER.map((slug) => visible.find((p) => p.slug === slug)).filter(Boolean) as Project[];
-    return [...head, ...tail];
-  }, [projects]);
   const snapshotRef = useRef<{
     positions: Map<string, DOMRect>;
     clones: Map<string, HTMLElement>;
@@ -256,11 +257,13 @@ export default function ProjectsGrid({
   // All unique tags sorted by frequency
   const allTags = useMemo(() => {
     const counts: Record<string, number> = {};
-    processedProjects.forEach((p) => p.tags.forEach((t) => (counts[t] = (counts[t] || 0) + 1)));
+    projects.forEach((p) => p.tags.forEach((t) => {
+      if (!HIDDEN_TAGS.has(t)) counts[t] = (counts[t] || 0) + 1;
+    }));
     return Object.entries(counts)
       .sort((a, b) => b[1] - a[1])
       .map(([tag]) => tag);
-  }, [processedProjects]);
+  }, [projects]);
 
   // Active preset detection
   const activePreset = useMemo(() => {
@@ -345,9 +348,9 @@ export default function ProjectsGrid({
 
   // Filter projects: OR logic — project must have at least one of the active tags
   const filtered = useMemo(() => {
-    if (activeTags.size === 0) return processedProjects;
-    return processedProjects.filter((p) => p.tags.some((t) => activeTags.has(t)));
-  }, [processedProjects, activeTags]);
+    if (activeTags.size === 0) return projects;
+    return projects.filter((p) => p.tags.some((t) => activeTags.has(t)));
+  }, [projects, activeTags]);
 
   // Initial page-load entrance: staggered fade-in for all cards
   const hasAnimatedInitial = useRef(false);
@@ -461,7 +464,6 @@ export default function ProjectsGrid({
   return (
     <div className={styles.container}>
       <div className={styles.filterBar}>
-        {/* --- Presets row commented out ---
         <div className={styles.presetsRow}>
           <div className={styles.presets}>
             {PRESETS.map((preset) => (
@@ -475,7 +477,6 @@ export default function ProjectsGrid({
             ))}
           </div>
         </div>
-        --- end presets row --- */}
 
         <div className={styles.tagsRow}>
           {visibleTags.map((tag) => (

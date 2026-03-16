@@ -4,11 +4,13 @@
   "year": 2021,
   "tags": [
     "Interactive",
-    "Digital",
     "AI/ML",
     "Performance",
     "p5.js",
-    "Computer Vision"
+    "Web",
+    "Computer Vision",
+    "Conceptual",
+    "Art"
   ],
   "description": "An interactive installation isolating viewers' lips and predicting their emotions.",
   "interactiveUrl": "https://editor.p5js.org/Falcyon/full/PMDIeJxA_",
@@ -37,5 +39,5 @@
       ]
     }
   ],
-  "order": 9
+  "order": 19
 }

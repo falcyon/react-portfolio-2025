@@ -7,7 +7,10 @@
     "AI/ML",
     "Interactive",
     "Python",
-    "Computer Vision"
+    "Computer Vision",
+    "Conceptual",
+    "Narrative",
+    "Art"
   ],
   "description": "An interactive installation where users see a silhouette of their negative self-talk as their reflection",
   "thumbnail": "/media/andWordsWillEchoInMySoul/insecurityMirror.mp4",

@@ -3,10 +3,10 @@
   "slug": "uniicode",
   "year": 2021,
   "tags": [
-    "Digital",
     "Physical",
     "AI/ML",
-    "Python"
+    "Python",
+    "Art"
   ],
   "description": "Generation of new character sets to fill up spaces in Unicode.",
   "thumbnail": "/media/uniicode/physical.webp",
@@ -128,6 +128,6 @@
       ]
     }
   ],
-  "order": 12,
+  "order": 17,
   "featured": false
 }

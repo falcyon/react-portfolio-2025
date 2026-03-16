@@ -1,0 +1,102 @@
+{
+  "name": "Biosthira",
+  "slug": "biosthira",
+  "year": 2022,
+  "tags": [
+    "Design",
+    "Web",
+    "Industry"
+  ],
+  "description": "A marketing website for a sustainability company where leaves fall as you scroll and everything breathes with the viewport.",
+  "thumbnail": "/media/biosthira/ScrollBasedTreeLeavesAnimation.mp4",
+  "thumbnailWidth": 1920,
+  "thumbnailHeight": 1080,
+  "size": "1x1",
+  "order": 9,
+  "featured": false,
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "A marketing website for Biosthira, a sustainability company building distributed smart bin composters for organic waste.",
+            "The design carries the environmental mission visually. Leaves drift down as you scroll, organic SVG shapes grow and settle across the page, and the typography breathes with the viewport. Everything feels alive, warm, intentional."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/biosthira/biosthira_laptop.mp4",
+          "alt": "The Biosthira website hero section with animated leaves and scroll-driven logo"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Scroll Animations"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "A tree, a composting bin, and clusters of foliage sit fixed in the hero as the page moves beneath them. Three leaves detach from the canopy and fall as you scroll, each swaying on its own arc with a gentle sine-wave wobble.",
+            "The animation is scroll-driven and runs at 60fps, updating transforms through refs rather than re-renders."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "t",
+          "src": "/media/biosthira/ScrollBasedTreeLeavesAnimation.mp4",
+          "alt": "Leaves falling with organic sway as the user scrolls through the page"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The logo shrinks from full-bleed to a compact header size as you scroll past the opening. The foliage bunches have a subtle, staggered wiggle, each one rotating from its own anchor point so the motion feels organic rather than mechanical."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Design"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Every visual element is a composable SVG, adjustable by color and rotation. Quasimoda handles the UI type, Lora serif carries the tagline, and all sizes scale fluidly from mobile to desktop through clamp().",
+            "Built with React and TypeScript on Vite, with content sections driven by a typed data structure so the site can be updated without touching layout code."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/biosthira/Biosthira_Mobile_Screenshot.png",
+          "alt": "Mobile view of the Biosthira website"
+        }
+      ]
+    }
+  ]
+}

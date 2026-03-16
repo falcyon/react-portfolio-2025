@@ -1,14 +1,12 @@
 {
-  "name": "Crew App Branding",
+  "name": "Crew Brand Identity",
   "slug": "crew",
   "year": 2023,
   "tags": [
-    "Digital",
-    "Branding",
-    "Product Design",
-    "Figma"
+    "Design",
+    "Industry"
   ],
-  "description": "Branding, logo design, and design system for a social media startup.",
+  "description": "Brand identity, logo, color system, and typography for a social media startup connecting influencers with brands.",
   "thumbnail": "/media/crew/crew.mp4",
   "thumbnailWidth": 1080,
   "thumbnailHeight": 1080,
@@ -144,5 +142,5 @@
       ]
     }
   ],
-  "order": 14
+  "order": 11
 }

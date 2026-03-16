@@ -3,8 +3,9 @@
   "slug": "clock",
   "year": 2021,
   "tags": [
-    "Digital",
-    "p5.js"
+    "p5.js",
+    "Web",
+    "Art"
   ],
   "description": "Digital art referencing the transitory nature of time in our memories.",
   "thumbnail": "/media/clock/clock.mp4",
@@ -31,5 +32,5 @@
       ]
     }
   ],
-  "order": 18
+  "order": 25
 }

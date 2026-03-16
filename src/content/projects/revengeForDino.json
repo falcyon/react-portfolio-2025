@@ -3,11 +3,13 @@
   "slug": "revengeForDino",
   "year": 2026,
   "tags": [
-    "Digital",
     "Interactive",
-    "AI/ML"
+    "AI/ML",
+    "Web",
+    "Art",
+    "Industry"
   ],
-  "description": "A 2d physics game where Gemini 3 pro generates playable objects from natural language in real time.",
+  "description": "A 2d physics interactive experience where Gemini 3 pro generates playable objects from natural language in real time.",
   "thumbnail": "/media/revengeForDino/TankHeadBonk_1080p.mp4",
   "thumbnailWidth": 1920,
   "thumbnailHeight": 1080,
@@ -26,7 +28,7 @@
           "text": [
             "Team up with Gemini to defeat the COLLAPSING CORRUPTING CORE OF CRASHES",
             "",
-            "Type anything into the search bar and watch Gemini build it in real time, code and all, and drop it into the game. Each object is one-shot generated: body, physics, behavior, and logic, injected live into a Box2D simulation."
+            "Type anything into the search bar and watch Gemini build it in real time, code and all, and drop it into the experience. Each object is one-shot generated: body, physics, behavior, and logic, injected live into a Box2D simulation."
           ]
         },
         {
@@ -43,7 +45,7 @@
           "type": "heading",
           "size": "f",
           "text": [
-            "The Game"
+            "The Experience"
           ]
         }
       ]
@@ -54,16 +56,16 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The game disguises itself as a Google search page.",
+            "The experience disguises itself as a Google search page.",
             "Every element on the page, the logo, the buttons, the navigation links, are real physics bodies.",
-            "Players type natural language prompts into the search bar, and Gemini generates executable Planck.js code in real time, spawning autonomous objects that can be dragged, thrown, and hurled at a growing void enemy."
+            "Users type natural language prompts into the search bar, and Gemini generates executable Planck.js code in real time, spawning autonomous objects that can be dragged, thrown, and hurled at a growing void enemy."
           ]
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "The boss is a corrupting core that devours everything it touches. Its one vulnerability is a roaming eye on its perimeter. Hit it hard enough, and it takes damage. Let it grow too large, and the game is over."
+            "The boss is a corrupting core that devours everything it touches. Its one vulnerability is a roaming eye on its perimeter. Hit it hard enough, and it takes damage. Let it grow too large, and it's over."
           ]
         },
         {
@@ -99,7 +101,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Users get to see the power of Gemini Pro 3 in the familiar google search page, but gamified. They see the depth and nuance in Geminis reasoning and coding through the live creation of autonomous bots that:"
+            "Users get to see the power of Gemini Pro 3 in the familiar google search page, but interactive. They see the depth and nuance in Geminis reasoning and coding through the live creation of autonomous bots that:"
           ]
         },
         {
@@ -206,7 +208,7 @@
           "type": "video",
           "size": "f",
           "src": "/media/revengeForDino/frontpage_1080p.mp4",
-          "alt": "The full game interface mimicking a Google search page in a browser, with the Crash boss lurking in the corner"
+          "alt": "The full interface mimicking a Google search page in a browser, with the Crash boss lurking in the corner"
         }
       ]
     }

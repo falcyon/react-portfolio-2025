@@ -1,0 +1,149 @@
+{
+  "name": "Copyparty Redesign",
+  "slug": "copyparty",
+  "year": 2026,
+  "tags": [
+    "Design",
+    "Web",
+    "Industry"
+  ],
+  "description": "A UX/UI redesign of an open-source file server, introducing a design token system, semantic HTML, accessibility, and 22-language localization.",
+  "thumbnail": "/media/copyparty/dashboard.png",
+  "thumbnailWidth": 1920,
+  "thumbnailHeight": 1080,
+  "size": "1x1",
+  "order": 10,
+  "featured": false,
+  "githubUrl": "https://github.com/falcyon/copyparty",
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Copyparty is an open-source file server that turns any device into a web-accessible file sharing platform. The existing UI was functional but lacked structure, accessibility, and visual coherence. This redesign introduced a design token system, semantic HTML, focus management, and a warm editorial palette across 3000+ lines of CSS and 1000+ lines of JavaScript, all without adding a single dependency."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/copyparty/dashboard.png",
+          "alt": "The redesigned copyparty file browser with warm editorial palette"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Design Tokens"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The redesign started with a comprehensive token system. Accent palette, type scale, motion tokens, status colors, layout primitives, all defined as CSS custom properties at the root. Dark theme uses warm charcoal and cream with a red accent. Light theme uses warm beige with dark text. Every hardcoded hex value was replaced. Shared component classes (.btn-text, .toggle-switch, .spinner, .cfg-group) ensure consistency across all views."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/copyparty/tokens.png",
+          "alt": "The design token system showing color palette, typography scale, and motion tokens"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Semantic Structure"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The original markup was flat divs with no semantic meaning. The restructure wrapped everything in an app shell with proper header, aside, main, and footer elements. Breadcrumbs became a nav with an ordered list. Settings were reorganized into four collapsible sections using progressive disclosure. The context menu gained proper roles and disabled states for permission-gated items."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/copyparty/settings.png",
+          "alt": "The redesigned settings panel with collapsible sections"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Accessibility"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "ARIA labels and roles on all interactive regions. Focus trapping in modals with Tab and Shift+Tab cycling. Proper form elements replacing emoji-prefixed text. Live regions for search results and upload errors. The mobile viewport was fixed from a hostile 0.8x initial scale to 1.0. All status indicators use text, not color alone."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/copyparty/before_after.png",
+          "alt": "Before and after comparison of the file browser interface"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Localization"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "All emoji prefixes and jargon abbreviations were replaced with clear descriptive text across 22 supported languages. Upload statuses changed from cryptic codes (ok, ng, bz, que) to human-readable labels (Completed, Failed, Uploading, Queued). Toolbar tooltips, settings labels, and overwrite modes all received the same treatment."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/copyparty/mobile.png",
+          "alt": "Mobile view of the redesigned interface"
+        }
+      ]
+    }
+  ]
+}

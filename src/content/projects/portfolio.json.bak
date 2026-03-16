@@ -1,0 +1,165 @@
+{
+  "name": "leff.in",
+  "slug": "portfolio",
+  "year": 2026,
+  "tags": [
+    "Design",
+    "Interactive",
+    "Web"
+  ],
+  "description": "A portfolio built as an editorial platform, with shuffleable interactive identity cards and a JSON-driven content architecture.",
+  "thumbnail": "/media/portfolio/playground_shuffle.mp4",
+  "thumbnailWidth": 1920,
+  "thumbnailHeight": 1080,
+  "size": "1x1",
+  "order": 5,
+  "featured": false,
+  "githubUrl": "https://github.com/falcyon/react-portfolio-2025",
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "A portfolio should be a piece of work in itself. This site is built as an editorial platform where the design, the interactions, and the architecture behind it are all part of the practice. The landing page rotates through four interactive identity cards, each presenting the same information through a completely different format. Every project page is assembled from structured content. Every animation is intentional."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/portfolio/playground_shuffle.mp4",
+          "alt": "The landing page cycling through four interactive playground cards"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "The Playgrounds"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The hero section cycles through four interactive cards, each a self-contained sketch carrying the same core identity: name, positioning, and ten words. An animated typographic explosion. A dictionary entry with synonyms. A terminal session you can type into. A 2D physics sandbox with falling tags. Each playground is its own component with its own rendering logic, registered through a shared system that manages the shuffle cycle."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/portfolio/landing_full.png",
+          "alt": "The full landing page showing the Explosion playground, news ticker, and selected work section"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Content Architecture"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Every project is a single JSON file containing structured content: text, images, video, headings, and layout hints. A Zod schema validates each file at build time. A build script auto-generates a static TypeScript array for client components, while server components read from the filesystem directly. Adding a project means writing one JSON and dropping media into a folder. No templates, no page files, no manual deploy."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/portfolio/project_page.png",
+          "alt": "A project page showing the mixed media layout system with text, images, and video sections"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/portfolio/grid_filtering.mp4",
+          "alt": "The projects grid with tag filtering and animated layout transitions"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The projects grid supports tag filtering with animated layout transitions. Thumbnails can be images or looping videos, and each card spans configurable grid sizes to create visual rhythm across the page."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Design System"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "t2",
+          "src": "/media/portfolio/about_animation.mp4",
+          "alt": "The about page cycling color animation between Artist, Engineer, and Designer states"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "An editorial newspaper aesthetic. Neuzeit Grotesk for headings and UI, Times New Roman italic for body text. A warm cream palette with red accent for highlights and interactive elements. The about page cycles through three CSS animation states (Artist, Engineer, Designer), with hover interactions that lock into a specific state. All motion respects prefers-reduced-motion. CSS Modules for scoped styling, custom properties for theming."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Mobile"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/portfolio/mobile_landing.png",
+          "alt": "Mobile view of the landing page"
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/portfolio/mobile_project.png",
+          "alt": "Mobile view of a project page"
+        }
+      ]
+    }
+  ]
+}

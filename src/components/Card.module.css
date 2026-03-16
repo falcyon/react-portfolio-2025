@@ -23,6 +23,69 @@
   color: var(--accent);
 }
 
+.cardLocked {
+  cursor: default;
+}
+
+.thumbnailWrapLocked {
+  position: relative;
+  container-type: inline-size;
+}
+
+.lockedOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lockIcon {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 1.5rem;
+  color: var(--foreground);
+  z-index: 1;
+}
+
+.lockWiggle {
+  animation: wiggle 0.4s ease;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-12deg); }
+  40% { transform: rotate(10deg); }
+  60% { transform: rotate(-8deg); }
+  80% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.confidentialText {
+  position: absolute;
+  top: 16px;
+  left: 8px;
+  z-index: -1;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--background);
+  background: var(--accent);
+  padding: 3px 8px;
+  white-space: nowrap;
+  animation: slideConfidential 2s ease forwards;
+}
+
+@keyframes slideConfidential {
+  0% { opacity: 1; transform: translateX(10px); }
+  25% { opacity: 1; transform: translateX(36px); }
+  75% { opacity: 1; transform: translateX(36px); }
+  100% { opacity: 0; transform: translateX(36px); }
+}
+
+
 .thumbnailWrap {
   aspect-ratio: 1;
   overflow: hidden;

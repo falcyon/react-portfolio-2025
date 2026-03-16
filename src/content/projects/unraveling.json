@@ -3,9 +3,11 @@
   "slug": "unraveling",
   "year": 2021,
   "tags": [
-    "Digital",
     "Interactive",
-    "p5.js"
+    "p5.js",
+    "Web",
+    "Conceptual",
+    "Art"
   ],
   "description": "Digital art visualizing a slow burn breakdown or an 'unraveling' of the self.",
   "thumbnail": "/media/unraveling/unraveling.mp4",
@@ -19,5 +21,5 @@
       "sections": []
     }
   ],
-  "order": 16
+  "order": 23
 }

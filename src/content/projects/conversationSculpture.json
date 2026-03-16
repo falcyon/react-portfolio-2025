@@ -3,7 +3,9 @@
   "slug": "conversationSculpture",
   "year": 2022,
   "tags": [
-    "Physical"
+    "Physical",
+    "Conceptual",
+    "Art"
   ],
   "description": "A sculpture made up of conversations about nihilism.",
   "thumbnail": "/media/conversationSculpture/pop2.mp4",
@@ -70,5 +72,5 @@
       ]
     }
   ],
-  "order": 10
+  "order": 22
 }

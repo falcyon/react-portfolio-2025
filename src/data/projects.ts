@@ -15,6 +15,7 @@ export interface Project {
   description: string;
   featured: boolean;
   featuredOrder?: number;
+  locked?: boolean;
 }
 
 export const projectsArray: Project[] = [
@@ -26,12 +27,14 @@ export const projectsArray: Project[] = [
     "width": 1920,
     "year": 2026,
     "tags": [
-      "Digital",
       "Interactive",
-      "AI/ML"
+      "AI/ML",
+      "Web",
+      "Art",
+      "Industry"
     ],
     "size": "1x1",
-    "description": "A 2d physics game where Gemini 3 pro generates playable objects from natural language in real time.",
+    "description": "A 2d physics interactive experience where Gemini 3 pro generates playable objects from natural language in real time.",
     "featured": true,
     "featuredOrder": 1
   },
@@ -44,7 +47,9 @@ export const projectsArray: Project[] = [
     "year": 2025,
     "tags": [
       "Physical",
-      "Arduino"
+      "Arduino",
+      "Conceptual",
+      "Art"
     ],
     "size": "2x2",
     "position": 2,
@@ -64,7 +69,10 @@ export const projectsArray: Project[] = [
       "AI/ML",
       "Interactive",
       "Python",
-      "Computer Vision"
+      "Computer Vision",
+      "Conceptual",
+      "Narrative",
+      "Art"
     ],
     "size": "2x2",
     "position": 2,
@@ -73,42 +81,22 @@ export const projectsArray: Project[] = [
     "featuredOrder": 2
   },
   {
-    "name": "Notes to Self",
-    "slug": "notesToSelf",
-    "thumbnail": "/media/notesToSelf/live.mp4",
-    "height": 1280,
-    "width": 720,
-    "year": 2021,
+    "name": "AI Powered Insights — Citi",
+    "slug": "aiInsights",
+    "thumbnail": "/media/aiInsights/AI_Ingishts.png",
+    "height": 1080,
+    "width": 1920,
+    "year": 2026,
     "tags": [
-      "Physical",
+      "Design",
       "AI/ML",
-      "Interactive",
-      "Python",
-      "Computer Vision"
-    ],
-    "size": "1x2",
-    "position": 3,
-    "description": "An interactive installation where users engage in a conversation with their digital self",
-    "featured": false
-  },
-  {
-    "name": "Stained Mask",
-    "slug": "stainedMask",
-    "thumbnail": "/media/stainedMask/StainedMask.mp4",
-    "height": 540,
-    "width": 540,
-    "year": 2021,
-    "tags": [
-      "Interactive",
-      "Digital",
-      "AI/ML",
-      "p5.js",
-      "Computer Vision"
+      "Web",
+      "Industry"
     ],
     "size": "1x1",
-    "position": 1,
-    "description": "An interactive installation critiquing the Church's opinion on masks during Covid.",
-    "featured": false
+    "description": "An enterprise AI platform that consolidated 20+ dashboards into a single card-based interface, reducing executive decision turnaround from weeks to minutes.",
+    "featured": false,
+    "locked": true
   },
   {
     "name": "Palimpsest",
@@ -123,7 +111,9 @@ export const projectsArray: Project[] = [
       "Performance",
       "Arduino",
       "AI/ML",
-      "Python"
+      "Python",
+      "Conceptual",
+      "Art"
     ],
     "size": "2x2",
     "position": 2,
@@ -131,37 +121,42 @@ export const projectsArray: Project[] = [
     "featured": false
   },
   {
-    "name": "AI Discovers Fire",
-    "slug": "aiDiscoversFire",
-    "thumbnail": "/media/aiDiscoversFire/fire_gif_sq_720p.mp4",
-    "height": 464,
-    "width": 800,
-    "year": 2021,
-    "tags": [
-      "Digital",
-      "AI/ML",
-      "Python"
-    ],
-    "size": "2x1",
-    "position": 3,
-    "description": "Media Art created using DCGAN trained on images of fire.",
-    "featured": false
-  },
-  {
-    "name": "Constructor",
-    "slug": "constructor",
-    "thumbnail": "/media/constructor/constructor.mp4",
+    "name": "Wealth Advisor Dashboard — Citi",
+    "slug": "wealthAdvisor",
+    "thumbnail": "/media/wealthAdvisor/dualInterface.png",
     "height": 1080,
-    "width": 1080,
+    "width": 1920,
     "year": 2025,
     "tags": [
-      "Digital",
-      "Python",
-      "Computer Vision"
+      "Design",
+      "AI/ML",
+      "Web",
+      "Industry"
     ],
     "size": "1x1",
-    "position": 1,
-    "description": "A piece created by designing a motion accumulator",
+    "description": "An enterprise AI dashboard for Citi's wealth advisors, built on a dual-layer conversational AI framework where the AI observes, prepares, and recommends without interrupting.",
+    "featured": false,
+    "locked": true
+  },
+  {
+    "name": "Notes to Self",
+    "slug": "notesToSelf",
+    "thumbnail": "/media/notesToSelf/live.mp4",
+    "height": 1280,
+    "width": 720,
+    "year": 2021,
+    "tags": [
+      "Physical",
+      "AI/ML",
+      "Interactive",
+      "Python",
+      "Computer Vision",
+      "Conceptual",
+      "Art"
+    ],
+    "size": "1x2",
+    "position": 3,
+    "description": "An interactive installation where users engage in a conversation with their digital self",
     "featured": false
   },
   {
@@ -173,15 +168,160 @@ export const projectsArray: Project[] = [
     "year": 2021,
     "tags": [
       "Interactive",
-      "Digital",
       "AI/ML",
       "Performance",
       "Python",
-      "Computer Vision"
+      "Computer Vision",
+      "Conceptual",
+      "Narrative",
+      "Art"
     ],
     "size": "1x2",
     "position": 1,
     "description": "An interpretive performance exploring the human condition.",
+    "featured": false
+  },
+  {
+    "name": "Biosthira",
+    "slug": "biosthira",
+    "thumbnail": "/media/biosthira/ScrollBasedTreeLeavesAnimation.mp4",
+    "height": 1080,
+    "width": 1920,
+    "year": 2022,
+    "tags": [
+      "Design",
+      "Web",
+      "Industry"
+    ],
+    "size": "1x1",
+    "description": "A marketing website for a sustainability company where leaves fall as you scroll and everything breathes with the viewport.",
+    "featured": false
+  },
+  {
+    "name": "Crew Brand Identity",
+    "slug": "crew",
+    "thumbnail": "/media/crew/crew.mp4",
+    "height": 1080,
+    "width": 1080,
+    "year": 2023,
+    "tags": [
+      "Design",
+      "Industry"
+    ],
+    "size": "1x1",
+    "position": 3,
+    "description": "Brand identity, logo, color system, and typography for a social media startup connecting influencers with brands.",
+    "featured": false
+  },
+  {
+    "name": "AI Discovers Fire",
+    "slug": "aiDiscoversFire",
+    "thumbnail": "/media/aiDiscoversFire/fire_gif_sq_720p.mp4",
+    "height": 464,
+    "width": 800,
+    "year": 2021,
+    "tags": [
+      "AI/ML",
+      "Python",
+      "Conceptual",
+      "Art"
+    ],
+    "size": "2x1",
+    "position": 3,
+    "description": "Media Art created using DCGAN trained on images of fire.",
+    "featured": false
+  },
+  {
+    "name": "Discourse Parkour",
+    "slug": "discourseParkour",
+    "thumbnail": "/media/discourseParkour/discourse.mp4",
+    "height": 700,
+    "width": 1098,
+    "year": 2021,
+    "tags": [
+      "Interactive",
+      "p5.js",
+      "Web",
+      "Narrative",
+      "Art"
+    ],
+    "size": "2x1",
+    "description": "An interactive installation where players read through a monologue as they play.",
+    "featured": false
+  },
+  {
+    "name": "Grimmer Tales",
+    "slug": "grimmerTales",
+    "thumbnail": "/media/grimmerTales/book_sq_720p.mp4",
+    "height": 1080,
+    "width": 720,
+    "year": 2022,
+    "tags": [
+      "Physical",
+      "AI/ML",
+      "Python",
+      "Narrative",
+      "Art"
+    ],
+    "size": "1x2",
+    "position": 2,
+    "description": "An illustrated absurdist children's fairy tale book.",
+    "featured": false
+  },
+  {
+    "name": "Quantum Touch",
+    "slug": "quantumTouch",
+    "thumbnail": "/media/quantumTouch/qtouch_sq_720p.mp4",
+    "height": 420,
+    "width": 720,
+    "year": 2022,
+    "tags": [
+      "Interactive",
+      "Art",
+      "Industry"
+    ],
+    "size": "2x1",
+    "position": 1,
+    "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation exploring quantum concepts.",
+    "featured": false
+  },
+  {
+    "name": "unIIcode",
+    "slug": "uniicode",
+    "thumbnail": "/media/uniicode/physical.webp",
+    "height": 2645,
+    "width": 3526,
+    "year": 2021,
+    "tags": [
+      "Physical",
+      "AI/ML",
+      "Python",
+      "Art"
+    ],
+    "size": "2x1",
+    "position": 1,
+    "description": "Generation of new character sets to fill up spaces in Unicode.",
+    "featured": false
+  },
+  {
+    "name": "Stained Mask",
+    "slug": "stainedMask",
+    "thumbnail": "/media/stainedMask/StainedMask.mp4",
+    "height": 540,
+    "width": 540,
+    "year": 2021,
+    "tags": [
+      "Interactive",
+      "AI/ML",
+      "p5.js",
+      "Web",
+      "Computer Vision",
+      "Conceptual",
+      "Art"
+    ],
+    "size": "1x1",
+    "position": 1,
+    "description": "An interactive installation critiquing the Church's opinion on masks during Covid.",
     "featured": false
   },
   {
@@ -193,97 +333,17 @@ export const projectsArray: Project[] = [
     "year": 2021,
     "tags": [
       "Interactive",
-      "Digital",
       "AI/ML",
       "Performance",
       "p5.js",
-      "Computer Vision"
+      "Web",
+      "Computer Vision",
+      "Conceptual",
+      "Art"
     ],
     "size": "1x2",
     "position": 2,
     "description": "An interactive installation isolating viewers' lips and predicting their emotions.",
-    "featured": false
-  },
-  {
-    "name": "Conversation Sculpture",
-    "slug": "conversationSculpture",
-    "thumbnail": "/media/conversationSculpture/pop2.mp4",
-    "height": 1080,
-    "width": 1080,
-    "year": 2022,
-    "tags": [
-      "Physical"
-    ],
-    "size": "1x1",
-    "position": 3,
-    "description": "A sculpture made up of conversations about nihilism.",
-    "featured": false
-  },
-  {
-    "name": "Petmania",
-    "slug": "petmania",
-    "thumbnail": "/media/petmania/petmania_sq_720p.mp4",
-    "height": 1158,
-    "width": 720,
-    "year": 2022,
-    "tags": [
-      "Product Design",
-      "Figma"
-    ],
-    "size": "1x2",
-    "position": 2,
-    "description": "Product Design for an app for dogs to find companions.",
-    "featured": false
-  },
-  {
-    "name": "unIIcode",
-    "slug": "uniicode",
-    "thumbnail": "/media/uniicode/physical.webp",
-    "height": 2645,
-    "width": 3526,
-    "year": 2021,
-    "tags": [
-      "Digital",
-      "Physical",
-      "AI/ML",
-      "Python"
-    ],
-    "size": "2x1",
-    "position": 1,
-    "description": "Generation of new character sets to fill up spaces in Unicode.",
-    "featured": false
-  },
-  {
-    "name": "Organic Metal",
-    "slug": "organicMetal",
-    "thumbnail": "/media/organicMetal/rings.webp",
-    "height": 2807,
-    "width": 3072,
-    "year": 2022,
-    "tags": [
-      "Physical"
-    ],
-    "size": "1x1",
-    "position": 2,
-    "description": "Rings made out of metal but in a fluid and organic form.",
-    "featured": false
-  },
-  {
-    "name": "Crew App Branding",
-    "slug": "crew",
-    "thumbnail": "/media/crew/crew.mp4",
-    "height": 1080,
-    "width": 1080,
-    "year": 2023,
-    "tags": [
-      "Digital",
-      "Branding",
-      "Product Design",
-      "Figma"
-    ],
-    "size": "1x1",
-    "position": 3,
-    "description": "Branding, logo design, and design system for a social media startup.",
     "featured": false
   },
   {
@@ -295,7 +355,8 @@ export const projectsArray: Project[] = [
     "year": 2017,
     "tags": [
       "Physical",
-      "Arduino"
+      "Arduino",
+      "Art"
     ],
     "size": "1x1",
     "position": 4,
@@ -303,19 +364,37 @@ export const projectsArray: Project[] = [
     "featured": false
   },
   {
-    "name": "Zoe",
-    "slug": "zoe",
-    "thumbnail": "/media/zoe/IMG_20221103_211311.webp",
-    "height": 387,
-    "width": 717,
+    "name": "Constructor",
+    "slug": "constructor",
+    "thumbnail": "/media/constructor/constructor.mp4",
+    "height": 1080,
+    "width": 1080,
+    "year": 2025,
+    "tags": [
+      "Python",
+      "Computer Vision",
+      "Art"
+    ],
+    "size": "1x1",
+    "position": 1,
+    "description": "A piece created by designing a motion accumulator",
+    "featured": false
+  },
+  {
+    "name": "Conversation Sculpture",
+    "slug": "conversationSculpture",
+    "thumbnail": "/media/conversationSculpture/pop2.mp4",
+    "height": 1080,
+    "width": 1080,
     "year": 2022,
     "tags": [
-      "Product Design",
-      "Figma"
+      "Physical",
+      "Conceptual",
+      "Art"
     ],
-    "size": "2x1",
+    "size": "1x1",
     "position": 3,
-    "description": "A service design concept connecting consumers with local tailors for custom, sustainable clothing.",
+    "description": "A sculpture made up of conversations about nihilism.",
     "featured": false
   },
   {
@@ -326,9 +405,11 @@ export const projectsArray: Project[] = [
     "width": 700,
     "year": 2021,
     "tags": [
-      "Digital",
       "Interactive",
-      "p5.js"
+      "p5.js",
+      "Web",
+      "Conceptual",
+      "Art"
     ],
     "size": "1x1",
     "position": 1,
@@ -343,8 +424,9 @@ export const projectsArray: Project[] = [
     "width": 720,
     "year": 2021,
     "tags": [
-      "Digital",
-      "p5.js"
+      "p5.js",
+      "Web",
+      "Art"
     ],
     "size": "1x1",
     "position": 2,
@@ -359,8 +441,9 @@ export const projectsArray: Project[] = [
     "width": 720,
     "year": 2021,
     "tags": [
-      "Digital",
-      "p5.js"
+      "p5.js",
+      "Web",
+      "Art"
     ],
     "size": "1x1",
     "position": 3,
@@ -368,52 +451,19 @@ export const projectsArray: Project[] = [
     "featured": false
   },
   {
-    "name": "Grimmer Tales",
-    "slug": "grimmerTales",
-    "thumbnail": "/media/grimmerTales/book_sq_720p.mp4",
-    "height": 1080,
-    "width": 720,
+    "name": "Organic Metal",
+    "slug": "organicMetal",
+    "thumbnail": "/media/organicMetal/rings.webp",
+    "height": 2807,
+    "width": 3072,
     "year": 2022,
     "tags": [
       "Physical",
-      "AI/ML",
-      "Python"
+      "Art"
     ],
-    "size": "1x2",
+    "size": "1x1",
     "position": 2,
-    "description": "An illustrated absurdist children's fairy tale book.",
-    "featured": false
-  },
-  {
-    "name": "Discourse Parkour",
-    "slug": "discourseParkour",
-    "thumbnail": "/media/discourseParkour/discourse.mp4",
-    "height": 700,
-    "width": 1098,
-    "year": 2021,
-    "tags": [
-      "Digital",
-      "Interactive",
-      "p5.js"
-    ],
-    "size": "2x1",
-    "description": "An interactive installation where players read through a monologue as they play.",
-    "featured": false
-  },
-  {
-    "name": "Quantum Touch",
-    "slug": "quantumTouch",
-    "thumbnail": "/media/quantumTouch/qtouch_sq_720p.mp4",
-    "height": 420,
-    "width": 720,
-    "year": 2022,
-    "tags": [
-      "Interactive",
-      "Digital"
-    ],
-    "size": "2x1",
-    "position": 1,
-    "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation.",
+    "description": "Rings made out of metal but in a fluid and organic form.",
     "featured": false
   }
 ];

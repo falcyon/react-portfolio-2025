@@ -8,7 +8,9 @@
     "Performance",
     "Arduino",
     "AI/ML",
-    "Python"
+    "Python",
+    "Conceptual",
+    "Art"
   ],
   "description": "A performance installation converting conversations into pieces of thread.",
   "thumbnail": "/media/palimpsest/2ndInstall.mp4",
@@ -16,7 +18,7 @@
   "thumbnailHeight": 1920,
   "size": "2x2",
   "position": 2,
-  "order": 5,
+  "order": 4,
   "featured": false,
   "credits": [
     {

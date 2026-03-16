@@ -1,0 +1,167 @@
+{
+  "name": "AI Powered Insights — Citi",
+  "slug": "aiInsights",
+  "year": 2026,
+  "tags": [
+    "Design",
+    "AI/ML",
+    "Web",
+    "Industry"
+  ],
+  "description": "An enterprise AI platform that consolidated 20+ dashboards into a single card-based interface, reducing executive decision turnaround from weeks to minutes.",
+  "thumbnail": "/media/aiInsights/AI_Ingishts.png",
+  "thumbnailWidth": 1920,
+  "thumbnailHeight": 1080,
+  "size": "1x1",
+  "order": 3,
+  "featured": false,
+  "locked": true,
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "An enterprise platform serving 500+ senior executives and delegates. It replaced 20+ legacy dashboards with a single AI-powered interface where insights come to the user, not the other way around. Executives receive actionable recommendations via email, expand into detail when ready, and ask follow-up questions through conversational AI, all without waiting for an analyst cycle."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/aiInsights/AI_Ingishts.png",
+          "alt": "The card-based dashboard showing AI-generated insight cards in a grid layout"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "The Problem"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The old workflow took 8 to 19 days from data signal to executive action. Data lived across fragmented systems. Analysts had to pull reports, build decks, and route them through layers of review. By the time an insight reached a decision-maker, context had degraded and the window for action had often passed. Executives rarely opened dashboards. They lived in their inboxes."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/aiInsights/before_after.png",
+          "alt": "Comparison of the old multi-dashboard workflow versus the unified card-based approach"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Cards, Not Dashboards"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The first prototype used a split-panel layout with a list on the left and chat on the right. It failed. Too much wasted space, no hierarchy, no focus. The pivot was to treat each insight as a card, a discrete, manageable unit of attention. The grid view is for scanning (30 seconds). Expanding a card is for deep dives (30 minutes). Cards move through a three-state lifecycle: Actions, Prioritized, and Archived, mapping directly to how executives make decisions."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/aiInsights/card_expanded.png",
+          "alt": "An expanded insight card showing contextual AI chat and inline artifacts"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Conversational AI in Context"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Chat is tied to individual cards, not a global panel. Every question only makes sense within the context of a specific insight. A multi-agent orchestration system classifies each user message and routes it to the right destination: the current card, another pinned card, a new self-serve query, or a platform action. Responses that do not belong to the current card appear as ephemeral messages above the chat bar and auto-dismiss after 8 seconds."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/aiInsights/chat.png",
+          "alt": "The contextual chat interface with inline chart and table artifacts"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Artifacts like charts, tables, and summaries render inline within the conversation. Each artifact is versioned, so follow-up questions refine the output rather than replacing it. Executives can export any artifact as SVG and drop it directly into board presentations without reformatting."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/aiInsights/artifacts.png",
+          "alt": "Versioned artifacts showing chart refinement through conversation"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Self-Serve Cards"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Beyond AI-generated recommendations, executives can ask natural language questions that automatically become tracked action cards. This turns the platform from a passive notification system into an active research tool. A 20-card maximum in the Actions view prevents information overload and forces triage, turning a technical constraint into a design feature."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/aiInsights/self_serve.png",
+          "alt": "A self-serve card created from a natural language query"
+        }
+      ]
+    }
+  ]
+}

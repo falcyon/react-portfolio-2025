@@ -1,0 +1,83 @@
+{
+  "name": "leff.in (2023)",
+  "slug": "portfolio2023",
+  "year": 2023,
+  "tags": [
+    "Design",
+    "Interactive",
+    "Web",
+    "Industry"
+  ],
+  "description": "A single-page React portfolio with a custom scroll-state interpolation engine and letter-based navigation.",
+  "thumbnail": "/media/portfolio2023/hero.mp4",
+  "thumbnailWidth": 1920,
+  "thumbnailHeight": 1080,
+  "size": "1x1",
+  "order": 16,
+  "featured": false,
+  "githubUrl": "https://github.com/falcyon/Portfolio-pureJS",
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "A single-page React application built with Vite. Each project is mapped to a letter in the name LEFFIN, with colored SVG logos that expand on hover and push neighboring elements aside. The entire site lives on a single scrollable axis, with three distinct UI modes that the user moves between by scrolling."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/portfolio2023/hero.mp4",
+          "alt": "The 2023 portfolio landing page with letter-based navigation"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Scroll Engine"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "The core of the site is a custom scroll-state interpolation engine. Three layout states (landing, projects grid, individual project) are each defined as a set of computed positions, sizes, and colors for every element on screen. As the user scrolls, the engine calculates progress through defined zones and lerps every property between states with eased timing. The result is a continuous, fluid transition where elements smoothly morph from one layout to the next without any page changes or route transitions."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/portfolio2023/scroll_transition.mp4",
+          "alt": "Smooth scroll-based state transitions between landing, grid, and individual project views"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "Each project has its own color scheme. When entering an individual project view, the active letter expands to fill the header while the remaining letters collapse into a sidebar navigation. The scroll engine calculates all intermediate positions on every frame, creating a seamless morph between the two layouts."
+          ]
+        },
+        {
+          "type": "video",
+          "size": "h",
+          "src": "/media/portfolio2023/project_view.mp4",
+          "alt": "Individual project view with expanded letter and sidebar navigation"
+        }
+      ]
+    }
+  ]
+}

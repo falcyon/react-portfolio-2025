@@ -3,9 +3,11 @@
   "slug": "discourseParkour",
   "year": 2021,
   "tags": [
-    "Digital",
     "Interactive",
-    "p5.js"
+    "p5.js",
+    "Web",
+    "Narrative",
+    "Art"
   ],
   "description": "An interactive installation where players read through a monologue as they play.",
   "thumbnail": "/media/discourseParkour/discourse.mp4",
@@ -18,5 +20,5 @@
       "sections": []
     }
   ],
-  "order": 20
+  "order": 13
 }

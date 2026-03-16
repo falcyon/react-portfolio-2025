@@ -3,9 +3,9 @@
   "slug": "constructor",
   "year": 2025,
   "tags": [
-    "Digital",
     "Python",
-    "Computer Vision"
+    "Computer Vision",
+    "Art"
   ],
   "description": "A piece created by designing a motion accumulator",
   "thumbnail": "/media/constructor/constructor.mp4",
@@ -93,5 +93,5 @@
       ]
     }
   ],
-  "order": 7
+  "order": 21
 }

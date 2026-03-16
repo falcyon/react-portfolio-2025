@@ -4,15 +4,16 @@
   "year": 2022,
   "tags": [
     "Interactive",
-    "Digital"
+    "Art",
+    "Industry"
   ],
-  "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation.",
+  "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation exploring quantum concepts.",
   "thumbnail": "/media/quantumTouch/qtouch_sq_720p.mp4",
   "thumbnailWidth": 720,
   "thumbnailHeight": 420,
   "size": "2x1",
   "position": 1,
-  "order": 21,
+  "order": 15,
   "featured": false,
   "content": [
     {

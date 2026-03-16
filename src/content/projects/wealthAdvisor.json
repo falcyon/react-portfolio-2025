@@ -1,0 +1,61 @@
+{
+  "name": "Wealth Advisor Dashboard — Citi",
+  "slug": "wealthAdvisor",
+  "year": 2025,
+  "tags": [
+    "Design",
+    "AI/ML",
+    "Web",
+    "Industry"
+  ],
+  "description": "An enterprise AI dashboard for Citi's wealth advisors, built on a dual-layer conversational AI framework where the AI observes, prepares, and recommends without interrupting.",
+  "thumbnail": "/media/wealthAdvisor/dualInterface.png",
+  "thumbnailWidth": 1920,
+  "thumbnailHeight": 1080,
+  "size": "1x1",
+  "order": 6,
+  "featured": false,
+  "locked": true,
+  "content": [
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Wealth Advisor Dashboard gives Citi's wealth advisors a comprehensive view of all their clients in one place. AI helps them build client packets, prioritize tasks, and manage portfolios. This was the product that the dual-layer conversational AI framework was originally designed for."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/wealthAdvisor/dualInterface.png",
+          "alt": "Architectural diagram showing the primary interface and AI overlay as two parallel layers"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "Dual-Layer AI Framework"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The AI lives in its own dedicated UI layer and continuously observes everything the advisor does on their primary layer. Based on every action and decision, the AI updates its layer with recommendations, insights, and generated content. The advisor toggles into the AI's layer whenever they want and pulls anything useful onto their main screen.",
+            "The key design insight is that the AI is proactive without being obtrusive. Always working, always watching, always preparing, but the user is never interrupted and never loses control. They go to the AI when they are ready, not the other way around."
+          ]
+        }
+      ]
+    }
+  ]
+}

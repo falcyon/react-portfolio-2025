@@ -3,7 +3,8 @@
   "slug": "organicMetal",
   "year": 2022,
   "tags": [
-    "Physical"
+    "Physical",
+    "Art"
   ],
   "description": "Rings made out of metal but in a fluid and organic form.",
   "thumbnail": "/media/organicMetal/rings.webp",
@@ -30,5 +31,5 @@
       ]
     }
   ],
-  "order": 13
+  "order": 26
 }

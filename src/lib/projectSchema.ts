@@ -35,6 +35,7 @@ export const projectSchema = z.object({
   order: z.number().int().min(0).optional(),
   featured: z.boolean().optional().default(false),
   featuredOrder: z.number().int().optional(),
+  locked: z.boolean().optional().default(false),
   interactiveUrl: z.string().url().optional(),
   githubUrl: z.string().url().optional(),
   credits: z.array(creditSchema).optional(),

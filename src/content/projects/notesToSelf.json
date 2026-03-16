@@ -7,7 +7,9 @@
     "AI/ML",
     "Interactive",
     "Python",
-    "Computer Vision"
+    "Computer Vision",
+    "Conceptual",
+    "Art"
   ],
   "description": "An interactive installation where users engage in a conversation with their digital self",
   "thumbnail": "/media/notesToSelf/live.mp4",
@@ -15,7 +17,7 @@
   "thumbnailHeight": 1280,
   "size": "1x2",
   "position": 3,
-  "order": 3,
+  "order": 7,
   "featured": false,
   "content": [
     {
