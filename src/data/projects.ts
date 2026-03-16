@@ -34,7 +34,7 @@ export const projectsArray: Project[] = [
       "Industry"
     ],
     "size": "1x1",
-    "description": "A 2d physics interactive experience where Gemini 3 pro generates playable objects from natural language in real time.",
+    "description": "A 2d physics interactive experience where Google's Gemini 3 Pro generates playable objects from natural language in real time.",
     "featured": true,
     "featuredOrder": 1
   },
