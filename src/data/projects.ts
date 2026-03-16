@@ -182,7 +182,7 @@ export const projectsArray: Project[] = [
     "featured": false
   },
   {
-    "name": "Biosthira",
+    "name": "Website for Biosthira",
     "slug": "biosthira",
     "thumbnail": "/media/biosthira/ScrollBasedTreeLeavesAnimation.mp4",
     "height": 1080,
@@ -198,7 +198,7 @@ export const projectsArray: Project[] = [
     "featured": false
   },
   {
-    "name": "Crew Brand Identity",
+    "name": "Brand Identity for Crew",
     "slug": "crew",
     "thumbnail": "/media/crew/crew.mp4",
     "height": 1080,
