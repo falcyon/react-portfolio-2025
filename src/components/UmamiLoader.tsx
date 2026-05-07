@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 
-const UMAMI_SRC = "https://cloud.umami.is/script.js";
+const UMAMI_SRC = "/stats/script.js";
+const UMAMI_HOST_URL = "/stats/api/send";
 const WEBSITE_ID = "836b2b5c-a53a-48d3-88d4-06959b33b93d";
 
 export default function UmamiLoader() {
@@ -20,6 +21,7 @@ export default function UmamiLoader() {
             script.src = UMAMI_SRC;
             script.dataset.websiteId = WEBSITE_ID;
             script.dataset.domains = "leff.in";
+            script.dataset.hostUrl = UMAMI_HOST_URL;
             document.head.appendChild(script);
 
             events.forEach((e) => window.removeEventListener(e, loadUmami));
