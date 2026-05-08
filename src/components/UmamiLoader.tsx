@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 const UMAMI_SRC = "/stats/script.js";
-const UMAMI_HOST_URL = "/stats/api/send";
+const UMAMI_HOST_URL = "/stats";
 const WEBSITE_ID = "836b2b5c-a53a-48d3-88d4-06959b33b93d";
 
 export default function UmamiLoader() {
