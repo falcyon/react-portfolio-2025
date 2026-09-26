@@ -22,9 +22,9 @@ export const projectsArray: Project[] = [
   {
     "name": "unIIcode",
     "slug": "uniicode",
-    "thumbnail": "/media/uniicode/uniicode_thumb.mp4",
-    "height": 800,
-    "width": 800,
+    "thumbnail": "/media/uniicode/thumbnail_tamil_5x5.webp",
+    "height": 1600,
+    "width": 1600,
     "year": 2026,
     "tags": [
       "Physical",
@@ -34,7 +34,7 @@ export const projectsArray: Project[] = [
     ],
     "size": "2x2",
     "position": 2,
-    "description": "Inventing new characters to fill the gaps in Unicode. Exhibited at PROMPT: Design × AI, Shenzhen (2026).",
+    "description": "Inventing new characters to fill the gaps in Unicode.",
     "featured": true,
     "featuredOrder": 2
   },
