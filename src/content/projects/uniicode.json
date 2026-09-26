@@ -64,8 +64,8 @@
         {
           "type": "image",
           "size": "t2",
-          "src": "/media/uniicode/scroll_detail.webp",
-          "alt": "Detail of the Tamil block: real characters in grey, invented characters in red, each labelled with its code point"
+          "src": "/media/uniicode/scroll_tamil.webp",
+          "alt": "The Tamil block from the scroll: real characters in grey, invented ones in red, each labelled with its code point"
         }
       ]
     },
@@ -136,15 +136,15 @@
         {
           "type": "video",
           "size": "h",
-          "src": "/media/uniicode/latent_tour_sq_1080p.mp4",
-          "alt": "A flight through the shape space of Unicode glyphs",
-          "poster": "/media/uniicode/latent_tour_sq_poster.webp"
+          "src": "/media/uniicode/latent_script_tour_720p.mp4",
+          "alt": "A tour of the shape space, one Unicode block at a time, each block's characters joined by a red line",
+          "poster": "/media/uniicode/latent_script_tour_poster.webp"
         },
         {
           "type": "text",
           "size": "h",
           "text": [
-            "A flight through that shape space. Every point is a glyph, and glyphs that sit close together look alike, whichever script they come from."
+            "A tour through that shape space, one Unicode block at a time. The red line joins the block's characters in code-point order, tracing how one script's letters spread out among every other script's."
           ]
         }
       ]

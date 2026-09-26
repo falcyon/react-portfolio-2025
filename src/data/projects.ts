@@ -20,6 +20,25 @@ export interface Project {
 
 export const projectsArray: Project[] = [
   {
+    "name": "unIIcode",
+    "slug": "uniicode",
+    "thumbnail": "/media/uniicode/uniicode_thumb.mp4",
+    "height": 800,
+    "width": 800,
+    "year": 2026,
+    "tags": [
+      "Physical",
+      "AI/ML",
+      "Python",
+      "Art"
+    ],
+    "size": "2x2",
+    "position": 2,
+    "description": "Inventing new characters to fill the gaps in Unicode. Exhibited at PROMPT: Design × AI, Shenzhen (2026).",
+    "featured": true,
+    "featuredOrder": 2
+  },
+  {
     "name": "Revenge for Dino",
     "slug": "revengeForDino",
     "thumbnail": "/media/revengeForDino/TankHeadBonk_1080p.mp4",
@@ -77,8 +96,7 @@ export const projectsArray: Project[] = [
     "size": "2x2",
     "position": 2,
     "description": "An interactive installation where users see a silhouette of their negative self-talk as their reflection",
-    "featured": true,
-    "featuredOrder": 2
+    "featured": false
   },
   {
     "name": "AI Powered Insights — Citi",
@@ -283,24 +301,6 @@ export const projectsArray: Project[] = [
     "size": "2x1",
     "position": 1,
     "description": "A collaboration with IBM Quantum & TouchDesigner to create an interactive installation exploring quantum concepts.",
-    "featured": false
-  },
-  {
-    "name": "unIIcode",
-    "slug": "uniicode",
-    "thumbnail": "/media/uniicode/physical.webp",
-    "height": 2645,
-    "width": 3526,
-    "year": 2021,
-    "tags": [
-      "Physical",
-      "AI/ML",
-      "Python",
-      "Art"
-    ],
-    "size": "2x1",
-    "position": 1,
-    "description": "Generation of new character sets to fill up spaces in Unicode.",
     "featured": false
   },
   {
