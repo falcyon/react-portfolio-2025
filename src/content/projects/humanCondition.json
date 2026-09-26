@@ -18,7 +18,7 @@
   "thumbnailHeight": 590,
   "size": "1x2",
   "position": 1,
-  "order": 8,
+  "order": 9,
   "featured": false,
   "interactiveUrl": "https://editor.p5js.org/Falcyon/full/f0eYhED1G",
   "content": [
@@ -30,7 +30,7 @@
           "src": "/media/humanCondition/DesignTechnology_Independent_Leffin_1080p.mp4",
           "alt": "Portraiture Performance",
           "controls": true,
-          "poster": "/media/humanCondition/portraiture.webp"
+          "poster": "/media/humanCondition/portraiture_16x9.webp"
         }
       ]
     },

@@ -18,9 +18,8 @@
   "thumbnailHeight": 1080,
   "size": "2x2",
   "position": 2,
-  "order": 2,
-  "featured": true,
-  "featuredOrder": 2,
+  "order": 3,
+  "featured": false,
   "content": [
     {
       "sections": [

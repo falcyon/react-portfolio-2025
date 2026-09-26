@@ -14,7 +14,7 @@
   "thumbnailWidth": 1920,
   "thumbnailHeight": 1080,
   "size": "1x1",
-  "order": 0,
+  "order": 1,
   "featured": true,
   "featuredOrder": 1,
   "interactiveUrl": "https://leff.in/interactives/dinoRevenge",
@@ -209,6 +209,61 @@
           "size": "f",
           "src": "/media/revengeForDino/frontpage_1080p.mp4",
           "alt": "The full interface mimicking a Google search page in a browser, with the Crash boss lurking in the corner"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": [
+            "PROMPT: Design × AI, Shenzhen (2026)"
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Revenge for Dino was selected by the Shenzhen Graphic Design Association for its international exhibition [PROMPT: Design × AI](https://www.sgda.cc/news-event/news/news/94.html), in the \"AI for Design\" section. K11 HACC, Shenzhen, July 25 – October 25, 2026."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/revengeForDino/prompt_visitor.webp",
+          "alt": "A visitor playing Revenge for Dino at PROMPT: Design × AI"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/revengeForDino/prompt_screen.webp",
+          "alt": "Revenge for Dino on screen in the darkened gallery"
+        },
+        {
+          "type": "image",
+          "size": "h",
+          "src": "/media/revengeForDino/prompt_screens.webp",
+          "alt": "Revenge for Dino shown on two screens at PROMPT"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Installation photos courtesy of PROMPT: Design × AI / Shenzhen Graphic Design Association."
+          ]
         }
       ]
     }

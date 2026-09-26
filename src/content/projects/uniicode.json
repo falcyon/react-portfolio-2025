@@ -9,11 +9,11 @@
     "Art"
   ],
   "description": "Inventing new characters to fill the gaps in Unicode. Exhibited at PROMPT: Design × AI, Shenzhen (2026).",
-  "thumbnail": "/media/uniicode/thumbnail_scroll.webp",
-  "thumbnailWidth": 2400,
-  "thumbnailHeight": 1800,
-  "size": "2x1",
-  "position": 1,
+  "thumbnail": "/media/uniicode/uniicode_thumb.mp4",
+  "thumbnailWidth": 800,
+  "thumbnailHeight": 800,
+  "size": "2x2",
+  "position": 2,
   "content": [
     {
       "sections": [
@@ -45,7 +45,9 @@
         {
           "type": "heading",
           "size": "f",
-          "text": ["An Alphabet of the Gaps (2026)"]
+          "text": [
+            "An Alphabet of the Gaps (2026)"
+          ]
         }
       ]
     },
@@ -70,6 +72,51 @@
     {
       "sections": [
         {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "A series of squares made for Instagram: each one isolates a single invented glyph, in red, between its real neighbours in the code chart."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/uniicode/gap_greek.webp",
+          "alt": "An invented glyph between real Greek characters"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/uniicode/gap_tamil.webp",
+          "alt": "An invented glyph between real Tamil characters"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/uniicode/gap_armenian.webp",
+          "alt": "An invented glyph between real Armenian characters"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/uniicode/gap_malayalam.webp",
+          "alt": "An invented glyph between real Malayalam characters"
+        },
+        {
+          "type": "image",
+          "size": "t",
+          "src": "/media/uniicode/gap_kangxi.webp",
+          "alt": "An invented glyph between real Kangxi radicals"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
           "type": "image",
           "size": "t2",
           "src": "/media/uniicode/cross_script.webp",
@@ -88,11 +135,17 @@
       "sections": [
         {
           "type": "video",
-          "size": "f",
-          "src": "/media/uniicode/latent_tour_1080p.mp4",
+          "size": "h",
+          "src": "/media/uniicode/latent_tour_sq_1080p.mp4",
           "alt": "A flight through the shape space of Unicode glyphs",
-          "controls": true,
-          "poster": "/media/uniicode/latent_tour_poster.webp"
+          "poster": "/media/uniicode/latent_tour_sq_poster.webp"
+        },
+        {
+          "type": "text",
+          "size": "h",
+          "text": [
+            "A flight through that shape space. Every point is a glyph, and glyphs that sit close together look alike, whichever script they come from."
+          ]
         }
       ]
     },
@@ -101,7 +154,9 @@
         {
           "type": "heading",
           "size": "f",
-          "text": ["PROMPT: Design × AI, Shenzhen (2026)"]
+          "text": [
+            "PROMPT: Design × AI, Shenzhen (2026)"
+          ]
         }
       ]
     },
@@ -155,7 +210,9 @@
         {
           "type": "heading",
           "size": "f",
-          "text": ["First Iteration (2021)"]
+          "text": [
+            "First Iteration (2021)"
+          ]
         }
       ]
     },
@@ -229,6 +286,7 @@
       ]
     }
   ],
-  "order": 17,
-  "featured": false
+  "order": 0,
+  "featured": true,
+  "featuredOrder": 2
 }
