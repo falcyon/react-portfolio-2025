@@ -35,7 +35,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Since 2021, I have been training machine learning models to invent characters for these gaps: glyphs that belong to a script, but that no one has ever written."
+            "What would a character look like if it belonged to a script, but nobody had ever written it? Since 2021 I have been training machine learning models to fill these gaps with characters of their own."
           ]
         }
       ]
@@ -46,7 +46,7 @@
           "type": "heading",
           "size": "f",
           "text": [
-            "An Alphabet of the Gaps (2026)"
+            "An Alphabet of the Gaps"
           ]
         }
       ]
@@ -57,15 +57,15 @@
           "type": "text",
           "size": "t",
           "text": [
-            "The latest iteration learns from every assigned glyph in Unicode, over 100,000 characters drawn as 128×128 images. A script-conditioned diffusion model learns what each script looks like, then invents a glyph for each empty code point in the style of its neighbours.",
-            "Printed in full, it becomes an alphabet of the gaps: about 120 pages, with the real characters in grey and the invented ones in red."
+            "The latest iteration learns from every character Unicode has assigned, over a hundred thousand of them, each drawn as a 128 by 128 pixel image. A diffusion model learns what each script looks like and is then asked to invent a character for every empty code point, shaped by the characters that sit around it in the chart.",
+            "Printed in full, the result is an alphabet of the gaps. Around 120 pages where the existing characters sit in grey and the invented ones in red, each labelled with its place in the standard."
           ]
         },
         {
           "type": "image",
           "size": "t2",
           "src": "/media/uniicode/scroll_tamil.webp",
-          "alt": "The Tamil block from the scroll: real characters in grey, invented ones in red, each labelled with its code point"
+          "alt": "The Tamil block, with existing characters in grey and invented ones in red"
         }
       ]
     },
@@ -75,7 +75,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "A series of squares made for Instagram: each one isolates a single invented glyph, in red, between its real neighbours in the code chart."
+            "Seen on its own, an invented character is just a shape. Placed back between its neighbours, it starts to read like a letter that was always meant to be there."
           ]
         },
         {
@@ -120,13 +120,13 @@
           "type": "image",
           "size": "t2",
           "src": "/media/uniicode/cross_script.webp",
-          "alt": "The letters A, O, R, a and e redrawn in the style of Greek, Cyrillic, Armenian, Devanagari, Bengali, Tamil and Thai"
+          "alt": "The same letters redrawn in the style of different scripts"
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "A second model, a conditional variational autoencoder, maps every glyph into one shared shape space. Moving through it morphs one script into another: the same letter, written as if it were Greek, Devanagari, Tamil or Thai."
+            "A second model maps every character into a single latent space of shapes, conditioned on the script it belongs to. Asked to write the same letter in another script, it produces an A as it might have looked in Greek, Devanagari, Tamil or Thai."
           ]
         }
       ]
@@ -137,14 +137,14 @@
           "type": "video",
           "size": "h",
           "src": "/media/uniicode/latent_script_tour_720p.mp4",
-          "alt": "A tour of the shape space, one Unicode block at a time, each block's characters joined by a red line",
+          "alt": "A tour of the latent space, one Unicode block at a time",
           "poster": "/media/uniicode/latent_script_tour_poster.webp"
         },
         {
           "type": "text",
           "size": "h",
           "text": [
-            "A tour through that shape space, one Unicode block at a time. The red line joins the block's characters in code-point order, tracing how one script's letters spread out among every other script's."
+            "Each script leaves a trail through this space. Following the characters of one block in the order Unicode assigns them, the path spreads across the whole space, weaving through the shapes of every other script."
           ]
         }
       ]
@@ -155,7 +155,7 @@
           "type": "heading",
           "size": "f",
           "text": [
-            "PROMPT: Design × AI, Shenzhen (2026)"
+            "The Exhibition"
           ]
         }
       ]
@@ -166,15 +166,14 @@
           "type": "text",
           "size": "t",
           "text": [
-            "unIIcode was invited by the Shenzhen Graphic Design Association to its international exhibition [PROMPT: Design × AI](https://www.sgda.cc/news-event/news/news/94.html), in the \"AI for Design\" section. K11 HACC, Shenzhen, July 25 – October 25, 2026.",
-            "It is shown as four large-format scroll prints, each 594 × 1782 mm, on Decor Etching 170 gsm paper mounted on aluminum panels."
+            "This work was invited by the Shenzhen Graphic Design Association to [PROMPT](https://www.sgda.cc/news-event/news/news/94.html), an international exhibition on design and AI, shown in its AI for Design section at K11 HACC in Shenzhen from July to October 2026. Four pages of the alphabet were printed as scrolls, each 594 by 1782 mm, and mounted on aluminium panels."
           ]
         },
         {
           "type": "image",
           "size": "t2",
           "src": "/media/uniicode/prompt_install_wall.webp",
-          "alt": "The four unIIcode scroll prints installed at PROMPT: Design × AI, K11 HACC, Shenzhen"
+          "alt": "The four scrolls installed at PROMPT in Shenzhen"
         }
       ]
     },
@@ -184,7 +183,7 @@
           "type": "image",
           "size": "f",
           "src": "/media/uniicode/prompt_install_angle.webp",
-          "alt": "The scroll prints seen at an angle in the darkened gallery, beside a lit column"
+          "alt": "The scrolls in the darkened gallery at K11 HACC"
         }
       ]
     },
@@ -194,13 +193,13 @@
           "type": "image",
           "size": "t2",
           "src": "/media/uniicode/prompt_install_front.webp",
-          "alt": "The four scroll prints seen straight on"
+          "alt": "The four scrolls seen straight on"
         },
         {
           "type": "text",
           "size": "t",
           "text": [
-            "Installation photos courtesy of PROMPT: Design × AI / Shenzhen Graphic Design Association."
+            "Installation photos courtesy of the Shenzhen Graphic Design Association."
           ]
         }
       ]
@@ -211,7 +210,7 @@
           "type": "heading",
           "size": "f",
           "text": [
-            "First Iteration (2021)"
+            "The First Iteration (2021)"
           ]
         }
       ]

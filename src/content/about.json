@@ -14,7 +14,7 @@
         "note": "Minor in Industrial Design"
       }
     ],
-    "current": "VP, AI Experience Design Lead, Citibank"
+    "current": "VP, AI Design Product Lead, Citibank"
   },
   "contact": {
     "email": "leffin7@gmail.com",
@@ -24,7 +24,7 @@
   },
   "exhibitions": [
     {
-      "venue": "PROMPT: Design \u00d7 AI",
+      "venue": "PROMPT",
       "work": "unIIcode",
       "slug": "uniicode",
       "location": "Shenzhen, China",
@@ -32,7 +32,7 @@
       "href": "https://www.sgda.cc/news-event/news/news/94.html"
     },
     {
-      "venue": "PROMPT: Design \u00d7 AI",
+      "venue": "PROMPT",
       "work": "Revenge for Dino",
       "slug": "revengeForDino",
       "location": "Shenzhen, China",
@@ -153,10 +153,16 @@
   ],
   "experience": [
     {
+      "title": "VP, AI Design Product Lead",
+      "description": "Designing and building a Democratic, Mutable, Machine Readable Design System",
+      "company": "Citibank",
+      "period": "2026 - Present"
+    },
+    {
       "title": "VP, Experience Design Lead",
       "description": "Leading design of an enterprise AI platform",
       "company": "Citibank",
-      "period": "2024 - Present"
+      "period": "2024 - 2026"
     },
     {
       "title": "New Media Artist",

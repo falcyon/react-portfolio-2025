@@ -218,7 +218,7 @@
           "type": "heading",
           "size": "f",
           "text": [
-            "PROMPT: Design × AI, Shenzhen (2026)"
+            "The Exhibition"
           ]
         }
       ]
@@ -229,14 +229,14 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Revenge for Dino was selected by the Shenzhen Graphic Design Association for its international exhibition [PROMPT: Design × AI](https://www.sgda.cc/news-event/news/news/94.html), in the \"AI for Design\" section. K11 HACC, Shenzhen, July 25 – October 25, 2026."
+            "Revenge for Dino was invited by the Shenzhen Graphic Design Association to [PROMPT](https://www.sgda.cc/news-event/news/news/94.html), an international exhibition on design and AI, shown in its AI for Design section at K11 HACC in Shenzhen from July to October 2026. Visitors could play it right there in the gallery."
           ]
         },
         {
           "type": "image",
           "size": "t2",
           "src": "/media/revengeForDino/prompt_visitor.webp",
-          "alt": "A visitor playing Revenge for Dino at PROMPT: Design × AI"
+          "alt": "A visitor playing Revenge for Dino at PROMPT in Shenzhen"
         }
       ]
     },
@@ -262,7 +262,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "Installation photos courtesy of PROMPT: Design × AI / Shenzhen Graphic Design Association."
+            "Installation photos courtesy of the Shenzhen Graphic Design Association."
           ]
         }
       ]
