@@ -99,7 +99,7 @@ export const projectsArray: Project[] = [
     "featured": false
   },
   {
-    "name": "AI Powered Insights — Citi",
+    "name": "AI Powered Insights | Citi",
     "slug": "aiInsights",
     "thumbnail": "/media/aiInsights/AI_Ingishts.png",
     "height": 1080,
@@ -139,7 +139,7 @@ export const projectsArray: Project[] = [
     "featured": false
   },
   {
-    "name": "Wealth Advisor Dashboard — Citi",
+    "name": "Wealth Advisor Dashboard | Citi",
     "slug": "wealthAdvisor",
     "thumbnail": "/media/wealthAdvisor/dualInterface.png",
     "height": 1080,
