@@ -11,6 +11,11 @@ const REVEAL_MS = 500;
 const RETURN_MS = 250;
 const TOTAL = playgroundRegistry.length;
 
+/** The site always opens on this playground (by id, so reordering the registry can't change it);
+ *  cycling afterwards stays shuffled. Falls back to the first one if the id ever disappears. */
+const START_ID = "physics";
+const START_INDEX = Math.max(0, playgroundRegistry.findIndex((p) => p.id === START_ID));
+
 /** Fisher-Yates shuffle. If `exclude` is given, ensures it isn't first. */
 function createBag(exclude?: number): number[] {
   const indices = Array.from({ length: TOTAL }, (_, i) => i);
@@ -32,9 +37,7 @@ function createBag(exclude?: number): number[] {
 export default function PlaygroundHost() {
   const bagRef = useRef<number[]>([]);
   const pendingIndexRef = useRef<number | null>(null);
-  const [playgroundIndex, setPlaygroundIndex] = useState(
-    () => Math.floor(Math.random() * TOTAL)
-  );
+  const [playgroundIndex, setPlaygroundIndex] = useState(START_INDEX);
   const [cycleCount, setCycleCount] = useState(0);
   const [transition, setTransition] = useState<Transition>("idle");
 
