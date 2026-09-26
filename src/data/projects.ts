@@ -77,7 +77,7 @@ export const projectsArray: Project[] = [
     "featuredOrder": 0
   },
   {
-    "name": "...And Words Will Echo in My Soul",
+    "name": "...But Words Will Echo in My Soul",
     "slug": "andWordsWillEchoInMySoul",
     "thumbnail": "/media/andWordsWillEchoInMySoul/insecurityMirror.mp4",
     "height": 1080,
