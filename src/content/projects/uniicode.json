@@ -1,17 +1,17 @@
 {
   "name": "unIIcode",
   "slug": "uniicode",
-  "year": 2021,
+  "year": 2026,
   "tags": [
     "Physical",
     "AI/ML",
     "Python",
     "Art"
   ],
-  "description": "Generation of new character sets to fill up spaces in Unicode.",
-  "thumbnail": "/media/uniicode/physical.webp",
-  "thumbnailWidth": 3526,
-  "thumbnailHeight": 2645,
+  "description": "Inventing new characters to fill the gaps in Unicode. Exhibited at PROMPT: Design × AI, Shenzhen (2026).",
+  "thumbnail": "/media/uniicode/thumbnail_scroll.webp",
+  "thumbnailWidth": 2400,
+  "thumbnailHeight": 1800,
   "size": "2x1",
   "position": 1,
   "content": [
@@ -35,7 +35,7 @@
           "type": "text",
           "size": "t",
           "text": [
-            "In this project, I trained an ML model to create new characters for scripts to fill these gaps."
+            "Since 2021, I have been training machine learning models to invent characters for these gaps: glyphs that belong to a script, but that no one has ever written."
           ]
         }
       ]
@@ -45,7 +45,117 @@
         {
           "type": "heading",
           "size": "f",
-          "text": ["Machine Learning"]
+          "text": ["An Alphabet of the Gaps (2026)"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "The latest iteration learns from every assigned glyph in Unicode, over 100,000 characters drawn as 128×128 images. A script-conditioned diffusion model learns what each script looks like, then invents a glyph for each empty code point in the style of its neighbours.",
+            "Printed in full, it becomes an alphabet of the gaps: about 120 pages, with the real characters in grey and the invented ones in red."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/uniicode/scroll_detail.webp",
+          "alt": "Detail of the Tamil block: real characters in grey, invented characters in red, each labelled with its code point"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/uniicode/cross_script.webp",
+          "alt": "The letters A, O, R, a and e redrawn in the style of Greek, Cyrillic, Armenian, Devanagari, Bengali, Tamil and Thai"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "A second model, a conditional variational autoencoder, maps every glyph into one shared shape space. Moving through it morphs one script into another: the same letter, written as if it were Greek, Devanagari, Tamil or Thai."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "video",
+          "size": "f",
+          "src": "/media/uniicode/latent_tour_1080p.mp4",
+          "alt": "A flight through the shape space of Unicode glyphs",
+          "controls": true,
+          "poster": "/media/uniicode/latent_tour_poster.webp"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["PROMPT: Design × AI, Shenzhen (2026)"]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "unIIcode was invited by the Shenzhen Graphic Design Association to its international exhibition [PROMPT: Design × AI](https://www.sgda.cc/news-event/news/news/94.html), in the \"AI for Design\" section. K11 HACC, Shenzhen, July 25 – October 25, 2026.",
+            "It is shown as four large-format scroll prints, each 594 × 1782 mm, on Decor Etching 170 gsm paper mounted on aluminum panels."
+          ]
+        },
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/uniicode/prompt_install_wall.webp",
+          "alt": "The four unIIcode scroll prints installed at PROMPT: Design × AI, K11 HACC, Shenzhen"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "f",
+          "src": "/media/uniicode/prompt_install_angle.webp",
+          "alt": "The scroll prints seen at an angle in the darkened gallery, beside a lit column"
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "image",
+          "size": "t2",
+          "src": "/media/uniicode/prompt_install_front.webp",
+          "alt": "The four scroll prints seen straight on"
+        },
+        {
+          "type": "text",
+          "size": "t",
+          "text": [
+            "Installation photos courtesy of PROMPT: Design × AI / Shenzhen Graphic Design Association."
+          ]
+        }
+      ]
+    },
+    {
+      "sections": [
+        {
+          "type": "heading",
+          "size": "f",
+          "text": ["First Iteration (2021)"]
         }
       ]
     },
@@ -99,15 +209,6 @@
           "text": [
             "The Tamil script was used to generate more Tamil characters."
           ]
-        }
-      ]
-    },
-    {
-      "sections": [
-        {
-          "type": "heading",
-          "size": "f",
-          "text": ["Physical Form"]
         }
       ]
     },

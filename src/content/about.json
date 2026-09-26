@@ -24,6 +24,22 @@
   },
   "exhibitions": [
     {
+      "venue": "PROMPT: Design \u00d7 AI",
+      "work": "unIIcode",
+      "slug": "uniicode",
+      "location": "Shenzhen, China",
+      "year": "Jul 2026",
+      "href": "https://www.sgda.cc/news-event/news/news/94.html"
+    },
+    {
+      "venue": "PROMPT: Design \u00d7 AI",
+      "work": "Revenge for Dino",
+      "slug": "revengeForDino",
+      "location": "Shenzhen, China",
+      "year": "Jul 2026",
+      "href": "https://www.sgda.cc/news-event/news/news/94.html"
+    },
+    {
       "venue": "Currents New Media Festival",
       "work": "Ephemera",
       "slug": "ephemera",
