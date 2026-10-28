@@ -33,19 +33,23 @@ export default function UmamiLoader() {
             loaded = true;
             events.forEach((e) => window.removeEventListener(e, loadUmami));
 
-            await addScript(CLOUD_SRC, { websiteId: CLOUD_WEBSITE_ID, domains: "leff.in", hostUrl: CLOUD_HOST_URL });
-            const cloud = window.umami;
+            // Each tracker only claims window.umami if it is free, and the replay recorder talks to whichever
+            // holds it. So: the self-hosted one first, set it aside, let the cloud one load into the free slot,
+            // then hand window.umami back to the self-hosted one with track() going to both.
             await addScript(`${PULSE}/p.js`, { websiteId: PULSE_WEBSITE_ID, domains: "leff.in", hostUrl: PULSE });
             const pulse = window.umami;
-            if (cloud && pulse && cloud !== pulse) {
-                window.umami = {
-                    ...pulse,
-                    track: (event: string, data?: Record<string, string | number>) => {
-                        cloud.track(event, data);
-                        pulse.track(event, data);
-                    },
-                };
-            }
+            window.umami = undefined;
+            await addScript(CLOUD_SRC, { websiteId: CLOUD_WEBSITE_ID, domains: "leff.in", hostUrl: CLOUD_HOST_URL });
+            const cloud = Reflect.get(window, "umami") as Window["umami"]; // re-read: TS still thinks it is undefined
+            window.umami = pulse && cloud
+                ? {
+                      ...pulse,
+                      track: (event: string, data?: Record<string, string | number>) => {
+                          cloud.track(event, data);
+                          pulse.track(event, data);
+                      },
+                  }
+                : pulse ?? cloud;
             addScript(`${PULSE}/recorder.js`, { websiteId: PULSE_WEBSITE_ID });
         }
 
